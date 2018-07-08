@@ -1,0 +1,56 @@
+{% extends "frames/base.html" %}
+{% load static %}
+{% block content %}
+
+<!-- Home -->
+<div id="home" class="hero-area">
+
+			<!-- Backgound Image -->
+			<div class="bg-image bg-parallax overlay" style="background-image:url(https://pictures.topspeed.com/IMG/jpg/201701/shelby-super-snake-5-4.jpg)"></div>
+			<!-- /Backgound Image -->
+
+			<div class="home-wrapper">
+				<div class="container">
+					<div class="row">
+					<div class="section-intro text-center">
+						<h2>Make a choice</h2>
+						<p class="lead">Libris vivendo eloquentiam ex ius, nec id splendide abhorreant.</p>
+    <div class="row">
+
+						<!-- vehicle -->
+						<div class="col-md-6 col-sm-6 col-xs-6">
+							<div class="vehicle">
+								<a href="#" class="vehicle-img">
+									<img alt="" src="{% static 'img/Tuscany_Logo.png' %}" style="width: 35vh">
+									<i class="vehicle-link-icon fa fa-link"></i>
+								</a>
+								<a class="vehicle-title" href="#">Tuscany</a>
+								
+							</div>
+						</div>
+						
+
+						
+						<div class="col-md-6 col-sm-6 col-xs-6">
+							<div class="vehicle">
+								<a href="/shelby" class="vehicle-img">
+									<img alt="" src="http://www.guautotrade.com/mtw-themes/GU/images/shelbylogocircle2.png?crc=512746376" style="width: 10vh;">
+									
+								</a>
+								<a class="vehicle-title" href="/shelby">Shelby</a>
+    </div>
+                            
+						</div>
+
+					</div>
+                       
+					</div>
+				</div>
+<div class="row"><div class="alternative" style="text-align: center; padding: 10px;"><a href="#"><p style="color: white; text-decoration: underline;">Or continue to GU Auto Trade</p></a></div></div>
+    
+				</div>
+			</div>
+
+		</div>
+		<!-- /Home -->
+{% endblock %}
