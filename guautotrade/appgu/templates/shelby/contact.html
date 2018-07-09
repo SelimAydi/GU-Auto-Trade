@@ -2,46 +2,10 @@
 {% load static %}
 
 {% block header %}
-		<!-- Header -->
-		<header id="header" class="desc">
-			<div class="container">
-
-				<div class="navbar-header">
-					<!-- Logo -->
-					<div class="navbar-brand">
-						<a class="logo" href="index.html">
-							<img src="{% static '/img/shelbylogo.png' %}" alt="logo">
-						</a>
-					</div>
-					<!-- /Logo -->
-
-					<!-- Mobile toggle -->
-					<button class="navbar-toggle">
-						<span></span>
-					</button>
-					<!-- /Mobile toggle -->
-				</div>
-				
-				<!-- Navigation -->
-				<nav id="nav" class="desc">
-					<ul class="main-menu nav navbar-nav navbar-right">
-						<li><a href="/shelby">Home</a></li>
-						<li><a href="#">Vehicles</a></li>
-						<li><a href="#">Dealers</a></li>
-						<li><a href="#">Events</a></li>
-						<li><a href="#">Shop</a></li>
-						<li><a href="#">News</a></li>
-						<li><a href="#">Press & Media</a></li>
-						<li><a href="/dealerlogin">Dealer {% if not user.is_authenticated %}Login{% else %}Portal {% endif %}</a></li>
-						<li><a href="/shelby/contact">Contact</a></li>
-					</ul>
-				</nav>
-				<!-- /Navigation -->
-
-			</div>
-		</header>
-		<!-- /Header -->
-{% endblock %}
+	{% with headerclass='portal' %}
+			{{ block.super }}
+	{% endwith%}
+{% endblock header%}
 
 {% block content %}
 		<!-- Contact -->
@@ -72,14 +36,11 @@
 					<div class="col-md-5 col-md-offset-1">
 						<h4>Contact Information</h4>
 						<ul class="contact-details">
-							<li><i class="fa fa-envelope"></i>Educate@email.com</li>
-							<li><i class="fa fa-phone"></i>122-547-223-45</li>
-							<li><i class="fa fa-map-marker"></i>4476 Clement Street</li>
+							<li><i class="fa fa-envelope"></i>info@guautotrade.com</li>
+							<li><i class="fa fa-phone"></i>+31 (0) 10 307 4260</li>
+							<li><i class="fa fa-map-marker"></i>Havenstraat 34. 3115HD Schiedam</li>
+							<li style="margin-top: -10px;"><i class="fa" style="height: 0px;"></i>The Netherlands</li>
 						</ul>
-
-						<!-- contact map -->
-						<div id="contact-map"></div>
-						<!-- /contact map -->
 
 					</div>
 					<!-- contact information -->
@@ -93,3 +54,7 @@
 		</div>
 		<!-- /Contact -->
 {% endblock %}
+
+{% block js %}
+		<script type="text/javascript" src="{% static 'js/google-map.js' %}"></script>
+{% endblock js%}

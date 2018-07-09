@@ -1,5 +1,12 @@
 {% extends "frames/base.html" %}
 {% load static %}
+
+{% block header %}
+	{% with headerclass='transparent-nav' %}
+			{{ block.super }}
+	{% endwith%}
+{% endblock header%}
+
 {% block content %}
 
 <!-- Home -->
@@ -22,7 +29,6 @@
 							<div class="vehicle">
 								<a href="#" class="vehicle-img">
 									<img alt="" src="{% static 'img/Tuscany_Logo.png' %}" style="width: 35vh">
-									<i class="vehicle-link-icon fa fa-link"></i>
 								</a>
 								<a class="vehicle-title" href="#">Tuscany</a>
 								
@@ -35,7 +41,6 @@
 							<div class="vehicle">
 								<a href="/shelby" class="vehicle-img">
 									<img alt="" src="http://www.guautotrade.com/mtw-themes/GU/images/shelbylogocircle2.png?crc=512746376" style="width: 10vh;">
-									
 								</a>
 								<a class="vehicle-title" href="/shelby">Shelby</a>
     </div>

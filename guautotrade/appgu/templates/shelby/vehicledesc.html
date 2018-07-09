@@ -1,44 +1,13 @@
 {% extends "frames/sub_base.html" %}
 {% load static %}
+
 {% block header %}
-		<!-- Header -->
-		<header id="header" class="desc">
-			<div class="container">
+	{% with headerclass='portal' %}
+			{{ block.super }}
+	{% endwith%}
+{% endblock header%}
 
-				<div class="navbar-header">
-					<!-- Logo -->
-					<div class="navbar-brand">
-						<a class="logo" href="index.html">
-							<img src="{% static '/img/shelbylogo.png' %}" alt="logo">
-						</a>
-					</div>
-					<!-- /Logo -->
 
-					<!-- Mobile toggle -->
-					<button class="navbar-toggle">
-						<span></span>
-					</button>
-					<!-- /Mobile toggle -->
-				</div>
-
-				<!-- Navigation -->
-				<nav id="nav">
-					<ul class="main-menu nav navbar-nav navbar-right">
-						<li><a href="index.html">Home</a></li>
-						<li><a href="#">Vehicles</a></li>
-						<li><a href="#">Dealers</a></li>
-						<li><a href="#">Events</a></li>
-						<li><a href="#">Shop</a></li>
-						<li><a href="#">News</a></li>
-						<li><a href="contact.html">Contact</a></li>
-					</ul>
-				</nav>
-				<!-- /Navigation -->
-
-			</div>
-		</header>
-		<!-- /Header -->
-{% endblock %}
 {% block content %}
 		<!-- Home -->
 		<div id="home" class="hero-area">

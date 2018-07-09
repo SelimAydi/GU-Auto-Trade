@@ -36,7 +36,7 @@
     {# Navigation Menu #}
 	{% block header %}
 		<!-- Header -->
-		<header id="header" class="transparent-nav">
+		<header id="header" class="{{ headerclass | default:'transparent-nav' }}">
 			<div class="container">
 
 				<div class="navbar-header">
@@ -102,15 +102,17 @@
 					<!-- footer logo -->
 
 					<!-- footer nav -->
-					<div class="col-md-6">
+					<div class="col-md-12">
 						<ul class="footer-nav">
-							<li><a href="index.html">Home</a></li>
+							<li><a href="/shelby">Home</a></li>
 							<li><a href="#">Vehicles</a></li>
 							<li><a href="#">Dealers</a></li>
 							<li><a href="#">Events</a></li>
 							<li><a href="#">Shop</a></li>
 							<li><a href="#">News</a></li>
-							<li><a href="contact.html">Contact</a></li>
+							<li><a href="#">Press & Media</a></li>
+							<li><a href="/dealerlogin">Dealer {% if not user.is_authenticated %}Login{% else %}Portal {% endif %}</a></li>
+							<li><a href="/shelby/contact">Contact</a></li>
 						</ul>
 					</div>
 					<!-- /footer nav -->
@@ -159,6 +161,10 @@
 		<!-- jQuery Plugins -->
 		<script type="text/javascript" src="{% static 'js/jquery.min.js' %}"></script>
 		<script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
+		<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+		{% block js %}
+		{% endblock js %}
 		<script type="text/javascript" src="{% static 'js/main.js' %}"></script>
+		<script type="text/javascript" src="{% static 'js/slideshow.js' %}"></script>
 	</body>
 </html>

@@ -1,0 +1,43 @@
+{% extends "frames/base_portal.html" %}
+{% load static %}
+{% block header %}
+	{% with headerclass='portal' %}
+			{{ block.super }}
+	{% endwith%}
+{% endblock header%}
+{% block content %}
+<!-- Home -->
+<div id="home" class="hero-area">
+
+			<!-- Backgound -->
+			<div style="background-color: white;"></div>
+			<!-- /Backgound -->
+
+			<div class="home-wrapper">
+				<div class="container">
+					<div class="row">
+					<div class="section-intro text-center">
+						{% if user.is_authenticated %}
+							<h3>Welcome to the Dealer Portal <h1>{{ user.get_full_name }}</h1></h3>
+							<p class="lead">Libris vivendo eloquentiam ex ius, nec id splendide abhorreant.</p>
+							<div class="row">
+							</div>
+						{% else %}
+							<h2>Dealer Login</h2>
+							<p class="lead">Libris vivendo eloquentiam ex ius, nec id splendide abhorreant.</p>
+							<div class="row">
+								<form method="POST" class="dealerloginform">
+									{% csrf_token %}
+									{{form.as_p}}
+									<button class="main-button icon-button form-button" type="submit">Login</button>
+								</form>
+							</div>
+						{% endif %} 
+					</div>
+				</div>
+				</div>
+			</div>
+
+		</div>
+		<!-- /Home -->
+{% endblock %}

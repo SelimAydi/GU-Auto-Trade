@@ -16,6 +16,8 @@
 							<h2>Order Form</h2>
 							<p class="lead">Your order has been successfully placed.</p>
 							<div class="row">
+								{{ form.errors }}
+								{{ form.non_field_errors }}
 								<p>Model: {{ model }}</p>
 								<p>Colour: {{ colour }}</p>
 							</div>

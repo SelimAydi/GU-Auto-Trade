@@ -1,0 +1,59 @@
+{% extends "frames/base_portal.html" %}
+{% load static %}
+{% block header %}
+	{% with headerclass='portal' %}
+			{{ block.super }}
+	{% endwith%}
+{% endblock header%}
+{% block content %}
+<!-- Home -->
+<div id="home" class="hero-area">
+
+			<!-- Backgound -->
+			<div style="background-color: white;"></div>
+			<!-- /Backgound -->
+
+			<div class="home-wrapper">
+				<div class="container">
+					<div class="row">
+					<div class="section-intro text-center">
+						{% if user.is_authenticated %}
+							{% if user.is_staff %}
+								<h2>Order List</h2>
+								<p class="lead">Libris vivendo eloquentiam ex ius, nec id splendide abhorreant.</p>
+								<div class="row">
+									<div class="tb">
+										<table>
+											<tbody>
+											<thead>
+													<tr class="rw head">
+														<th class="clm column1" data-column="column1">Dealer ID</th>
+														<th class="clm column1" data-column="column1">Dealer Name</th>
+														<th class="clm column2" data-column="column2">Model</th>
+														<th class="clm column3" data-column="column3">Colour</th>
+														<th class="clm column4" data-column="column4">Date</th>
+													</tr>
+												</thead>
+												{% for i in orders %}
+												<tr class="rw">
+													<td class="clm column1" data-column="column1">{{ i.dealerID.dealerID }}</td>
+													<td class="clm column1" data-column="column1">{{ i.dealerID.name }} {{ i.dealerID.surname }}</td>
+													<td class="clm column2" data-column="column2">{{ i.model }}</td>
+													<td class="clm column3" data-column="column3">{{ i.colour }}</td>
+													<td class="clm column4" data-column="column4">{{ i.date }}</td>
+												</tr>
+												{% endfor %}
+											</tbody>
+										</table>
+									</div>
+								</div>
+							{% endif %}
+						{% endif %} 
+					</div>
+				</div>
+				</div>
+			</div>
+
+		</div>
+		<!-- /Home -->
+{% endblock %}

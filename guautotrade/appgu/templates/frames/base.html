@@ -35,7 +35,8 @@
 	<body>
     {# Navigation Menu #}
 <!-- Header -->
-		<header id="header" class="transparent-nav">
+{% block header %}
+		<header id="header" class="{{ headerclass | default:'transparent-nav' }}">
 			<div class="container">
 
 				<div class="navbar-header">
@@ -58,16 +59,8 @@
 				<nav id="nav">
 				{% block navigation %}
 					<ul class="main-menu nav navbar-nav navbar-right">
-					{% if user.is_authenticated %}
-						<li><a href="/dealerlogin">Home</a></li>
-						<li><a href="order">Order</a></li>
-						<li><a href="#">Option2</a></li>
-						<li><a href="#">Option3</a></li>
-						<li><a href="/accounts/logout/">Logout</a></li>
-					{% else %}
-						<li><p style="color: white; padding: 15px; font-size: 2vh;"><b>Phone:</b> +31 (0) 10 307 4260 </p></li>
-						<li><p style="color: white; padding: 15px; font-size: 2vh"><b>Email:</b> info@guautotrade.com</p></li>	
-					{% endif %}
+						<li><a><b>Phone:</b> +31 (0) 10 307 4260</a></li>
+						<li><a><b>Email:</b> info@guautotrade.com</a></li>
 					</ul>
 				{% endblock %}
 				</nav>
@@ -75,6 +68,7 @@
 
 			</div>
 		</header>
+{% endblock %}
 		<!-- /Header -->
 	
         {% block content %}
