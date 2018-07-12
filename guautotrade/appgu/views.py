@@ -38,7 +38,7 @@ def dealerportal(request):
             else:
                 print("INVALID FORM")
                 return render(request, 'dealerportal/dealerportal.html', {'form': valform})
-            return render(request, 'success.html',
+            return render(request, 'dealerportal/ordered.html',
                           {'model': request.POST.get('model'), 'colour': request.POST.get('colour')})
         else:
             print("SHOWING FORM")
@@ -63,7 +63,7 @@ def registerdealer(request):
             if form.is_valid():
                 print("form is valid")
                 form.save()
-                return render(request, 'success.html', {'model': request.POST.get('username')})
+                return render(request, 'dealerportal/registered.html', {'dealer_username': request.POST.get('username'), 'dealer_firstname' : request.POST.get('firstname'), 'dealer_lastname' : request.POST.get('lastname')})
             else:
                 print("form invalid")
                 return render(request, 'dealerportal/registerdealer.html', {'form': form})

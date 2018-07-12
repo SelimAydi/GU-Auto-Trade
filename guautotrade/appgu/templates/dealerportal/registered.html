@@ -1,0 +1,42 @@
+{% extends "frames/base_portal.html" %}
+{% load static %}
+
+{% block header %}
+	{% with headerclass='portal' %}
+			{{ block.super }}
+	{% endwith%}
+{% endblock header%}
+
+
+{% block content %}
+<!-- Home -->
+<div id="home" class="hero-area">
+
+			<!-- Backgound -->
+			<div style="background-color: white;"></div>
+			<!-- /Backgound -->
+
+			<div class="home-wrapper">
+				<div class="container">
+					<div class="row">
+					<div class="section-intro text-center">
+						{% if user.is_authenticated %}
+							<h2>Registration Form</h2>
+							<p class="lead">Dealer '{{ dealer_firstname }} {{ dealer_lastname }}' has successfully ben created.</p>
+							<div class="row">
+								{{ form.errors }}
+								{{ form.non_field_errors }}
+								<p>Username: {{ dealer_username }}</p>
+							</div>
+							<div class="row">
+								<a class="main-button icon-button" href="/dealerlogin">Back to portal</a>
+							</div>
+						{% endif %} 
+					</div>
+				</div>
+				</div>
+			</div>
+
+		</div>
+		<!-- /Home -->
+{% endblock %}
