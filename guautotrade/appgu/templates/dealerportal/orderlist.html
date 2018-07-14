@@ -16,35 +16,54 @@
 			<div class="home-wrapper" style="-webkit-transform: initial; position: relative; top: initial;">
 				<div class="container">
 					<div class="row">
-					<div class="section-intro text-center">
+					<div class="section-intro text-center" style="width: initial;">
 						{% if user.is_authenticated %}
 							{% if user.is_staff %}
 								<h2>Order List</h2>
 								<p class="lead">Libris vivendo eloquentiam ex ius, nec id splendide abhorreant.</p>
 								<div class="row">
 									<div class="tb">
-										<table>
+										<form method="POST" id="orderchange">
+										{% csrf_token %}
+										<input id="change" name="change" type="hidden">
+										<table id="orderstb">
 											<tbody>
 											<thead>
 													<tr class="rw head">
-														<th class="clm column1" data-column="column1">Dealer ID</th>
+														<th class="clm column1" data-column="column1"></th>
+														<th class="clm column1" data-column="column1">Order ID</th>
 														<th class="clm column1" data-column="column1">Dealer Name</th>
 														<th class="clm column2" data-column="column2">Model</th>
 														<th class="clm column3" data-column="column3">Colour</th>
 														<th class="clm column4" data-column="column4">Date</th>
+														<th class="clm column4" data-column="column4">Homologation</th>
+														<th class="clm column4" data-column="column4">Custom Clearance</th>
+														<th class="clm column4" data-column="column4">Scheduled Completion Date</th>
+														<th class="clm column4" data-column="column4">Deposit Received</th>
+														<th class="clm column4" data-column="column4">Payment Received</th>
+                                                        <th class="clm column1" data-column="column1"></th>
+
 													</tr>
 												</thead>
 												{% for i in orders %}
-												<tr class="rw">
-													<td class="clm column1" data-column="column1">{{ i.dealerID.dealerID }}</td>
+												<tr class="rw" id="tr{{ forloop.counter }}">
+													<td class="clm column1" data-column="column1"><button class="main-button editbutton" onclick="updateCells('tr{{ forloop.counter }}', {{ i.id }})"><i class="fas fa-edit"></i></button></td>
+													<td class="clm column2" data-column="column2">{{ i.id }}</td>
 													<td class="clm column1" data-column="column1">{{ i.dealerID.name }} {{ i.dealerID.surname }}</td>
 													<td class="clm column2" data-column="column2">{{ i.model }}</td>
 													<td class="clm column3" data-column="column3">{{ i.colour }}</td>
 													<td class="clm column4" data-column="column4">{{ i.date }}</td>
-												</tr>
+													<td class="clm column4" data-column="column4">{% if i.homologation %}<i class="fas fa-check"></i>{% else %}<i class="fas fa-times"></i>{% endif %}</td>
+													<td class="clm column4" data-column="column4">{% if i.custom_clearance %}<i class="fas fa-check"></i>{% else %}<i class="fas fa-times"></i>{% endif %}</td>
+													<td class="clm column4" data-column="column4">{% if not i.scheduled_completion_date %}NA{% else %}{{ i.scheduled_completion_date }}{% endif %}</td>
+													<td class="clm column4" data-column="column4">{% if i.deposit_received %}<i class="fas fa-check"></i>{% else %}<i class="fas fa-times"></i>{% endif %}</td>
+													<td class="clm column4" data-column="column4">{% if i.payment_received %}<i class="fas fa-check"></i>{% else %}<i class="fas fa-times"></i>{% endif %}</td>
+												    <td class="clm column4" data-column="column4"></td>
+                                                </tr>
 												{% endfor %}
 											</tbody>
 										</table>
+										</form>
 									</div>
 								</div>
 							{% endif %}
@@ -53,7 +72,80 @@
 				</div>
 				</div>
 			</div>
+				<script>
+					var row = document.getElementById("tr1");
+					var old = row.innerHTML;
+					var oldrow = "";
+					var xow = [];
+					var orderstb = document.getElementById('orderstable')
 
+					function updateCells(rownum, orderid){
+					    {#document.getElementsByClassName("editbutton")[rownum.slice(2) - 1].parentNode.removeChild(document.getElementsByClassName("editbutton")[0])#}
+						$('.editbutton').hide();
+                        oldrow = document.getElementById(rownum).innerHTML;
+						xow[rownum] = document.getElementById(rownum).innerHTML;
+						var roww = document.getElementById(rownum);
+						for (var i = 2; i < roww.cells.length; i++){
+							var curr = roww.cells[i].innerHTML;
+							console.log("am looping")
+							if (curr === '<i class="fas fa-check"></i>'){
+								var field = "<input id='check" + i + "x' type='hidden' value='True' name='check" + i + "x'/><input id='check" + i + "' type='checkbox' onchange='updateCheckbox(this)' name='check"+ i + "' value='True' checked />"
+								console.log("IS CHECKED")
+							} else if (curr === '<i class="fas fa-times"></i>') {
+								var field = "<input id='check" + i + "x' type='hidden' value='False' name='check" + i + "x'/><input id='check" + i + "' name='check" + i + "' onchange='updateCheckbox(this)' type='checkbox' value='False' />"
+							} else {
+								if (i !== 5){
+									if (i !== 2){
+										var field = "<input name='inp" + i + "' type='text' value='" + curr + "' />"
+									} else {
+										var field = roww.cells[i].innerHTML
+									}
+								} else {
+									var field = roww.cells[i].innerHTML
+								}
+							}
+							roww.cells[i].innerHTML = field;
+						}
+						
+						roww.cells[0].innerHTML = roww.cells[0].innerHTML + "<button onclick=cancelPost('" + String(rownum) + "') class='main-button'>Cancel</button>";
+						roww.cells[roww.cells.length - 1].innerHTML = "<button type='submit' class='main-button' onclick='savePost()'>Save</button>";
+						document.getElementsByClassName("container")[1].style.width = "100%"
+						change.value = orderid
+						
+					}
+					
+					function cancelPost(rownum){
+					    console.log("CANCELLING")
+						console.log("ROWNUM: " + rownum)
+						document.getElementById(rownum).innerHTML = xow[rownum];
+						
+						document.getElementsByClassName("container")[1].style.width = "1170px"
+                        $('.editbutton').show();
+					}
+					
+					function savePost(){
+					    if ($(element).is(":hidden")){
+					        $('.editbutton').hide();
+                        }
+						for(var i = 3; i <= 21; i = i + 2){
+							console.log(String(row.childNodes[i].childNodes[0].value))
+						}
+					}
+					
+					function updateCheckbox(obj){
+						console.log(obj);
+						console.log(obj.name + "x");
+						hidden = document.getElementById(obj.name + "x");
+						if (obj.checked){
+							//console.log(obj.name + "x")
+							obj.value = "True";
+							hidden.value = "True"
+						} else {
+							obj.value = "False";
+							hidden.value = "False"
+						}
+					}
+				</script>
 		</div>
 		<!-- /Home -->
 {% endblock %}

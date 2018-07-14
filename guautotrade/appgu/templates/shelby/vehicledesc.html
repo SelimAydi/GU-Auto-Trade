@@ -22,15 +22,15 @@
 					<div class="row">
 
 					<div class="col-md-6">
-						<h3>About Car X</h3>
-						<p class="lead">Libris vivendo eloquentiam ex ius, nec id splendide abhorreant.</p>
-						<p>No vel facete sententiae, quodsi dolores no quo, pri ex tamquam interesset necessitatibus. Te denique cotidieque delicatissimi sed. Eu doming epicurei duo. Sit ea perfecto deseruisse theophrastus. At sed malis hendrerit, elitr deseruisse in sit, sit ei facilisi mediocrem.</p>
+						<h3>About {{ model }}</h3>
+						<p class="lead">{{ headline }}</p>
+						<p>{{ desc }}</p>
 					</div>
 
 					<div class="col-md-5 col-md-offset-1">
 						<div class="vehicle">
 								<a href="#" class="vehicle-img">
-									<img src="https://hips.hearstapps.com/amv-prod-cad-assets.s3.amazonaws.com/images/media/672264/2018-ford-mustang-shelby-gt350-gt350r-in-depth-model-review-car-and-driver-photo-694522-s-original.jpg" alt="">
+									<img src="/media/{{ image }}" alt="">
 									<i class="vehicle-link-icon fa fa-link"></i>
 								</a>
 								<a class="vehicle-title" href="#">Persius imperdiet </a>

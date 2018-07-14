@@ -316,7 +316,7 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
 
 #header.transparent-nav .main-menu li a {
 	color: #e7e5e5;
-	font-size: 1.7vh;
+	font-size: 2.5vh;
 }
 
 .main-menu li a {
@@ -1419,7 +1419,7 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
 
 .dealerloginform input[type=text], .dealerloginform input[type=password]{
 	text-align: center;
-	width: 30%;
+	width: 50%;
 	margin: 0 auto;
 	outline: none !important;
 	display: block;
@@ -1523,8 +1523,8 @@ th, td {
 }
 
 .clm {
-  width: 130px;
-  padding-left: 25px;
+  width: 8.3%;
+  /* padding-left: 25px; */
 }
 
 .clm.column1 {
@@ -1550,6 +1550,20 @@ th, td {
   font-size: 14px;
   color: #808080;
   line-height: 1.4;
+}
+
+.tb {
+	font-size: 2vh;	
+}
+
+.tb input[type=text]{
+	text-align: center;
+	color: #2196F3;
+	display: block;
+	margin: 0 auto;
+	background-color: white;
+	font-weight:800;
+	width: 70px;
 }
 
 .tb th {
@@ -1579,6 +1593,9 @@ th, td {
 }
 
 
+/*==================================================================
+[ Footer ]*/
+
 #footer {
 	background-color: #f2f2f2!important;
 	color: #374050 !important;
@@ -1594,4 +1611,35 @@ th, td {
 
 #footer i{
 	color: white;
+}
+
+/*==================================================================
+[ File upload ]*/
+
+input[type="file"] {
+    /* display: none; */
+}
+.custom-file-upload {
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+    display: block;
+    width: 150px;
+    margin: auto;
+    padding: 10px;
+    margin-top: -25px;
+    margin-bottom: 10px;
+}
+
+.custom-file-upload i{
+	padding-right: 10px;
+}
+
+#formposted {
+	padding: 10px;
+}
+
+.invis {
+	visibility: hidden;
 }

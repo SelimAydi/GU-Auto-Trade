@@ -130,3 +130,5 @@ STATIC_URL = '/static/'
 LOGIN_REDIRECT_URL = '/dealerlogin'
 LOGOUT_REDIRECT_URL = '/dealerlogin'
 
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'

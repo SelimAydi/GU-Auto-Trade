@@ -61,10 +61,12 @@
 					<ul class="main-menu nav navbar-nav navbar-right">
 					{% if user.is_authenticated %}
 						<li><a href="/dealerlogin">Home</a></li>
-						<li><a href="order">Place an Order</a></li>
-						{% if user.is_staff %}<li><a href="orderlist">Orders</a></li>
-						<li><a href="registerdealer">Register Dealer</a></li>{% endif %}
-						<li><a href="#">Option3</a></li>
+						<li><a href="/dealerlogin/order">Place an Order</a></li>
+						{% if user.is_staff %}<li><a href="/dealerlogin/orderlist">Orders</a></li>
+						<li><a href="/dealerlogin/registerdealer">Register Dealer</a></li>
+                        <li><a href="/dealerlogin/upload">Add Vehicles</a></li>
+                        {% endif %}
+						{% if not user.is_staff %}<li><a href="/dealerlogin/myorders">My Orders</a></li>{% endif %}
 						<li><a href="/accounts/logout/">Logout</a></li>
 					{% else %}
 						<li><a><b>Phone:</b> +31 (0) 10 307 4260</a></li>
