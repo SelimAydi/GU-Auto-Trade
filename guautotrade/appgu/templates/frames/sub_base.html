@@ -60,13 +60,13 @@
 				<nav id="nav">
 					<ul class="main-menu nav navbar-nav navbar-right">
 						<li><a href="/shelby">Home</a></li>
-						<li><a href="#">Vehicles</a></li>
+						<li><a onclick="$(window).scrollTo(document.getElementById('vehicles'), 1000);">Vehicles</a></li>
 						<li><a href="#">Dealers</a></li>
 						<li><a href="#">Events</a></li>
 						<li><a href="#">Shop</a></li>
 						<li><a href="#">News</a></li>
 						<li><a href="#">Press & Media</a></li>
-						<li><a href="/dealerlogin">Dealer {% if not user.is_authenticated %}Login{% else %}Portal {% endif %}</a></li>
+						<li><a href="/portal">{% if not user.is_authenticated %}Login{% else %}Portal {% endif %}</a></li>
 						<li><a href="/shelby/contact">Contact</a></li>
 					</ul>
 				</nav>
@@ -105,13 +105,13 @@
 					<div class="col-md-12">
 						<ul class="footer-nav">
 							<li><a href="/shelby">Home</a></li>
-							<li><a href="#">Vehicles</a></li>
+							<li><a onclick="$(window).scrollTo(document.getElementById('vehicles'), 1000);">Vehicles</a></li>
 							<li><a href="#">Dealers</a></li>
 							<li><a href="#">Events</a></li>
 							<li><a href="#">Shop</a></li>
 							<li><a href="#">News</a></li>
 							<li><a href="#">Press & Media</a></li>
-							<li><a href="/dealerlogin">Dealer {% if not user.is_authenticated %}Login{% else %}Portal {% endif %}</a></li>
+							<li><a href="/portal">{% if not user.is_authenticated %}Login{% else %}Portal {% endif %}</a></li>
 							<li><a href="/shelby/contact">Contact</a></li>
 						</ul>
 					</div>
@@ -162,6 +162,7 @@
 		<script type="text/javascript" src="{% static 'js/jquery.min.js' %}"></script>
 		<script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
 		<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/2.1.2/jquery.scrollTo.min.js"></script>
 		{% block js %}
 		{% endblock js %}
 		<script type="text/javascript" src="{% static 'js/main.js' %}"></script>

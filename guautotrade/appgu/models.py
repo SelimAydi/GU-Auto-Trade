@@ -21,7 +21,7 @@ class Orders(models.Model):
 
     dealerID = models.ForeignKey(Dealers, db_column='dealerID', on_delete=models.CASCADE)
     # dealer_user_name = models.CharField(max_length=30)
-    model = models.IntegerField()
+    model = models.CharField(max_length=1000)
     colour = models.CharField(max_length=1000)
     date = models.DateField(auto_now_add=True)
     homologation = models.BooleanField(default=False)

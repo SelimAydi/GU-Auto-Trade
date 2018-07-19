@@ -81,7 +81,7 @@ DATABASES = {
 		'USER': 'postgres',
 		'PASSWORD': 'kaas123',
 		'HOST': 'localhost',
-        'PORT': '5433',
+        'PORT': '5432',
     }
 }
 
@@ -127,8 +127,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
-LOGIN_REDIRECT_URL = '/dealerlogin'
-LOGOUT_REDIRECT_URL = '/dealerlogin'
+LOGIN_REDIRECT_URL = '/portal'
+LOGOUT_REDIRECT_URL = '/portal'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'

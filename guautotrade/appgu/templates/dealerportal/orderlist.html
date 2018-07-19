@@ -13,65 +13,74 @@
 			<div style="background-color: white;"></div>
 			<!-- /Backgound -->
 
-			<div class="home-wrapper" style="-webkit-transform: initial; position: relative; top: initial;">
+			<div class="home-wrapper"  {% if not orders|length == 0 %} style="-webkit-transform: initial; position: relative; top: initial;" {% else %}{% endif %}>
 				<div class="container">
 					<div class="row">
 					<div class="section-intro text-center" style="width: initial;">
 						{% if user.is_authenticated %}
 							{% if user.is_staff %}
+                                {% if not orders|length == 0 %}
 								<h2>Order List</h2>
 								<p class="lead">Libris vivendo eloquentiam ex ius, nec id splendide abhorreant.</p>
 								<div class="row">
-									<div class="tb">
-										<form method="POST" id="orderchange">
-										{% csrf_token %}
-										<input id="change" name="change" type="hidden">
-										<table id="orderstb">
-											<tbody>
-											<thead>
-													<tr class="rw head">
-														<th class="clm column1" data-column="column1"></th>
-														<th class="clm column1" data-column="column1">Order ID</th>
-														<th class="clm column1" data-column="column1">Dealer Name</th>
-														<th class="clm column2" data-column="column2">Model</th>
-														<th class="clm column3" data-column="column3">Colour</th>
-														<th class="clm column4" data-column="column4">Date</th>
-														<th class="clm column4" data-column="column4">Homologation</th>
-														<th class="clm column4" data-column="column4">Custom Clearance</th>
-														<th class="clm column4" data-column="column4">Scheduled Completion Date</th>
-														<th class="clm column4" data-column="column4">Deposit Received</th>
-														<th class="clm column4" data-column="column4">Payment Received</th>
-                                                        <th class="clm column1" data-column="column1"></th>
 
-													</tr>
-												</thead>
-												{% for i in orders %}
-												<tr class="rw" id="tr{{ forloop.counter }}">
-													<td class="clm column1" data-column="column1"><button class="main-button editbutton" onclick="updateCells('tr{{ forloop.counter }}', {{ i.id }})"><i class="fas fa-edit"></i></button></td>
-													<td class="clm column2" data-column="column2">{{ i.id }}</td>
-													<td class="clm column1" data-column="column1">{{ i.dealerID.name }} {{ i.dealerID.surname }}</td>
-													<td class="clm column2" data-column="column2">{{ i.model }}</td>
-													<td class="clm column3" data-column="column3">{{ i.colour }}</td>
-													<td class="clm column4" data-column="column4">{{ i.date }}</td>
-													<td class="clm column4" data-column="column4">{% if i.homologation %}<i class="fas fa-check"></i>{% else %}<i class="fas fa-times"></i>{% endif %}</td>
-													<td class="clm column4" data-column="column4">{% if i.custom_clearance %}<i class="fas fa-check"></i>{% else %}<i class="fas fa-times"></i>{% endif %}</td>
-													<td class="clm column4" data-column="column4">{% if not i.scheduled_completion_date %}NA{% else %}{{ i.scheduled_completion_date }}{% endif %}</td>
-													<td class="clm column4" data-column="column4">{% if i.deposit_received %}<i class="fas fa-check"></i>{% else %}<i class="fas fa-times"></i>{% endif %}</td>
-													<td class="clm column4" data-column="column4">{% if i.payment_received %}<i class="fas fa-check"></i>{% else %}<i class="fas fa-times"></i>{% endif %}</td>
-												    <td class="clm column4" data-column="column4"></td>
-                                                </tr>
-												{% endfor %}
-											</tbody>
-										</table>
-										</form>
-									</div>
 								</div>
+                                    {% else %}
+                                    <div class="row">
+                                        <div class="section-intro text-center">
+                                            <h3>No orders have been placed yet.</h3>
+                                        </div>
+                                    </div>
+                                    {% endif %}
 							{% endif %}
 						{% endif %} 
 					</div>
 				</div>
 				</div>
 			</div>
+                <div class="tb">
+                        <form method="POST" id="orderchange">
+                        {% csrf_token %}
+                        <input id="change" name="change" type="hidden">
+                        <table id="orderstb">
+                            <tbody>
+                            <thead>
+                                    <tr class="rw head">
+                                        <th class="clm column1" data-column="column1"></th>
+                                        <th class="clm column1" data-column="column1">Order ID</th>
+                                        <th class="clm column1" data-column="column1">Dealer Name</th>
+                                        <th class="clm column2" data-column="column2">Model</th>
+                                        <th class="clm column3" data-column="column3">Colour</th>
+                                        <th class="clm column4" data-column="column4">Date</th>
+                                        <th class="clm column4" data-column="column4">Homologation</th>
+                                        <th class="clm column4" data-column="column4">Custom Clearance</th>
+                                        <th class="clm column4" data-column="column4">Scheduled Completion Date</th>
+                                        <th class="clm column4" data-column="column4">Deposit Received</th>
+                                        <th class="clm column4" data-column="column4">Payment Received</th>
+                                        <th class="clm column1" data-column="column1"></th>
+
+                                    </tr>
+                                </thead>
+                                {% for i in orders %}
+                                <tr class="rw" id="tr{{ forloop.counter }}">
+                                    <td class="clm column1" data-column="column1" style="background-color: white !important"><button class="main-button editbutton" onclick="updateCells('tr{{ forloop.counter }}', {{ i.id }})"><i class="fas fa-edit"></i></button></td>
+                                    <td class="clm column2" data-column="column2">{{ i.id }}</td>
+                                    <td class="clm column1" data-column="column1" style="width: 15%;">{{ i.dealerID.name }} {{ i.dealerID.surname }}</td>
+                                    <td class="clm column2" data-column="column2" style="width: 20%;">{{ i.model }}</td>
+                                    <td class="clm column3" data-column="column3" style="width: 15%;">{{ i.colour }}</td>
+                                    <td class="clm column4" data-column="column4" style="width: 20%;">{{ i.date }}</td>
+                                    <td class="clm column4" data-column="column4">{% if i.homologation %}<i class="fas fa-check"></i>{% else %}<i class="fas fa-times"></i>{% endif %}</td>
+                                    <td class="clm column4" data-column="column4">{% if i.custom_clearance %}<i class="fas fa-check"></i>{% else %}<i class="fas fa-times"></i>{% endif %}</td>
+                                    <td class="clm column4" data-column="column4" style="width: 20%;">{% if not i.scheduled_completion_date %}NA{% else %}{{ i.scheduled_completion_date }}{% endif %}</td>
+                                    <td class="clm column4" data-column="column4">{% if i.deposit_received %}<i class="fas fa-check"></i>{% else %}<i class="fas fa-times"></i>{% endif %}</td>
+                                    <td class="clm column4" data-column="column4">{% if i.payment_received %}<i class="fas fa-check"></i>{% else %}<i class="fas fa-times"></i>{% endif %}</td>
+                                    <td class="clm column4" data-column="column4" style="background-color: white !important"></td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                        </form>
+                    </div>
 				<script>
 					var row = document.getElementById("tr1");
 					var old = row.innerHTML;
@@ -109,7 +118,7 @@
 						
 						roww.cells[0].innerHTML = roww.cells[0].innerHTML + "<button onclick=cancelPost('" + String(rownum) + "') class='main-button'>Cancel</button>";
 						roww.cells[roww.cells.length - 1].innerHTML = "<button type='submit' class='main-button' onclick='savePost()'>Save</button>";
-						document.getElementsByClassName("container")[1].style.width = "100%"
+{#						document.getElementsByClassName("container")[1].style.width = "100%"#}
 						change.value = orderid
 						
 					}

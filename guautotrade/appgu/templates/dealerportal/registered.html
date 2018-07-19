@@ -22,14 +22,14 @@
 					<div class="section-intro text-center">
 						{% if user.is_authenticated %}
 							<h2>Registration Form</h2>
-							<p class="lead">Dealer '{{ dealer_firstname }} {{ dealer_lastname }}' has successfully ben created.</p>
+							<p class="lead">{{ usertype }} '{{ dealer_firstname }} {{ dealer_lastname }}' has successfully been created.</p>
 							<div class="row">
 								{{ form.errors }}
 								{{ form.non_field_errors }}
 								<p>Username: {{ dealer_username }}</p>
 							</div>
 							<div class="row">
-								<a class="main-button icon-button" href="/dealerlogin">Back to portal</a>
+								<a class="main-button icon-button" href="/portal">Back to portal</a>
 							</div>
 						{% endif %} 
 					</div>

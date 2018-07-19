@@ -13,48 +13,54 @@
 			<div style="background-color: white;"></div>
 			<!-- /Backgound -->
 
-			<div class="home-wrapper" style="-webkit-transform: initial; position: relative; top: initial;">
+			<div class="home-wrapper" {% if orders%} style="-webkit-transform: initial; position: relative; top: initial;" {% endif %}>
 				<div class="container">
 					<div class="row">
 					<div class="section-intro text-center" style="width: initial;">
-						{% if user.is_authenticated %}
-								<h2>Order List</h2>
-								<p class="lead">Libris vivendo eloquentiam ex ius, nec id splendide abhorreant.</p>
-								<div class="row">
-									<div class="tb">
-										<form method="POST" id="orderchange">
-										{% csrf_token %}
-										<input id="change" name="change" type="hidden">
-										<table id="orderstb">
-											<tbody>
-											<thead>
-													<tr class="rw head">
-														<th class="clm column1" data-column="column1">Order ID</th>
-														<th class="clm column2" data-column="column2">Model</th>
-														<th class="clm column3" data-column="column3">Colour</th>
-														<th class="clm column4" data-column="column4">Date</th>
-														<th class="clm column4" data-column="column4">Homologation</th>
-														<th class="clm column4" data-column="column4">Custom Clearance</th>
-														<th class="clm column4" data-column="column4">Scheduled Completion Date</th>
-													</tr>
-												</thead>
-												{% for i in orders %}
-												<tr class="rw" id="tr{{ forloop.counter }}">
-													<td class="clm column2" data-column="column2">{{ i.id }}</td>
-													<td class="clm column2" data-column="column2">{{ i.model }}</td>
-													<td class="clm column3" data-column="column3">{{ i.colour }}</td>
-													<td class="clm column4" data-column="column4">{{ i.date }}</td>
-													<td class="clm column4" data-column="column4">{% if i.homologation %}<i class="fas fa-check"></i>{% else %}<i class="fas fa-times"></i>{% endif %}</td>
-													<td class="clm column4" data-column="column4">{% if i.custom_clearance %}<i class="fas fa-check"></i>{% else %}<i class="fas fa-times"></i>{% endif %}</td>
-													<td class="clm column4" data-column="column4">{% if not i.scheduled_completion_date %}NA{% else %}{{ i.scheduled_completion_date }}{% endif %}</td>
-                                                </tr>
-												{% endfor %}
-											</tbody>
-										</table>
-										</form>
-									</div>
-								</div>
-						{% endif %}
+						{% if orders%}
+                            {% if user.is_authenticated %}
+                                    <h2>My Orders</h2>
+                                    <p class="lead">Libris vivendo eloquentiam ex ius, nec id splendide abhorreant.</p>
+                                    <div class="row">
+                                        <div class="tb">
+                                            <form method="POST" id="orderchange">
+                                            {% csrf_token %}
+                                            <input id="change" name="change" type="hidden">
+                                            <table id="orderstb">
+                                                <tbody>
+                                                <thead>
+                                                        <tr class="rw head">
+                                                            <th class="clm column1" data-column="column1"># Order</th>
+                                                            <th class="clm column2" data-column="column2">Model</th>
+                                                            <th class="clm column3" data-column="column3">Colour</th>
+                                                            <th class="clm column4" data-column="column4">Date</th>
+                                                            <th class="clm column4" data-column="column4">Homologation</th>
+                                                            <th class="clm column4" data-column="column4">Custom Clearance</th>
+                                                            <th class="clm column4" data-column="column4">Scheduled Completion Date</th>
+                                                        </tr>
+                                                    </thead>
+                                                    {% for i in orders %}
+                                                    <tr class="rw" id="tr{{ forloop.counter }}">
+                                                        <td class="clm column2" data-column="column2">{{ i.id }}</td>
+                                                        <td class="clm column2" data-column="column2">{{ i.model }}</td>
+                                                        <td class="clm column3" data-column="column3">{{ i.colour }}</td>
+                                                        <td class="clm column4" data-column="column4">{{ i.date }}</td>
+                                                        <td class="clm column4" data-column="column4">{% if i.homologation %}<i class="fas fa-check"></i>{% else %}<i class="fas fa-times"></i>{% endif %}</td>
+                                                        <td class="clm column4" data-column="column4">{% if i.custom_clearance %}<i class="fas fa-check"></i>{% else %}<i class="fas fa-times"></i>{% endif %}</td>
+                                                        <td class="clm column4" data-column="column4">{% if not i.scheduled_completion_date %}Pending{% else %}{{ i.scheduled_completion_date }}{% endif %}</td>
+                                                    </tr>
+                                                    {% endfor %}
+                                                </tbody>
+                                            </table>
+                                            </form>
+                                        </div>
+                                    </div>
+                            {% endif %}
+                        {% else %}
+                                    <h3>You haven't placed any orders yet.</h3>
+                                </div>
+                            </div>
+                        {% endif %}
 					</div>
 				</div>
 				</div>

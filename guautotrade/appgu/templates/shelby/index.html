@@ -87,15 +87,30 @@
 
 					<!-- row -->
 					<div class="row">
+                    {% for vehicle in vehicles %}
 
-						<!-- vehicle -->
-						<div class="col-md-4 col-sm-6 col-xs-6">
-							<div class="vehicle">
-								<a href="#" class="vehicle-img">
-									<img src="https://hips.hearstapps.com/amv-prod-cad-assets.s3.amazonaws.com/images/media/672264/2018-ford-mustang-shelby-gt350-gt350r-in-depth-model-review-car-and-driver-photo-694522-s-original.jpg" alt="">
+                        {% if c_type == 0 %}
+                            <div class="col-md-4 col-sm-6 col-xs-6">
+                            {% elif c_type == 1 %}
+                                {% if vehicle == last %}
+                                    <div class="col-md-12 col-sm-6 col-xs-6">
+                                {% else %}
+                                    <div class="col-md-4 col-sm-6 col-xs-6">
+                                {% endif %}
+                            {% else %}
+                                {% if vehicle == secondlast or vehicle == last %}
+                                    <div class="col-md-6 col-sm-6 col-xs-6">
+                                {% else %}
+                                     <div class="col-md-4 col-sm-6 col-xs-6">
+                                {% endif %}
+                        {% endif %}
+
+                            <div class="vehicle">
+								<a href="vehicle/?v={{ vehicle.id }}" class="vehicle-img">
+									<img src="/media/{{ vehicle.image }}" alt="">
 									<i class="vehicle-link-icon fa fa-link"></i>
 								</a>
-								<a class="vehicle-title" href="#">Persius imperdiet </a>
+								<a class="vehicle-title" href="#">{{ vehicle.model }}</a>
 								<div class="vehicle-details">
 									<span class="vehicle-category">Type</span>
 									<span class="vehicle-price vehicle-free">More info</span>
@@ -104,66 +119,27 @@
 						</div>
 						<!-- /vehicle -->
 
-						<!-- vehicle -->
-						<div class="col-md-4 col-sm-6 col-xs-6">
-							<div class="vehicle">
-								<a href="#" class="vehicle-img">
-									<img src="https://hips.hearstapps.com/amv-prod-cad-assets.s3.amazonaws.com/images/media/672264/2018-ford-mustang-shelby-gt350-gt350r-in-depth-model-review-car-and-driver-photo-694522-s-original.jpg" alt="">
-									<i class="vehicle-link-icon fa fa-link"></i>
-								</a>
-								<a class="vehicle-title" href="#">Persius imperdiet </a>
-								<div class="vehicle-details">
-									<span class="vehicle-category">Type</span>
-									<span class="vehicle-price vehicle-premium">More info</span>
-								</div>
-							</div>
-						</div>
-						<!-- /vehicle -->
+                    {% endfor %}
 
-						<!-- vehicle -->
-						<div class="col-md-4 col-sm-6 col-xs-6">
-							<div class="vehicle">
-								<a href="#" class="vehicle-img">
-									<img src="https://hips.hearstapps.com/amv-prod-cad-assets.s3.amazonaws.com/images/media/672264/2018-ford-mustang-shelby-gt350-gt350r-in-depth-model-review-car-and-driver-photo-694522-s-original.jpg" alt="">
-									<i class="vehicle-link-icon fa fa-link"></i>
-								</a>
-								<a class="vehicle-title" href="#">Persius imperdiet </a>
-								<div class="vehicle-details">
-									<span class="vehicle-category">Type</span>
-									<span class="vehicle-price vehicle-premium">More info</span>
-								</div>
-							</div>
-						</div>
-						<!-- /vehicle -->
+                        <div class="pagination">
+                            <span class="step-links">
+                                {% if vehicles.has_previous %}
+                                    <a href="?page=1">&laquo; first</a>
+                                    <a href="?page={{ vehicles.previous_page_number }}">previous</a>
+                                {% endif %}
 
-						
+                                <span class="current">
+                                    Page {{ vehicles.number }} of {{ vehicles.paginator.num_pages }}.
+                                </span>
 
-<div class="col-md-6 col-sm-6 col-xs-6">
-							<div class="vehicle">
-								<a href="#" class="vehicle-img">
-									<img src="https://hips.hearstapps.com/amv-prod-cad-assets.s3.amazonaws.com/images/media/672264/2018-ford-mustang-shelby-gt350-gt350r-in-depth-model-review-car-and-driver-photo-694522-s-original.jpg" alt="">
-									<i class="vehicle-link-icon fa fa-link"></i>
-								</a>
-								<a class="vehicle-title" href="#">Persius imperdiet </a>
-								<div class="vehicle-details">
-									<span class="vehicle-category">Type</span>
-									<span class="vehicle-price vehicle-free">More info</span>
-								</div>
-							</div>
-						</div><div class="col-md-6 col-sm-6 col-xs-6">
-							<div class="vehicle">
-								<a href="#" class="vehicle-img">
-									<img src="https://hips.hearstapps.com/amv-prod-cad-assets.s3.amazonaws.com/images/media/672264/2018-ford-mustang-shelby-gt350-gt350r-in-depth-model-review-car-and-driver-photo-694522-s-original.jpg" alt="">
-									<i class="vehicle-link-icon fa fa-link"></i>
-								</a>
-								<a class="vehicle-title" href="#">Persius imperdiet </a>
-								<div class="vehicle-details">
-									<span class="vehicle-category">Type</span>
-									<span class="vehicle-price vehicle-free">More info</span>
-								</div>
-							</div>
-						</div>
-						<!-- /vehicle -->
+                                {% if vehicles.has_next %}
+                                    <a href="?page={{ vehicles.next_page_number }}">next</a>
+                                    <a href="?page={{ vehicles.paginator.num_pages }}">last &raquo;</a>
+                                {% endif %}
+                            </span>
+                        </div>
+
+
 
 					</div>
 					<!-- /row -->
