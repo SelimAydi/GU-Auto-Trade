@@ -1,4 +1,5 @@
 {% load static %}
+{% load Tools %}
 {# HTML5 declaration #}
 <!DOCTYPE html>
 <html>
@@ -42,8 +43,9 @@
 				<div class="navbar-header">
 					<!-- Logo -->
 					<div class="navbar-brand">
-						<a class="logo" href="/shelby">
-							<img src="{% static '/img/shelbylogo.png' %}" alt="logo">
+						<a class="{{ logoclass | default:'bluelogo' }}" href="/shelby">
+{#							<img src="{% static '/img/shelbylogo.png' %}" alt="logo">#}
+                            {% include 'includes/logo.svg' %}
 						</a>
 					</div>
 					<!-- /Logo -->
@@ -58,9 +60,9 @@
 				<!-- Navigation -->
 				
 				<nav id="nav">
-					<ul class="main-menu nav navbar-nav navbar-right">
+					<ul class="main-menu nav navbar-nav navbar-right" style="margin-top: 15px;">
 						<li><a href="/shelby">Home</a></li>
-						<li><a onclick="$(window).scrollTo(document.getElementById('vehicles'), 1000);">Vehicles</a></li>
+						<li><a {% if request.path|stripslashes == 'shelby' %} onclick="$(window).scrollTo(document.getElementById('vehicles'), 1000);" {% else %}href="/shelby/#vehicles"{% endif %}>Vehicles</a></li>
 						<li><a href="#">Dealers</a></li>
 						<li><a href="#">Events</a></li>
 						<li><a href="#">Shop</a></li>
@@ -95,7 +97,7 @@
 					<div class="col-md-6">
 						<div class="footer-logo">
 							<a class="logo" href="index.html">
-								<img src="{% static '/img/shelbylogo.png' %}" alt="logo">
+                                {% include 'includes/logo.svg' %}
 							</a>
 						</div>
 					</div>
@@ -105,7 +107,7 @@
 					<div class="col-md-12">
 						<ul class="footer-nav">
 							<li><a href="/shelby">Home</a></li>
-							<li><a onclick="$(window).scrollTo(document.getElementById('vehicles'), 1000);">Vehicles</a></li>
+							<li><a {% if request.path == 'shelby' %} {% endif %}onclick="$(window).scrollTo(document.getElementById('vehicles'), 1000);">Vehicles</a></li>
 							<li><a href="#">Dealers</a></li>
 							<li><a href="#">Events</a></li>
 							<li><a href="#">Shop</a></li>

@@ -111,8 +111,10 @@ def dealerportalmyorders(request):
 # an orderlist that can only be seen by a staff member (or superuser)
 def dealerportalorderlist(request):
     if request.user.is_authenticated:
+        form = forms.PartialOrderForm()
         if request.method == "POST":
             print(request.POST)
+            print(request.FILES)
 
             obj = Orders.objects.get(pk=request.POST['change'])
             obj.model = request.POST['inp3']
@@ -123,6 +125,11 @@ def dealerportalorderlist(request):
             obj.custom_clearance = request.POST['check7x']
             obj.deposit_received = request.POST['check9x']
             obj.payment_received = request.POST['check10x']
+
+            if request.FILES:
+                obj.invoice = request.FILES['invoice']
+
+            # obj.additional_comments = form.cleaned_data['additional_comments']
 
             if str(request.POST['check6x']) == 'True' and str(obj.homologation) == 'False':
                 obj = True
@@ -152,11 +159,10 @@ def dealerportalorderlist(request):
                 obj = False
                 print("newobj: ", obj)
 
-            # print("homologation: ", request.POST['check6x'])
             obj.save()
 
         allOrders = Orders.objects.all().order_by('-date')
-        return render(request, 'dealerportal/orderlist.html', {'orders': allOrders})
+        return render(request, 'dealerportal/orderlist.html', {'orders': allOrders, 'form': form})
     return redirect(login)
 
 # an admin page to register a dealer

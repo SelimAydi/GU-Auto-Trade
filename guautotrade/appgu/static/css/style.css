@@ -143,6 +143,11 @@ blockquote:before{
 	margin: 0 auto;
 }
 
+#contact {
+	padding-top: 250px;
+	height: calc(100vh);
+}
+
 /* --- Background Image --- */
 .bg-image {
 	position:absolute;
@@ -254,6 +259,41 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
 .navbar-brand .logo {
 	/* margin-top: 10px; */
 	display: inline-block;
+	padding: 15px;
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+	background-color: #1212121f;
+}
+
+.logo > svg{
+	width: 120px;
+	height: 120px;
+}
+
+.logo svg > g{
+	fill: #e8e8e8;
+}
+
+.navbar-brand .bluelogo {
+	/* margin-top: 10px; */
+	display: inline-block;
+	padding: 15px;
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+	background-color: #374050;
+}
+
+.bluelogo > svg{
+	width: 100px;
+	height: 100px;
+}
+
+.bluelogo svg > g{
+	fill: #e8e8e8;
+}
+
+.footer-logo .logo svg > g{
+	fill: #00000021;
 }
 
 .navbar-brand .logo > img {
@@ -268,7 +308,7 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
 	.navbar-brand {
 		margin-left:15px;
 	}
-} 
+}
 
 /*------------------------------------*\
 	Navigation
@@ -294,7 +334,7 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
 #header.portal {
 	position:absolute;
 	background-color: #374050;
-	border-bottom: solid 0.1vh #00000026;
+	/* border-bottom: solid 0.1vh #00000026; */
 }
 
 .portal i{
@@ -337,7 +377,7 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
 
 #header.transparent-nav .main-menu li a {
 	color: #e7e5e5;
-	font-size: 14px;
+	font-size: 15px;
 }
 
 .main-menu li a {
@@ -656,6 +696,15 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
 	margin-bottom:20px;
 }
 
+.vehicle a > svg {
+	height: 200px;
+	width: 200px;
+}
+
+.vehicle a > svg > g{
+	fill: #a7a7a7;
+}
+
 .vehicle .vehicle-img {
 	position: relative;
 	display:block;
@@ -773,7 +822,7 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
 
 .footer-logo  .logo > img {
 	max-height: 80px;
-	opacity: 0.5;
+	opacity: 1;
 }
 
 /* -- Footer Nav -- */
@@ -1476,8 +1525,8 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
 	border-color: #00000054;
 }
 
-.dealerloginform select{
-	width: 50%;
+.registerform select{
+	width: 65%;
 	margin: 0 auto;
 	outline: none !important;
 	display: block;
@@ -1491,7 +1540,7 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
 	text-align-last: center;
 }
 
-.dealerloginform option{
+.registerform option{
 	text-align: center;
 	background-color: #374050;
 	border: none;
@@ -1518,7 +1567,7 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
 	border-right: 0;
 	border-bottom: solid 0.1vh #37405040;
 	border-radius: 0;
-	color: #8ca6ac;
+	color: #48b17c;
 	font-weight: 800;
 }
 
@@ -1768,3 +1817,52 @@ input[type="file"] {
 .dropdown-content a:hover {background-color: #ddd;}
 
 .dropdown:hover .dropdown-content {display: block;}
+
+/*==================================================================
+[ Modal (semi-popup) ]*/
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    /* text-align: center; */
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 40%;
+}
+
+#modaltext {
+	overflow-y: auto;
+	max-height: 400px;
+}
+
+/* The Close Button */
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    margin-left: 10px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}

@@ -39,7 +39,7 @@
 				</div>
 			</div>
                 <div class="tb">
-                        <form method="POST" id="orderchange">
+                        <form method="POST" enctype="multipart/form-data" id="orderchange">
                         {% csrf_token %}
                         <input id="change" name="change" type="hidden">
                         <table id="orderstb">
@@ -57,6 +57,8 @@
                                         <th class="clm column4" data-column="column4">Scheduled Completion Date</th>
                                         <th class="clm column4" data-column="column4">Deposit Received</th>
                                         <th class="clm column4" data-column="column4">Payment Received</th>
+                                        <th class="clm column4" data-column="column4">Additional Comments</th>
+                                        <th class="clm column4" data-column="column4">Invoice</th>
                                         <th class="clm column1" data-column="column1"></th>
 
                                     </tr>
@@ -74,6 +76,8 @@
                                     <td class="clm column4" data-column="column4" style="width: 20%;">{% if not i.scheduled_completion_date %}NA{% else %}{{ i.scheduled_completion_date }}{% endif %}</td>
                                     <td class="clm column4" data-column="column4">{% if i.deposit_received %}<i class="fas fa-check"></i>{% else %}<i class="fas fa-times"></i>{% endif %}</td>
                                     <td class="clm column4" data-column="column4">{% if i.payment_received %}<i class="fas fa-check"></i>{% else %}<i class="fas fa-times"></i>{% endif %}</td>
+                                    <td class="clm column4" data-column="column4">{% if not i.additional_comments %}NA{% else %}<button class='main-button' type='button' onclick='startModal("{{ i.additional_comments }}", "{{ i.id }}")' >View</button>{% endif %}</td>
+                                    <td class="clm column4" data-column="column4">{% if i.invoice == 'default_invoice.pdf' or not i.invoice %}NA{% else %}<a href="/media/{{ i.invoice }}">Download</a>{% endif %}</td>
                                     <td class="clm column4" data-column="column4" style="background-color: white !important"></td>
                                 </tr>
                                 {% endfor %}
@@ -82,79 +86,49 @@
                         </form>
                     </div>
 				<script>
-					var row = document.getElementById("tr1");
-					var old = row.innerHTML;
-					var oldrow = "";
-					var xow = [];
-					var orderstb = document.getElementById('orderstable')
 
-					function updateCells(rownum, orderid){
-					    {#document.getElementsByClassName("editbutton")[rownum.slice(2) - 1].parentNode.removeChild(document.getElementsByClassName("editbutton")[0])#}
-						$('.editbutton').hide();
-                        oldrow = document.getElementById(rownum).innerHTML;
-						xow[rownum] = document.getElementById(rownum).innerHTML;
-						var roww = document.getElementById(rownum);
-						for (var i = 2; i < roww.cells.length; i++){
-							var curr = roww.cells[i].innerHTML;
-							console.log("am looping")
-							if (curr === '<i class="fas fa-check"></i>'){
-								var field = "<input id='check" + i + "x' type='hidden' value='True' name='check" + i + "x'/><input id='check" + i + "' type='checkbox' onchange='updateCheckbox(this)' name='check"+ i + "' value='True' checked />"
-								console.log("IS CHECKED")
-							} else if (curr === '<i class="fas fa-times"></i>') {
-								var field = "<input id='check" + i + "x' type='hidden' value='False' name='check" + i + "x'/><input id='check" + i + "' name='check" + i + "' onchange='updateCheckbox(this)' type='checkbox' value='False' />"
-							} else {
-								if (i !== 5){
-									if (i !== 2){
-										var field = "<input name='inp" + i + "' type='text' value='" + curr + "' />"
-									} else {
-										var field = roww.cells[i].innerHTML
-									}
-								} else {
-									var field = roww.cells[i].innerHTML
-								}
-							}
-							roww.cells[i].innerHTML = field;
-						}
-						
-						roww.cells[0].innerHTML = roww.cells[0].innerHTML + "<button onclick=cancelPost('" + String(rownum) + "') class='main-button'>Cancel</button>";
-						roww.cells[roww.cells.length - 1].innerHTML = "<button type='submit' class='main-button' onclick='savePost()'>Save</button>";
-{#						document.getElementsByClassName("container")[1].style.width = "100%"#}
-						change.value = orderid
-						
-					}
-					
-					function cancelPost(rownum){
-					    console.log("CANCELLING")
-						console.log("ROWNUM: " + rownum)
-						document.getElementById(rownum).innerHTML = xow[rownum];
-						
-						document.getElementsByClassName("container")[1].style.width = "1170px"
-                        $('.editbutton').show();
-					}
-					
-					function savePost(){
-					    if ($(element).is(":hidden")){
-					        $('.editbutton').hide();
+	            </script>
+
+                <!-- The Modal -->
+                <div id="Modal" class="modal">
+
+                  <!-- Modal content -->
+                  <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <p id="modaltext">Some text in the Modal..</p>
+                  </div>
+
+                </div>
+
+                <script>
+                    // Get the modal
+                    var modal = document.getElementById('Modal');
+
+                    // Get the <span> element that closes the modal
+                    var span = document.getElementsByClassName("close")[0];
+
+                    function startModal(text, ordernumber){
+                        var modaltext = document.getElementById("modaltext");
+                        modaltext.innerHTML = "<b>Additional comments for order " + ordernumber + "<b><br><br>";
+                        modaltext.innerHTML += text;
+                        modal.style.display = "block";
+                    }
+
+                    function stopModal(){
+                        modal.style.display = "none";
+                    }
+
+                    span.onclick = function() {
+                        modal.style.display = "none";
+                    }
+
+                    // When the user clicks anywhere outside of the modal, close it
+                    window.onclick = function(event) {
+                        if (event.target == modal) {
+                            modal.style.display = "none";
                         }
-						for(var i = 3; i <= 21; i = i + 2){
-							console.log(String(row.childNodes[i].childNodes[0].value))
-						}
-					}
-					
-					function updateCheckbox(obj){
-						console.log(obj);
-						console.log(obj.name + "x");
-						hidden = document.getElementById(obj.name + "x");
-						if (obj.checked){
-							//console.log(obj.name + "x")
-							obj.value = "True";
-							hidden.value = "True"
-						} else {
-							obj.value = "False";
-							hidden.value = "False"
-						}
-					}
-				</script>
+                    }
+                </script>
 		</div>
 		<!-- /Home -->
 {% endblock %}

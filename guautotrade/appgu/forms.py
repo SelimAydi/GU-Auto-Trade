@@ -118,26 +118,25 @@ class RegistrationAdminForm(UserCreationForm):
 
 
 class OrderForm(forms.ModelForm):
-    CHOICES_model = (('Shelby Super Snake', 'Shelby Super Snake'), ('Shelby F150', 'Shelby F150'),)
-    CHOICES_colour = (('Blue', 'Blue'), ('Yellow', 'Yellow'),)
+    CHOICES_model = (('Shelby F150 Super Snake', 'Shelby F150 Super Snake'), ('Shelby F150 Offroad', 'Shelby F150 Offroad'), ('Shelby F150 Offroad Longbed', 'Shelby F150 Offroad Longbed'),)
+    CHOICES_colour = (('Lightning Blue', 'Lightning Blue'), ('Ruby Red', 'Ruby Red'), ('Shadow Black', 'Shadow Black'), ('Oxford White', 'Oxford White'), ('Magnetic', 'Magnetic'),)
     model = forms.ChoiceField(choices=CHOICES_model, required=True)
     colour = forms.ChoiceField(choices=CHOICES_colour, required=True)
-
-    # model = forms.CharField(required=True)
-    # colour = forms.CharField(required=True)
+    additional_comments = forms.CharField(required=False, widget=forms.Textarea)
 
     class Meta:
         model = models.Orders
-        fields = ("model", "colour")
+        fields = ("model", "colour", "additional_comments")
 
     def __init__(self, *args, **kwargs):
         kwargs.setdefault('label_suffix', '')
         super(OrderForm, self).__init__(*args, **kwargs)
         self.fields['model'].label = "Model"
         self.fields['colour'].label = "Colour"
+        self.fields['additional_comments'].label = "Additional Comments"
         self.fields['model'].widget.attrs['placeholder'] = 'Modelnumber'
         self.fields['colour'].widget.attrs['placeholder'] = 'What colour?'
-
+        self.fields['additional_comments'].widget.attrs['placeholder'] = 'Put extra information or remarks here'
 
 class VehicleForm(forms.ModelForm):
     model = forms.CharField(required=True)
@@ -162,4 +161,18 @@ class VehicleForm(forms.ModelForm):
         self.fields['model'].widget.attrs['placeholder'] = 'Shelby Supersnake'
         self.fields['headline'].widget.attrs['placeholder'] = 'Shelby Supersnake is one of the most..'
         self.fields['description'].widget.attrs['placeholder'] = 'A description of the model'
+
+class PartialOrderForm(forms.ModelForm):
+    invoice = forms.FileField()
+
+    class Meta:
+        model = models.Vehicles
+        fields = ('invoice',)
+
+    def __init__(self, *args, **kwargs):
+        kwargs.setdefault('label_suffix', '')
+        super(PartialOrderForm, self).__init__(*args, **kwargs)
+        self.fields['invoice'].label = ""
+        self.fields['invoice'].widget.attrs.update({'class': 'invis'})
+
 

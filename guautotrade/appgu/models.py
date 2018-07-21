@@ -20,16 +20,17 @@ class Orders(models.Model):
         verbose_name_plural = "Orders"
 
     dealerID = models.ForeignKey(Dealers, db_column='dealerID', on_delete=models.CASCADE)
-    # dealer_user_name = models.CharField(max_length=30)
     model = models.CharField(max_length=1000)
     colour = models.CharField(max_length=1000)
     date = models.DateField(auto_now_add=True)
     homologation = models.BooleanField(default=False)
     custom_clearance = models.BooleanField(default=False)
+    additional_comments = models.CharField(max_length=1000)
 
     scheduled_completion_date = models.CharField(max_length=100)
     deposit_received = models.BooleanField(default=False)
     payment_received = models.BooleanField(default=False)
+    invoice = models.FileField(default='default_invoice.pdf', upload_to='portal_invoices/', blank=True, null=True)
 
 
 class Vehicles(models.Model):

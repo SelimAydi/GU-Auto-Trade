@@ -1,5 +1,10 @@
 {% extends "frames/sub_base.html" %}
 {% load static %}
+{% block header %}
+	{% with logoclass='logo' %}
+			{{ block.super }}
+	{% endwith%}
+{% endblock header%}
 {% block content %}
 		<!-- Home -->
 		<div id="home" class="hero-area">
@@ -351,7 +356,7 @@
 					<div class="col-md-8 col-md-offset-2 text-center">
 						<h2 class="white-text">Contact Us</h2>
 						<p class="lead white-text">Libris vivendo eloquentiam ex ius, nec id splendide abhorreant.</p>
-						<a class="main-button icon-button" href="contact.html">Contact Us Now</a>
+						<a class="main-button icon-button" href="contact">Contact Us Now</a>
 					</div>
 
 				</div>
