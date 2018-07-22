@@ -1,8 +1,6 @@
 from django.shortcuts import render, redirect
 from . import forms
-from .models import Orders
-from .models import Dealers
-from .models import Vehicles
+from .models import *
 from django.contrib.auth.views import login
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 
@@ -32,6 +30,49 @@ def shelby(request):
     page = request.GET.get('page')
     vehicles = paginator.get_page(page)
     return render(request, 'shelby/index.html', {'vehicles': vehicles, 'c_type': c_type, 'last': last, 'secondlast': secondlast})
+
+
+# dealers page
+def dealers(request):
+    return render(request, 'shelby/contact.html')
+
+
+# events page
+def events(request):
+    return render(request, 'shelby/contact.html')
+
+
+# shop page
+def shop(request):
+    return render(request, 'shelby/contact.html')
+
+
+# news page
+def news(request):
+    news = NewsPosts.objects.all()
+    if not news:
+        print("nothing in news found!")
+        return render(request, 'shelby/news.html', {"exists": False})
+    print("found newspost(s)")
+    l = []
+    for i in news:
+        l.append(i.banner)
+        l.append(i.title)
+        l.append(i.headline)
+        l.append(i.description)
+        l.append(i.quote)
+        l.append(i.quotefooter)
+        l.append(i.date)
+        l.append(i.writtenby)
+        print(i.title)
+
+    return render(request, 'shelby/news.html',
+                  {'banner': l[0], 'title': l[1], 'headline': l[2], 'desc': l[3], 'quote': l[4], 'quotefooter': l[5], 'date': l[6], 'writtenby': l[7], 'exists': True})
+
+# press and media page
+def pressandmedia(request):
+    return render(request, 'shelby/contact.html')
+
 
 # contact page
 def contact(request):

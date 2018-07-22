@@ -1,0 +1,66 @@
+{% extends "frames/sub_base.html" %}
+{% load static %}
+
+{% block header %}
+	{% with headerclass='portal' %}
+			{{ block.super }}
+	{% endwith%}
+{% endblock header%}
+
+{% block content %}
+		<!-- News -->
+		<div id="contact" class="section">
+
+			<!-- container -->
+			<div class="container">
+
+				<!-- row -->
+				<div class="row">
+                {% if exists %}
+					<div class="col-md-9">
+						<div class="col-md-11">
+                            {% if banner %}<img src="{{ banner }}" class="img-fluid" alt="Banner">{% endif %}
+                            <h3>{{ title }}</h3>
+                            <p class="lead">{{ headline }}</p>
+                            <footer class="small" style="margin-bottom: 20px">- Posted by {{ writtenby.name }} {{ writtenby.surname }} on {{ date }}</footer>
+                        {% if quote %}<blockquote><p>{{ quote }}</p><footer>{{ quotefooter }}</footer></blockquote>{% endif %}
+                            {% autoescape off %}
+                                {{ desc }}
+                            {% endautoescape %}
+                        </div>
+					</div>
+
+					<div class="col-md-3">
+						<nav class="nav-sidebar">
+                            <ul class="nav">
+
+                                <li class="active"><a href="javascript:;">Latest news</a></li>
+                                <li><a href="javascript:;">Category</a></li>
+                                <li><a href="javascript:;">Category</a></li>
+                                <li><a href="javascript:;">Category</a></li>
+                                <li><a href="javascript:;">Category</a></li>
+                                <li><a href="javascript:;">Category</a></li>
+                                <li><a href="javascript:;">Category</a></li>
+                                <li class="nav-divider"></li>
+
+                            </ul>
+                        </nav>
+
+					</div>
+                    {% else %}
+                    <div class="col-md-12" style="text-align: center;">
+                        <h3>No newsposts are available just yet!</h3>
+                    </div>
+                {% endif %}
+				</div>
+				<!-- /row -->
+			</div>
+			<!-- /container -->
+
+		</div>
+		<!-- /News -->
+{% endblock %}
+
+{% block js %}
+		<script type="text/javascript" src="{% static 'js/google-map.js' %}"></script>
+{% endblock js%}

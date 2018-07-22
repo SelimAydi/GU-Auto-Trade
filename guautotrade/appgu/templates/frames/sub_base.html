@@ -63,12 +63,12 @@
 					<ul class="main-menu nav navbar-nav navbar-right" style="margin-top: 15px;">
 						<li><a href="/shelby">Home</a></li>
 						<li><a {% if request.path|stripslashes == 'shelby' %} onclick="$(window).scrollTo(document.getElementById('vehicles'), 1000);" {% else %}href="/shelby/#vehicles"{% endif %}>Vehicles</a></li>
-						<li><a href="#">Dealers</a></li>
-						<li><a href="#">Events</a></li>
-						<li><a href="#">Shop</a></li>
-						<li><a href="#">News</a></li>
+						<li><a href="/shelby/dealers">Dealers</a></li>
+						<li><a href="/shelby/events">Events</a></li>
+						<li><a href="/shelby/shop">Shop</a></li>
+						<li><a href="/shelby/news">News</a></li>
 						<li><a href="#">Press & Media</a></li>
-						<li><a href="/portal">{% if not user.is_authenticated %}Login{% else %}Portal {% endif %}</a></li>
+						<li><a href="/portal">{% if not user.is_authenticated %}Login{% else %}Portal{% endif %}</a></li>
 						<li><a href="/shelby/contact">Contact</a></li>
 					</ul>
 				</nav>

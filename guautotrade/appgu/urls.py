@@ -18,6 +18,10 @@ urlpatterns = [
     path('portal/registeradmin/', views.registeradmin, name='registeradmin'),
     path('accounts/', include('django.contrib.auth.urls')),
     path('shelby/', views.shelby, name='shelby'),
+    path('shelby/dealers/', views.dealers, name='dealers'),
+    path('shelby/events/', views.events, name='events'),
+    path('shelby/shop/', views.shop, name='shop'),
+    path('shelby/news/', views.news, name='news'),
     path('shelby/contact/', views.contact, name='contact'),
     path('shelby/vehicle/', views.vehicledesc, name='vehicledesc'),
 ]
