@@ -148,6 +148,10 @@ blockquote:before{
 	height: calc(100vh);
 }
 
+#dealers {
+	height: calc(100vh);
+}
+
 #expandable {
 	padding-top: 250px;
 }
@@ -1874,4 +1878,37 @@ input[type="file"] {
     color: #000;
     text-decoration: none;
     cursor: pointer;
+}
+
+/*==================================================================
+[ Map (semi-popup) ]*/
+
+#mapid {
+	height: calc(100vh);
+	z-index: 10;
+}
+
+.mapbox {
+	position: absolute;
+	height: 320px;
+	width: 15%;
+	background-color: #374050;
+	z-index: 15;
+	top: 0;
+	bottom: 0;
+	left: 2%;
+	margin: auto;
+	border-radius: 5px;
+}
+
+.mapbox .nav {
+	padding:10px;
+}
+
+.mapbox .nav>li>a:hover{
+	background-color: #4e586a;
+}
+
+.mapbox .nav>li>a {
+	color: white;
 }

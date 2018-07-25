@@ -18,15 +18,38 @@
 				<div class="row">
                 {% if exists %}
 					<div class="col-md-9">
-						<div class="col-md-11">
-                            {% if banner %}<img src="{{ banner }}" class="img-fluid" alt="Banner">{% endif %}
-                            <h3>{{ title }}</h3>
-                            <p class="lead">{{ headline }}</p>
-                            <footer class="small" style="margin-bottom: 20px">- Posted by {{ writtenby.name }} {{ writtenby.surname }} on {{ date }}</footer>
-                        {% if quote %}<blockquote><p>{{ quote }}</p><footer>{{ quotefooter }}</footer></blockquote>{% endif %}
+
+                    {% for post in newsposts %}
+                        <div class="col-md-11">
+                            {% if post.banner %}<img src="/media/{{ post.banner }}" class="img-fluid" alt="Banner">{% endif %}
+                            <h3>{{ post.title }}</h3>
+                            <p class="lead">{{ post.headline }}</p>
+                            <footer class="small" style="margin-bottom: 20px">- Posted by {{ post.writtenby }} {{ post.writtenby }} on {{ post.date }}</footer>
+                        {% if quote %}<blockquote><p>{{ post.quote }}</p><footer>{{ post.quotefooter }}</footer></blockquote>{% endif %}
                             {% autoescape off %}
-                                {{ desc }}
+                                {{ post.description }}
                             {% endautoescape %}
+                        </div>
+						<!-- /vehicle -->
+
+                    {% endfor %}
+
+                    <div class="pagination">
+                            <span class="step-links">
+                                {% if newsposts.has_previous %}
+                                    <a href="?page=1">&laquo; first</a>
+                                    <a href="?page={{ newsposts.previous_page_number }}">previous</a>
+                                {% endif %}
+
+                                <span class="current">
+                                    Page {{ newsposts.number }} of {{ newsposts.paginator.num_pages }}.
+                                </span>
+
+                                {% if newsposts.has_next %}
+                                    <a href="?page={{ newsposts.next_page_number }}">next</a>
+                                    <a href="?page={{ newsposts.paginator.num_pages }}">last &raquo;</a>
+                                {% endif %}
+                            </span>
                         </div>
 					</div>
 
@@ -49,7 +72,7 @@
 					</div>
                     {% else %}
                     <div class="col-md-12" style="text-align: center;">
-                        <h3>No newsposts are available just yet!</h3>
+                        <h3>No newspost found!</h3>
                     </div>
                 {% endif %}
 				</div>

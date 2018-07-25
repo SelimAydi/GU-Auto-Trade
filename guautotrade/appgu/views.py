@@ -34,7 +34,7 @@ def shelby(request):
 
 # dealers page
 def dealers(request):
-    return render(request, 'shelby/contact.html')
+    return render(request, 'shelby/dealers.html')
 
 
 # events page
@@ -49,7 +49,22 @@ def shop(request):
 
 # news page
 def news(request):
-    news = NewsPosts.objects.all()
+    if request.method == 'GET' and 'n' in request.GET:
+        n = request.GET['n']
+        if n is not None and n != '':
+            print(request.GET)
+            news = NewsPosts.objects.filter(pk=request.GET.get('n'))
+    else:
+        news_list = NewsPosts.objects.all()
+        if len(news_list) == 0:
+            exists = False
+        else:
+            exists = True
+        paginator = Paginator(news_list, 1)  # Show 1 newspost per page
+        page = request.GET.get('page')
+        newsposts = paginator.get_page(page)
+        return render(request, 'shelby/news.html', {'newsposts': newsposts, 'exists': exists})
+
     if not news:
         print("nothing in news found!")
         return render(request, 'shelby/news.html', {"exists": False})
@@ -68,6 +83,9 @@ def news(request):
 
     return render(request, 'shelby/news.html',
                   {'banner': l[0], 'title': l[1], 'headline': l[2], 'desc': l[3], 'quote': l[4], 'quotefooter': l[5], 'date': l[6], 'writtenby': l[7], 'exists': True})
+    # else:
+    #     print("canceled")
+    #     return render(request, 'shelby/news.html')
 
 # press and media page
 def pressandmedia(request):
@@ -107,27 +125,26 @@ def vehicledesc(request):
         print("canceled")
         return render(request, 'shelby/vehicledesc.html')
 
-# place an order in the dealerportal
-def dealerportalorder(request):
+# place an order in the portal
+def portalorder(request):
     if request.user.is_authenticated:
         userid = request.user.id
         if request.method == "POST":
             print(request.POST)
-            form = forms.OrderForm(data=request.POST)
+            form = forms.OrderForm(request.POST)
             if form.is_valid():
                 print("VALID FORM")
                 userobj = Dealers.objects.get(dealerID=userid)
-                order = Orders(dealerID=userobj, model=request.POST['model'], colour=request.POST['colour'])
+                order = Orders(dealerID=userobj, model=request.POST['model'], colour=request.POST['colour'], homologation=True if 'homologation' in request.POST else False, custom_clearance=True if 'custom_clearance' in request.POST else False, additional_comments=request.POST['additional_comments'])
                 order.save()
             else:
                 print("INVALID FORM")
-                return render(request, 'dealerportal/dealerportal.html', {'form': form})
+                return render(request, 'portal/portal.html', {'form': form})
             return redirect('status/?m=' + request.POST.get('model') + '&c=' + request.POST.get('colour'))
-                          # {'model': request.POST.get('model'), 'colour': request.POST.get('colour')}
         else:
             print("SHOWING FORM")
             form = forms.OrderForm()
-            return render(request, 'dealerportal/dealerportal.html', {'form': form, 'headerclass': 'portal'})
+            return render(request, 'portal/portal.html', {'form': form, 'headerclass': 'portal'})
     else:
         return redirect(login)
 
@@ -136,21 +153,21 @@ def status(request):
         model = request.GET['m']
         color = request.GET['c']
         print(color)
-        return render(request, 'dealerportal/status.html', {'model': model, 'color': color})
+        return render(request, 'portal/status.html', {'model': model, 'color': color})
     return redirect(login)
 
 
 # a personal dealer orderlist
-def dealerportalmyorders(request):
+def portalmyorders(request):
     if request.user.is_authenticated:
         if not request.user.is_staff:
             userid = request.user.id
             allOrders = Orders.objects.filter(dealerID=userid).order_by('-date')
-            return render(request, 'dealerportal/myorders.html', {'orders': allOrders})
+            return render(request, 'portal/myorders.html', {'orders': allOrders})
     return redirect(login)
 
 # an orderlist that can only be seen by a staff member (or superuser)
-def dealerportalorderlist(request):
+def portalorderlist(request):
     if request.user.is_authenticated:
         form = forms.PartialOrderForm()
         if request.method == "POST":
@@ -203,7 +220,7 @@ def dealerportalorderlist(request):
             obj.save()
 
         allOrders = Orders.objects.all().order_by('-date')
-        return render(request, 'dealerportal/orderlist.html', {'orders': allOrders, 'form': form})
+        return render(request, 'portal/orderlist.html', {'orders': allOrders, 'form': form})
     return redirect(login)
 
 # an admin page to register a dealer
@@ -216,12 +233,12 @@ def registerdealer(request):
             if form.is_valid():
                 print("form is valid")
                 form.save()
-                return render(request, 'dealerportal/registered.html', {'dealer_username': request.POST.get('username'), 'dealer_firstname' : request.POST.get('firstname'), 'dealer_lastname': request.POST.get('lastname'), 'usertype': user})
+                return render(request, 'portal/registered.html', {'dealer_username': request.POST.get('username'), 'dealer_firstname' : request.POST.get('firstname'), 'dealer_lastname': request.POST.get('lastname'), 'usertype': user})
             else:
                 print("form invalid")
-                return render(request, 'dealerportal/registerdealer.html', {'form': form})
+                return render(request, 'portal/registerdealer.html', {'form': form})
         form = forms.RegistrationDealerForm()
-        return render(request, 'dealerportal/registerdealer.html', {'form': form, 'usertype': user})
+        return render(request, 'portal/registerdealer.html', {'form': form, 'usertype': user})
     return redirect(login)
 
 # a superuser page to register an admin
@@ -235,12 +252,12 @@ def registeradmin(request):
                 if form.is_valid():
                     print("form is valid")
                     form.save()
-                    return render(request, 'dealerportal/registered.html', {'dealer_username': request.POST.get('username'), 'dealer_firstname' : request.POST.get('firstname'), 'dealer_lastname': request.POST.get('lastname'), 'usertype': user})
+                    return render(request, 'portal/registered.html', {'dealer_username': request.POST.get('username'), 'dealer_firstname' : request.POST.get('firstname'), 'dealer_lastname': request.POST.get('lastname'), 'usertype': user})
                 else:
                     print("form invalid")
-                    return render(request, 'dealerportal/registerdealer.html', {'form': form})
+                    return render(request, 'portal/registerdealer.html', {'form': form})
             form = forms.RegistrationAdminForm()
-            return render(request, 'dealerportal/registerdealer.html', {'form': form, 'usertype': user})
+            return render(request, 'portal/registerdealer.html', {'form': form, 'usertype': user})
     return redirect(login)
 
 # a staff page to add a vehicle to the database, which will be displayed on the home page
@@ -256,6 +273,23 @@ def addvehicle(request):
                     print("CREATED ID = ", v.id)
                     return redirect('/shelby/vehicle/?v=' + str(v.id))
                 else:
-                    return render(request, 'dealerportal/upload.html', {'form' : form})
-            return render(request, 'dealerportal/upload.html', {'form': form})
+                    return render(request, 'portal/upload.html', {'form': form})
+            return render(request, 'portal/upload.html', {'form': form})
+    return redirect(login)
+
+# a staff page to add a newspost to the database, which will be displayed on the home page
+def addnewspost(request):
+    if request.user.is_authenticated:
+        if request.user.is_staff:
+            form = forms.NewsPostForm()
+            if request.method == 'POST':
+                form = forms.NewsPostForm(request.POST, request.FILES)
+                if form.is_valid():
+                    v = NewsPosts(writtenby=request.user, banner=form.cleaned_data['banner'], title=request.POST['title'], headline=request.POST['headline'], quote=request.POST['quote'], quotefooter=request.POST['quotefooter'], description=request.POST['description'])
+                    v.save()
+                    print("CREATED ID = ", v.id)
+                    return redirect('/shelby/news/?n=' + str(v.id))
+                else:
+                    return render(request, 'portal/addnewspost.html', {'form': form})
+            return render(request, 'portal/addnewspost.html', {'form': form})
     return redirect(login)

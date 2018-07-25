@@ -99,13 +99,19 @@
                                     </div>
                                 </div>
                                </li>
-                                <li {% if request.path|stripslashes == 'portalorderlist' %}style="background-color: #6a82af;"{% endif %}><a href="/portal/orderlist">Orders</a></li>
-                                <li {% if request.path|stripslashes == 'portaladdvehicle' %}style="background-color: #6a82af;" {% endif %}><a href="/portal/addvehicle">Add Vehicles</a></li>
                             {% else %}
-                                <li {% if request.path|stripslashes == 'portalorderlist' %}style="background-color: #6a82af;"{% endif %}><a href="/portal/orderlist">Orders</a></li>
                                 <li {% if request.path|stripslashes == 'portalregisterdealer' %}style="background-color: #6a82af;"{% endif %}><a href="/portal/registerdealer">Register Dealer</a></li>
-                                <li {% if request.path|stripslashes == 'portaladdvehicle' %}style="background-color: #6a82af;"{% endif %}><a href="/portal/addvehicle">Add Vehicles</a></li>
                             {% endif %}
+                            <li {% if request.path|stripslashes == 'portalorderlist' %}style="background-color: #6a82af;"{% endif %}><a href="/portal/orderlist">Orders</a>
+                            <li {% if request.path|stripslashes == 'portaladdvehicle' or request.path|stripslashes == 'portaladdnews' %}style="background-color: #6a82af;"{% endif %}>
+                                <div class="dropdown">
+                                    <a href="#" class="dropbtn">Add<i class="fas fa-caret-down"></i></a>
+                                    <div class="dropdown-content">
+                                      <a href="/portal/addvehicle">Vehicle</a>
+                                      <a href="/portal/addnewspost">Newspost</a>
+                                    </div>
+                                </div>
+                           </li>
                         {% endif %}
 						{% if not user.is_staff %}<li><a href="/portal/myorders">My Orders</a></li>{% endif %}
 						<li><a href="/accounts/logout/">Logout</a></li>
@@ -139,6 +145,5 @@
 		<script type="text/javascript" src="{% static 'js/jquery.min.js' %}"></script>
 		<script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
 		<script type="text/javascript" src="{% static 'js/main.js' %}"></script>
-        <script type="text/javascript" src="{% static 'js/logic.js' %}"></script>
 	</body>
 </html>

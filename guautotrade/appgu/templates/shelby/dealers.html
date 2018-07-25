@@ -1,0 +1,82 @@
+{% extends "frames/sub_base.html" %}
+{% load static %}
+
+{% block header %}
+	{% with headerclass='portal' %}
+			{{ block.super }}
+	{% endwith%}
+{% endblock header%}
+
+{% block content %}
+{#    <script src="{% static 'js/leaflet/leaflet.js' %}"></script>#}
+		<!-- News -->
+		<div id="dealers" class="section" style="padding-top: 67px;">
+                <div class="col-md-9 mapbox">
+                    <nav class="nav-sidebar">
+                            <ul class="nav">
+
+                                <li><a href="javascript:;">Utrecht</a></li>
+                                <li><a href="javascript:;">Noord-Holland</a></li>
+                                <li><a href="javascript:;">Zuid-Holland</a></li>
+                                <li><a href="javascript:;">Zeeland</a></li>
+                                <li><a href="javascript:;">Noord-Brabant</a></li>
+                                <li><a href="javascript:;">Limburg</a></li>
+                                <li class="nav-divider"></li>
+
+                            </ul>
+                        </nav>
+                </div>
+                <div id="mapid"></div>
+                <script>
+                    var mymap = L.map('mapid').setView([51.91696, 4.398819], 8);
+                    var dealer1 = L.marker([51.91696, 4.398819]).addTo(mymap);
+                    var dealer2 = L.marker([52.04696, 4.598819]).addTo(mymap);
+                    var dealer3 = L.marker([51.71696, 5.298819]).addTo(mymap);
+                    var dealer4 = L.marker([51.91696, 4.798819]).addTo(mymap);
+                    dealer1.bindPopup("<b>Dealer 1</b><br>X X street.")
+                    dealer2.bindPopup("<b>Dealer 2</b><br>X X street.")
+                    dealer3.bindPopup("<b>Dealer 3</b><br>X X street.")
+                    dealer4.bindPopup("<b>Dealer 4</b><br>X X street.")
+
+                    L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+                        attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+                        maxZoom: 18,
+                        id: 'mapbox.streets',
+                        accessToken: 'pk.eyJ1Ijoidml0YWx5bngiLCJhIjoiY2prMWVmZHV2MGZhdTNqcnlpOTJodXh5NSJ9.uZto22S1ULdHUiZrkVDmxA'
+                    }).addTo(mymap);
+                </script>
+			<!-- container -->
+			<div class="container">
+
+				<!-- row -->
+				<div class="row">
+
+
+					<div class="col-md-3">
+						<nav class="nav-sidebar">
+                            <ul class="nav">
+
+                                <li class="active"><a href="javascript:;">Latest news</a></li>
+                                <li><a href="javascript:;">Category</a></li>
+                                <li><a href="javascript:;">Category</a></li>
+                                <li><a href="javascript:;">Category</a></li>
+                                <li><a href="javascript:;">Category</a></li>
+                                <li><a href="javascript:;">Category</a></li>
+                                <li><a href="javascript:;">Category</a></li>
+                                <li class="nav-divider"></li>
+
+                            </ul>
+                        </nav>
+
+					</div>
+				</div>
+				<!-- /row -->
+			</div>
+			<!-- /container -->
+
+		</div>
+		<!-- /News -->
+{% endblock %}
+
+{% block js %}
+{% endblock js%}

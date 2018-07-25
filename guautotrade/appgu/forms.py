@@ -123,6 +123,8 @@ class OrderForm(forms.ModelForm):
     model = forms.ChoiceField(choices=CHOICES_model, required=True)
     colour = forms.ChoiceField(choices=CHOICES_colour, required=True)
     additional_comments = forms.CharField(required=False, widget=forms.Textarea)
+    homologation = forms.BooleanField(required=False)
+    custom_clearance = forms.BooleanField(required=False)
 
     class Meta:
         model = models.Orders
@@ -137,6 +139,24 @@ class OrderForm(forms.ModelForm):
         self.fields['model'].widget.attrs['placeholder'] = 'Modelnumber'
         self.fields['colour'].widget.attrs['placeholder'] = 'What colour?'
         self.fields['additional_comments'].widget.attrs['placeholder'] = 'Put extra information or remarks here'
+        self.fields['homologation'].label = "Homologation: "
+        self.fields['custom_clearance'].label = "Custom Clearance: "
+        self.fields['homologation'].widget.attrs.update({'class': 'registeradmincheckbox'})
+        self.fields['custom_clearance'].widget.attrs.update({'class': 'registeradmincheckbox'})
+
+    def save(self, commit=True):
+        order = super(OrderForm, self).save(commit=False)
+        order.model = self.cleaned_data['model']
+        order.colour = self.cleaned_data['colour']
+        order.additional_comments = self.cleaned_data['additional_comments']
+        order.homologation = self.cleaned_data['homologation']
+        order.custom_clearance = self.cleaned_data['custom_clearance']
+
+        if commit:
+            order.save()
+
+        return order
+
 
 class VehicleForm(forms.ModelForm):
     model = forms.CharField(required=True)
@@ -158,21 +178,56 @@ class VehicleForm(forms.ModelForm):
         self.fields['description'].label = "Description"
 
         self.fields['image'].widget.attrs.update({'class': 'invis'})
-        self.fields['model'].widget.attrs['placeholder'] = 'Shelby Supersnake'
-        self.fields['headline'].widget.attrs['placeholder'] = 'Shelby Supersnake is one of the most..'
+        self.fields['model'].widget.attrs['placeholder'] = 'Shelby Super Snake'
+        self.fields['headline'].widget.attrs['placeholder'] = 'Shelby Super Snake is one of the most..'
         self.fields['description'].widget.attrs['placeholder'] = 'A description of the model'
 
-class PartialOrderForm(forms.ModelForm):
-    invoice = forms.FileField()
+class NewsPostForm(forms.ModelForm):
+    writtenby = forms.CharField(required=True)
+    banner = forms.ImageField()
+    title = forms.CharField(required=True)
+    headline = forms.CharField(required=True)
+    description = forms.CharField(required=True, widget=forms.Textarea)
+    quote = forms.CharField(required=True)
+    quotefooter = forms.CharField(required=True)
+    field_order = ['title', 'headline', 'writtenby', 'quote', 'quotefooter', 'description', 'banner']
 
     class Meta:
         model = models.Vehicles
+        fields = ("title", "headline", 'writtenby', 'quote', 'quotefooter', "description", "banner")
+
+    def __init__(self, *args, **kwargs):
+        kwargs.setdefault('label_suffix', '')
+        super(NewsPostForm, self).__init__(*args, **kwargs)
+        self.fields['banner'].label = ""
+        self.fields['title'].label = "Title"
+        self.fields['headline'].label = "Headline"
+        self.fields['writtenby'].label = "Author"
+        self.fields['description'].label = "Description"
+        self.fields['quote'].label = "Quote"
+        self.fields['quotefooter'].label = "Quote Reference"
+
+        self.fields['banner'].widget.attrs.update({'class': 'invis'})
+        self.fields['title'].widget.attrs['placeholder'] = 'Shelby Super Snake is amazing'
+        self.fields['writtenby'].widget.attrs['placeholder'] = 'John Doe'
+        self.fields['headline'].widget.attrs['placeholder'] = 'Shelby Super Snake is one of the most..'
+        self.fields['quote'].widget.attrs['placeholder'] = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
+        self.fields['quotefooter'].widget.attrs['placeholder'] = 'From Example.com'
+        self.fields['description'].widget.attrs['placeholder'] = 'The actual newspost text goes here'
+
+class PartialOrderForm(forms.ModelForm):
+
+    invoice = forms.FileField(required=False)
+
+    class Meta:
+        model = models.Orders
         fields = ('invoice',)
 
     def __init__(self, *args, **kwargs):
         kwargs.setdefault('label_suffix', '')
         super(PartialOrderForm, self).__init__(*args, **kwargs)
         self.fields['invoice'].label = ""
+        self.fields['invoice'].required = False
         self.fields['invoice'].widget.attrs.update({'class': 'invis'})
 
 

@@ -1,5 +1,5 @@
 console.log(formlist);
-var formlist = "<input type='file' name='invoice' class='invis' required='' id='id_invoice'>";
+var formlist = "<input type='file' name='invoice' class='invis' id='id_invoice'>";
 var row = document.getElementById("tr1");
 var old = row.innerHTML;
 var oldrow = "";
@@ -34,7 +34,7 @@ function updateCells(rownum, orderid){
     }
 
     roww.cells[0].innerHTML = roww.cells[0].innerHTML + "<button onclick=cancelPost('" + String(rownum) + "') class='main-button'>Cancel</button>";
-    roww.cells[roww.cells.length - 1].innerHTML = "<button type='submit' class='main-button' onclick='savePost()'>Save</button>";
+    roww.cells[roww.cells.length - 1].innerHTML = "<button type='submit' class='main-button'>Save</button>";
     change.value = orderid;
     roww.cells[roww.cells.length - 2].innerHTML = formlist + "<label id='label1' class='custom-file-upload' for='id_invoice' style='width: 60%;'><i class='fas fa-upload'></i>Choose File</label>"
 
@@ -71,14 +71,14 @@ function cancelPost(rownum){
     $('.editbutton').show();
 }
 
-function savePost(){
-    if ($(element).is(":hidden")){
-        $('.editbutton').hide();
-    }
-    for(var i = 3; i <= 21; i = i + 2){
-        console.log(String(row.childNodes[i].childNodes[0].value))
-    }
-}
+// function savePost(){
+//     // if ($(element).is(":hidden")){
+//     //     $('.editbutton').hide();
+//     // }
+//     for(var i = 3; i <= 21; i = i + 2){
+//         console.log(String(row.childNodes[i].childNodes[0].value))
+//     }
+// }
 
 function updateCheckbox(obj){
     console.log(obj);

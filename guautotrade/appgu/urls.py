@@ -8,12 +8,13 @@ from django.conf import settings
 
 urlpatterns = [
     path('', views.index, name='index'),
-    path('portal/', login, {'template_name': 'dealerportal/dealerlogin.html'}),
-    path('portal/order/', views.dealerportalorder, name='dealerportal'),
+    path('portal/', login, {'template_name': 'portal/login.html'}),
+    path('portal/order/', views.portalorder, name='portalorder'),
     path('portal/order/status/', views.status, name='status'),
     path('portal/addvehicle/', views.addvehicle, name='upload'),
-    path('portal/myorders/', views.dealerportalmyorders, name='myorders'),
-    path('portal/orderlist/', views.dealerportalorderlist, name='orderlist'),
+    path('portal/addnewspost/', views.addnewspost, name='newspost'),
+    path('portal/myorders/', views.portalmyorders, name='myorders'),
+    path('portal/orderlist/', views.portalorderlist, name='orderlist'),
     path('portal/registerdealer/', views.registerdealer, name='registerdealer'),
     path('portal/registeradmin/', views.registeradmin, name='registeradmin'),
     path('accounts/', include('django.contrib.auth.urls')),
