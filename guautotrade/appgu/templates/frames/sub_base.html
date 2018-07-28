@@ -23,7 +23,7 @@
 
 		<!-- Custom stylesheet -->
 		<link type="text/css" rel="stylesheet" href="{% static 'css/style.css' %}"/>
-
+        <link rel="stylesheet" href="{% static 'css/calendar/theme3.css' %}">
 		<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
 
 {#        <link rel="stylesheet" href="{% static 'js/leaflet/leaflet.css' %}"/>#}
@@ -72,7 +72,7 @@
 				<nav id="nav">
 					<ul class="main-menu nav navbar-nav navbar-right" style="margin-top: 15px;">
 						<li><a href="/shelby">Home</a></li>
-						<li><a {% if request.path|stripslashes == 'shelby' %} onclick="$(window).scrollTo(document.getElementById('vehicles'), 1000);" {% else %}href="/shelby/#vehicles"{% endif %}>Vehicles</a></li>
+						{% if exists %}<li><a {% if request.path|stripslashes == 'shelby' %} onclick="$(window).scrollTo(document.getElementById('vehicles'), 1000);" {% else %}href="/shelby/#vehicles"{% endif %}>Vehicles</a></li>{% endif %}
 						<li><a href="/shelby/dealers">Dealers</a></li>
 						<li><a href="/shelby/events">Events</a></li>
 						<li><a href="/shelby/shop">Shop</a></li>
@@ -92,7 +92,8 @@
 	
         {% block content %}
         {% endblock content %}
-		
+
+    {% block footer %}
     {# The Footer #}
 				<!-- Footer -->
 		<footer id="footer" class="section">
@@ -164,6 +165,7 @@
 
 		</footer>
 		<!-- /Footer -->
+        {% endblock footer %}
 		
 		<!-- preloader -->
 		<div id='preloader'><div class='preloader'></div></div>

@@ -13,23 +13,31 @@ def index(request):
 def shelby(request):
     vehicle_list = Vehicles.objects.all()
 
-    # the c_type determines what style class each vehicle item gets
-    c_type = 0
 
-    if len(vehicle_list) % 3 == 1:
-        c_type = 1
-        print("1 class")
-    elif len(vehicle_list) % 3 == 2:
-        c_type = 2
-        print("2 class")
+    if len(vehicle_list) != 0:
+        print("OUT OF RANGE")
+        # the c_type determines what style class each vehicle item gets
+        c_type = 0
 
-    last = Vehicles.objects.latest('id')
-    secondlast = vehicle_list.order_by('-id')[1]
-    paginator = Paginator(vehicle_list, 9)  # Show 9 contacts per page
+        print("AMOUNT OF VEHICLES________: " ,len(vehicle_list))
+        if len(vehicle_list) % 3 == 1:
+            c_type = 1
+            print("1 class")
+        elif len(vehicle_list) % 3 == 2:
+            c_type = 2
+            print("2 class")
 
-    page = request.GET.get('page')
-    vehicles = paginator.get_page(page)
-    return render(request, 'shelby/index.html', {'vehicles': vehicles, 'c_type': c_type, 'last': last, 'secondlast': secondlast})
+        last = Vehicles.objects.latest('id')
+        if len(vehicle_list) > 1:
+            secondlast = vehicle_list.order_by('-id')[1]
+        else:
+            secondlast = ''
+        paginator = Paginator(vehicle_list, 9)  # Show 9 contacts per page
+
+        page = request.GET.get('page')
+        vehicles = paginator.get_page(page)
+        return render(request, 'shelby/index.html', {'vehicles': vehicles, 'c_type': c_type, 'last': last, 'secondlast': secondlast, 'exists': True})
+    return render(request, 'shelby/index.html', {'exists': False})
 
 
 # dealers page
@@ -39,7 +47,7 @@ def dealers(request):
 
 # events page
 def events(request):
-    return render(request, 'shelby/contact.html')
+    return render(request, 'shelby/events.html')
 
 
 # shop page
@@ -131,19 +139,24 @@ def portalorder(request):
         userid = request.user.id
         if request.method == "POST":
             print(request.POST)
-            form = forms.OrderForm(request.POST)
+            if request.user.is_staff:
+                form = forms.AdminOrderForm(request.POST)
+            else:
+                form = forms.OrderForm(request.POST)
             if form.is_valid():
                 print("VALID FORM")
                 userobj = Dealers.objects.get(dealerID=userid)
-                order = Orders(dealerID=userobj, model=request.POST['model'], colour=request.POST['colour'], homologation=True if 'homologation' in request.POST else False, custom_clearance=True if 'custom_clearance' in request.POST else False, additional_comments=request.POST['additional_comments'])
+                order = Orders(dealerID=userobj if 'forwho' not in request.POST or request.POST['forwho'] == '' else Dealers.objects.get(dealerID=request.POST['forwho']), model=request.POST['model'], colour=request.POST['colour'], homologation=True if 'homologation' in request.POST else False, custom_clearance=True if 'custom_clearance' in request.POST else False, additional_comments=request.POST['additional_comments'])
                 order.save()
             else:
                 print("INVALID FORM")
                 return render(request, 'portal/portal.html', {'form': form})
             return redirect('status/?m=' + request.POST.get('model') + '&c=' + request.POST.get('colour'))
         else:
-            print("SHOWING FORM")
-            form = forms.OrderForm()
+            if request.user.is_staff:
+                form = forms.AdminOrderForm()
+            else:
+                form = forms.OrderForm()
             return render(request, 'portal/portal.html', {'form': form, 'headerclass': 'portal'})
     else:
         return redirect(login)
@@ -220,7 +233,11 @@ def portalorderlist(request):
             obj.save()
 
         allOrders = Orders.objects.all().order_by('-date')
-        return render(request, 'portal/orderlist.html', {'orders': allOrders, 'form': form})
+        if allOrders:
+            exists = True
+        else:
+            exists = False
+        return render(request, 'portal/orderlist.html', {'orders': allOrders, 'form': form, 'exists': exists})
     return redirect(login)
 
 # an admin page to register a dealer

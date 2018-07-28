@@ -102,6 +102,12 @@ class RegistrationAdminForm(UserCreationForm):
 
     def save(self, commit=True):
         user = super(RegistrationAdminForm, self).save(commit=False)
+        maxID = Dealers.objects.all().aggregate(Max('dealerID'))
+        if maxID.get('dealerID__max') == None:
+            user.id = 1
+        else:
+            user.id = maxID.get('dealerID__max') + 1
+
         user.first_name = self.cleaned_data['firstname']
         user.last_name = self.cleaned_data['lastname']
         user.username = self.cleaned_data['username']
@@ -109,6 +115,10 @@ class RegistrationAdminForm(UserCreationForm):
         user.telephone = self.cleaned_data['telephone']
         user.is_superuser = self.cleaned_data['superuser']
         user.is_staff = True
+
+        dealerEntry = Dealers(dealerID=user.id, username=user.username, email=user.email, name=user.first_name,
+                              surname=user.last_name, telephone=user.telephone)
+        dealerEntry.save()
 
         if commit:
             user.save()
@@ -231,3 +241,14 @@ class PartialOrderForm(forms.ModelForm):
         self.fields['invoice'].widget.attrs.update({'class': 'invis'})
 
 
+class AdminOrderForm(OrderForm):
+    forwho = forms.CharField(required=False)
+
+    class Meta:
+        model = models.Orders
+        fields = ('forwho',) + OrderForm.Meta.fields
+
+    def __init__(self, *args, **kwargs):
+        super(OrderForm, self).__init__(*args, **kwargs)
+        self.fields['forwho'].label = "For User ID"
+        self.fields['forwho'].help_text = "Leave blank if this order is on your name."

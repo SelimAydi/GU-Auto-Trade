@@ -148,6 +148,16 @@ blockquote:before{
 	height: calc(100vh);
 }
 
+#news {
+	padding-top: 250px;
+}
+
+#event {
+	padding-top: 150px;
+    min-height: calc(100vh);
+
+}
+
 #dealers {
 	height: calc(100vh);
 }
@@ -546,10 +556,10 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
 
 .home-wrapper {
 	position:absolute;
-	top:50%;
+	top: 50%;
 	-webkit-transform:translateY(-50%);
-	    -ms-transform:translateY(-50%);
-	        transform:translateY(-50%);
+	-ms-transform:translateY(-50%);
+	transform:translateY(-50%);
 	left:0;
 	right:0;
 }
@@ -710,8 +720,8 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
 }
 
 .vehicle a > svg {
-	height: 200px;
-	width: 200px;
+	height: 100px;
+	width: 100px;
 }
 
 .vehicle a > svg > g{
@@ -1890,12 +1900,12 @@ input[type="file"] {
 
 .mapbox {
 	position: absolute;
-	height: 320px;
+	/* min-height: 260px; */
 	width: 15%;
 	background-color: #374050;
 	z-index: 15;
-	top: 0;
-	bottom: 0;
+	top: 40%;
+	/* bottom: 0; */
 	left: 2%;
 	margin: auto;
 	border-radius: 5px;
@@ -1911,4 +1921,12 @@ input[type="file"] {
 
 .mapbox .nav>li>a {
 	color: white;
+}
+
+/*==================================================================
+[ EventCalendar (semi-popup) ]*/
+
+#caleandar{
+    margin: 0 auto;
+    width: 660px;
 }

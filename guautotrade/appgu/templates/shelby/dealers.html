@@ -10,7 +10,7 @@
 {% block content %}
 {#    <script src="{% static 'js/leaflet/leaflet.js' %}"></script>#}
 		<!-- News -->
-		<div id="dealers" class="section" style="padding-top: 67px;">
+		<div id="dealers" class="section" style="padding-top: 66px;">
                 <div class="col-md-9 mapbox">
                     <nav class="nav-sidebar">
                             <ul class="nav">
@@ -21,7 +21,7 @@
                                 <li><a href="javascript:;">Zeeland</a></li>
                                 <li><a href="javascript:;">Noord-Brabant</a></li>
                                 <li><a href="javascript:;">Limburg</a></li>
-                                <li class="nav-divider"></li>
+{#                                <li class="nav-divider"></li>#}
 
                             </ul>
                         </nav>
@@ -45,38 +45,11 @@
                         accessToken: 'pk.eyJ1Ijoidml0YWx5bngiLCJhIjoiY2prMWVmZHV2MGZhdTNqcnlpOTJodXh5NSJ9.uZto22S1ULdHUiZrkVDmxA'
                     }).addTo(mymap);
                 </script>
-			<!-- container -->
-			<div class="container">
-
-				<!-- row -->
-				<div class="row">
-
-
-					<div class="col-md-3">
-						<nav class="nav-sidebar">
-                            <ul class="nav">
-
-                                <li class="active"><a href="javascript:;">Latest news</a></li>
-                                <li><a href="javascript:;">Category</a></li>
-                                <li><a href="javascript:;">Category</a></li>
-                                <li><a href="javascript:;">Category</a></li>
-                                <li><a href="javascript:;">Category</a></li>
-                                <li><a href="javascript:;">Category</a></li>
-                                <li><a href="javascript:;">Category</a></li>
-                                <li class="nav-divider"></li>
-
-                            </ul>
-                        </nav>
-
-					</div>
-				</div>
-				<!-- /row -->
-			</div>
-			<!-- /container -->
 
 		</div>
 		<!-- /News -->
 {% endblock %}
+
 
 {% block js %}
 {% endblock js%}

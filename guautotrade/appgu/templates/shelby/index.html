@@ -1,7 +1,7 @@
 {% extends "frames/sub_base.html" %}
 {% load static %}
 {% block header %}
-	{% with logoclass='logo' %}
+	{% with logoclass='logo' exists=exists %}
 			{{ block.super }}
 	{% endwith%}
 {% endblock header%}
@@ -70,6 +70,7 @@
 		</div>
 		<!-- /About -->
 
+    {% if exists %}
 		<!-- Vehicles -->
 		<div id="vehicles" class="section">
 
@@ -84,7 +85,6 @@
 					</div>
 				</div>
 				<!-- /row -->
-
 				<!-- vehicles -->
 				<div id="vehicles-wrapper">
 
@@ -147,82 +147,11 @@
 					</div>
 					<!-- /row -->
 
-					<!-- row -->
-					<div class="row">
-
-						<!-- vehicle -->
-						<div class="col-md-3 col-sm-6 col-xs-6">
-							<div class="vehicle">
-								<a href="#" class="vehicle-img">
-									<img src="https://hips.hearstapps.com/amv-prod-cad-assets.s3.amazonaws.com/images/media/672264/2018-ford-mustang-shelby-gt350-gt350r-in-depth-model-review-car-and-driver-photo-694522-s-original.jpg" alt="">
-									<i class="vehicle-link-icon fa fa-link"></i>
-								</a>
-								<a class="vehicle-title" href="#">Persius imperdiet </a>
-								<div class="vehicle-details">
-									<span class="vehicle-category">Type</span>
-									<span class="vehicle-price vehicle-free">More info</span>
-								</div>
-							</div>
-						</div>
-						<!-- /vehicle -->
-
-						<!-- vehicle -->
-						<div class="col-md-3 col-sm-6 col-xs-6">
-							<div class="vehicle">
-								<a href="#" class="vehicle-img">
-									<img src="https://hips.hearstapps.com/amv-prod-cad-assets.s3.amazonaws.com/images/media/672264/2018-ford-mustang-shelby-gt350-gt350r-in-depth-model-review-car-and-driver-photo-694522-s-original.jpg" alt="">
-									<i class="vehicle-link-icon fa fa-link"></i>
-								</a>
-								<a class="vehicle-title" href="#">Persius imperdiet </a>
-								<div class="vehicle-details">
-									<span class="vehicle-category">Type</span>
-									<span class="vehicle-price vehicle-free">More info</span>
-								</div>
-							</div>
-						</div>
-						<!-- /vehicle -->
-
-						<!-- vehicle -->
-						<div class="col-md-3 col-sm-6 col-xs-6">
-							<div class="vehicle">
-								<a href="#" class="vehicle-img">
-									<img src="https://hips.hearstapps.com/amv-prod-cad-assets.s3.amazonaws.com/images/media/672264/2018-ford-mustang-shelby-gt350-gt350r-in-depth-model-review-car-and-driver-photo-694522-s-original.jpg" alt="">
-									<i class="vehicle-link-icon fa fa-link"></i>
-								</a>
-								<a class="vehicle-title" href="#">Persius imperdiet </a>
-								<div class="vehicle-details">
-									<span class="vehicle-category">Type</span>
-									<span class="vehicle-price vehicle-free">More info</span>
-								</div>
-							</div>
-						</div>
-						<!-- /vehicle -->
-
-
-						<!-- vehicle -->
-						<div class="col-md-3 col-sm-6 col-xs-6">
-							<div class="vehicle">
-								<a href="#" class="vehicle-img">
-									<img src="https://hips.hearstapps.com/amv-prod-cad-assets.s3.amazonaws.com/images/media/672264/2018-ford-mustang-shelby-gt350-gt350r-in-depth-model-review-car-and-driver-photo-694522-s-original.jpg" alt="">
-									<i class="vehicle-link-icon fa fa-link"></i>
-								</a>
-								<a class="vehicle-title" href="#">Persius imperdiet </a>
-								<div class="vehicle-details">
-									<span class="vehicle-category">Type</span>
-									<span class="vehicle-price vehicle-free">More info</span>
-								</div>
-							</div>
-						</div>
-						<!-- /vehicle -->
-
-					</div>
-					<!-- /row -->
-
 				</div>
 
 				</div>
 				<!-- /vehicles -->
-
+            {% endif %}
 			</div>
 
 

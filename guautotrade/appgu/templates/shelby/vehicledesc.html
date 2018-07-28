@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block header %}
-	{% with headerclass='portal' %}
+	{% with headerclass='portal', exists %}
 			{{ block.super }}
 	{% endwith%}
 {% endblock header%}
@@ -19,7 +19,7 @@
 			
 			<!-- /Backgound Image -->
 
-			<div class="home-wrapper">
+			<div class="home-wrapper" style="top: 60%;">
 				<div class="container">
 					<div class="row">
 

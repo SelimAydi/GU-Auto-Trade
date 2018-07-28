@@ -6,6 +6,7 @@
 	{% endwith%}
 {% endblock header%}
 {% block content %}
+<script type="text/javascript" src="{% static 'js/jquery.min.js' %}"></script>
 <!-- Home -->
 <div id="home" class="hero-area">
 
@@ -38,6 +39,7 @@
 				</div>
 				</div>
 			</div>
+            {% if exists %}
                 <div class="tb">
                         <form method="POST" enctype="multipart/form-data" id="orderchange">
                         {% csrf_token %}
@@ -67,7 +69,7 @@
                                 <tr class="rw" id="tr{{ forloop.counter }}">
                                     <td class="clm column1" data-column="column1" style="background-color: white !important"><button class="main-button editbutton" onclick="updateCells('tr{{ forloop.counter }}', {{ i.id }})"><i class="fas fa-edit"></i></button></td>
                                     <td class="clm column2" data-column="column2">{{ i.id }}</td>
-                                    <td class="clm column1" data-column="column1" style="width: 15%;">{{ i.dealerID.name }} {{ i.dealerID.surname }}</td>
+                                    <td class="clm column1" data-column="column1" data-toggle="tooltip" title="User ID: {{ i.dealerID.dealerID }}" style="width: 15%;">{{ i.dealerID.name }} {{ i.dealerID.surname }}</td>
                                     <td class="clm column2" data-column="column2" style="width: 20%;">{{ i.model }}</td>
                                     <td class="clm column3" data-column="column3" style="width: 15%;">{{ i.colour }}</td>
                                     <td class="clm column4" data-column="column4" style="width: 20%;">{{ i.date }}</td>
@@ -85,9 +87,7 @@
                         </table>
                         </form>
                     </div>
-				<script>
 
-	            </script>
 
                 <!-- The Modal -->
                 <div id="Modal" class="modal">
@@ -99,7 +99,6 @@
                   </div>
 
                 </div>
-
                 <script>
                     // Get the modal
                     var modal = document.getElementById('Modal');
@@ -130,6 +129,7 @@
                     }
                 </script>
 				<script type="text/javascript" src="{% static 'js/portal_orderlistlogic.js' %}"></script>
+            {% endif %}
 		</div>
 		<!-- /Home -->
 {% endblock %}
