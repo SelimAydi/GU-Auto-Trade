@@ -35,18 +35,23 @@
 			<!-- /container -->
         <script>
             {#var lel;#}
-            function append(item, item2){
-                {#lel = item;#}
+            function append(title, description, link){
+                console.log("------TITLE----------------------")
+                console.log(title);
+                console.log("------DESC----------------------")
+                console.log(description);
+                console.log("------LINK----------------------")
+                console.log(link);
                 console.log("----------------------------")
-                console.log(item);
-                {#console.log(item.Title);#}
-                console.log("----------------------------")
-                var htm = "<p>Event:</p><p>" + item +"</p>";
+                var htm = "<p class='title'>Event:</p><p>" + title +"</p>";
+                htm += "<p>" + description + "</p>"
 
-                if (item2 == 'undefined') {
-                    htm += "<a href='" + item2 + "'>More about this event</a>";
+                if (link != '') {
+                    htm += "<a href='" + link + "'>More about this event</a>";
                 }
+                $('#cal').css("background-color", "#374050");
                 $('#cal').html(htm);
+                $(window).scrollTo(document.getElementById('cal'), 1000);
             }
         </script>
 		</div>

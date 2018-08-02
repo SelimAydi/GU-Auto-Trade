@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django_countries.fields import CountryField
 import datetime
 
 
@@ -49,3 +50,19 @@ class NewsPosts(models.Model):
     quote = models.CharField(max_length=1000)
     quotefooter = models.CharField(max_length=500)
     date = models.DateField(auto_now_add=True)
+
+class Events(models.Model):
+    title = models.CharField(max_length=1000)
+    description = models.CharField(max_length=5000)
+    link = models.CharField(max_length=1000)
+    date = models.DateField()
+
+class MapDealers(models.Model):
+    customer_name = models.CharField(max_length=100)
+    phone = models.CharField(max_length=12)
+    email = models.EmailField(max_length=70, blank=True, null=True, unique=True)
+    address = models.CharField(max_length=500)
+    country = models.CharField(max_length=100)
+    latitude = models.FloatField()
+    longitude = models.FloatField()
+

@@ -3,6 +3,10 @@ from . import forms
 from .models import *
 from django.contrib.auth.views import login
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
+from django.http import JsonResponse
+from django.core import serializers
+from django.http import HttpResponse
+from django_countries import countries
 
 
 # Guautotrade index (homepage)
@@ -48,6 +52,20 @@ def dealers(request):
 # events page
 def events(request):
     return render(request, 'shelby/events.html')
+
+# api for events
+def eventsAPI(request):
+    obj = Events.objects.all()
+    serialized_obj = serializers.serialize("json", obj)
+    print(serialized_obj)
+    return HttpResponse(serialized_obj, content_type="application/json")
+
+# api for mapdealers
+def mapdealersAPI(request):
+    obj = MapDealers.objects.all()
+    serialized_obj = serializers.serialize("json", obj)
+    print(serialized_obj)
+    return HttpResponse(serialized_obj, content_type="application/json")
 
 
 # shop page
@@ -290,8 +308,8 @@ def addvehicle(request):
                     print("CREATED ID = ", v.id)
                     return redirect('/shelby/vehicle/?v=' + str(v.id))
                 else:
-                    return render(request, 'portal/upload.html', {'form': form})
-            return render(request, 'portal/upload.html', {'form': form})
+                    return render(request, 'portal/addvehiclepost.html', {'form': form})
+            return render(request, 'portal/addvehiclepost.html', {'form': form})
     return redirect(login)
 
 # a staff page to add a newspost to the database, which will be displayed on the home page
@@ -309,4 +327,36 @@ def addnewspost(request):
                 else:
                     return render(request, 'portal/addnewspost.html', {'form': form})
             return render(request, 'portal/addnewspost.html', {'form': form})
+    return redirect(login)
+
+def addeventpost(request):
+    if request.user.is_authenticated:
+        if request.user.is_staff:
+            form = forms.EventForm()
+            if request.method == 'POST':
+                form = forms.EventForm(request.POST)
+                if form.is_valid():
+                    e = Events(title=request.POST['title'], description=request.POST['description'], link=request.POST['link'], date=request.POST['date'])
+                    e.save()
+                    print("CREATED ID = ", e.id)
+                    return redirect('/portal/')
+                else:
+                    return render(request, 'portal/addeventpost.html', {'form': form})
+            return render(request, 'portal/addeventpost.html', {'form': form})
+    return redirect(login)
+
+def addmapdealer(request):
+    if request.user.is_authenticated:
+        if request.user.is_staff:
+            form = forms.MapDealerForm()
+            if request.method == 'POST':
+                form = forms.MapDealerForm(request.POST)
+                if form.is_valid():
+                    m = MapDealers(customer_name=request.POST['customer_name'], phone=request.POST['phone'], email=request.POST['email'], address=request.POST['address'], country=dict(countries)[request.POST['country']], latitude=request.POST['latitude'], longitude=request.POST['longitude'])
+                    m.save()
+                    print("CREATED ID = ", m.id)
+                    return redirect('/portal/')
+                else:
+                    return render(request, 'portal/addmapdealer.html', {'form': form})
+            return render(request, 'portal/addmapdealer.html', {'form': form})
     return redirect(login)

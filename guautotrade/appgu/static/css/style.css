@@ -1930,3 +1930,29 @@ input[type="file"] {
     margin: 0 auto;
     width: 660px;
 }
+
+#cal{
+	/*background-color: #374050;*/
+	width: 400px;
+	margin: 0 auto;
+	margin-top:50px;
+	padding: 30px;
+	border-radius: 5px;
+}
+
+#cal p{
+	color: #a7b8bf;
+	font-size: 13px;
+}
+
+#cal a{
+	color: #41a1ec;
+	font-size: 13px;
+	text-decoration: underline;
+}
+
+#cal .title{
+	color: #ffffff;
+	font-size: 21px;
+	font-weight: 800;
+}

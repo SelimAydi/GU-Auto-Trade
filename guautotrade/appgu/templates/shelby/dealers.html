@@ -1,5 +1,6 @@
 {% extends "frames/sub_base.html" %}
 {% load static %}
+{% load countries %}
 
 {% block header %}
 	{% with headerclass='portal' %}
@@ -28,22 +29,42 @@
                 </div>
                 <div id="mapid"></div>
                 <script>
-                    var mymap = L.map('mapid').setView([51.91696, 4.398819], 8);
-                    var dealer1 = L.marker([51.91696, 4.398819]).addTo(mymap);
-                    var dealer2 = L.marker([52.04696, 4.598819]).addTo(mymap);
-                    var dealer3 = L.marker([51.71696, 5.298819]).addTo(mymap);
-                    var dealer4 = L.marker([51.91696, 4.798819]).addTo(mymap);
-                    dealer1.bindPopup("<b>Dealer 1</b><br>X X street.")
-                    dealer2.bindPopup("<b>Dealer 2</b><br>X X street.")
-                    dealer3.bindPopup("<b>Dealer 3</b><br>X X street.")
-                    dealer4.bindPopup("<b>Dealer 4</b><br>X X street.")
+                    $.getJSON("/api/mapdealers/", getResults);
 
-                    L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
-                        attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-                        maxZoom: 18,
-                        id: 'mapbox.streets',
-                        accessToken: 'pk.eyJ1Ijoidml0YWx5bngiLCJhIjoiY2prMWVmZHV2MGZhdTNqcnlpOTJodXh5NSJ9.uZto22S1ULdHUiZrkVDmxA'
-                    }).addTo(mymap);
+                    function getResults(results){
+                        {#console.log(results);#}
+                        initMap(results);
+                    }
+
+                    function initMap(results){
+                        var mymap = L.map('mapid').setView([35.746512, -39.462891], 3);
+                        console.log(results[0]['fields']['latitude']);
+
+                        {#console.log(results[i]['fields']['latitude']);#}
+                        {#console.log(results[i]['fields']['longitude']);#}
+
+                        for (var i = 0; i < results.length; i++){
+                            console.log(i);
+                            var dealer = L.marker([results[i]['fields']['latitude'], results[i]['fields']['longitude']]).addTo(mymap);
+                            dealer.bindPopup("<b>" + results[i]['fields']['customer_name'] + "</b><br>" + results[i]['fields']['address'] + "<br>" + results[i]['fields']['country']);
+                        }
+
+                        {#var dealer1 = L.marker([51.91696, 4.398819]).addTo(mymap);#}
+                        {#var dealer2 = L.marker([52.04696, 4.598819]).addTo(mymap);#}
+                        {#var dealer3 = L.marker([51.71696, 5.298819]).addTo(mymap);#}
+                        {#var dealer4 = L.marker([51.91696, 4.798819]).addTo(mymap);#}
+                        {#dealer1.bindPopup("<b>Dealer 1</b><br>X X street.")#}
+                        {#dealer2.bindPopup("<b>Dealer 2</b><br>X X street.")#}
+                        {#dealer3.bindPopup("<b>Dealer 3</b><br>X X street.")#}
+                        {#dealer4.bindPopup("<b>Dealer 4</b><br>X X street.")#}
+
+                        L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+                            attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+                            maxZoom: 18,
+                            id: 'mapbox.streets',
+                            accessToken: 'pk.eyJ1Ijoidml0YWx5bngiLCJhIjoiY2prMWVmZHV2MGZhdTNqcnlpOTJodXh5NSJ9.uZto22S1ULdHUiZrkVDmxA'
+                        }).addTo(mymap);
+                    }
                 </script>
 
 		</div>

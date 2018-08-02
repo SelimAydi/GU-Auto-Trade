@@ -3,6 +3,11 @@
   Version: 0.1.0;
   (◠‿◠✿)
 */
+
+function htmlEntities(str) {
+    return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+}
+
 var Calendar = function(model, options, date){
   // Default Values
     console.log("---MODELLLLL-----")
@@ -138,7 +143,7 @@ function createCalendar(calendar, element, adjuster){
         datetime.appendChild(rwd);
       }
       var today = document.createElement('div');
-      today.className += ' today';
+      today.className += ' now';
       today.innerHTML = months[calendar.Selected.Month] + ", " + calendar.Selected.Year;
       datetime.appendChild(today);
       if(calendar.Options.NavShow && !calendar.Options.NavVertical){
@@ -205,7 +210,11 @@ function createCalendar(calendar, element, adjuster){
           day.className += " disableDay";
         }
       }
+      var ulist = document.createElement('ul');
+      ulist.className += "dayevents";
       var number = DayNumber(i+1);
+
+      ulist.appendChild(number);
 
       // Check Date against Event Dates
       for(var n = 0; n < calendar.Model.length; n++){
@@ -216,9 +225,10 @@ function createCalendar(calendar, element, adjuster){
           var title = document.createElement('span');
           title.className += "cld-title";
           if(typeof calendar.Model[n].Link == 'function' || calendar.Options.EventClick){
+            var listitem = document.createElement('li');
             var a = document.createElement('a');
             a.setAttribute('href', '#');
-            a.innerHTML += calendar.Model[n].Title;
+            a.innerHTML = "<li>" + a.innerHTML + calendar.Model[n].Title + "</li>";
             if(calendar.Options.EventClick){
               var z = calendar.Model[n].Link;
               if(typeof calendar.Model[n].Link != 'string'){
@@ -241,22 +251,24 @@ function createCalendar(calendar, element, adjuster){
                 day.addEventListener('click', calendar.Model[n].Link);
               }
             }
-            title.appendChild(a);
+            title.appendChild(listitem);
+            // title.appendChild(a);
           }else{
-            var list = calendar.Model[n];
-            var list2 = {'Title': calendar.Model[n].Title, 'Link': calendar.Model[n].Link};
-
-            // console.log('title INCOMING');
-            // console.log(calendar.Model[n].Title);
-            title.innerHTML += '<a href="javascript:void(0) "' + 'onclick="append(' + "'" + calendar.Model[n].Title + "', '" + calendar.Model[n].Link + "'" + ')" >' + calendar.Model[n].Title + '</a>';
-            // title.addEventListener("click", append({'Title': calendar.Model[n].Title, 'Link': calendar.Model[n].Link}));
-            // title.onclick = function(){append(calendar.Model[n].Title)};
+            var listitem = document.createElement('li');
+            var a = document.createElement('a');
+            a.innerHTML += calendar.Model[n].Title;
+            listitem.appendChild(a);
+            title.innerHTML += '<li><a>' + calendar.Model[n].Title + '</a></li>';
           }
-          // title.onclick = function(){append([calendar.Model[n].Title, calendar.Model[n].Link])};
-          number.appendChild(title);
+          ulist.appendChild(listitem);
+          // number.appendChild(a);
+          a.addEventListener('click', addL(n, calendar.Model));
         }
+        console.log("its lit fam");
       }
-      day.appendChild(number);
+      // var ul = document.createElement('ul');
+      // ulist.appendChild(number)
+      day.appendChild(ulist);
       // If Today..
       if((i+1) == calendar.Today.getDate() && calendar.Selected.Month == calendar.Today.Month && calendar.Selected.Year == calendar.Today.Year){
         day.className += " today";
@@ -308,4 +320,13 @@ function createCalendar(calendar, element, adjuster){
 function caleandar(el, data, settings){
   var obj = new Calendar(data, settings);
   createCalendar(obj, el);
+}
+
+function addL(i, model){
+  return function(){
+    append(model[i].Title, model[i].Description, model[i].Link);
+    console.log("current loopnr: " + i);
+    console.log(model[i]);
+    console.log(model[i].Link);
+  }
 }

@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 from . import models
 from django.db.models import Max
 from .models import Dealers
+from django_countries.fields import CountryField
 from PIL import Image
 
 class RegistrationDealerForm(UserCreationForm):
@@ -224,6 +225,65 @@ class NewsPostForm(forms.ModelForm):
         self.fields['quote'].widget.attrs['placeholder'] = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
         self.fields['quotefooter'].widget.attrs['placeholder'] = 'From Example.com'
         self.fields['description'].widget.attrs['placeholder'] = 'The actual newspost text goes here'
+
+class EventForm(forms.ModelForm):
+    title = forms.CharField(required=True)
+    description = forms.CharField(required=True, widget=forms.Textarea)
+    link = forms.CharField(required=False)
+    date = forms.CharField(required=True)
+    field_order = ['title', 'link', 'date', 'description']
+
+    class Meta:
+        model = models.Vehicles
+        fields = ("title", "description", "link")
+
+    def __init__(self, *args, **kwargs):
+        kwargs.setdefault('label_suffix', '')
+        super(EventForm, self).__init__(*args, **kwargs)
+        self.fields['title'].label = "Title"
+        self.fields['description'].label = "Description"
+        self.fields['date'].label = "Date"
+        self.fields['link'].label = "Link"
+
+        self.fields['title'].widget.attrs['placeholder'] = 'Shelby Drag Race'
+        self.fields['description'].widget.attrs['placeholder'] = 'Information about the event'
+        self.fields['link'].widget.attrs['placeholder'] = 'http://www.example.com/event'
+        self.fields['date'].widget.attrs['placeholder'] = 'YYYY/MM/DD'
+        self.fields['link'].help_text = "Optional. Leave blank if there is no link to the event."
+
+class MapDealerForm(forms.ModelForm):
+    customer_name = forms.CharField(required=True)
+    email = forms.CharField(required=False)
+    phone = forms.CharField(required=False)
+    address = forms.CharField(required=True, widget=forms.Textarea)
+    country = CountryField().formfield()
+    latitude = forms.FloatField(required=True)
+    longitude = forms.FloatField(required=True)
+
+
+    class Meta:
+        model = models.Vehicles
+        fields = ("customer_name", "email", "phone", "address", "country", "latitude", "longitude")
+
+    def __init__(self, *args, **kwargs):
+        kwargs.setdefault('label_suffix', '')
+        super(MapDealerForm, self).__init__(*args, **kwargs)
+        self.fields['customer_name'].label = "Customer Name"
+        self.fields['phone'].label = "Phone Number"
+        self.fields['email'].label = "Email"
+        self.fields['address'].label = "Address"
+        self.fields['country'].label = "Country"
+
+        self.fields['customer_name'].widget.attrs['placeholder'] = 'American Car City'
+        self.fields['phone'].widget.attrs['placeholder'] = '33169221900'
+        self.fields['email'].widget.attrs['placeholder'] = 'info@americancarcity.fr'
+        self.fields['address'].widget.attrs['placeholder'] = '197 BD John Kennedy 91100 Corbeil-Essonnes'
+        self.fields['latitude'].widget.attrs['placeholder'] = '48.579013'
+        self.fields['longitude'].widget.attrs['placeholder'] = '2.4766'
+        self.fields['phone'].help_text = "Optional field."
+        self.fields['email'].help_text = "Optional field."
+
+
 
 class PartialOrderForm(forms.ModelForm):
 

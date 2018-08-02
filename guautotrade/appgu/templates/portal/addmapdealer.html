@@ -23,16 +23,13 @@
 					<div class="section-intro text-center">
 						{% if user.is_authenticated %}
                             {% if user.is_staff %}
-							<h2>Add News Post</h2>
-							<p class="lead">Here you can add news posts to the database, to be displayed on the website.</p>
+							<h2>Add Map Dealer</h2>
+							<p class="lead">Here you can add dealers to the database, to be displayed on the dealer map.</p>
 							<div class="row">
-								  <form method="post" enctype="multipart/form-data" class="registerform">
+								  <form method="post" class="registerform">
                                     {% csrf_token %}
                                       {{ form.as_p }}
-                                       <label class="custom-file-upload" for="id_banner">
-                                        <i class="fas fa-upload"></i>Choose Banner
-                                    </label>
-                                      <button id="uploadbutton"  class="main-button icon-button form-button" type="submit">Add Newspost</button>
+                                      <button id="uploadbutton"  class="main-button icon-button form-button" type="submit">Add Dealer</button>
                                   </form>
 							</div>
                             {% endif %}
