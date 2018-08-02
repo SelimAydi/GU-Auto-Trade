@@ -1,5 +1,6 @@
 {% extends "frames/sub_base.html" %}
 {% load static %}
+{% load i18n %}
 {% block header %}
 	{% with logoclass='logo' exists=exists %}
 			{{ block.super }}
@@ -22,9 +23,9 @@
 				<div class="container">
 					<div class="row">
 						<div class="col-md-8">
-							<h1 class="white-text">Top class automobiles</h1>
-							<p class="lead white-text">Libris vivendo eloquentiam ex ius, nec id splendide abhorreant, eu pro alii error homero.</p>
-							<a class="main-button icon-button" href="#">Check dealers</a>
+							<h1 class="white-text">{% trans "Top class automobiles" %}</h1>
+							<p class="lead white-text">{% trans "Delivering cars and products that provide an unparalleled driving experience" %}</p>
+							<a class="main-button icon-button" href="#">{% trans "Check dealers" %}</a>
 						</div>
 					</div>
 				</div>
@@ -44,8 +45,8 @@
 
 					<div class="col-md-6">
 						<div class="section-header">
-							<h2 style="color: #433e3ee6;">Welcome to Shelby</h2>
-							<p class="lead" style="color: #22202078;">Libris vivendo eloquentiam ex ius, nec id splendide abhorreant.</p>
+							<h2 style="color: #433e3ee6;">{% trans "Check dealers" %}</h2>
+							<p class="lead" style="color: #22202078;">{% trans "Our dealers provide you with the best services" %}</p>
 						</div>
 
 						<!-- feature -->
@@ -80,8 +81,8 @@
 				<!-- row -->
 				<div class="row">
 					<div class="section-header text-center">
-						<h2>Vehicles</h2>
-						<p class="lead">Libris vivendo eloquentiam ex ius, nec id splendide abhorreant.</p>
+						<h2>{% trans "Vehicles" %}</h2>
+						<p class="lead">{% trans "Checkout our vehicles" %}</p>
 					</div>
 				</div>
 				<!-- /row -->
@@ -116,7 +117,7 @@
 								<a class="vehicle-title" href="#">{{ vehicle.model }}</a>
 								<div class="vehicle-details">
 									<span class="vehicle-category">Type</span>
-									<span class="vehicle-price vehicle-free">More info</span>
+									<span class="vehicle-price vehicle-free">{% trans "More Info" %}</span>
 								</div>
 							</div>
 						</div>
@@ -127,17 +128,17 @@
                         <div class="pagination">
                             <span class="step-links">
                                 {% if vehicles.has_previous %}
-                                    <a href="?page=1">&laquo; first</a>
-                                    <a href="?page={{ vehicles.previous_page_number }}">previous</a>
+                                    <a href="?page=1">&laquo; {% trans "first" %}</a>
+                                    <a href="?page={{ vehicles.previous_page_number }}">{% trans "previous" %}</a>
                                 {% endif %}
 
                                 <span class="current">
-                                    Page {{ vehicles.number }} of {{ vehicles.paginator.num_pages }}.
+                                    {% trans "Page" %} {{ vehicles.number }} {% trans "of" %} {{ vehicles.paginator.num_pages }}.
                                 </span>
 
                                 {% if vehicles.has_next %}
-                                    <a href="?page={{ vehicles.next_page_number }}">next</a>
-                                    <a href="?page={{ vehicles.paginator.num_pages }}">last &raquo;</a>
+                                    <a href="?page={{ vehicles.next_page_number }}">{% trans "next" %}</a>
+                                    <a href="?page={{ vehicles.paginator.num_pages }}">{% trans "last" %} &raquo;</a>
                                 {% endif %}
                             </span>
                         </div>
@@ -246,7 +247,7 @@
 				<div class="row">
 
 					<div class="col-md-6">
-						<h3>About Shelby</h3>
+						<h3>{% trans "About Shelby" %}</h3>
 						<p class="lead">Libris vivendo eloquentiam ex ius, nec id splendide abhorreant.</p>
 						<p>In 1962, Carroll Shelby Put a Ford V8 engine into a European racecar chassis and went on to beat the world’s best teams and claim the first and only FIA World Sportcar championship for an American company. Ever since there’s not been another company more synonymous with developing high performance Ford Products than Shelby American.</p>
 					</div>
@@ -281,9 +282,9 @@
 				<div class="row">
 
 					<div class="col-md-8 col-md-offset-2 text-center">
-						<h2 class="white-text">Contact Us</h2>
+						<h2 class="white-text">{% trans "Contact Us" %}</h2>
 						<p class="lead white-text">Libris vivendo eloquentiam ex ius, nec id splendide abhorreant.</p>
-						<a class="main-button icon-button" href="contact">Contact Us Now</a>
+						<a class="main-button icon-button" href="contact">{% trans "Contact Us Now" %}</a>
 					</div>
 
 				</div>
@@ -321,12 +322,12 @@
 					<div class="col-md-6">
 						<ul class="footer-nav">
 							<li><a href="index.html">Home</a></li>
-							<li><a href="#">Vehicles</a></li>
-							<li><a href="#">Dealers</a></li>
-							<li><a href="#">Events</a></li>
-							<li><a href="#">Shop</a></li>
-							<li><a href="#">News</a></li>
-							<li><a href="contact.html">Contact</a></li>
+							<li><a href="#">{% trans "Vehicles" %}</a></li>
+							<li><a href="#">{% trans "Dealers" %}</a></li>
+							<li><a href="#">{% trans "Events" %}</a></li>
+							<li><a href="#">{% trans "Shop" %}</a></li>
+							<li><a href="#">{% trans "News" %}</a></li>
+							<li><a href="contact.html">{% trans "Contact" %}</a></li>
 						</ul>
 					</div>
 					<!-- /footer nav -->

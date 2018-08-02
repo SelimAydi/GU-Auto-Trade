@@ -1,0 +1,105 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-08-02 17:36+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\appgu\templates\shelby\index.html:26
+msgid "Top class automobiles"
+msgstr "Klasse auto's"
+
+#: .\appgu\templates\shelby\index.html:27
+msgid "Delivering cars and products that provide an unparalleled driving experience"
+msgstr "Auto's en producten die mensen ongeëvenaard rij-ervaring geven"
+
+#: .\appgu\templates\shelby\index.html:28
+#: .\appgu\templates\shelby\index.html:48
+msgid "Check dealers"
+msgstr "Dealers"
+
+#: .\appgu\templates\shelby\index.html:49
+msgid "Our dealers provide you with the best services"
+msgstr "Onze dealers voorzien u met de beste diensten"
+
+#: .\appgu\templates\shelby\index.html:84
+#: .\appgu\templates\shelby\index.html:325
+msgid "Vehicles"
+msgstr "Voertuigen"
+
+#: .\appgu\templates\shelby\index.html:85
+msgid "Checkout our vehicles"
+msgstr "Neem een kijkje naar onze voertuigen"
+
+#: .\appgu\templates\shelby\index.html:120
+msgid "More Info"
+msgstr "Meer Informatie"
+
+#: .\appgu\templates\shelby\index.html:131
+msgid "first"
+msgstr "eerste"
+
+#: .\appgu\templates\shelby\index.html:132
+msgid "previous"
+msgstr "vorige"
+
+#: .\appgu\templates\shelby\index.html:136
+msgid "Page"
+msgstr "Pagina"
+
+#: .\appgu\templates\shelby\index.html:136
+msgid "of"
+msgstr "van de"
+
+#: .\appgu\templates\shelby\index.html:140
+msgid "next"
+msgstr "volgende"
+
+#: .\appgu\templates\shelby\index.html:141
+msgid "last"
+msgstr "laatste"
+
+#: .\appgu\templates\shelby\index.html:250
+msgid "About Shelby"
+msgstr "Over Shelby"
+
+#: .\appgu\templates\shelby\index.html:285
+msgid "Contact Us"
+msgstr "Neem Contact op met ons"
+
+#: .\appgu\templates\shelby\index.html:287
+msgid "Contact Us Now"
+msgstr "Contact opnemen"
+
+#: .\appgu\templates\shelby\index.html:326
+msgid "Dealers"
+msgstr "Dealers"
+
+#: .\appgu\templates\shelby\index.html:327
+msgid "Events"
+msgstr "Evenementen"
+
+#: .\appgu\templates\shelby\index.html:328
+msgid "Shop"
+msgstr "Webshop"
+
+#: .\appgu\templates\shelby\index.html:329
+msgid "News"
+msgstr "Nieuws"
+
+#: .\appgu\templates\shelby\index.html:330
+msgid "Contact"
+msgstr "Contact"
