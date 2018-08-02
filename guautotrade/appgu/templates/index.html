@@ -1,5 +1,6 @@
 {% extends "frames/base.html" %}
 {% load static %}
+{% load i18n %}
 
 {% block header %}
 	{% with headerclass='transparent-nav' %}
@@ -20,8 +21,8 @@
 				<div class="container">
 					<div class="row">
 					<div class="section-intro text-center">
-						<h2>Make a choice</h2>
-						<p class="lead">Libris vivendo eloquentiam ex ius, nec id splendide abhorreant.</p>
+						<h2>{% trans 'Make a choice' %}</h2>
+						<p class="lead">{% trans 'Make a selection between Tuscany and Shelby' %}</p>
     <div class="row">
 
 						<!-- vehicle -->
@@ -53,7 +54,7 @@
                        
 					</div>
 				</div>
-<div class="row"><div class="alternative" style="text-align: center; padding: 10px;"><a href="#"><p style="color: white; text-decoration: underline;">Or continue to GU Auto Trade</p></a></div></div>
+<div class="row"><div class="alternative" style="text-align: center; padding: 10px;"><a href="#"><p style="color: white; text-decoration: underline;">{% trans 'Or continue to GU Auto Trade' %}</p></a></div></div>
     
 				</div>
 			</div>

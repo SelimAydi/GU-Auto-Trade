@@ -26,15 +26,55 @@
 							<h2>Add Event</h2>
 							<p class="lead">Here you can add events to the database, to be displayed on the events calendar.</p>
 							<div class="row">
-								  <form method="post" class="registerform">
+								  <form action="/portal/addeventpost/" method="post" id="eventform" class="registerform">
                                     {% csrf_token %}
                                       {{ form.as_p }}
                                       <button id="uploadbutton"  class="main-button icon-button form-button" type="submit">Add Event</button>
                                   </form>
+                            <div id="suc">
+
+                            </div>
+                            <div id="er">
+
+                            </div>
 							</div>
                             {% endif %}
 						{% endif %}
-                    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+                    <script>
+                        console.log("TEST");
+
+                        {#console.log($('#id_title').val())#}
+
+                        var frm = $('#eventform');
+                        frm.submit(function () {
+                            $("#suc").html("");
+                            $("#er").html("");
+                            $.ajax({
+                                type: frm.attr('method'),
+                                url: frm.attr('action'),
+                                data: frm.serialize(),
+                                success: function (data) {
+                                    $('#eventform').fadeOut(400);
+                                    setTimeout(
+                                      function()
+                                      {
+                                        $("#suc").addClass("success");
+                                        $("#suc").html("Succesfully created");
+                                      }, 440);
+
+                                    $('#eventform')[0].reset();
+                                    console.log("SUCCESSSSSSSSSSSSS");
+                                    console.log(data)
+                                },
+                                error: function(data) {
+                                    $("#er").html("Something went wrong!");
+                                    $('#eventform')[0].reset();
+                                    console.log("FAIL");
+                                }
+                            });
+                            return false;
+                        });
+                    </script>
 					</div>
 				</div>
 				</div>

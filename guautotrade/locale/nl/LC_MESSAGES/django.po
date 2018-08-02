@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-08-02 17:36+0200\n"
+"POT-Creation-Date: 2018-08-02 22:20+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,12 +18,33 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
+#: .\appgu\templates\frames\base.html:64
+msgid "Phone"
+msgstr "Telefoon-nummer"
+
+#: .\appgu\templates\frames\base.html:65
+msgid "Email"
+msgstr "Email"
+
+#: .\appgu\templates\index.html:24
+msgid "Make a choice"
+msgstr "Maak een keuze"
+
+#: .\appgu\templates\index.html:25
+msgid "Make a selection between Tuscany and Shelby"
+msgstr "Selecteer Tuscany of Shelby"
+
+#: .\appgu\templates\index.html:57
+msgid "Or continue to GU Auto Trade"
+msgstr "Of ga door naar GU Auto Trade"
+
 #: .\appgu\templates\shelby\index.html:26
 msgid "Top class automobiles"
 msgstr "Klasse auto's"
 
 #: .\appgu\templates\shelby\index.html:27
-msgid "Delivering cars and products that provide an unparalleled driving experience"
+msgid ""
+"Delivering cars and products that provide an unparalleled driving experience"
 msgstr "Auto's en producten die mensen ongeëvenaard rij-ervaring geven"
 
 #: .\appgu\templates\shelby\index.html:28

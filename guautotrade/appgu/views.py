@@ -1,3 +1,4 @@
+import json
 from django.shortcuts import render, redirect
 from . import forms
 from .models import *
@@ -329,18 +330,40 @@ def addnewspost(request):
             return render(request, 'portal/addnewspost.html', {'form': form})
     return redirect(login)
 
+# def addeventpost(request):
+#     if request.user.is_authenticated:
+#         if request.user.is_staff:
+#             form = forms.EventForm()
+#             if request.method == 'POST':
+#                 form = forms.EventForm(request.POST)
+#                 if form.is_valid():
+#                     e = Events(title=request.POST['title'], description=request.POST['description'], link=request.POST['link'], date=request.POST['date'])
+#                     e.save()
+#                     print("CREATED ID = ", e.id)
+#                     return redirect('/portal/')
+#                 else:
+#                     return render(request, 'portal/addeventpost.html', {'form': form})
+#             return render(request, 'portal/addeventpost.html', {'form': form})
+#     return redirect(login)
+
 def addeventpost(request):
     if request.user.is_authenticated:
         if request.user.is_staff:
             form = forms.EventForm()
             if request.method == 'POST':
+                response_data = {}
                 form = forms.EventForm(request.POST)
                 if form.is_valid():
                     e = Events(title=request.POST['title'], description=request.POST['description'], link=request.POST['link'], date=request.POST['date'])
                     e.save()
                     print("CREATED ID = ", e.id)
-                    return redirect('/portal/')
+                    response_data['result'] = 'Create succesful'
+                    return HttpResponse(
+                        json.dumps(response_data),
+                        content_type="application/json"
+                    )
                 else:
+                    response_data['result'] = 'Create unsuccesful'
                     return render(request, 'portal/addeventpost.html', {'form': form})
             return render(request, 'portal/addeventpost.html', {'form': form})
     return redirect(login)

@@ -79,9 +79,9 @@ a:focus{
 }
 
 ul,ol{
-    margin: 0;
+    margin: 0 auto;
     padding: 0;
-    list-style: none
+    list-style: none;
 }
 
 .white-text {
@@ -116,7 +116,7 @@ blockquote:before{
 /* --- Section --- */
 .section {
 	position:relative;
-	padding-top:80px;
+	padding-top: 30px;
 	padding-bottom:80px;
 	background-color: #ffffff;
 }
@@ -221,8 +221,8 @@ blockquote:before{
 }
 
 .main-button:hover , .main-button:focus {
-	background-color:#fff;
-	border: 2px solid #00000066;
+	background-color: #fff;
+	border: 2px solid rgba(0, 0, 0, 0.06);
 	color: #555555;
 }
 
@@ -286,6 +286,11 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
 .logo > svg{
 	width: 120px;
 	height: 120px;
+}
+
+.footer-logo .logo > svg{
+	width: 100px;
+	height: 100px;
 }
 
 .logo svg > g{
@@ -851,7 +856,7 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
 /* -- Footer Nav -- */
 .footer-nav {
 	text-align: right;
-	padding: 20px 0px;
+	padding: 40px 0px;
 }
 
 .footer-nav li {
@@ -1548,7 +1553,7 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
 	border-color: #00000054;
 }
 
-.registerform select{
+.registerform select, .registerform input[type=number]{
 	width: 65%;
 	margin: 0 auto;
 	outline: none !important;
@@ -1556,7 +1561,7 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
 	border-top: 0;
 	border-left: 0;
 	border-right: 0;
-	border-bottom: solid 0.1vh #37405040;
+	border-bottom: 1px solid #EBEBEB;
 	border-radius: 0;
 	color: #8ca6ac;
 	font-weight: 800;
@@ -1571,6 +1576,29 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
 
 .helptext {
 	color: #4fafd0;
+}
+
+#suc {
+	padding: 20px;
+	color: #7fa07f;
+	border-radius: 3px;
+	width: 80%;
+	margin: 0 auto;
+}
+
+.success {
+	background-color: #daf5da;
+	padding: 20px;
+	color: #7fa07f;
+	border-radius: 3px;
+	width: 80%;
+	margin: 0 auto;
+}
+
+.success::before{
+	padding: 5px;
+	font-family: 'FontAwesome';
+	content: '\f00c';
 }
 
 .registerform {
@@ -1588,7 +1616,7 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
 	border-top: 0;
 	border-left: 0;
 	border-right: 0;
-	border-bottom: solid 0.1vh #37405040;
+	border-bottom: 1px solid #EBEBEB;
 	border-radius: 0;
 	color: #48b17c;
 	font-weight: 800;
@@ -1610,7 +1638,7 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
 }
 
 input[type=text]::placeholder, input[type=password]::placeholder, input[type=email]::placeholder {
-	color: #b9b9b9cf;
+	color: #dadada;
 }
 
 .registerform input[type=text]:focus {
@@ -1955,4 +1983,9 @@ input[type="file"] {
 	color: #ffffff;
 	font-size: 21px;
 	font-weight: 800;
+}
+
+#navlang {
+	margin-top: 8px;
+	padding: 5px;
 }
