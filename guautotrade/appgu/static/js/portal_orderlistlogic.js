@@ -1,11 +1,18 @@
-console.log(formlist);
+$(document).on("keypress", 'form', function (e) {
+    var code = e.keyCode || e.which;
+    if (code == 13) {
+        e.preventDefault();
+        console.log('prevented');
+        return false;
+    }
+});
+
+
 var formlist = "<input type='file' name='invoice' class='invis' id='id_invoice'>";
 var row = document.getElementById("tr1");
 var old = row.innerHTML;
 var oldrow = "";
 var xow = [];
-var orderstb = document.getElementById('orderstable')
-var frmitem = ""
 function updateCells(rownum, orderid){
     $('.editbutton').hide();
     oldrow = document.getElementById(rownum).innerHTML;
@@ -13,7 +20,7 @@ function updateCells(rownum, orderid){
     var roww = document.getElementById(rownum);
     for (var i = 2; i < roww.cells.length; i++){
         var curr = roww.cells[i].innerHTML;
-        console.log("am looping")
+        console.log("am looping");
         if (curr === '<i class="fas fa-check"></i>'){
             var field = "<input id='check" + i + "x' type='hidden' value='True' name='check" + i + "x'/><input id='check" + i + "' type='checkbox' onchange='updateCheckbox(this)' name='check"+ i + "' value='True' checked />"
             console.log("IS CHECKED")
@@ -54,9 +61,6 @@ function updateCells(rownum, orderid){
             $('#' + idClicked).removeAttr("for");
             $('#' + idClicked)[0].innerHTML = "<i class='far fa-file'></i>";
             $('#' + idClicked)[0].innerHTML += file.files[0].name;
-            // $('#' + idClicked).click(function(){
-            //     $('form#orderchange').submit();
-            // });
         }
     }
 
@@ -66,26 +70,15 @@ function cancelPost(rownum){
     console.log("CANCELLING");
     console.log("ROWNUM: " + rownum);
     document.getElementById(rownum).innerHTML = xow[rownum];
-
     document.getElementsByClassName("container")[1].style.width = "1170px";
     $('.editbutton').show();
 }
-
-// function savePost(){
-//     // if ($(element).is(":hidden")){
-//     //     $('.editbutton').hide();
-//     // }
-//     for(var i = 3; i <= 21; i = i + 2){
-//         console.log(String(row.childNodes[i].childNodes[0].value))
-//     }
-// }
 
 function updateCheckbox(obj){
     console.log(obj);
     console.log(obj.name + "x");
     hidden = document.getElementById(obj.name + "x");
     if (obj.checked){
-        //console.log(obj.name + "x")
         obj.value = "True";
         hidden.value = "True"
     } else {
@@ -93,8 +86,6 @@ function updateCheckbox(obj){
         hidden.value = "False"
     }
 }
-
-
 
 function updateButton(buttonid){
     $('#' + buttonid)[0].innerHTML = "<i class='fas fa-upload'></i>Upload";

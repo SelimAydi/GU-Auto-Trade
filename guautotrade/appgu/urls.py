@@ -1,5 +1,4 @@
 from django.urls import include, path
-
 from . import views
 from django.contrib.auth.views import login
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns

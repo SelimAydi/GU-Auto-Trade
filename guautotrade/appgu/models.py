@@ -52,9 +52,9 @@ class NewsPosts(models.Model):
     date = models.DateField(auto_now_add=True)
 
 class Events(models.Model):
-    title = models.CharField(max_length=1000)
+    title = models.CharField(max_length=300)
     description = models.CharField(max_length=5000)
-    link = models.CharField(max_length=1000)
+    link = models.URLField(max_length=300)
     date = models.DateField()
 
 class MapDealers(models.Model):

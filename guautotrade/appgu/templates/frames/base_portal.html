@@ -148,5 +148,8 @@
 		<script type="text/javascript" src="{% static 'js/jquery.min.js' %}"></script>
 		<script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
 		<script type="text/javascript" src="{% static 'js/main.js' %}"></script>
+        {% block post %}
+            <script type="text/javascript" src="{% static 'js/post.js' %}"></script>
+        {% endblock %}
 	</body>
 </html>

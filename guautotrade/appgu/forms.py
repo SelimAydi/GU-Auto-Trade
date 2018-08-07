@@ -3,7 +3,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from . import models
 from django.db.models import Max
-from .models import Dealers
+from .models import Dealers, MapDealers, Orders
 from django_countries.fields import CountryField
 from PIL import Image
 
@@ -200,7 +200,7 @@ class NewsPostForm(forms.ModelForm):
     headline = forms.CharField(required=True)
     description = forms.CharField(required=True, widget=forms.Textarea)
     quote = forms.CharField(required=True)
-    quotefooter = forms.CharField(required=True)
+    quotefooter = forms.URLField(required=True)
     field_order = ['title', 'headline', 'writtenby', 'quote', 'quotefooter', 'description', 'banner']
 
     class Meta:
@@ -229,8 +229,8 @@ class NewsPostForm(forms.ModelForm):
 class EventForm(forms.ModelForm):
     title = forms.CharField(required=True)
     description = forms.CharField(required=True, widget=forms.Textarea)
-    link = forms.CharField(required=False)
-    date = forms.CharField(required=True)
+    link = forms.URLField(required=False)
+    date = forms.DateField(required=True)
     field_order = ['title', 'link', 'date', 'description']
 
     class Meta:
@@ -253,7 +253,7 @@ class EventForm(forms.ModelForm):
 
 class MapDealerForm(forms.ModelForm):
     customer_name = forms.CharField(required=True)
-    email = forms.CharField(required=False)
+    email = forms.EmailField(required=False)
     phone = forms.CharField(required=False)
     address = forms.CharField(required=True, widget=forms.Textarea)
     country = CountryField().formfield()
@@ -264,6 +264,11 @@ class MapDealerForm(forms.ModelForm):
     class Meta:
         model = models.Vehicles
         fields = ("customer_name", "email", "phone", "address", "country", "latitude", "longitude")
+
+    def clean_email(self):
+        if MapDealers.objects.filter(email=self.cleaned_data['email']).exists():
+            raise forms.ValidationError('This e-mail address already exists, use a different e-mail address.')
+        return self.cleaned_data['email']
 
     def __init__(self, *args, **kwargs):
         kwargs.setdefault('label_suffix', '')
@@ -301,6 +306,7 @@ class PartialOrderForm(forms.ModelForm):
         self.fields['invoice'].widget.attrs.update({'class': 'invis'})
 
 
+
 class AdminOrderForm(OrderForm):
     forwho = forms.CharField(required=False)
 
@@ -312,3 +318,13 @@ class AdminOrderForm(OrderForm):
         super(OrderForm, self).__init__(*args, **kwargs)
         self.fields['forwho'].label = "For User ID"
         self.fields['forwho'].help_text = "Leave blank if this order is on your name."
+
+    def clean_forwho(self):
+        print("IS THIS DOING ANYTHING")
+        print(self.cleaned_data['forwho'])
+        if Dealers.objects.filter(dealerID=self.cleaned_data['forwho']).exists():
+            print("EXISTS")
+            return self.cleaned_data['forwho']
+        raise forms.ValidationError('Invalid ID.')
+        # print("returning good data")
+        # return self.cleaned_data['forwho']

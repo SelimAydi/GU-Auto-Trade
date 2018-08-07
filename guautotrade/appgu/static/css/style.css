@@ -1580,7 +1580,6 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
 
 #suc {
 	padding: 20px;
-	color: #7fa07f;
 	border-radius: 3px;
 	width: 80%;
 	margin: 0 auto;
@@ -1601,13 +1600,39 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
 	content: '\f00c';
 }
 
+#er {
+	border-radius: 3px;
+	margin: 0 auto;
+	display: inline-block;
+	min-width: 140px;
+	color: #ef5a5a;
+	background-color: rgba(248, 212, 212, 0.28);
+	margin-bottom: 20px;
+}
+
+.err {
+	padding: 10px;
+}
+
+.error{
+	border-radius: 3px;
+	padding: 12px;
+	/* border: dashed 1.5px rgba(55, 64, 80, 0.26); */
+}
+
+.error::before{
+	padding: 7px;
+	font-family: 'FontAwesome';
+	content: '\f071';
+}
+
 .registerform {
 	padding-left: 5%;
 	padding-right: 5%;
 	padding-bottom: 5%;
 }
 
-.registerform input[type=text], .registerform input[type=password], .registerform input[type=email]{
+.registerform input[type=text], .registerform input[type=password], .registerform input[type=email], .registerform input[type=url]{
 	text-align: center;
 	width: 65%;
 	margin: 0 auto;
@@ -1633,11 +1658,7 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
 	display: block;
 }
 
-.registerform textarea::placeholder{
-	color: #cacad4;
-}
-
-input[type=text]::placeholder, input[type=password]::placeholder, input[type=email]::placeholder {
+input[type=text]::placeholder, textarea::placeholder, input[type=url]::placeholder, input[type=password]::placeholder, input[type=email]::placeholder {
 	color: #dadada;
 }
 
@@ -1664,21 +1685,32 @@ input[type=text]::placeholder, input[type=password]::placeholder, input[type=ema
 \*------------------------------------*/
 
 .errorlist {
-	font-size: 1.5vh;
+	font-size: 13px;
 	display: inline;
-	color: #ff9393;
+	background-color: rgba(228, 100, 100, 0.13);
+	padding: 2px;
+	color: #fff3f3;
+	border-radius: 3px;
+	border: dashed 1px rgb(199, 175, 175);
+	padding-left: 10px;
+	padding-right: 10px;
+	text-align: center;
 }
 
-.errorlist:before {
-	float: left;
-	font-size: 1.5vh;
-	margin-right: 0px;
-	margin-left: 0px;
-	margin-right: -50px;
+.errorlist > li{
+	display: inline;
+	color: #f36c6c;
+}
+
+.errorlist > li:before {
+	/* float: left; */
+	font-size: 12px;
+	margin-right: 5px;
+	/* margin-left: 0px; */
+	/* margin-right: -50px; */
 	content: "\f06a";
 	font-family: FontAwesome;
 	display: inline;
-
 }
 
 /*==================================================================

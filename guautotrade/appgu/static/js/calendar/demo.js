@@ -3,16 +3,11 @@
 $.getJSON("/api/events/", saveJSON);
 
 function saveJSON(result){
-  // console.log(result);
-  // console.log(result[0]['fields']['date']);
   var dateparts = (result[0]['fields']['date']).split('-');
-  // console.log(dateparts);
 
   var eventsx = [];
 
   for (var i = 0; i < result.length; i++){
-    console.log(result[i]);
-    console.log(result[i]['fields']['title']);
     var datex = (result[i]['fields']['date']).split('-');
 
     eventsx.push(
@@ -24,9 +19,6 @@ function saveJSON(result){
         }
     )
   }
-
-  console.log("this is eventsx");
-  console.log(eventsx);
 
   var events = [
     {'Date': new Date(dateparts[0], dateparts[1] - 1, dateparts[2]), 'Title': 'Shelby Drag Race at 3:25pm.', 'Description': 'Lorem Ipsum'},

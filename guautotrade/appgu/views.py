@@ -8,6 +8,8 @@ from django.http import JsonResponse
 from django.core import serializers
 from django.http import HttpResponse
 from django_countries import countries
+from django.views.generic import ListView
+
 
 
 # Guautotrade index (homepage)
@@ -155,30 +157,74 @@ def vehicledesc(request):
 # place an order in the portal
 def portalorder(request):
     if request.user.is_authenticated:
-        userid = request.user.id
+        if request.user.is_staff:
+            form = forms.AdminOrderForm(request.POST)
+            newform = forms.AdminOrderForm()
+        else:
+            form = forms.OrderForm(request.POST)
+            newform = forms.OrderForm()
         if request.method == "POST":
-            print(request.POST)
-            if request.user.is_staff:
-                form = forms.AdminOrderForm(request.POST)
-            else:
-                form = forms.OrderForm(request.POST)
             if form.is_valid():
+                userid = request.user.id
                 print("VALID FORM")
                 userobj = Dealers.objects.get(dealerID=userid)
                 order = Orders(dealerID=userobj if 'forwho' not in request.POST or request.POST['forwho'] == '' else Dealers.objects.get(dealerID=request.POST['forwho']), model=request.POST['model'], colour=request.POST['colour'], homologation=True if 'homologation' in request.POST else False, custom_clearance=True if 'custom_clearance' in request.POST else False, additional_comments=request.POST['additional_comments'])
                 order.save()
-            else:
-                print("INVALID FORM")
-                return render(request, 'portal/portal.html', {'form': form})
-            return redirect('status/?m=' + request.POST.get('model') + '&c=' + request.POST.get('colour'))
+                response_data = {'result': 'Create succesful', 'status': 'success'}
+                return HttpResponse(
+                    json.dumps(response_data),
+                    content_type="application/json"
+                )
+            # form = forms.NewsPostForm()
+            response_data = {'result': 'Create unsuccesful', 'status': 'failed', 'formerr': form.errors,
+                             'form': str(newform)}
+
+            print(form.errors)
+            return HttpResponse(
+                json.dumps(response_data),
+                content_type="application/json"
+            )
+            # else:
+                # print("INVALID FORM")
+                # return render(request, 'portal/portal.html', {'form': form})
+            # return redirect('status/?m=' + request.POST.get('model') + '&c=' + request.POST.get('colour'))
         else:
-            if request.user.is_staff:
-                form = forms.AdminOrderForm()
-            else:
-                form = forms.OrderForm()
-            return render(request, 'portal/portal.html', {'form': form, 'headerclass': 'portal'})
+            # if request.user.is_staff:
+            #     form = forms.AdminOrderForm()
+            # else:
+            #     form = forms.OrderForm()
+            return render(request, 'portal/base_form.html', {'form': newform, 'headerclass': 'portal', 'title': 'Order Form', 'lead': 'Place an order for a vehicle'})
     else:
         return redirect(login)
+
+def addnewspost(request):
+    if request.user.is_authenticated:
+        if request.user.is_staff:
+            form = forms.NewsPostForm()
+            if request.method == 'POST':
+                form = forms.NewsPostForm(request.POST, request.FILES)
+                if form.is_valid():
+                    v = NewsPosts(writtenby=request.user, banner=form.cleaned_data['banner'], title=request.POST['title'], headline=request.POST['headline'], quote=request.POST['quote'], quotefooter=request.POST['quotefooter'], description=request.POST['description'])
+                    v.save()
+                    print("CREATED ID = ", v.id)
+                    # return redirect('/shelby/news/?n=' + str(v.id))
+                    response_data = {'result': 'Create succesful', 'status': 'success'}
+                    return HttpResponse(
+                        json.dumps(response_data),
+                        content_type="application/json"
+                    )
+                else:
+                    form = forms.NewsPostForm()
+                    response_data = {'result': 'Create unsuccesful', 'status': 'failed', 'formerr': form.errors,
+                                     'form': str(form)}
+
+                    print(form.errors)
+                    return HttpResponse(
+                        json.dumps(response_data),
+                        content_type="application/json"
+                    )
+            return render(request, 'portal/base_form.html', {'form': form, 'fileUpload': 'True', 'title': 'Add News Post', 'lead': 'Here you can add news posts to the database, to be displayed on the website.'})
+    return redirect(login)
 
 def status(request):
     if request.method == "GET":
@@ -303,14 +349,29 @@ def addvehicle(request):
             form = forms.VehicleForm()
             if request.method == 'POST':
                 form = forms.VehicleForm(request.POST, request.FILES)
+                print("IS POSTING")
+                print(request.POST)
                 if form.is_valid():
+                    print("form is valid")
                     v = Vehicles(image=form.cleaned_data['image'], model=request.POST['model'], headline=request.POST['headline'], description=request.POST['description'])
                     v.save()
                     print("CREATED ID = ", v.id)
-                    return redirect('/shelby/vehicle/?v=' + str(v.id))
+
+                    response_data = {'result': 'Create succesful', 'status': 'success'}
+                    return HttpResponse(
+                        json.dumps(response_data),
+                        content_type="application/json"
+                    )
                 else:
-                    return render(request, 'portal/addvehiclepost.html', {'form': form})
-            return render(request, 'portal/addvehiclepost.html', {'form': form})
+                    form = forms.VehicleForm()
+                    response_data = {'result': 'Create unsuccesful', 'status': 'failed', 'formerr': form.errors, 'form': str(form)}
+
+                    print(form.errors)
+                    return HttpResponse(
+                        json.dumps(response_data),
+                        content_type="application/json"
+                    )
+            return render(request, 'portal/base_form.html', {'form': form, 'fileUpload': 'True', 'title': 'Add Vehicle', 'lead': 'Here you can add vehicles to the database, to be displayed on the website.'})
     return redirect(login)
 
 # a staff page to add a newspost to the database, which will be displayed on the home page
@@ -324,48 +385,51 @@ def addnewspost(request):
                     v = NewsPosts(writtenby=request.user, banner=form.cleaned_data['banner'], title=request.POST['title'], headline=request.POST['headline'], quote=request.POST['quote'], quotefooter=request.POST['quotefooter'], description=request.POST['description'])
                     v.save()
                     print("CREATED ID = ", v.id)
-                    return redirect('/shelby/news/?n=' + str(v.id))
+                    # return redirect('/shelby/news/?n=' + str(v.id))
+                    response_data = {'result': 'Create succesful', 'status': 'success'}
+                    return HttpResponse(
+                        json.dumps(response_data),
+                        content_type="application/json"
+                    )
                 else:
-                    return render(request, 'portal/addnewspost.html', {'form': form})
-            return render(request, 'portal/addnewspost.html', {'form': form})
-    return redirect(login)
+                    form = forms.NewsPostForm()
+                    response_data = {'result': 'Create unsuccesful', 'status': 'failed', 'formerr': form.errors,
+                                     'form': str(form)}
 
-# def addeventpost(request):
-#     if request.user.is_authenticated:
-#         if request.user.is_staff:
-#             form = forms.EventForm()
-#             if request.method == 'POST':
-#                 form = forms.EventForm(request.POST)
-#                 if form.is_valid():
-#                     e = Events(title=request.POST['title'], description=request.POST['description'], link=request.POST['link'], date=request.POST['date'])
-#                     e.save()
-#                     print("CREATED ID = ", e.id)
-#                     return redirect('/portal/')
-#                 else:
-#                     return render(request, 'portal/addeventpost.html', {'form': form})
-#             return render(request, 'portal/addeventpost.html', {'form': form})
-#     return redirect(login)
+                    print(form.errors)
+                    return HttpResponse(
+                        json.dumps(response_data),
+                        content_type="application/json"
+                    )
+            return render(request, 'portal/base_form.html', {'form': form, 'fileUpload': 'True', 'title': 'Add News Post', 'lead': 'Here you can add news posts to the database, to be displayed on the website.'})
+    return redirect(login)
 
 def addeventpost(request):
     if request.user.is_authenticated:
         if request.user.is_staff:
             form = forms.EventForm()
             if request.method == 'POST':
-                response_data = {}
                 form = forms.EventForm(request.POST)
                 if form.is_valid():
                     e = Events(title=request.POST['title'], description=request.POST['description'], link=request.POST['link'], date=request.POST['date'])
                     e.save()
                     print("CREATED ID = ", e.id)
-                    response_data['result'] = 'Create succesful'
+                    response_data = {'result': 'Create succesful', 'status': 'success'}
                     return HttpResponse(
                         json.dumps(response_data),
                         content_type="application/json"
                     )
                 else:
-                    response_data['result'] = 'Create unsuccesful'
-                    return render(request, 'portal/addeventpost.html', {'form': form})
-            return render(request, 'portal/addeventpost.html', {'form': form})
+                    form = forms.EventForm()
+                    response_data = {'result': 'Create unsuccesful', 'status': 'failed', 'formerr': form.errors,
+                                     'form': str(form)}
+
+                    print(form.errors)
+                    return HttpResponse(
+                        json.dumps(response_data),
+                        content_type="application/json"
+                    )
+            return render(request, 'portal/base_form.html', {'form': form, 'title': 'Add Event', 'lead': 'Here you can add events to the database, to be displayed on the events calendar.'})
     return redirect(login)
 
 def addmapdealer(request):
@@ -378,8 +442,21 @@ def addmapdealer(request):
                     m = MapDealers(customer_name=request.POST['customer_name'], phone=request.POST['phone'], email=request.POST['email'], address=request.POST['address'], country=dict(countries)[request.POST['country']], latitude=request.POST['latitude'], longitude=request.POST['longitude'])
                     m.save()
                     print("CREATED ID = ", m.id)
-                    return redirect('/portal/')
+
+                    response_data = {'result': 'Create succesful', 'status': 'success'}
+                    return HttpResponse(
+                        json.dumps(response_data),
+                        content_type="application/json"
+                    )
                 else:
-                    return render(request, 'portal/addmapdealer.html', {'form': form})
-            return render(request, 'portal/addmapdealer.html', {'form': form})
+                    form = forms.MapDealerForm()
+                    response_data = {'result': 'Create unsuccesful', 'status': 'failed', 'formerr': form.errors,
+                                     'form': str(form)}
+
+                    print(form.errors)
+                    return HttpResponse(
+                        json.dumps(response_data),
+                        content_type="application/json"
+                    )
+            return render(request, 'portal/base_form.html', {'form': form, 'title': 'Add Map Dealer', 'lead': ''})
     return redirect(login)
