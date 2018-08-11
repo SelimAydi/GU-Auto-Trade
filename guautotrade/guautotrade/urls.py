@@ -7,7 +7,3 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('appgu.urls')),
 ]
-
-# urlpatterns += i18n_patterns (
-# 	path('', include('appgu.urls')),
-# )

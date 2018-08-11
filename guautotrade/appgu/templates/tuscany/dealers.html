@@ -1,0 +1,77 @@
+{% extends "frames/sub_base.html" %}
+{% load static %}
+{% load countries %}
+{% load Tools %}
+
+{% block header %}
+	{% with headerclass='portal' %}
+			{{ block.super }}
+	{% endwith%}
+{% endblock header%}
+
+{% block content %}
+{#    <script src="{% static 'js/leaflet/leaflet.js' %}"></script>#}
+		<!-- News -->
+		<div id="dealers" class="section" style="padding-top: 66px;">
+                <div class="col-md-9 mapbox">
+                    <nav class="nav-sidebar" data-simplebar data-simplebar-auto-hide="false">
+                        {% getCountry as res %}
+                            <ul class="nav" id="main_ul">
+                                {% for key, value in res.items %}
+{#                                    <li><a href="#">{{ key }}</a></li>#}
+                                    <li data-toggle="collapse" data-target="#region_{{ forloop.counter0 }}" class="collapsed active">
+                                      <a href="#"><i class="fas fa-angle-down"></i>{{ key }}</a>
+                                    </li>
+                                    <ul class="sub-menu collapse" id="region_{{ forloop.counter0 }}">
+                                        {% for a, b in value.items %}
+                                                <li data-toggle="collapse" data-target="#reg{{ forloop.parentloop.counter0 }}_country_{{ forloop.counter0 }}" class="collapsed active under">
+{#                                                    <td>{{v}}</td>#}
+                                                    <a href="#"><i class="fas fa-angle-down"></i>{{ a }}</a>
+                                                </li>
+                                            <ul class="sub-menu collapse" id="reg{{ forloop.parentloop.counter0 }}_country_{{ forloop.counter0 }}">
+                                                {% for dealer in b %}
+                                                    <li class="under2">{{ dealer }}</li>
+                                                {% endfor %}
+                                            </ul>
+                                        {% endfor %}
+                                    </ul>
+                                {% endfor %}
+                            </ul>
+                        </nav>
+                </div>
+                <div id="mapid"></div>
+                <script>
+                    $.getJSON("/api/mapdealers/", getResults);
+
+                    function getResults(results){
+                        console.log(results);
+                        initMap(results);
+                    }
+
+
+                    function initMap(results){
+                        var mymap = L.map('mapid').setView([35.746512, -39.462891], 3);
+                        console.log(results[0]['fields']['latitude']);
+
+                        for (var i = 0; i < results.length; i++){
+                            console.log(i);
+                            var dealer = L.marker([results[i]['fields']['latitude'], results[i]['fields']['longitude']], {title: results[i]['fields']['customer_name']}).addTo(mymap);
+                            dealer.bindPopup("<b>" + results[i]['fields']['customer_name'] + "</b><br>" + results[i]['fields']['address'] + "<br>" + results[i]['fields']['country']);
+                        }
+
+                        L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+                            attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+                            maxZoom: 18,
+                            id: 'mapbox.streets',
+                            accessToken: 'pk.eyJ1Ijoidml0YWx5bngiLCJhIjoiY2prMWVmZHV2MGZhdTNqcnlpOTJodXh5NSJ9.uZto22S1ULdHUiZrkVDmxA'
+                        }).addTo(mymap);
+                    }
+                </script>
+
+		</div>
+		<!-- /News -->
+{% endblock %}
+
+
+{% block js %}
+{% endblock js%}

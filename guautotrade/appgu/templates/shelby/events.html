@@ -7,6 +7,10 @@
 	{% endwith%}
 {% endblock header%}
 
+{% block headoptions %}
+    <link rel="stylesheet" href="{% static 'css/calendar/theme3.css' %}">
+{% endblock %}
+
 {% block content %}
 		<!-- News -->
 		<div id="event" class="section text-center">

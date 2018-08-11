@@ -1,5 +1,6 @@
 {% extends "frames/base_portal.html" %}
 {% load static %}
+{% load i18n %}
 {% block header %}
 	{% with headerclass='portal' %}
 			{{ block.super }}
@@ -21,7 +22,7 @@
 						{% if user.is_authenticated %}
 							{% if user.is_staff %}
                                 {% if not orders|length == 0 %}
-								<h2>Order List</h2>
+								<h2>{% trans 'Order List' %}</h2>
 								<p class="lead">Libris vivendo eloquentiam ex ius, nec id splendide abhorreant.</p>
 								<div class="row">
 
@@ -29,7 +30,7 @@
                                     {% else %}
                                     <div class="row">
                                         <div class="section-intro text-center">
-                                            <h3>No orders have been placed yet.</h3>
+                                            <h3>{% trans 'No orders have been placed yet' %}</h3>
                                         </div>
                                     </div>
                                     {% endif %}
@@ -49,18 +50,18 @@
                             <thead>
                                     <tr class="rw head">
                                         <th class="clm column1" data-column="column1"></th>
-                                        <th class="clm column1" data-column="column1">Order ID</th>
-                                        <th class="clm column1" data-column="column1">Dealer Name</th>
-                                        <th class="clm column2" data-column="column2">Model</th>
-                                        <th class="clm column3" data-column="column3">Colour</th>
-                                        <th class="clm column4" data-column="column4">Date</th>
-                                        <th class="clm column4" data-column="column4">Homologation</th>
-                                        <th class="clm column4" data-column="column4">Custom Clearance</th>
-                                        <th class="clm column4" data-column="column4">Scheduled Completion Date</th>
-                                        <th class="clm column4" data-column="column4">Deposit Received</th>
-                                        <th class="clm column4" data-column="column4">Payment Received</th>
-                                        <th class="clm column4" data-column="column4">Additional Comments</th>
-                                        <th class="clm column4" data-column="column4">Invoice</th>
+                                        <th class="clm column1" data-column="column1">{% trans 'Order ID' %}</th>
+                                        <th class="clm column1" data-column="column1">{% trans 'Dealer Name' %}</th>
+                                        <th class="clm column2" data-column="column2">{% trans 'Model' %}</th>
+                                        <th class="clm column3" data-column="column3">{% trans 'Color' %}</th>
+                                        <th class="clm column4" data-column="column4">{% trans 'Date' %}</th>
+                                        <th class="clm column4" data-column="column4">{% trans 'Homologation' %}</th>
+                                        <th class="clm column4" data-column="column4">{% trans 'Custom Clearance' %}</th>
+                                        <th class="clm column4" data-column="column4">{% trans 'Scheduled Completion Date' %}</th>
+                                        <th class="clm column4" data-column="column4">{% trans 'Deposit Received' %}</th>
+                                        <th class="clm column4" data-column="column4">{% trans 'Payment Received' %}</th>
+                                        <th class="clm column4" data-column="column4">{% trans 'Additional Comments' %}</th>
+                                        <th class="clm column4" data-column="column4">{% trans 'Invoice' %}</th>
                                         <th class="clm column1" data-column="column1"></th>
 
                                     </tr>
@@ -78,8 +79,8 @@
                                     <td class="clm column4" data-column="column4" style="width: 20%;">{% if not i.scheduled_completion_date %}NA{% else %}{{ i.scheduled_completion_date }}{% endif %}</td>
                                     <td class="clm column4" data-column="column4">{% if i.deposit_received %}<i class="fas fa-check"></i>{% else %}<i class="fas fa-times"></i>{% endif %}</td>
                                     <td class="clm column4" data-column="column4">{% if i.payment_received %}<i class="fas fa-check"></i>{% else %}<i class="fas fa-times"></i>{% endif %}</td>
-                                    <td class="clm column4" data-column="column4">{% if not i.additional_comments %}NA{% else %}<button class='main-button' type='button' onclick='startModal("{{ i.additional_comments }}", "{{ i.id }}")' >View</button>{% endif %}</td>
-                                    <td class="clm column4" data-column="column4">{% if i.invoice == 'default_invoice.pdf' or not i.invoice %}NA{% else %}<a href="/media/{{ i.invoice }}">Download</a>{% endif %}</td>
+                                    <td class="clm column4" data-column="column4">{% if not i.additional_comments %}NA{% else %}<button class='main-button' type='button' onclick='startModal("{{ i.additional_comments }}", "{{ i.id }}")' >{% trans 'View' %}</button>{% endif %}</td>
+                                    <td class="clm column4" data-column="column4">{% if i.invoice == 'default_invoice.pdf' or not i.invoice %}{% trans 'NA' %}{% else %}<a href="/media/{{ i.invoice }}">{% trans 'Download' %}</a>{% endif %}</td>
                                     <td class="clm column4" data-column="column4" style="background-color: white !important"></td>
                                 </tr>
                                 {% endfor %}
@@ -95,7 +96,7 @@
                   <!-- Modal content -->
                   <div class="modal-content">
                     <span class="close">&times;</span>
-                    <p id="modaltext">Some text in the Modal..</p>
+                    <p id="modaltext"></p>
                   </div>
 
                 </div>
@@ -108,7 +109,7 @@
 
                     function startModal(text, ordernumber){
                         var modaltext = document.getElementById("modaltext");
-                        modaltext.innerHTML = "<b>Additional comments for order " + ordernumber + "<b><br><br>";
+                        modaltext.innerHTML = "<b>{% trans 'Additional comments for order' %} " + ordernumber + "<b><br><br>";
                         modaltext.innerHTML += text;
                         modal.style.display = "block";
                     }

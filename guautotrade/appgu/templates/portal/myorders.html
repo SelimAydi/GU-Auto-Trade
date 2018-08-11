@@ -1,5 +1,6 @@
 {% extends "frames/base_portal.html" %}
 {% load static %}
+{% load i18n %}
 {% block header %}
 	{% with headerclass='portal' %}
 			{{ block.super }}
@@ -19,7 +20,7 @@
 					<div class="section-intro text-center" style="width: initial;">
 						{% if orders%}
                             {% if user.is_authenticated %}
-                                    <h2>My Orders</h2>
+                                    <h2>{% trans 'My Orders' %}</h2>
                                     <p class="lead">Libris vivendo eloquentiam ex ius, nec id splendide abhorreant.</p>
                                     <div class="row">
                                         <div class="tb">
@@ -31,12 +32,12 @@
                                                 <thead>
                                                         <tr class="rw head">
                                                             <th class="clm column1" data-column="column1"># Order</th>
-                                                            <th class="clm column2" data-column="column2">Model</th>
-                                                            <th class="clm column3" data-column="column3">Colour</th>
-                                                            <th class="clm column4" data-column="column4">Date</th>
-                                                            <th class="clm column4" data-column="column4">Homologation</th>
-                                                            <th class="clm column4" data-column="column4">Custom Clearance</th>
-                                                            <th class="clm column4" data-column="column4">Scheduled Completion Date</th>
+                                                            <th class="clm column2" data-column="column2">{% trans 'Model' %}</th>
+                                                            <th class="clm column3" data-column="column3">{% trans 'Color' %}</th>
+                                                            <th class="clm column4" data-column="column4">{% trans 'Date' %}</th>
+                                                            <th class="clm column4" data-column="column4">{% trans 'Homologation' %}</th>
+                                                            <th class="clm column4" data-column="column4">{% trans 'Custom Clearance' %}</th>
+                                                            <th class="clm column4" data-column="column4">{% trans 'Scheduled Completion Date' %}</th>
                                                         </tr>
                                                     </thead>
                                                     {% for i in orders %}
@@ -47,7 +48,7 @@
                                                         <td class="clm column4" data-column="column4">{{ i.date }}</td>
                                                         <td class="clm column4" data-column="column4">{% if i.homologation %}<i class="fas fa-check"></i>{% else %}<i class="fas fa-times"></i>{% endif %}</td>
                                                         <td class="clm column4" data-column="column4">{% if i.custom_clearance %}<i class="fas fa-check"></i>{% else %}<i class="fas fa-times"></i>{% endif %}</td>
-                                                        <td class="clm column4" data-column="column4">{% if not i.scheduled_completion_date %}Pending{% else %}{{ i.scheduled_completion_date }}{% endif %}</td>
+                                                        <td class="clm column4" data-column="column4">{% if not i.scheduled_completion_date %}{% trans 'Pending' %}{% else %}{{ i.scheduled_completion_date }}{% endif %}</td>
                                                     </tr>
                                                     {% endfor %}
                                                 </tbody>
@@ -57,7 +58,7 @@
                                     </div>
                             {% endif %}
                         {% else %}
-                                    <h3>You haven't placed any orders yet.</h3>
+                                    <h3>{% trans "You haven't placed any orders yet." %}</h3>
                                 </div>
                             </div>
                         {% endif %}

@@ -1,9 +1,9 @@
 (function($) {
-	"use strict"
+	"use strict";
 	
 	// Preloader
 	$(window).on('load', function() {
-		$("#preloader").delay(300).fadeOut();
+		$("#preloader").delay(10).fadeOut();
 	});
 
 	// Mobile Toggle Btn

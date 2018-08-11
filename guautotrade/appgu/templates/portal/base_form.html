@@ -26,11 +26,20 @@
 							<h2>{{ title }}</h2>
 							<p class="lead">{{ lead }}</p>
 							<div class="row">
+{#                            {% if messages %}#}
+{#                              <ul class="messages">#}
+{#                                {% for message in messages %}#}
+{#                                  <li class="{{ message.tags }}">{{ message }}</li>#}
+{#                                {% endfor %}#}
+{#                              </ul>#}
+{#                            {% endif %}#}
                                 <div id="er">
                                         <span id="sp"></span>
                                 </div>
 								  <form action="{{ request.path }}" {% if fileUpload %}enctype="multipart/form-data"{% endif %} method="post" class="registerform">
                                     {% csrf_token %}
+                                    {% if extra %}{% autoescape off %}{{ extra }}{% endautoescape %}{% endif %}
+
                                       {{ form.as_p }}
 
                                       {% if fileUpload %}
@@ -49,17 +58,19 @@
 
                             </div>
 							</div>
-                            {% endif %}
 						{% endif %}
-
-                    <script>
-
-                    </script>
+                    {% endif %}
 					</div>
 				</div>
 				</div>
 			</div>
 
 		</div>
+{#    {% if result %}#}
+{#        <script>#}
+{#            var message = [{% for message in messages %}'{{ message }}',{% endfor %}];#}
+{#        </script>#}
+{#    {% endif %}#}
+
 		<!-- /Home -->
 {% endblock %}

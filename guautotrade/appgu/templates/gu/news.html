@@ -1,0 +1,89 @@
+{% extends "frames/sub_base.html" %}
+{% load static %}
+
+{% block header %}
+	{% with headerclass='portal' %}
+			{{ block.super }}
+	{% endwith%}
+{% endblock header%}
+
+{% block content %}
+		<!-- News -->
+		<div id="news" class="section">
+
+			<!-- container -->
+			<div class="container">
+
+				<!-- row -->
+				<div class="row">
+                {% if exists %}
+					<div class="col-md-9">
+
+                    {% for post in newsposts %}
+                        <div class="col-md-11">
+                            {% if post.banner %}<img src="/media/{{ post.banner }}" class="img-fluid" alt="Banner">{% endif %}
+                            <h3>{{ post.title }}</h3>
+                            <p class="lead">{{ post.headline }}</p>
+                            <footer class="small" style="margin-bottom: 20px">- Posted by {{ post.writtenby }} {{ post.writtenby }} on {{ post.date }}</footer>
+                        {% if quote %}<blockquote><p>{{ post.quote }}</p><footer>{{ post.quotefooter }}</footer></blockquote>{% endif %}
+                            {% autoescape off %}
+                                {{ post.description }}
+                            {% endautoescape %}
+                        </div>
+						<!-- /vehicle -->
+
+                    {% endfor %}
+
+                    <div class="pagination">
+                            <span class="step-links">
+                                {% if newsposts.has_previous %}
+                                    <a href="?page=1">&laquo; first</a>
+                                    <a href="?page={{ newsposts.previous_page_number }}">previous</a>
+                                {% endif %}
+
+                                <span class="current">
+                                    Page {{ newsposts.number }} of {{ newsposts.paginator.num_pages }}.
+                                </span>
+
+                                {% if newsposts.has_next %}
+                                    <a href="?page={{ newsposts.next_page_number }}">next</a>
+                                    <a href="?page={{ newsposts.paginator.num_pages }}">last &raquo;</a>
+                                {% endif %}
+                            </span>
+                        </div>
+					</div>
+
+					<div class="col-md-3">
+						<nav class="nav-sidebar">
+                            <ul class="nav">
+
+                                <li class="active"><a href="javascript:;">Latest news</a></li>
+                                <li><a href="javascript:;">Category</a></li>
+                                <li><a href="javascript:;">Category</a></li>
+                                <li><a href="javascript:;">Category</a></li>
+                                <li><a href="javascript:;">Category</a></li>
+                                <li><a href="javascript:;">Category</a></li>
+                                <li><a href="javascript:;">Category</a></li>
+                                <li class="nav-divider"></li>
+
+                            </ul>
+                        </nav>
+
+					</div>
+                    {% else %}
+                    <div class="col-md-12" style="text-align: center;">
+                        <h3>No newspost found!</h3>
+                    </div>
+                {% endif %}
+				</div>
+				<!-- /row -->
+			</div>
+			<!-- /container -->
+
+		</div>
+		<!-- /News -->
+{% endblock %}
+
+{% block js %}
+		<script type="text/javascript" src="{% static 'js/google-map.js' %}"></script>
+{% endblock js%}

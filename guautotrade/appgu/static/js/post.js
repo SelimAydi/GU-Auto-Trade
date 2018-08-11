@@ -15,6 +15,8 @@ frm.submit(function () {
         contentType: false,
         success: function (data) {
             if (data['status'] === 'failed') {
+                console.log("failed state");
+                console.log(data['formerr']);
                 $("#sp").html("");
                 for (var k in data['formerr']) {
                     var curr = data['formerr'][k][0];
@@ -26,18 +28,21 @@ frm.submit(function () {
                 $("#sp").addClass("error");
                 $("html, body").animate({scrollTop: 0}, "fast");
             } else {
+                console.log("success state");
                 $("#er").remove();
                 frm.fadeOut(400);
+                console.log(data['result']);
                 setTimeout(
                     function () {
                         $("#suc").addClass("success");
-                        $("#suc").html("Succesfully created");
+                        $("#suc").html(data['result']);
                     }, 440);
 
                 frm[0].reset();
             }
         },
         error: function (data) {
+            console.log("err");
             $("#er").html("Something went wrong!");
             frm[0].reset();
         }

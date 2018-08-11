@@ -6,16 +6,23 @@
 			{{ block.super }}
 	{% endwith%}
 {% endblock header%}
+
+{% block headoptions %}
+    <script>
+    console.log("headoptions");
+    </script>
+{% endblock %}
+
 {% block content %}
 		<!-- Home -->
 		<div id="home" class="hero-area">
 
 			<!-- Backgound Image -->
 			<div id="slideshow">
-				<div class="bg-image bg-parallax overlay" style="background-image:url(http://www.automotorblog.com/wp-content/uploads/2017/01/2017-Shelby-Super-Snake-Mustang-1.jpg)"></div>
-				<div class="bg-image bg-parallax overlay" style="background-image:url(https://images.cdn.circlesix.co/image/2/1920/1080/5/uploads/wallpaper/shelbygt350_01_hr-546b32ba1592b.jpg?dl)"></div>
-				<div class="bg-image bg-parallax overlay" style="background-image:url(http://www.wallpapers4u.org/wp-content/uploads/ford_shelby_mustang_gt500e_eleonora_76872_1920x1080.jpg)"></div>
-				<div class="bg-image bg-parallax overlay" style="background-image:url(http://4kcarwallpapers.com/wp-content/uploads/2017/05/Oxford_White_2017_Shelby_Super_Snake.jpg)"></div>
+				<div class="bg-image overlay" style="background-image:url({% static 'img/slideshow/shelby1.jpg' %})"></div>
+				<div class="bg-image overlay" style="background-image:url({% static 'img/slideshow/shelby2.jpg' %})"></div>
+				<div class="bg-image overlay" style="background-image:url({% static 'img/slideshow/shelby3.jpg' %})"></div>
+				<div class="bg-image overlay" style="background-image:url({% static 'img/slideshow/shelby4.jpg' %})"></div>
 			</div>
 			<!-- /Backgound Image -->
 
@@ -40,31 +47,24 @@
 			<!-- container -->
 			<div class="container">
 
-				<!-- row -->
+                <!-- row -->
 				<div class="row">
 
 					<div class="col-md-6">
-						<div class="section-header">
-							<h2 style="color: #433e3ee6;">{% trans "Check dealers" %}</h2>
-							<p class="lead" style="color: #22202078;">{% trans "Our dealers provide you with the best services" %}</p>
-						</div>
-
-						<!-- feature -->
-						<div class="feature">
-
-						</div>
-						<!-- /feature -->
-
+						<h3>{% trans "About Shelby" %}</h3>
+						<p class="lead">Libris vivendo eloquentiam ex ius, nec id splendide abhorreant.</p>
+						<p>In 1962, Carroll Shelby Put a Ford V8 engine into a European racecar chassis and went on to beat the world’s best teams and claim the first and only FIA World Sportcar championship for an American company. Ever since there’s not been another company more synonymous with developing high performance Ford Products than Shelby American.</p>
 					</div>
 
-					<div class="col-md-6">
-						<div class="about-img">
-							<img src="https://images.autofusion.com/pricebooks_data/usa/colorized/2018/Ford/View2/Shelby_GT350/Base/P8J_YZ.png" alt="">
-						</div>
+					<div class="col-md-5 col-md-offset-1">
+						<a class="about-video" href="#">
+							<img src="https://hips.hearstapps.com/amv-prod-cad-assets.s3.amazonaws.com/images/media/672264/2018-ford-mustang-shelby-gt350-gt350r-in-depth-model-review-car-and-driver-photo-694522-s-original.jpg" alt="">
+							<i class="play-icon fa fa-play"></i>
+						</a>
 					</div>
 
 				</div>
-				<!-- row -->
+				<!-- /row -->
 
 			</div>
 			<!-- container -->
@@ -237,27 +237,6 @@
 						</div>
 					</div>
 					<!-- /feature -->
-
-				</div>
-				<!-- /row -->
-
-				<hr class="section-hr">
-
-				<!-- row -->
-				<div class="row">
-
-					<div class="col-md-6">
-						<h3>{% trans "About Shelby" %}</h3>
-						<p class="lead">Libris vivendo eloquentiam ex ius, nec id splendide abhorreant.</p>
-						<p>In 1962, Carroll Shelby Put a Ford V8 engine into a European racecar chassis and went on to beat the world’s best teams and claim the first and only FIA World Sportcar championship for an American company. Ever since there’s not been another company more synonymous with developing high performance Ford Products than Shelby American.</p>
-					</div>
-
-					<div class="col-md-5 col-md-offset-1">
-						<a class="about-video" href="#">
-							<img src="https://hips.hearstapps.com/amv-prod-cad-assets.s3.amazonaws.com/images/media/672264/2018-ford-mustang-shelby-gt350-gt350r-in-depth-model-review-car-and-driver-photo-694522-s-original.jpg" alt="">
-							<i class="play-icon fa fa-play"></i>
-						</a>
-					</div>
 
 				</div>
 				<!-- /row -->

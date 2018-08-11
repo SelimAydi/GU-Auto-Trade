@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-08-02 22:20+0200\n"
+"POT-Creation-Date: 2018-08-10 01:16+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,12 +19,173 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: .\appgu\templates\frames\base.html:64
+#: .\appgu\templates\frames\base_portal.html:124
 msgid "Phone"
 msgstr "Telefoon-nummer"
 
 #: .\appgu\templates\frames\base.html:65
+#: .\appgu\templates\frames\base_portal.html:125
 msgid "Email"
 msgstr "Email"
+
+#: .\appgu\templates\frames\base_portal.html:71
+msgid "Change Password"
+msgstr "Wachtwoord veranderen"
+
+#: .\appgu\templates\frames\base_portal.html:72
+msgid "Settings"
+msgstr "Instellingen"
+
+#: .\appgu\templates\frames\base_portal.html:80
+msgid "Superuser"
+msgstr "Superuser"
+
+#: .\appgu\templates\frames\base_portal.html:82
+msgid "Staff member"
+msgstr "Admin"
+
+#: .\appgu\templates\frames\base_portal.html:84
+#, fuzzy
+#| msgid "Dealers"
+msgid "Dealer"
+msgstr "Dealers"
+
+#: .\appgu\templates\frames\base_portal.html:93
+msgid "Place an order"
+msgstr "Plaats een bestelling"
+
+#: .\appgu\templates\frames\base_portal.html:98
+#: .\appgu\templates\portal\registeradmin.html:29
+#: .\appgu\templates\portal\registerdealer.html:22
+#: .\appgu\templates\portal\registerdealer.html:29
+msgid "Register"
+msgstr "Aanmelden"
+
+#: .\appgu\templates\frames\base_portal.html:101
+msgid "Admin"
+msgstr "Admin"
+
+#: .\appgu\templates\frames\base_portal.html:106
+#: .\appgu\templates\portal\registeradmin.html:22
+msgid "Register Dealer"
+msgstr "Meld een Dealer aan"
+
+#: .\appgu\templates\frames\base_portal.html:108
+msgid "Orders"
+msgstr "Bestellingen"
+
+#: .\appgu\templates\frames\base_portal.html:111
+msgid "Add"
+msgstr "Toevoegen"
+
+#: .\appgu\templates\frames\base_portal.html:113
+#: .\appgu\templates\gu\index.html:84 .\appgu\templates\shelby\index.html:84
+#: .\appgu\templates\tuscany\index.html:84
+msgid "Vehicles"
+msgstr "Voertuigen"
+
+#: .\appgu\templates\frames\base_portal.html:114
+#, fuzzy
+#| msgid "News"
+msgid "Newspost"
+msgstr "Nieuws"
+
+#: .\appgu\templates\frames\base_portal.html:115
+#, fuzzy
+#| msgid "Events"
+msgid "Event"
+msgstr "Evenementen"
+
+#: .\appgu\templates\frames\base_portal.html:116
+#, fuzzy
+#| msgid "Check dealers"
+msgid "Map dealers"
+msgstr "Dealers"
+
+#: .\appgu\templates\frames\base_portal.html:121
+msgid "My orders"
+msgstr "Mijn bestellingen"
+
+#: .\appgu\templates\frames\base_portal.html:122
+msgid "Logout"
+msgstr "Uitloggen"
+
+#: .\appgu\templates\gu\index.html:26 .\appgu\templates\shelby\index.html:33
+#: .\appgu\templates\tuscany\index.html:26
+msgid "Top class automobiles"
+msgstr "Klasse auto's"
+
+#: .\appgu\templates\gu\index.html:27 .\appgu\templates\shelby\index.html:34
+#: .\appgu\templates\tuscany\index.html:27
+msgid ""
+"Delivering cars and products that provide an unparalleled driving experience"
+msgstr "Auto's en producten die mensen ongeëvenaard rij-ervaring geven"
+
+#: .\appgu\templates\gu\index.html:28 .\appgu\templates\gu\index.html:48
+#: .\appgu\templates\shelby\index.html:35
+#: .\appgu\templates\tuscany\index.html:28
+#: .\appgu\templates\tuscany\index.html:48
+msgid "Check dealers"
+msgstr "Dealers"
+
+#: .\appgu\templates\gu\index.html:49 .\appgu\templates\tuscany\index.html:49
+msgid "Our dealers provide you with the best services"
+msgstr "Onze dealers voorzien u met de beste diensten"
+
+#: .\appgu\templates\gu\index.html:85 .\appgu\templates\shelby\index.html:85
+#: .\appgu\templates\tuscany\index.html:85
+msgid "Checkout our vehicles"
+msgstr "Neem een kijkje naar onze voertuigen"
+
+#: .\appgu\templates\gu\index.html:120 .\appgu\templates\shelby\index.html:120
+#: .\appgu\templates\tuscany\index.html:120
+msgid "More Info"
+msgstr "Meer Informatie"
+
+#: .\appgu\templates\gu\index.html:131 .\appgu\templates\shelby\index.html:131
+#: .\appgu\templates\tuscany\index.html:131
+msgid "first"
+msgstr "eerste"
+
+#: .\appgu\templates\gu\index.html:132 .\appgu\templates\shelby\index.html:132
+#: .\appgu\templates\tuscany\index.html:132
+msgid "previous"
+msgstr "vorige"
+
+#: .\appgu\templates\gu\index.html:136 .\appgu\templates\shelby\index.html:136
+#: .\appgu\templates\tuscany\index.html:136
+msgid "Page"
+msgstr "Pagina"
+
+#: .\appgu\templates\gu\index.html:136 .\appgu\templates\shelby\index.html:136
+#: .\appgu\templates\tuscany\index.html:136
+msgid "of"
+msgstr "van de"
+
+#: .\appgu\templates\gu\index.html:140 .\appgu\templates\shelby\index.html:140
+#: .\appgu\templates\tuscany\index.html:140
+msgid "next"
+msgstr "volgende"
+
+#: .\appgu\templates\gu\index.html:141 .\appgu\templates\shelby\index.html:141
+#: .\appgu\templates\tuscany\index.html:141
+msgid "last"
+msgstr "laatste"
+
+#: .\appgu\templates\gu\index.html:250 .\appgu\templates\shelby\index.html:54
+#: .\appgu\templates\tuscany\index.html:250
+msgid "About Shelby"
+msgstr "Over Shelby"
+
+#: .\appgu\templates\gu\index.html:285 .\appgu\templates\shelby\index.html:264
+#: .\appgu\templates\tuscany\index.html:285
+msgid "Contact Us"
+msgstr "Neem Contact op met ons"
+
+#: .\appgu\templates\gu\index.html:287 .\appgu\templates\shelby\index.html:266
+#: .\appgu\templates\tuscany\index.html:287
+msgid "Contact Us Now"
+msgstr "Contact opnemen"
 
 #: .\appgu\templates\index.html:24
 msgid "Make a choice"
@@ -38,89 +199,142 @@ msgstr "Selecteer Tuscany of Shelby"
 msgid "Or continue to GU Auto Trade"
 msgstr "Of ga door naar GU Auto Trade"
 
-#: .\appgu\templates\shelby\index.html:26
-msgid "Top class automobiles"
-msgstr "Klasse auto's"
+#: .\appgu\templates\portal\login.html:21
+msgid "Welcome to the Dealer Portal"
+msgstr "Welkom bij het Klant Portaal"
 
-#: .\appgu\templates\shelby\index.html:27
-msgid ""
-"Delivering cars and products that provide an unparalleled driving experience"
-msgstr "Auto's en producten die mensen ongeëvenaard rij-ervaring geven"
+#: .\appgu\templates\portal\login.html:22
+msgid "In this portal you can check and modify orders and website entities."
+msgstr "In dit portaal kunt u bestellingen en website inhoud inzien en wijzigen."
 
-#: .\appgu\templates\shelby\index.html:28
-#: .\appgu\templates\shelby\index.html:48
-msgid "Check dealers"
-msgstr "Dealers"
+#: .\appgu\templates\portal\login.html:22
+msgid "In this portal you can place and access your orders."
+msgstr "In dit portaal kunt u bestellingen plaatsen en inzien"
 
-#: .\appgu\templates\shelby\index.html:49
-msgid "Our dealers provide you with the best services"
-msgstr "Onze dealers voorzien u met de beste diensten"
+#: .\appgu\templates\portal\login.html:26
+#, fuzzy
+#| msgid "Dealers"
+msgid "Dealer Login"
+msgstr "Dealer Login"
 
-#: .\appgu\templates\shelby\index.html:84
-#: .\appgu\templates\shelby\index.html:325
-msgid "Vehicles"
-msgstr "Voertuigen"
+#: .\appgu\templates\portal\login.html:27
+msgid "Fill in your credentials to login"
+msgstr "Vul uw gebruikergegevens in om in te loggen"
 
-#: .\appgu\templates\shelby\index.html:85
-msgid "Checkout our vehicles"
-msgstr "Neem een kijkje naar onze voertuigen"
+#: .\appgu\templates\portal\login.html:32
+msgid "Login"
+msgstr "Inloggen"
 
-#: .\appgu\templates\shelby\index.html:120
-msgid "More Info"
-msgstr "Meer Informatie"
+#: .\appgu\templates\portal\myorders.html:22
+msgid "My Orders"
+msgstr "Mijn Bestellingen"
 
-#: .\appgu\templates\shelby\index.html:131
-msgid "first"
-msgstr "eerste"
+#: .\appgu\templates\portal\myorders.html:34
+#: .\appgu\templates\portal\orderlist.html:54
+msgid "Model"
+msgstr "Model"
 
-#: .\appgu\templates\shelby\index.html:132
-msgid "previous"
-msgstr "vorige"
+#: .\appgu\templates\portal\myorders.html:35
+#: .\appgu\templates\portal\orderlist.html:55
+msgid "Color"
+msgstr "Kleur"
 
-#: .\appgu\templates\shelby\index.html:136
-msgid "Page"
-msgstr "Pagina"
+#: .\appgu\templates\portal\myorders.html:36
+#: .\appgu\templates\portal\orderlist.html:56
+msgid "Date"
+msgstr "Datum"
 
-#: .\appgu\templates\shelby\index.html:136
-msgid "of"
-msgstr "van de"
+#: .\appgu\templates\portal\myorders.html:37
+#: .\appgu\templates\portal\orderlist.html:57
+msgid "Homologation"
+msgstr "Goedkeuring"
 
-#: .\appgu\templates\shelby\index.html:140
-msgid "next"
-msgstr "volgende"
+#: .\appgu\templates\portal\myorders.html:38
+#: .\appgu\templates\portal\orderlist.html:58
+msgid "Custom Clearance"
+msgstr "Inklaring"
 
-#: .\appgu\templates\shelby\index.html:141
-msgid "last"
-msgstr "laatste"
+#: .\appgu\templates\portal\myorders.html:39
+#: .\appgu\templates\portal\orderlist.html:59
+msgid "Scheduled Completion Date"
+msgstr "Ingeplande einddatum"
 
-#: .\appgu\templates\shelby\index.html:250
-msgid "About Shelby"
-msgstr "Over Shelby"
+#: .\appgu\templates\portal\myorders.html:50
+msgid "Pending"
+msgstr "In afwachting"
 
-#: .\appgu\templates\shelby\index.html:285
-msgid "Contact Us"
-msgstr "Neem Contact op met ons"
+#: .\appgu\templates\portal\myorders.html:60
+msgid "You haven't placed any orders yet."
+msgstr "U heeft nog geen bestellingen geplaatst."
 
-#: .\appgu\templates\shelby\index.html:287
-msgid "Contact Us Now"
-msgstr "Contact opnemen"
+#: .\appgu\templates\portal\orderlist.html:24
+msgid "Order List"
+msgstr "Lijst van Bestellingen"
 
-#: .\appgu\templates\shelby\index.html:326
-msgid "Dealers"
-msgstr "Dealers"
+#: .\appgu\templates\portal\orderlist.html:32
+msgid "No orders have been placed yet"
+msgstr "Er zijn nog geen bestellingen geplaatst"
 
-#: .\appgu\templates\shelby\index.html:327
-msgid "Events"
-msgstr "Evenementen"
+#: .\appgu\templates\portal\orderlist.html:52
+msgid "Order ID"
+msgstr "Bestelling ID"
 
-#: .\appgu\templates\shelby\index.html:328
-msgid "Shop"
-msgstr "Webshop"
+#: .\appgu\templates\portal\orderlist.html:53
+#, fuzzy
+#| msgid "Dealers"
+msgid "Dealer Name"
+msgstr "Dealer Naam"
 
-#: .\appgu\templates\shelby\index.html:329
-msgid "News"
-msgstr "Nieuws"
+#: .\appgu\templates\portal\orderlist.html:60
+msgid "Deposit Received"
+msgstr "Storting Ontvangen"
 
-#: .\appgu\templates\shelby\index.html:330
-msgid "Contact"
-msgstr "Contact"
+#: .\appgu\templates\portal\orderlist.html:61
+msgid "Payment Received"
+msgstr "Betaling Ontvangen"
+
+#: .\appgu\templates\portal\orderlist.html:62
+msgid "Additional Comments"
+msgstr "Extra info"
+
+#: .\appgu\templates\portal\orderlist.html:63
+msgid "Invoice"
+msgstr "Factuur"
+
+#: .\appgu\templates\portal\orderlist.html:81
+msgid "View"
+msgstr "Bekijk"
+
+#: .\appgu\templates\portal\orderlist.html:82
+msgid "NA"
+msgstr "NA"
+
+#: .\appgu\templates\portal\orderlist.html:82
+msgid "Download"
+msgstr "Downloaden"
+
+#: .\appgu\templates\portal\orderlist.html:111
+msgid "Additional comments for order"
+msgstr "Extra informatie over bestelling"
+
+#: .\appgu\templates\portal\portal.html:24
+msgid "Order Form"
+msgstr "Bestelling Formulier"
+
+#: .\appgu\templates\portal\portal.html:30
+msgid "Order"
+msgstr "Bestelling"
+
+#: .\appgu\views\portal.py:255
+msgid "Event succesfully added."
+msgstr "Evenement is toegevoegd"
+
+#: .\appgu\views\portal.py:263
+msgid "Failed to add event."
+msgstr "Evenement toevoegen is niet gelukt."
+
+#~ msgid "Shop"
+#~ msgstr "Webshop"
+
+#~ msgid "Contact"
+#~ msgstr "Contact"

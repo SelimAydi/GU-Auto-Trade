@@ -375,6 +375,8 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
 
 .portal .navbar-right a, .portal .navbar-left li a{
 	color:	#ffffff !important;
+	height: 100%;
+	/* font-size: 12px; */
 }
 
 .portal .navbar-left li a{
@@ -1864,7 +1866,6 @@ input[type="file"] {
 
 .dropbtn {
     color: white;
-    padding: 14px;
     font-size: 16px;
     border: none;
     height: 100%;
@@ -1872,8 +1873,10 @@ input[type="file"] {
 }
 
 .dropdown {
-    /* position: relative; */
-    /* display: inline-block; */
+    /* display: block; */
+    padding: 12px;
+    padding-top: 13.7px;
+    height: 100%;
 }
 
 .dropdown-content {
@@ -1960,8 +1963,8 @@ input[type="file"] {
 
 .mapbox {
 	position: absolute;
-	/* min-height: 260px; */
-	width: 15%;
+	max-height: 305px;
+	width: 17%;
 	background-color: #374050;
 	z-index: 15;
 	top: 40%;
@@ -1969,6 +1972,11 @@ input[type="file"] {
 	left: 2%;
 	margin: auto;
 	border-radius: 5px;
+	padding: 15px;
+}
+
+.mapbox i{
+	margin-right: 5px;
 }
 
 .mapbox .nav {
@@ -1981,6 +1989,22 @@ input[type="file"] {
 
 .mapbox .nav>li>a {
 	color: white;
+}
+
+.mapbox li>a {
+	color: #71b7f3;
+}
+
+.under a {
+	padding: 0px 25px;
+}
+
+.under2 {
+	padding: 0px 40px;
+}
+
+.mapbox .nav>li>a:focus{
+	background-color: #4e586a;
 }
 
 /*==================================================================

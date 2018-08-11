@@ -253,7 +253,7 @@ class EventForm(forms.ModelForm):
 
 class MapDealerForm(forms.ModelForm):
     customer_name = forms.CharField(required=True)
-    email = forms.EmailField(required=False)
+    email = forms.EmailField(required=False, error_messages = {'invalid': 'Your Email Confirmation Not Equal With Your Email'})
     phone = forms.CharField(required=False)
     address = forms.CharField(required=True, widget=forms.Textarea)
     country = CountryField().formfield()
@@ -266,8 +266,15 @@ class MapDealerForm(forms.ModelForm):
         fields = ("customer_name", "email", "phone", "address", "country", "latitude", "longitude")
 
     def clean_email(self):
+        print("cleaning email")
+        print(self.cleaned_data)
+        if self.cleaned_data['email'] == "":
+            print("returning None")
+            return None
         if MapDealers.objects.filter(email=self.cleaned_data['email']).exists():
-            raise forms.ValidationError('This e-mail address already exists, use a different e-mail address.')
+            print("IT EXISTS")
+            raise forms.ValidationError("This e-mail address already exists, use a different e-mail address.")
+        print("returning the email")
         return self.cleaned_data['email']
 
     def __init__(self, *args, **kwargs):
@@ -287,6 +294,31 @@ class MapDealerForm(forms.ModelForm):
         self.fields['longitude'].widget.attrs['placeholder'] = '2.4766'
         self.fields['phone'].help_text = "Optional field."
         self.fields['email'].help_text = "Optional field."
+
+    def save(self, commit=True):
+        map = super(MapDealerForm, self).save(commit=False)
+        # maxID = MapDealers.objects.all().aggregate(Max('id'))
+        # if maxID.get('id__max') == None:
+        #     user.id = 1
+        # else:
+        #     user.id = maxID.get('dealerID__max') + 1
+
+        map.customer_name = self.cleaned_data['customer_name']
+        map.email = self.cleaned_data['email']
+        map.phone = self.cleaned_data['phone']
+        map.address = self.cleaned_data['address']
+        map.country = self.cleaned_data['country']
+        map.latitude = self.cleaned_data['latitude']
+        map.longitude = self.cleaned_data['longitude']
+
+        Entry = MapDealers(customer_name=map.customer_name, email=map.email, phone=map.phone,
+                              address=map.address, country=map.country, latitude=map.latitude, longitude=map.longitude)
+        Entry.save()
+
+        if commit:
+            map.save()
+
+        return map
 
 
 

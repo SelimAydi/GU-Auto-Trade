@@ -1,0 +1,64 @@
+{% extends "frames/sub_base.html" %}
+{% load static %}
+
+{% block header %}
+	{% with headerclass='portal' %}
+			{{ block.super }}
+	{% endwith%}
+{% endblock header%}
+
+{% block content %}
+		<!-- News -->
+		<div id="event" class="section text-center">
+            <h2>Event Calendar</h2>
+            <p class="lead">Libris vivendo eloquentiam ex ius, nec id splendide abhorreant.</p>
+			<!-- container -->
+			<div class="container">
+
+				<!-- row -->
+				<div class="row">
+                    <div class="col-md-12">
+                        <div id="caleandar">
+                        </div>
+                    </div>
+				</div>
+				<!-- /row -->
+
+                <!-- row -->
+                <div class="row">
+                        <div id="cal">
+                        </div>
+                    </div>
+                <!-- /row -->
+
+			</div>
+			<!-- /container -->
+        <script>
+            {#var lel;#}
+            function append(title, description, link){
+                console.log("------TITLE----------------------")
+                console.log(title);
+                console.log("------DESC----------------------")
+                console.log(description);
+                console.log("------LINK----------------------")
+                console.log(link);
+                console.log("----------------------------")
+                var htm = "<p class='title'>Event:</p><p>" + title +"</p>";
+                htm += "<p>" + description + "</p>"
+
+                if (link != '') {
+                    htm += "<a href='" + link + "'>More about this event</a>";
+                }
+                $('#cal').css("background-color", "#374050");
+                $('#cal').html(htm);
+                $(window).scrollTo(document.getElementById('cal'), 1000);
+            }
+        </script>
+		</div>
+		<!-- /News -->
+{% endblock %}
+
+{% block js %}
+    <script src="{% static 'js/calendar/caleandar.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/calendar/demo.js' %}"></script>
+{% endblock js%}

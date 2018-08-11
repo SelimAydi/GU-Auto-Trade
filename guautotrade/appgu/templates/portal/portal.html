@@ -1,6 +1,6 @@
 {% extends "frames/base_portal.html" %}
 {% load static %}
-
+{% load i18n %}
 {% block header %}
 	{% with headerclass='portal' %}
 			{{ block.super }}
@@ -16,18 +16,18 @@
 			<div style="background-color: white;"></div>
 			<!-- /Backgound -->
 
-			<div class="home-wrapper" style="-webkit-transform: initial; position: relative; top: initial;">
+			<div class="home-wrapper">
 				<div class="container">
 					<div class="row">
 					<div class="section-intro text-center">
 						{% if user.is_authenticated %}
-							<h2>Order Form</h2>
+							<h2>{% trans 'Order Form' %}</h2>
 							<p class="lead">Libris vivendo eloquentiam ex ius, nec id splendide abhorreant.</p>
 							<div class="row">
 								<form id="orderform" method="POST" class="registerform" autocomplete="off">
 									{% csrf_token %}
 									{{form.as_p}}
-									<button class="main-button icon-button form-button" type="submit">Order</button>
+									<button class="main-button icon-button form-button" type="submit">{% trans 'Order' %}</button>
 								</form>
 							</div>
 						{% endif %} 

@@ -1,0 +1,581 @@
+/*
+Colors:
+	Body 		: #798696
+	Headers 	: #374050
+	Primary 	: #FF6700
+	Grey 		: #EBEBEB
+
+Fonts: Lato & Montserrat
+
+Table OF Contents
+------------------------------------
+1 > General
+2 > Logo
+3 > Navigation
+4 > Hero Area
+5 > About & Why Us (Feature)
+6 > Courses
+7 > Footer
+8 > Contact Page
+9 > Blog Page
+10 > Blog Page Sidebar
+11 > Single Post Page
+12 > Responsive
+13 > Preloader
+------------------------------------*/
+
+/*------------------------------------*\
+	General
+\*------------------------------------*/
+/* --- typography --- */
+body {
+    height: calc(100vh);
+    font-family: 'Lato', sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    color: #798696;
+    overflow-x:hidden;
+}
+
+@font-face {
+    font-family: "Shelby";
+    src: url(/static/fonts/Shelby.ttf) format("truetype");
+}
+
+h1,h2,h3,h4,h5,h6 {
+	margin-top: 2vh;
+	margin-bottom: 2vh;
+	font-weight: 700;
+	color: #374050;
+}
+
+h1 {
+	font-size: 7vh;
+}
+
+h2 {
+	font-size: 5vh;
+}
+
+h3 {
+	font-size:24px;
+}
+
+h4 {
+	font-size:18px;
+}
+
+a {
+	font-family: 'Lato', sans-serif;
+	color: #574b4b;
+	font-weight: 700;
+	cursor: pointer;
+}
+
+a:hover,
+a:focus{
+    text-decoration: none;
+    outline: none;
+    color: #374050;
+}
+
+ul,ol{
+    margin: 0 auto;
+    padding: 0;
+    list-style: none;
+}
+
+
+
+/* --- Section --- */
+.section {
+	position:relative;
+	padding-top: 30px;
+	padding-bottom:80px;
+	background-color: #ffffff;
+}
+
+.section-hr {
+	margin-top:80px;
+	margin-bottom:80px;
+	border-color: #EBEBEB;
+}
+
+.section-header {
+	margin-bottom:40px;
+}
+
+.section-intro {
+	background-color: #ffffff;
+	padding-top: 2%;
+	padding-bottom: 1%;
+	padding-left: 5%;
+	padding-right: 5%;
+	width: 100vh;
+	/* margin-bottom:40px; */
+	border-radius: 5px;
+	margin: 0 auto;
+}
+
+#contact {
+	padding-top: 250px;
+	height: calc(100vh);
+}
+
+#news {
+	padding-top: 250px;
+}
+
+#event {
+	padding-top: 150px;
+    min-height: calc(100vh);
+
+}
+
+#dealers {
+	height: calc(100vh);
+}
+
+#expandable {
+	padding-top: 250px;
+}
+
+/* --- Buttons --- */
+
+.form-button {
+	width: 30% !important;
+	margin-top: 10px;
+	padding: 1vh !important;
+}
+
+.registerform .form-button {
+	width: 65% !important;
+	margin-top: 10px;
+	padding: 1vh !important;
+}
+
+.main-button {
+	position:relative;
+	display:inline-block;
+	padding: 1.5vh 2vh;
+	font-size: 1.7vh;
+	background-color: #353535;
+	border: 2px solid transparent;
+	border-radius: 5px;
+	color: #FFF;
+	-webkit-transition:0.2s all;
+	transition:0.2s all;
+}
+
+.main-button:hover , .main-button:focus {
+	background-color: #fff;
+	border: 2px solid rgba(0, 0, 0, 0.06);
+	color: #555555;
+}
+
+.main-button.icon-button:hover , .main-button.icon-button:focus {
+	padding-right: 45px;
+}
+
+.main-button.icon-button:after {
+	content:"\f178";
+	font-family:FontAwesome;
+	position:absolute;
+	width: 30px;
+	right: 15px;
+	text-align:center;
+	opacity:0;
+	-webkit-transition:0.2s all;
+	transition:0.2s all;
+}
+
+.main-button.icon-button:hover:after , .main-button.icon-button:focus:after {
+	opacity:1;
+}
+
+/* --  Input  -- */
+input[type="text"], input[type="email"], input[type="password"], input[type="number"], input[type="date"], input[type="url"], input[type="tel"], textarea {
+    height: 40px;
+    width: 100%;
+    border: 1px solid #EBEBEB;
+	border-radius:4px;
+	background: transparent;
+    padding-left: 15px;
+	padding-right: 15px;
+	-webkit-transition:0.2s border-color;
+	transition:0.2s border-color;
+}
+
+textarea {
+    padding: 10px 15px;
+}
+
+input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focus, input[type="number"]:focus, input[type="date"]:focus, input[type="url"]:focus, input[type="tel"]:focus, textarea:focus {
+	border-color:#FF6700;
+}
+/*------------------------------------*\
+	Errors
+\*------------------------------------*/
+
+.errorlist {
+	font-size: 13px;
+	display: inline;
+	background-color: rgba(228, 100, 100, 0.13);
+	padding: 2px;
+	color: #fff3f3;
+	border-radius: 3px;
+	border: dashed 1px rgb(199, 175, 175);
+	padding-left: 10px;
+	padding-right: 10px;
+	text-align: center;
+}
+
+.errorlist > li{
+	display: inline;
+	color: #f36c6c;
+}
+
+.errorlist > li:before {
+	/* float: left; */
+	font-size: 12px;
+	margin-right: 5px;
+	/* margin-left: 0px; */
+	/* margin-right: -50px; */
+	content: "\f06a";
+	font-family: FontAwesome;
+	display: inline;
+}
+
+/*==================================================================
+[ Table ]*/
+
+table {
+  width: 100%;
+  background-color: #fff;
+}
+
+th, td {
+  font-weight: unset;
+  padding-right: 10px;
+}
+
+.clm {
+  width: 1.4%;
+  /* padding-left: 25px; */
+}
+
+.clm.column1 {
+}
+
+.rw.head th {
+  padding-top: 24px;
+  padding-bottom: 20px;
+}
+
+.rw td {
+  padding-top: 18px;
+  padding-bottom: 14px;
+  transition: 0.5s;
+  text-align: center;
+}
+
+.tb tbody tr {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.tbtd {
+  font-family: Montserrat-Regular;
+  font-size: 14px;
+  color: #808080;
+  line-height: 1.4;
+}
+
+.tb {
+	font-size: 2vh;
+	margin: 0 auto;
+	width: 95%;
+}
+
+.tb input[type=text]{
+	text-align: center;
+	color: #2196F3;
+	display: block;
+	margin: 0 auto;
+	background-color: white;
+	font-weight:800;
+	width: 90%;
+}
+
+.tb th {
+  color: #fff;
+  line-height: 1.4;
+  background-color: #374050;
+  text-align: center;
+}
+
+.tb .rw:hover td {
+/*   background-color: #fafafd; */
+}
+
+.tb .hov-column-ver3 {
+  transition: 0.5s;
+}
+
+.tb .hov-column-head-ver3 {
+  background-color: #7b88e3 !important;
+}
+
+.tb .rw td:hover {
+  background-color: #92d0ea;
+  color: #fff;
+  transition: 0.3s;
+}
+
+input[type=checkbox] {
+	height: 30px;
+	width: 20px;
+}
+
+.registeradmincheckbox {
+	vertical-align: bottom;
+}
+
+/*==================================================================
+[ Modal (semi-popup) ]*/
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    /* text-align: center; */
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 40%;
+}
+
+#modaltext {
+	overflow-y: auto;
+	max-height: 400px;
+}
+
+/* The Close Button */
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    margin-left: 10px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/*==================================================================
+[ File upload ]*/
+
+input[type="file"] {
+    /* display: none; */
+}
+.custom-file-upload {
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+    display: block;
+    width: 150px;
+    margin: auto;
+    padding: 10px;
+    margin-top: -25px;
+    margin-bottom: 10px;
+}
+
+.custom-file-upload i{
+	padding-right: 10px;
+}
+
+#formposted {
+	padding: 10px;
+}
+
+.invis {
+	visibility: hidden;
+}
+/*------------------------------------*\
+	Forms
+\*------------------------------------*/
+
+.dealerloginform {
+	padding-left: 5%;
+	padding-right: 5%;
+	padding-bottom: 5%;
+}
+
+.dealerloginform input[type=text], .dealerloginform input[type=password]{
+	text-align: center;
+	width: 50%;
+	margin: 0 auto;
+	outline: none !important;
+	display: block;
+	border-top: 0;
+	border-left: 0;
+	border-right: 0;
+	border-bottom: solid 0.1vh #37405040;
+	border-radius: 0;
+	color: #8ca6ac;
+	font-weight: 800;
+}
+
+.dealerloginform input[type=text]::placeholder, input[type=password]::placeholder {
+	color: #b9b9b9cf;
+}
+
+.dealerloginform input[type=text]:focus {
+	border-color: #00000054;
+}
+
+.registerform select, .registerform input[type=number]{
+	width: 65%;
+	margin: 0 auto;
+	outline: none !important;
+	display: block;
+	border-top: 0;
+	border-left: 0;
+	border-right: 0;
+	border-bottom: 1px solid #EBEBEB;
+	border-radius: 0;
+	color: #8ca6ac;
+	font-weight: 800;
+	text-align-last: center;
+}
+
+.registerform option{
+	text-align: center;
+	background-color: #374050;
+	border: none;
+}
+
+.helptext {
+	color: #4fafd0;
+}
+
+#suc {
+	padding: 20px;
+	border-radius: 3px;
+	width: 80%;
+	margin: 0 auto;
+}
+
+.success {
+	background-color: #daf5da;
+	padding: 20px;
+	color: #7fa07f;
+	border-radius: 3px;
+	width: 80%;
+	margin: 0 auto;
+}
+
+.success::before{
+	padding: 5px;
+	font-family: 'FontAwesome';
+	content: '\f00c';
+}
+
+#er {
+	border-radius: 3px;
+	margin: 0 auto;
+	display: inline-block;
+	min-width: 140px;
+	color: #ef5a5a;
+	background-color: rgba(248, 212, 212, 0.28);
+	margin-bottom: 20px;
+}
+
+.err {
+	padding: 10px;
+}
+
+.error{
+	border-radius: 3px;
+	padding: 12px;
+	/* border: dashed 1.5px rgba(55, 64, 80, 0.26); */
+}
+
+.error::before{
+	padding: 7px;
+	font-family: 'FontAwesome';
+	content: '\f071';
+}
+
+.registerform {
+	padding-left: 5%;
+	padding-right: 5%;
+	padding-bottom: 5%;
+}
+
+.registerform input[type=text], .registerform input[type=password], .registerform input[type=email], .registerform input[type=url]{
+	text-align: center;
+	width: 65%;
+	margin: 0 auto;
+	outline: none !important;
+	display: block;
+	border-top: 0;
+	border-left: 0;
+	border-right: 0;
+	border-bottom: 1px solid #EBEBEB;
+	border-radius: 0;
+	color: #48b17c;
+	font-weight: 800;
+}
+
+.registerform textarea {
+	padding-bottom: 100px;
+	padding-left:10px;
+	padding-top:10px;
+	width: 65% !important;
+	min-height: 200px;
+	margin: 0 auto !important;
+	outline: none !important;
+	display: block;
+}
+
+input[type=text]::placeholder, textarea::placeholder, input[type=url]::placeholder, input[type=password]::placeholder, input[type=email]::placeholder {
+	color: #dadada;
+}
+
+.registerform input[type=text]:focus {
+	border-color: #00000054;
+}
+
+.hero-area {
+	position:relative;
+	/* padding-top: 80px; */
+	padding-bottom: 80px;
+}
+
+.home-wrapper {
+	position: absolute;
+	top: 50%;
+	-webkit-transform: translateY(-50%);
+	-ms-transform: translateY(-50%);
+	transform: translateY(-50%);
+	left: 0;
+}
