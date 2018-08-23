@@ -1,0 +1,88 @@
+{% extends "frames/base_portal.html" %}
+{% load static %}
+{% load i18n %}
+{% block header %}
+	{% with headerclass='portal' %}
+			{{ block.super }}
+	{% endwith%}
+{% endblock header%}
+{% block content %}
+<!-- Home -->
+<div id="home" class="hero-area" style="padding-top: 20px;">
+
+			<!-- Backgound -->
+			<div style="background-color: white;"></div>
+			<!-- /Backgound -->
+
+			<div class="home-wrapper" style="-webkit-transform: initial;position: relative;top: initial;">
+				<div class="container">
+                    {% if user.is_authenticated %}
+                        {% if user.is_staff %}
+                            <div class="row">
+                                <p class="lead">{% trans 'Search for users.' %}</p>
+                                <div class="inputWithIcon">
+                                  <input id="searchtext" type="text" placeholder="John Doe">
+                                  <i class="fas fa-search fa-lg fa-fw" aria-hidden="true"></i>
+                                </div>
+                                <div id="search_results"></div>
+                                <div class="section-intro text-center">
+                                    {% csrf_token %}
+                                    <ul>
+                                        <h3 id="status_search"></h3>
+                                </div>
+                            </div>
+                        {% endif %}
+                    {% endif %}
+				</div>
+			</div>
+
+		</div>
+		<!-- /Home -->
+    <script>
+        $(function(){
+           $("input").keyup(function(){
+                $.ajax({
+                  type: "POST",
+                  url: "/portal/search/",
+                  data: {
+                      'searchtext': $('#searchtext').val(),
+                      'csrfmiddlewaretoken': $('input[name=csrfmiddlewaretoken]').val()
+                  },
+                  success: success,
+                  dataType: 'json'
+                });
+            });
+        });
+
+        function success(data){
+            $('#status_search').html("")
+            console.log(data);
+            var htm = "<div class='tb' style='width: 100%;'><table id='searchtb'><thead><tr class='rw head'><th>User ID</th><th>First name</th>" +
+                "<th class='clm column1'>{% trans 'Last name' %}</th>" +
+                "<th class='clm column2'>{% trans 'Username' %}</th>" +
+                "<th class='clm column3'>Email</th>" +
+                "<th class='clm column4'>{% trans 'Is active' %}</th>" +
+                "<th class='clm column5'>{% trans 'Staff Member' %}</th>" +
+                "</thead><tbody></tr>";
+            for (var i = 0; i < data.length; i++) {
+                var is_active = data[i]['fields']['is_active'] ? '<i class="fas fa-check"></i>' : '<i class="fas fa-times"></i>';
+                var is_staff = data[i]['fields']['is_staff'] ? '<i class="fas fa-check"></i>' : '<i class="fas fa-times"></i>';
+
+                htm += "<tr><td class='clm column1'>" + data[i]['pk'] + "</td>" + "<td class='clm column2'>" + data[i]['fields']['first_name'] + "</td>"
+                + "<td class='clm column2'>" + data[i]['fields']['last_name'] + "</td>" + "<td class='clm column3'>" + data[i]['fields']['username'] + "</td>"
+                + "<td class='clm column4'>" + data[i]['fields']['email'] + "</td>" + "<td class='clm column5'>" + is_active + "</td>"
+                + "<td class='clm column6'>" + is_staff + "</td></tr>"
+            }
+            htm += "</tr></tbody></table></div>";
+            console.log(htm);
+            if (data.length > 0) {
+                $('#search_results').html(htm);
+            } else {
+                $('#search_results').html("");
+                $('#status_search').html("No user found!")
+            }
+        }
+    </script>
+{% endblock %}
+{% block post %}
+{% endblock %}

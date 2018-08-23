@@ -1,17 +1,22 @@
-cnt = 0
+# from django.contrib.auth.views import login
 
-l = [0, 1, 2, 3, 4, 5, 6, 7, 8]
+# def getLogin():
+#     return ""
 
-
-if len(l) % 3 == 1:
-    print(len(l) % 3)
-    print("1 class")
-elif len(l) % 3 == 2:
-    print(len(l) % 3)
-    print("2 class")
-else:
-    print(len(l) % 3)
-    print("normal 3 class")
+# cnt = 0
+#
+# l = [0, 1, 2, 3, 4, 5, 6, 7, 8]
+#
+#
+# if len(l) % 3 == 1:
+#     print(len(l) % 3)
+#     print("1 class")
+# elif len(l) % 3 == 2:
+#     print(len(l) % 3)
+#     print("2 class")
+# else:
+#     print(len(l) % 3)
+#     print("normal 3 class")
 
 # for i in l:
 #     print(cnt)

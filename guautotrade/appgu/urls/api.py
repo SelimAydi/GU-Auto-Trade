@@ -1,8 +1,8 @@
 from django.urls import path
-# from .. import views
-from ..views import eventsAPI, mapdealersAPI
+from ..views import eventsAPI, mapdealersAPI, eventsTuscanyAPI
 
 urlpatterns = [
-    path('events/', eventsAPI, name='eventsAPI'),
-    path('mapdealers/', mapdealersAPI, name='mapdealersAPI'),
+    path('shelby/events/', eventsAPI, name='eventsAPI'),
+    path('shelby/mapdealers/', mapdealersAPI, name='mapdealersAPI'),
+    path('tuscany/events/', eventsTuscanyAPI, name='tuscanyeventsAPI'),
 ]

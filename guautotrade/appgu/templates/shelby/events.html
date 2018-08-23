@@ -9,6 +9,8 @@
 
 {% block headoptions %}
     <link rel="stylesheet" href="{% static 'css/calendar/theme3.css' %}">
+    <script src="{% static 'js/calendar/caleandar.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/calendar/initialize.js' %}"></script>
 {% endblock %}
 
 {% block content %}
@@ -38,8 +40,10 @@
 			</div>
 			<!-- /container -->
         <script>
-            {#var lel;#}
+            $.getJSON("/api/shelby/events/", saveJSON);
+
             function append(title, description, link){
+
                 console.log("------TITLE----------------------")
                 console.log(title);
                 console.log("------DESC----------------------")
@@ -61,8 +65,3 @@
 		</div>
 		<!-- /News -->
 {% endblock %}
-
-{% block js %}
-    <script src="{% static 'js/calendar/caleandar.js' %}"></script>
-    <script type="text/javascript" src="{% static 'js/calendar/demo.js' %}"></script>
-{% endblock js%}

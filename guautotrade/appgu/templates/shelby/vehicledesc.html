@@ -1,8 +1,10 @@
 {% extends "frames/sub_base.html" %}
 {% load static %}
+{% load i18n %}
 
 {% block header %}
-	{% with headerclass='portal', exists %}
+    <script src="{% static 'js/zoom/jquery.elevateZoom-3.0.8.min.js' %}"></script>
+	{% with headerclass='portal' %}
 			{{ block.super }}
 	{% endwith%}
 {% endblock header%}
@@ -10,7 +12,6 @@
 
 {% block content %}
 
-    {% if exists %}
 		<!-- Home -->
 		<div id="home" class="hero-area">
 
@@ -21,6 +22,7 @@
 
 			<div class="home-wrapper" style="top: 60%;">
 				<div class="container">
+                    {% if exists %}
 					<div class="row">
 
 					<div class="col-md-6">
@@ -32,10 +34,9 @@
 					<div class="col-md-5 col-md-offset-1">
 						<div class="vehicle">
 								<a href="#" class="vehicle-img">
-									<img style="width: 480px; height: auto;" src="/media/{{ image }}" alt="">
-									<i class="vehicle-link-icon fa fa-link"></i>
+									<img id="vehicleimg" src="/media/{{ image }}" data-zoom-image="/media/{{ image }}" alt="">
 								</a>
-								<a class="vehicle-title" href="#">Persius imperdiet </a>
+								<a class="vehicle-title" href="#">{{ model }}</a>
 								<div class="vehicle-details">
 									<span class="vehicle-category">Price</span>
 									<span class="vehicle-price vehicle-free"><a class="main-button icon-button" href="#">More</a></span>
@@ -44,336 +45,21 @@
 					</div>
 
 				</div>
+                {% else %}
+                        <h1>No vehicle has been found.</h1>
+                {% endif %}
 				</div>
 			</div>
 
 		</div>
 
 		<!-- /Home -->
-    {% endif %}
 
-		<!-- Vehicles -->
-		<div id="vehicles" class="section">
-
-			<!-- container -->
-			<div class="container">
-
-				<!-- row -->
-				<div class="row">
-					<div class="section-header text-center">
-						<h2>Vehicles</h2>
-						<p class="lead">Libris vivendo eloquentiam ex ius, nec id splendide abhorreant.</p>
-					</div>
-				</div>
-				<!-- /row -->
-
-				<!-- vehicles -->
-				<div id="vehicles-wrapper">
-
-					<!-- row -->
-					<div class="row">
-
-						<!-- vehicle -->
-						<div class="col-md-4 col-sm-6 col-xs-6">
-							<div class="vehicle">
-								<a href="#" class="vehicle-img">
-									<img src="https://hips.hearstapps.com/amv-prod-cad-assets.s3.amazonaws.com/images/media/672264/2018-ford-mustang-shelby-gt350-gt350r-in-depth-model-review-car-and-driver-photo-694522-s-original.jpg" alt="">
-									<i class="vehicle-link-icon fa fa-link"></i>
-								</a>
-								<a class="vehicle-title" href="#">Persius imperdiet </a>
-								<div class="vehicle-details">
-									<span class="vehicle-category">Type</span>
-									<span class="vehicle-price vehicle-free">More info</span>
-								</div>
-							</div>
-						</div>
-						<!-- /vehicle -->
-
-						<!-- vehicle -->
-						<div class="col-md-4 col-sm-6 col-xs-6">
-							<div class="vehicle">
-								<a href="#" class="vehicle-img">
-									<img src="https://hips.hearstapps.com/amv-prod-cad-assets.s3.amazonaws.com/images/media/672264/2018-ford-mustang-shelby-gt350-gt350r-in-depth-model-review-car-and-driver-photo-694522-s-original.jpg" alt="">
-									<i class="vehicle-link-icon fa fa-link"></i>
-								</a>
-								<a class="vehicle-title" href="#">Persius imperdiet </a>
-								<div class="vehicle-details">
-									<span class="vehicle-category">Type</span>
-									<span class="vehicle-price vehicle-premium">More info</span>
-								</div>
-							</div>
-						</div>
-						<!-- /vehicle -->
-
-						<!-- vehicle -->
-						<div class="col-md-4 col-sm-6 col-xs-6">
-							<div class="vehicle">
-								<a href="#" class="vehicle-img">
-									<img src="https://hips.hearstapps.com/amv-prod-cad-assets.s3.amazonaws.com/images/media/672264/2018-ford-mustang-shelby-gt350-gt350r-in-depth-model-review-car-and-driver-photo-694522-s-original.jpg" alt="">
-									<i class="vehicle-link-icon fa fa-link"></i>
-								</a>
-								<a class="vehicle-title" href="#">Persius imperdiet </a>
-								<div class="vehicle-details">
-									<span class="vehicle-category">Type</span>
-									<span class="vehicle-price vehicle-premium">More info</span>
-								</div>
-							</div>
-						</div>
-						<!-- /vehicle -->
-
-						
-
-<div class="col-md-6 col-sm-6 col-xs-6">
-							<div class="vehicle">
-								<a href="#" class="vehicle-img">
-									<img src="https://hips.hearstapps.com/amv-prod-cad-assets.s3.amazonaws.com/images/media/672264/2018-ford-mustang-shelby-gt350-gt350r-in-depth-model-review-car-and-driver-photo-694522-s-original.jpg" alt="">
-									<i class="vehicle-link-icon fa fa-link"></i>
-								</a>
-								<a class="vehicle-title" href="#">Persius imperdiet </a>
-								<div class="vehicle-details">
-									<span class="vehicle-category">Type</span>
-									<span class="vehicle-price vehicle-free">More info</span>
-								</div>
-							</div>
-						</div><div class="col-md-6 col-sm-6 col-xs-6">
-							<div class="vehicle">
-								<a href="#" class="vehicle-img">
-									<img src="https://hips.hearstapps.com/amv-prod-cad-assets.s3.amazonaws.com/images/media/672264/2018-ford-mustang-shelby-gt350-gt350r-in-depth-model-review-car-and-driver-photo-694522-s-original.jpg" alt="">
-									<i class="vehicle-link-icon fa fa-link"></i>
-								</a>
-								<a class="vehicle-title" href="#">Persius imperdiet </a>
-								<div class="vehicle-details">
-									<span class="vehicle-category">Type</span>
-									<span class="vehicle-price vehicle-free">More info</span>
-								</div>
-							</div>
-						</div>
-						<!-- /vehicle -->
-
-					</div>
-					<!-- /row -->
-
-					<!-- row -->
-					<div class="row">
-
-						<!-- vehicle -->
-						<div class="col-md-3 col-sm-6 col-xs-6">
-							<div class="vehicle">
-								<a href="#" class="vehicle-img">
-									<img src="https://hips.hearstapps.com/amv-prod-cad-assets.s3.amazonaws.com/images/media/672264/2018-ford-mustang-shelby-gt350-gt350r-in-depth-model-review-car-and-driver-photo-694522-s-original.jpg" alt="">
-									<i class="vehicle-link-icon fa fa-link"></i>
-								</a>
-								<a class="vehicle-title" href="#">Persius imperdiet </a>
-								<div class="vehicle-details">
-									<span class="vehicle-category">Type</span>
-									<span class="vehicle-price vehicle-free">More info</span>
-								</div>
-							</div>
-						</div>
-						<!-- /vehicle -->
-
-						<!-- vehicle -->
-						<div class="col-md-3 col-sm-6 col-xs-6">
-							<div class="vehicle">
-								<a href="#" class="vehicle-img">
-									<img src="https://hips.hearstapps.com/amv-prod-cad-assets.s3.amazonaws.com/images/media/672264/2018-ford-mustang-shelby-gt350-gt350r-in-depth-model-review-car-and-driver-photo-694522-s-original.jpg" alt="">
-									<i class="vehicle-link-icon fa fa-link"></i>
-								</a>
-								<a class="vehicle-title" href="#">Persius imperdiet </a>
-								<div class="vehicle-details">
-									<span class="vehicle-category">Type</span>
-									<span class="vehicle-price vehicle-free">More info</span>
-								</div>
-							</div>
-						</div>
-						<!-- /vehicle -->
-
-						<!-- vehicle -->
-						<div class="col-md-3 col-sm-6 col-xs-6">
-							<div class="vehicle">
-								<a href="#" class="vehicle-img">
-									<img src="https://hips.hearstapps.com/amv-prod-cad-assets.s3.amazonaws.com/images/media/672264/2018-ford-mustang-shelby-gt350-gt350r-in-depth-model-review-car-and-driver-photo-694522-s-original.jpg" alt="">
-									<i class="vehicle-link-icon fa fa-link"></i>
-								</a>
-								<a class="vehicle-title" href="#">Persius imperdiet </a>
-								<div class="vehicle-details">
-									<span class="vehicle-category">Type</span>
-									<span class="vehicle-price vehicle-free">More info</span>
-								</div>
-							</div>
-						</div>
-						<!-- /vehicle -->
-
-
-						<!-- vehicle -->
-						<div class="col-md-3 col-sm-6 col-xs-6">
-							<div class="vehicle">
-								<a href="#" class="vehicle-img">
-									<img src="https://hips.hearstapps.com/amv-prod-cad-assets.s3.amazonaws.com/images/media/672264/2018-ford-mustang-shelby-gt350-gt350r-in-depth-model-review-car-and-driver-photo-694522-s-original.jpg" alt="">
-									<i class="vehicle-link-icon fa fa-link"></i>
-								</a>
-								<a class="vehicle-title" href="#">Persius imperdiet </a>
-								<div class="vehicle-details">
-									<span class="vehicle-category">Type</span>
-									<span class="vehicle-price vehicle-free">More info</span>
-								</div>
-							</div>
-						</div>
-						<!-- /vehicle -->
-
-					</div>
-					<!-- /row -->
-
-				</div>
-
-				</div>
-				<!-- /vehicles -->
-
-
-			</div>
-
-				<!-- /vehicles -->
-
-
-			</div>
-			<!-- container -->
-
-		</div>
-		<!-- /Vehicles -->
-
-		<!-- Call To Action -->
-		<div id="cta" class="section">
-
-			<!-- Backgound Image -->
-			<div class="bg-image bg-parallax overlay" style="background-image:url(https://i2.wp.com/bossautoservice.com/wp-content/uploads/2017/09/meet-the-525-horsepower-shelby-baja-raptor-the-cobra-of-trucks.jpg?fit=1920%2C1080&ssl=1)"></div>
-			<!-- /Backgound Image -->
-
-			<!-- container -->
-			<div class="container">
-
-				<!-- row -->
-				<div class="row">
-
-					<div class="col-md-6">
-						<h2 class="white-text">Ceteros fuisset mei no, soleat epicurei adipiscing ne vis.</h2>
-						<p class="lead white-text">Ceteros fuisset mei no, soleat epicurei adipiscing ne vis. Et his suas veniam nominati.</p>
-						<a class="main-button icon-button" href="#">Dealers</a>
-					</div>
-
-				</div>
-				<!-- /row -->
-
-			</div>
-			<!-- /container -->
-
-		</div>
-		<!-- /Call To Action -->
-
-		<!-- Why us -->
-		<div id="why-us" class="section">
-
-			<!-- container -->
-			<div class="container">
-
-				<!-- row -->
-				<div class="row">
-					<div class="section-header text-center">
-						<h2>Shelby</h2>
-						<p class="lead">Libris vivendo eloquentiam ex ius, nec id splendide abhorreant.</p>
-					</div>
-
-					<!-- feature -->
-					<div class="col-md-4">
-						<div class="feature">
-							<i class="feature-icon fas fa-file-contract"></i>
-							<div class="feature-content">
-								<h4>Lorem Ipsum</h4>
-								<p>Ceteros fuisset mei no, soleat epicurei adipiscing ne vis. Et his suas veniam nominati.</p>
-							</div>
-						</div>
-					</div>
-					<!-- /feature -->
-
-					<!-- feature -->
-					<div class="col-md-4">
-						<div class="feature">
-							<i class="feature-icon fas fa-flag-checkered"></i>
-							<div class="feature-content">
-								<h4>Ceteros fuisset</h4>
-								<p>Ceteros fuisset mei no, soleat epicurei adipiscing ne vis. Et his suas veniam nominati.</p>
-							</div>
-						</div>
-					</div>
-					<!-- /feature -->
-
-					<!-- feature -->
-					<div class="col-md-4">
-						<div class="feature">
-							<i class="feature-icon fas fa-check"></i>
-							<div class="feature-content">
-								<h4>Lorem Ipsum</h4>
-								<p>Ceteros fuisset mei no, soleat epicurei adipiscing ne vis. Et his suas veniam nominati.</p>
-							</div>
-						</div>
-					</div>
-					<!-- /feature -->
-
-				</div>
-				<!-- /row -->
-
-				<hr class="section-hr">
-
-				<!-- row -->
-				<div class="row">
-
-					<div class="col-md-6">
-						<h3>About Shelby</h3>
-						<p class="lead">Libris vivendo eloquentiam ex ius, nec id splendide abhorreant.</p>
-						<p>No vel facete sententiae, quodsi dolores no quo, pri ex tamquam interesset necessitatibus. Te denique cotidieque delicatissimi sed. Eu doming epicurei duo. Sit ea perfecto deseruisse theophrastus. At sed malis hendrerit, elitr deseruisse in sit, sit ei facilisi mediocrem.</p>
-					</div>
-
-					<div class="col-md-5 col-md-offset-1">
-						<a class="about-video" href="#">
-							<img src="https://hips.hearstapps.com/amv-prod-cad-assets.s3.amazonaws.com/images/media/672264/2018-ford-mustang-shelby-gt350-gt350r-in-depth-model-review-car-and-driver-photo-694522-s-original.jpg" alt="">
-							<i class="play-icon fa fa-play"></i>
-						</a>
-					</div>
-
-				</div>
-				<!-- /row -->
-
-			</div>
-			<!-- /container -->
-
-		</div>
-		<!-- /Why us -->
-
-		<!-- Contact CTA -->
-		<div id="contact-cta" class="section">
-
-			<!-- Backgound Image -->
-			<div class="bg-image bg-parallax overlay" style="background-image:url(https://pictures.topspeed.com/IMG/jpg/201701/shelby-super-snake-5-4.jpg)"></div>
-			<!-- Backgound Image -->
-
-			<!-- container -->
-			<div class="container">
-
-				<!-- row -->
-				<div class="row">
-
-					<div class="col-md-8 col-md-offset-2 text-center">
-						<h2 class="white-text">Contact Us</h2>
-						<p class="lead white-text">Libris vivendo eloquentiam ex ius, nec id splendide abhorreant.</p>
-						<a class="main-button icon-button" href="contact.html">Contact Us Now</a>
-					</div>
-
-				</div>
-				<!-- /row -->
-
-			</div>
-			<!-- /container -->
-
-		</div>
-		<!-- /Contact CTA -->
+        <script>
+            $("#vehicleimg").elevateZoom({
+              zoomType: "inner",
+              cursor: "crosshair"
+            });
+        </script>
 
 {% endblock %}

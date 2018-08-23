@@ -1,5 +1,6 @@
 {% extends "frames/sub_base.html" %}
 {% load static %}
+{% load i18n %}
 
 {% block header %}
 	{% with headerclass='portal' %}
@@ -9,7 +10,7 @@
 
 {% block content %}
 		<!-- News -->
-		<div id="news" class="section">
+		<div id="news" class="section" {% if not exists %}style="height: calc(100vh)"{% endif %}>
 
 			<!-- container -->
 			<div class="container">
@@ -24,7 +25,7 @@
                             {% if post.banner %}<img src="/media/{{ post.banner }}" class="img-fluid" alt="Banner">{% endif %}
                             <h3>{{ post.title }}</h3>
                             <p class="lead">{{ post.headline }}</p>
-                            <footer class="small" style="margin-bottom: 20px">- Posted by {{ post.writtenby }} {{ post.writtenby }} on {{ post.date }}</footer>
+                            <footer class="small" style="margin-bottom: 20px">- Posted by {{ post.writtenby }} on {{ post.date }}</footer>
                         {% if quote %}<blockquote><p>{{ post.quote }}</p><footer>{{ post.quotefooter }}</footer></blockquote>{% endif %}
                             {% autoescape off %}
                                 {{ post.description }}
@@ -34,45 +35,42 @@
 
                     {% endfor %}
 
-                    <div class="pagination">
-                            <span class="step-links">
-                                {% if newsposts.has_previous %}
-                                    <a href="?page=1">&laquo; first</a>
-                                    <a href="?page={{ newsposts.previous_page_number }}">previous</a>
-                                {% endif %}
+                    {% if not singlepost %}
+                        <div class="pagination">
+                                <span class="step-links">
+                                    {% if newsposts.has_previous %}
+                                        <a href="?page=1">&laquo; first</a>
+                                        <a href="?page={{ newsposts.previous_page_number }}">previous</a>
+                                    {% endif %}
 
-                                <span class="current">
-                                    Page {{ newsposts.number }} of {{ newsposts.paginator.num_pages }}.
+                                    <span class="current">
+                                        Page {{ newsposts.number }} of {{ newsposts.paginator.num_pages }}.
+                                    </span>
+
+                                    {% if newsposts.has_next %}
+                                        <a href="?page={{ newsposts.next_page_number }}">next</a>
+                                        <a href="?page={{ newsposts.paginator.num_pages }}">last &raquo;</a>
+                                    {% endif %}
                                 </span>
-
-                                {% if newsposts.has_next %}
-                                    <a href="?page={{ newsposts.next_page_number }}">next</a>
-                                    <a href="?page={{ newsposts.paginator.num_pages }}">last &raquo;</a>
-                                {% endif %}
-                            </span>
                         </div>
-					</div>
+                    {% endif %}
+                    </div>
 
 					<div class="col-md-3">
 						<nav class="nav-sidebar">
                             <ul class="nav">
-
-                                <li class="active"><a href="javascript:;">Latest news</a></li>
-                                <li><a href="javascript:;">Category</a></li>
-                                <li><a href="javascript:;">Category</a></li>
-                                <li><a href="javascript:;">Category</a></li>
-                                <li><a href="javascript:;">Category</a></li>
-                                <li><a href="javascript:;">Category</a></li>
-                                <li><a href="javascript:;">Category</a></li>
+                                <li><a href=".">Latest news</a></li>
+                            {% for i in news %}
+                                <li><a href="?n={{ i.id }}">{{ i.title }}</a></li>
+                            {% endfor %}
                                 <li class="nav-divider"></li>
-
                             </ul>
                         </nav>
 
 					</div>
                     {% else %}
                     <div class="col-md-12" style="text-align: center;">
-                        <h3>No newspost found!</h3>
+                        <h3>{% trans 'No newspost found!' %}</h3>
                     </div>
                 {% endif %}
 				</div>

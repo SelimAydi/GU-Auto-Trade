@@ -1,6 +1,6 @@
 {% extends "frames/base_portal.html" %}
 {% load static %}
-
+{% load i18n %}
 {% block header %}
 	{% with headerclass='portal' %}
 			{{ block.super }}
@@ -22,29 +22,32 @@
 					<div class="row">
 					<div class="section-intro text-center">
 						{% if user.is_authenticated %}
-                            {% if user.is_staff %}
 							<h2>{{ title }}</h2>
 							<p class="lead">{{ lead }}</p>
 							<div class="row">
-{#                            {% if messages %}#}
-{#                              <ul class="messages">#}
-{#                                {% for message in messages %}#}
-{#                                  <li class="{{ message.tags }}">{{ message }}</li>#}
-{#                                {% endfor %}#}
-{#                              </ul>#}
-{#                            {% endif %}#}
                                 <div id="er">
                                         <span id="sp"></span>
                                 </div>
 								  <form action="{{ request.path }}" {% if fileUpload %}enctype="multipart/form-data"{% endif %} method="post" class="registerform">
                                     {% csrf_token %}
+
+                                    {% if selectCompany %}
+                                        <p>
+                                          <label for="selectcomp">{% trans 'Company' %}</label>
+                                            <select id="selectcomp" name="companyselect">
+                                                <option value="shelby">Shelby</option>
+                                                <option value="tuscany">Tuscany</option>
+                                            </select>
+                                        </p>
+                                    {% endif %}
+
                                     {% if extra %}{% autoescape off %}{{ extra }}{% endautoescape %}{% endif %}
 
                                       {{ form.as_p }}
 
                                       {% if fileUpload %}
                                         <label class="custom-file-upload">
-                                            <i class="fas fa-upload"></i>Choose Image
+                                            <i class="fas fa-upload"></i>{% trans 'Choose Image' %}
                                         </label>
                                         <script>
                                             var getID = $('input[type=file]').attr('id');
@@ -52,13 +55,13 @@
                                         </script>
                                       {% endif %}
 
-                                      <button id="uploadbutton"  class="main-button icon-button form-button" type="submit">Submit</button>
+                                      <button id="uploadbutton"  class="main-button icon-button form-button" type="submit">{% trans 'Submit' %}</button>
                                   </form>
                             <div id="suc">
 
                             </div>
 							</div>
-						{% endif %}
+{#						{% endif %}#}
                     {% endif %}
 					</div>
 				</div>
@@ -66,11 +69,6 @@
 			</div>
 
 		</div>
-{#    {% if result %}#}
-{#        <script>#}
-{#            var message = [{% for message in messages %}'{{ message }}',{% endfor %}];#}
-{#        </script>#}
-{#    {% endif %}#}
 
 		<!-- /Home -->
 {% endblock %}

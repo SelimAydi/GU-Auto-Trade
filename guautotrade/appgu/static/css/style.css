@@ -65,9 +65,9 @@ h4 {
 }
 
 a {
-	font-family: 'Lato', sans-serif;
+	font-family: 'Montserrat', 'sans-serif';
 	color: #574b4b;
-	font-weight: 700;
+	font-weight: 300;
 	cursor: pointer;
 }
 
@@ -118,7 +118,7 @@ blockquote:before{
 	position:relative;
 	padding-top: 30px;
 	padding-bottom:80px;
-	background-color: #ffffff;
+	background-color: #fbfbfb;
 }
 
 .section-hr {
@@ -144,12 +144,12 @@ blockquote:before{
 }
 
 #contact {
-	padding-top: 250px;
-	height: calc(100vh);
+	padding-top: 160px;
+	/* height: calc(100vh); */
 }
 
 #news {
-	padding-top: 250px;
+	padding-top: 180px;
 }
 
 #event {
@@ -293,6 +293,10 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
 	height: 100px;
 }
 
+.footer-logo svg > g{
+	fill: #c1c1c1 !important;
+}
+
 .logo svg > g{
 	fill: #e8e8e8;
 }
@@ -303,7 +307,7 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
 	padding: 15px;
 	border-bottom-left-radius: 10px;
 	border-bottom-right-radius: 10px;
-	background-color: #374050;
+	background-color: #2e3540;
 }
 
 .bluelogo > svg{
@@ -358,6 +362,13 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
 	position:absolute;
 	background-color: #374050;
 	/* border-bottom: solid 0.1vh #00000026; */
+	border-top: solid 0px #556276;
+	border-bottom: solid 15px white;
+	border-left: solid 30px #2e3540;
+}
+
+.noborder {
+	border-bottom:0 !important;
 }
 
 .portal i{
@@ -377,6 +388,7 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
 	color:	#ffffff !important;
 	height: 100%;
 	/* font-size: 12px; */
+	font-family: 'Montserrat', 'sans-serif';
 }
 
 .portal .navbar-left li a{
@@ -402,6 +414,8 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
 
 #header.transparent-nav .main-menu li a {
 	color: #e7e5e5;
+	font-family: 'Montserrat', 'sans-serif';
+	/* font-weight: 600; */
 	font-size: 15px;
 }
 
@@ -597,8 +611,8 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
 
 #about {
 	background-color: #f2f2f2;
-	border-bottom: #d6d6d638 3px solid;
-	border-top: #5e5e5e30 5px solid;
+	/* border-bottom: #d6d6d638 3px solid; */
+	/* border-top: #5e5e5e30 5px solid; */
 }
 
 /* -- Feature -- */
@@ -621,7 +635,7 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
 	border-radius: 10%;
 	font-size:30px;
 	/* border: 1px solid #ebebebb3; */
-	color: #6a6a6a;
+	color: #3f4150;
 }
 
 .feature-content {
@@ -651,6 +665,10 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
 	overflow: hidden;
 }
 
+iframe {
+	box-shadow: 0 10px 6px -6px rgba(119, 119, 119, 0.47);
+}
+
 .about-video > img {
 	width:100%;
 }
@@ -665,6 +683,7 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
 	width: 80px;
 	height: 80px;
 	line-height: 80px;
+	color: #23414f;
 	text-align: center;
 	background: #fff;
 	border-radius: 50%;
@@ -677,7 +696,7 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
 }
 
 .about-video:hover .play-icon {
-	color:#FF6700;
+	color:#2196F3;
 }
 
 @-webkit-keyframes play-animation {
@@ -735,19 +754,24 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
 	fill: #a7a7a7;
 }
 
-.vehicle .vehicle-img {
+.col-md-12 .vehicle .vehicle-img {
 	position: relative;
 	display:block;
 	margin-bottom:20px;
 	border-radius:4px;
 	overflow:hidden;
-	/* width: 360px; */
-	/* height: 220px; */
+	/* max-width: 470px; */
+	/* max-height: 220px; */
 }
 
 .col-md-6 .vehicle .vehicle-img > img {
 	width: 100%;
 	height: 360px;
+}
+
+.col-md-4 .vehicle .vehicle-img > img {
+	width: 100%;
+	height: 220px;
 }
 
 .col-md-12 .vehicle .vehicle-img > img {
@@ -757,8 +781,13 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
 
 
 .vehicle .vehicle-img > img {
-	width: 360px;
-	height: 200px;
+	max-width: 100%;
+	max-height: 100%;
+}
+
+.col-md-5 .vehicle .vehicle-img > img {
+	max-width: 450px;
+	max-height: 300px;
 }
 
 .vehicle-img:after {
@@ -781,7 +810,7 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
 .vehicle .vehicle-img .vehicle-link-icon {
 	position:absolute;
 	left:50%;
-	top:50%;
+	top: 40%;
 	-webkit-transform: translate(-50% , calc(-50% - 15px));
 	-ms-transform: translate(-50% , calc(-50% - 15px));
 	transform: translate(-50% , calc(-50% - 15px));
@@ -1964,7 +1993,7 @@ input[type="file"] {
 .mapbox {
 	position: absolute;
 	max-height: 305px;
-	width: 17%;
+	width: 20%;
 	background-color: #374050;
 	z-index: 15;
 	top: 40%;
@@ -2045,3 +2074,35 @@ input[type="file"] {
 	margin-top: 8px;
 	padding: 5px;
 }
+
+.rslides {
+  position: relative;
+  list-style: none;
+  overflow: hidden;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  }
+
+.rslides li {
+  -webkit-backface-visibility: hidden;
+  position: absolute;
+  display: none;
+  width: 100%;
+  left: 0;
+  top: 0;
+  }
+
+.rslides li:first-child {
+  position: relative;
+  display: block;
+  float: left;
+  }
+
+.rslides img {
+  display: block;
+  height: auto;
+  float: left;
+  width: 100%;
+  border: 0;
+  }

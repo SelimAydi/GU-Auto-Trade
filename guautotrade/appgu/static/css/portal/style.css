@@ -7,21 +7,14 @@ Colors:
 
 Fonts: Lato & Montserrat
 
-Table OF Contents
+Table of Contents
 ------------------------------------
 1 > General
-2 > Logo
-3 > Navigation
-4 > Hero Area
-5 > About & Why Us (Feature)
-6 > Courses
-7 > Footer
-8 > Contact Page
-9 > Blog Page
-10 > Blog Page Sidebar
-11 > Single Post Page
-12 > Responsive
-13 > Preloader
+2 > Errors
+3 > Tables
+4 > Modal
+5 > File Upload
+6 > Forms
 ------------------------------------*/
 
 /*------------------------------------*\
@@ -211,7 +204,7 @@ textarea {
 }
 
 input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focus, input[type="number"]:focus, input[type="date"]:focus, input[type="url"]:focus, input[type="tel"]:focus, textarea:focus {
-	border-color:#FF6700;
+	/* border-color:#FF6700; */
 }
 /*------------------------------------*\
 	Errors
@@ -257,6 +250,22 @@ table {
 th, td {
   font-weight: unset;
   padding-right: 10px;
+}
+
+#searchtb td {
+	height: 80px;
+	text-align: center;
+}
+
+#searchtb th{
+	background-color: rgba(199, 199, 199, 0.18);
+	color: #635c5c;
+	font-weight: 800;
+}
+
+#searchtb{
+	width: 100%;
+	margin-top: 2%;
 }
 
 .clm {
@@ -401,7 +410,7 @@ input[type="file"] {
     padding: 6px 12px;
     cursor: pointer;
     display: block;
-    width: 150px;
+    width: 190px;
     margin: auto;
     padding: 10px;
     margin-top: -25px;
@@ -567,7 +576,6 @@ input[type=text]::placeholder, textarea::placeholder, input[type=url]::placehold
 
 .hero-area {
 	position:relative;
-	/* padding-top: 80px; */
 	padding-bottom: 80px;
 }
 
@@ -579,3 +587,37 @@ input[type=text]::placeholder, textarea::placeholder, input[type=url]::placehold
 	transform: translateY(-50%);
 	left: 0;
 }
+
+ .inputWithIcon input[type=text]{
+    padding-left:40px;
+    outline-width: 0;
+  }
+
+  .inputWithIcon{
+    position:relative;
+  }
+
+  .inputWithIcon i{
+    position:absolute;
+    left:0;
+    top: 4px;
+    padding:9px 8px;
+    color:#aaa;
+    transition:.3s;
+  }
+
+  .inputWithIcon input[type=text]:focus + i{
+    color:dodgerBlue;
+  }
+
+  .inputWithIcon.inputIconBg i{
+    background-color:#aaa;
+    color:#fff;
+    padding:9px 4px;
+    border-radius:4px 0 0 4px;
+  }
+
+  .inputWithIcon.inputIconBg input[type=text]:focus + i{
+    color:#fff;
+    background-color:dodgerBlue;
+  }

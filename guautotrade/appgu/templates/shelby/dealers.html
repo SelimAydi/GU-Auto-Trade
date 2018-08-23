@@ -4,7 +4,7 @@
 {% load Tools %}
 
 {% block header %}
-	{% with headerclass='portal' %}
+	{% with headerclass='portal noborder' %}
 			{{ block.super }}
 	{% endwith%}
 {% endblock header%}
@@ -25,11 +25,12 @@
 {% block content %}
 {#    <script src="{% static 'js/leaflet/leaflet.js' %}"></script>#}
 		<!-- News -->
-		<div id="dealers" class="section" style="padding-top: 66px;">
+		<div id="dealers" class="section" style="margin-top: 37px;">
                 <div class="col-md-9 mapbox">
                     <nav class="nav-sidebar" data-simplebar data-simplebar-auto-hide="false">
                         {% getCountry as res %}
                             <ul class="nav" id="main_ul">
+                            {% if res.items %}
                                 {% for key, value in res.items %}
 {#                                    <li><a href="#">{{ key }}</a></li>#}
                                     <li data-toggle="collapse" data-target="#region_{{ forloop.counter0 }}" class="collapsed active">
@@ -49,27 +50,31 @@
                                         {% endfor %}
                                     </ul>
                                 {% endfor %}
+                            {% else %}
+                                No dealers have been added yet
+                            {% endif %}
                             </ul>
                         </nav>
                 </div>
                 <div id="mapid"></div>
                 <script>
-                    $.getJSON("/api/mapdealers/", getResults);
+                    $.getJSON("/api/shelby/mapdealers/", getResults);
 
                     function getResults(results){
-                        console.log(results);
                         initMap(results);
                     }
 
 
-                    function initMap(results){
+                    function initMap(results) {
                         var mymap = L.map('mapid').setView([35.746512, -39.462891], 3);
-                        console.log(results[0]['fields']['latitude']);
 
-                        for (var i = 0; i < results.length; i++){
-                            console.log(i);
-                            var dealer = L.marker([results[i]['fields']['latitude'], results[i]['fields']['longitude']], {title: results[i]['fields']['customer_name']}).addTo(mymap);
-                            dealer.bindPopup("<b>" + results[i]['fields']['customer_name'] + "</b><br>" + results[i]['fields']['address'] + "<br>" + results[i]['fields']['country']);
+                        if (results.length !== 0) {
+                            console.log("trueeee");
+                            for (var i = 0; i < results.length; i++) {
+                                console.log(i);
+                                var dealer = L.marker([results[i]['fields']['latitude'], results[i]['fields']['longitude']], {title: results[i]['fields']['customer_name']}).addTo(mymap);
+                                dealer.bindPopup("<b>" + results[i]['fields']['customer_name'] + "</b><br>" + results[i]['fields']['address'] + "<br>" + results[i]['fields']['country']);
+                            }
                         }
 
                         L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {

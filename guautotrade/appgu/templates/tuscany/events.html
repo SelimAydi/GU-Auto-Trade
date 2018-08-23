@@ -1,4 +1,4 @@
-{% extends "frames/sub_base.html" %}
+{% extends "frames/tuscany/sub_base_tuscany.html" %}
 {% load static %}
 
 {% block header %}
@@ -6,6 +6,12 @@
 			{{ block.super }}
 	{% endwith%}
 {% endblock header%}
+
+{% block headoptions %}
+    <link rel="stylesheet" href="{% static 'css/calendar/theme2.css' %}">
+    <script src="{% static 'js/calendar/caleandar.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/calendar/initialize.js' %}"></script>
+{% endblock %}
 
 {% block content %}
 		<!-- News -->
@@ -34,22 +40,16 @@
 			</div>
 			<!-- /container -->
         <script>
-            {#var lel;#}
+            $.getJSON("/api/tuscany/events/", saveJSON);
+
             function append(title, description, link){
-                console.log("------TITLE----------------------")
-                console.log(title);
-                console.log("------DESC----------------------")
-                console.log(description);
-                console.log("------LINK----------------------")
-                console.log(link);
-                console.log("----------------------------")
                 var htm = "<p class='title'>Event:</p><p>" + title +"</p>";
                 htm += "<p>" + description + "</p>"
 
                 if (link != '') {
                     htm += "<a href='" + link + "'>More about this event</a>";
                 }
-                $('#cal').css("background-color", "#374050");
+                $('#cal').css("background-color", "rgb(54, 54, 54)");
                 $('#cal').html(htm);
                 $(window).scrollTo(document.getElementById('cal'), 1000);
             }
@@ -57,8 +57,3 @@
 		</div>
 		<!-- /News -->
 {% endblock %}
-
-{% block js %}
-    <script src="{% static 'js/calendar/caleandar.js' %}"></script>
-    <script type="text/javascript" src="{% static 'js/calendar/demo.js' %}"></script>
-{% endblock js%}

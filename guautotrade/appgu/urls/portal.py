@@ -4,7 +4,9 @@ from ..views import portal
 
 urlpatterns = [
     path('', login, {'template_name': 'portal/index.html'}),
-    path('order/', portal.index, name='portalorder'),
+    # path('', portal.index, name='index'),
+    path('search/', portal.search, name='search'),
+    path('order/', portal.order, name='portalorder'),
     path('addvehicle/', portal.addvehicle, name='upload'),
     path('addnewspost/', portal.addnewspost, name='newspost'),
     path('addeventpost/', portal.addeventpost, name='eventpost'),

@@ -1,11 +1,10 @@
 .cld-main{
-  width: 400px;
+  width: 660px;
 }
 .cld-main a{
-  color: #0080FF;
-}
-.cld-main svg{
-  fill: #374050;
+  color: #343536;
+  display: block;
+  font-size: 12px;
 }
   .cld-datetime{
     position: relative;
@@ -15,7 +14,7 @@
     margin: auto;
     overflow: hidden;
   }
-  .cld-datetime .today{
+  .cld-datetime .now{
     position: relative;
     float: left;
     width: calc(100% - 40px);
@@ -32,7 +31,7 @@
     cursor: pointer;
   }
   .cld-nav:hover svg{
-      fill: #005EFF;
+      fill: #666;
   }
   .cld-rwd{
     float: left;
@@ -53,11 +52,21 @@
     text-align: center;
   }
   .cld-day{
-    border: 1px solid #eee;
+    display: block;
+    float: left;
+    position: relative;
+    margin: 0;
+    padding: 5px;
+    height: 66px;
+    border: 1px solid #ddd;
+    overflow-y: auto;
   }
-  .cld-day.today .cld-number{
-    background: #374050;
-    color: #fff;
+  .cld-day.clickable:hover{
+    cursor: pointer;
+  }
+  .cld-day.today{
+    /* border: 1px solid #374050; */
+    background-color: #e3e3e3;
   }
   .cld-day.disableDay{
     opacity: 0.5;
@@ -66,45 +75,31 @@
     opacity: 0.33;
   }
     .cld-number{
-      position: relative;
       margin: 0;
-      padding: 10px;
+      text-align: left;
     }
       .cld-title{
-        position: absolute;
-        z-index: 5;
-        display: none;
-        top: 35px;
-        left: 0;
-        padding: 5px 10px;
-        background: #fff;
-        white-space: nowrap;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        font-size: 12px;
-      }
-      .cld-number:hover .cld-title{
+        font-size: 10px;
         display: block;
+        margin: 0;
+        font-weight: normal;
       }
-      .cld-title::before{
-        content: '';
-        position: absolute;
-        top: -7.5px; left: 10px;
-        width: 0;
-        height: 0;
-        border-left: 7.5px solid transparent;
-        border-right: 7.5px solid transparent;
-
-        border-bottom: 7.5px solid #ccc;
+      .cld-day:hover{
+        background: #eee;
+      }
+      .today:hover{
+        background: #d4d4d4;
       }
       .cld-number.eventday{
         font-weight: bold;
-        color: #0080FF;
       }
       .cld-number.eventday:hover{
-        cursor: pointer;
         background: #eee;
       }
       .today .cld-number.eventday:hover{
-        background: #005EFF;
+      background: #d4d4d4;
       }
+
+.dayevents > li:nth-child(odd) a{
+  color: #839eb4 !important;
+}

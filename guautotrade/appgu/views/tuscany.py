@@ -1,11 +1,16 @@
+from django.core.mail import EmailMessage
 from django.core.paginator import Paginator
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
-from ..models import Vehicles, NewsPosts
+from appgu.forms import ContactForm
+from ..models import Vehicles, NewsPosts, Vehicles_Tuscany, NewsPosts_Tuscany
+from django.template.loader import get_template
+from .. import forms
+
 
 # Tuscany index (homepage)
 def index(request):
-    vehicle_list = Vehicles.objects.all()
+    vehicle_list = Vehicles_Tuscany.objects.all()
     if len(vehicle_list) != 0:
         print("OUT OF RANGE")
         # the c_type determines what style class each vehicle item gets
@@ -19,7 +24,7 @@ def index(request):
             c_type = 2
             print("2 class")
 
-        last = Vehicles.objects.latest('id')
+        last = Vehicles_Tuscany.objects.latest('id')
         if len(vehicle_list) > 1:
             secondlast = vehicle_list.order_by('-id')[1]
         else:
@@ -49,9 +54,14 @@ def news(request):
         n = request.GET['n']
         if n is not None and n != '':
             print(request.GET)
-            news = NewsPosts.objects.filter(pk=request.GET.get('n'))
+            news_list = NewsPosts_Tuscany.objects.filter(pk=request.GET.get('n'))
+            if len(news_list) == 0:
+                exists = False
+            else:
+                exists = True
+            return render(request, 'tuscany/news.html', {'newsposts': news_list, 'exists': exists, 'news': NewsPosts_Tuscany.objects.order_by('-date'), 'singlepost': True})
     else:
-        news_list = NewsPosts.objects.all()
+        news_list = NewsPosts_Tuscany.objects.order_by('-date')[:30]
         if len(news_list) == 0:
             exists = False
         else:
@@ -59,7 +69,7 @@ def news(request):
         paginator = Paginator(news_list, 1)  # Show 1 newspost per page
         page = request.GET.get('page')
         newsposts = paginator.get_page(page)
-        return render(request, 'tuscany/news.html', {'newsposts': newsposts, 'exists': exists})
+        return render(request, 'tuscany/news.html', {'newsposts': newsposts, 'exists': exists, 'news': news_list})
 
     if not news:
         print("nothing in news found!")
@@ -77,8 +87,9 @@ def news(request):
         l.append(i.writtenby)
         print(i.title)
 
-    return render(request, 'tuscany/news.html',
+    return render(request, 'shelby/news.html',
                   {'banner': l[0], 'title': l[1], 'headline': l[2], 'desc': l[3], 'quote': l[4], 'quotefooter': l[5], 'date': l[6], 'writtenby': l[7], 'exists': True})
+
 # press and media page
 def pressandmedia(request):
     return render(request, 'tuscany/contact.html')
@@ -86,7 +97,43 @@ def pressandmedia(request):
 
 # contact page
 def contact(request):
-    return render(request, 'tuscany/contact.html')
+    form_class = forms.ContactForm(auto_id=False)
+
+    if request.method == 'POST':
+        form = forms.ContactForm(request.POST)
+
+        if form.is_valid():
+            contact_name = request.POST.get(
+                'contact_name'
+                , '')
+            contact_email = request.POST.get(
+                'contact_email'
+                , '')
+            form_content = request.POST.get('content', '')
+
+            # Email the profile with the
+            # contact information
+            template = get_template('tuscany/contact_template.txt')
+        context = {
+            'contact_name': contact_name,
+            'contact_email': contact_email,
+            'form_content': form_content,
+        }
+        content = template.render(context)
+
+        email = EmailMessage(
+            "New contact form submission",
+            content,
+            "Tuscany" + '',
+            ['selimaydi@gmail.com'],
+            headers={'Reply-To': contact_email}
+        )
+        email.send()
+        return redirect('contact')
+
+    return render(request, 'tuscany/contact.html', {
+        'form': form_class,
+    })
 
 # description page for a particular vehicle
 def vehicledesc(request):
@@ -94,7 +141,7 @@ def vehicledesc(request):
         v = request.GET['v']
         if v is not None and v != '':
             print(request.GET)
-            vehicles = Vehicles.objects.filter(pk=request.GET.get('v'))
+            vehicles = Vehicles_Tuscany.objects.filter(pk=request.GET.get('v'))
             if not vehicles:
                 print("nothing in vehicles found!")
                 return render(request, 'tuscany/vehicledesc.html', {"exists": False})

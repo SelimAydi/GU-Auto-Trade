@@ -1,0 +1,310 @@
+{% extends "frames/sub_base.html" %}
+{% load static %}
+
+{% block header %}
+	{% with headerclass='portal' %}
+			{{ block.super }}
+	{% endwith%}
+{% endblock header%}
+
+{% block headoptions %}
+    <link rel="stylesheet" href="{% static 'css/gallery/portfolio.jquery.min.css' %}">
+    <script type="text/javascript" src="{% static 'js/gallery/portfolio.jquery.min.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'css/responsiveslides.css' %}">
+    <script src="{% static 'js/responsiveslides.min.js' %}"></script>
+{#    <script src="{% static 'css/responsiveslides.css' %}"></script>#}
+    <script>
+        {#$(function () {#}
+        {#  $("#slider2").responsiveSlides({#}
+        {#    auto: false,#}
+        {#    pager: true,#}
+        {#    speed: 300,#}
+        {#    maxwidth: 540#}
+        {#  });#}
+    function initSlides(){
+        $("#slider2").responsiveSlides({
+                auto: false,
+                pager: true,
+                speed: 300,
+                maxwidth: 540
+        });
+    }
+
+    </script>
+{% endblock %}
+
+{% block content %}
+        <script>
+            $(document).ready(function() {
+                $('.thumbs').portfolio({
+                    cols: 4,
+                    transition: 'slideDown'
+                });
+            });
+            var test;
+        </script>
+		<!-- News -->
+		<div id="event" class="section text-center">
+            <h2>Press & media</h2>
+            <p class="lead">Libris vivendo eloquentiam ex ius, nec id splendide abhorreant.</p>
+			<!-- container -->
+			<div class="container">
+
+{#                <ul class="rslides" id="slider2">#}
+{#                          <li><a href="#"><img src="/media/press/traume1.jpg" alt=""></a></li>#}
+{#                          <li><a href="#"><img src="/media/press/traume2.jpg" alt=""></a></li>#}
+{#                          <li><a href="#"><img src="/media/press/traume2.jpg" alt=""></a></li>#}
+{#                </ul>#}
+				<!-- row -->
+				<div class="row">
+
+                    <div class="col-md-12">
+
+{#                        <div id="#MyPortfolio">#}
+                                    <ul class="thumbs">
+
+            <li><a href="#thumb1" class="thumbnail" style="background-image: url('/media/press/traume1.jpg')">
+                <h4>German Magazine “TräumeWagen”</h4><span class="description">Interview German Magazine “TräumeWagen”</span></a>
+            </li>
+            <li>
+                <a href="#thumb2" class="thumbnail" style="background-image: url('/media/press/tuner1.jpg')"><h4>Magazine “Eurotuner”</h4><span class="description">“The Muscle Truck” </span></a>
+            </li>
+            <li>
+                <a href="#thumb3" class="thumbnail" style="background-image: url('/media/press/back1.jpg')"><h4>Magazine “Chrom & Flammen”</h4><span class="description">“Back to the Future”</span></a>
+            </li>
+            <li>
+                <a href="#thumb4" class="thumbnail" style="background-image: url('/media/press/back2.jpg')"><h4>Magazine “Cars & Stripes”</h4><span class="description">“Baja Badass by Shelby”</span></a>
+            </li>
+            <li>
+                <a href="#thumb5" class="thumbnail" style="background-image: url('/media/press/back3.jpg')"><h4>German Magazine “GRIP”</h4><span class="description">“Shelby ist Startklar!”</span></a>
+            </li>
+            <li>
+                <a href="#thumb6" class="thumbnail" style="background-image: url('/media/press/back4.jpg')"><h4>Magazine “Eurotuner”</h4><span class="description">Shelby is Back</span></a>
+            </li>
+            <li>
+                <a href="#thumb7" class="thumbnail" style="background-image: url('images/thumb7.jpg')"><h4>Magazine “Cars & Stripes”</h4><span class="description">Super Snake is Back</span></a>
+            </li>
+            <li>
+                <a href="#thumb8" class="thumbnail" style="background-image: url('images/thumb8.jpg')"><h4>German Magazine “GRIP”</h4><span class="description">“Shelby is back in Europe”</span></a>
+            </li>
+            <li>
+                <a href="#thumb9" class="thumbnail" style="background-image: url('images/thumb9.jpg')"><h4>German Magazine “Traeume Wagen”</h4><span class="description">55 years of Shelby Special</span></a>
+            </li>
+            <li>
+                <a href="#thumb10" class="thumbnail" style="background-image: url('images/thumb10.jpg')"><h4>German Magazine “Chrom & Flammen”</h4><span class="description">“Eilige Lieferung” Special</span></a>
+            </li>
+        </ul>
+
+        <div class="portfolio-content">
+
+            <div id="thumb1">
+                <div class="media">
+                     <ul class="rslides" id="slider2">
+                          <li><a href="#"><img src="/media/press/traume1.jpg" alt=""></a></li>
+                          <li><a href="#"><img src="/media/press/traume2.jpg" alt=""></a></li>
+                    </ul>
+                </div>
+                <h1>German Magazine “TräumeWagen”</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mollis nisi sit amet metus venenatis, ut congue turpis aliquet. Pellentesque eget elit sollicitudin, feugiat felis in, ornare diam. Morbi blandit sapien nibh, eu pulvinar tortor luctus nec. Aenean lobortis lacus cursus gravida adipiscing. Praesent in odio porta, placerat felis id, viverra est. Nam magna quam, tincidunt eget augue in, aliquet tristique ipsum.</p>
+{#                <a href="#" class="btn btn-primary">{% trans 'Checkout' %}</a>#}
+            </div>
+
+            <div id="thumb2">
+                <div class="media">
+                     <ul class="rslides" id="slider2">
+                          <li><a href="#"><img src="/media/press/tuner1.jpg" alt=""></a></li>
+                          <li><a href="#"><img src="/media/press/tuner2.jpg" alt=""></a></li>
+                          <li><a href="#"><img src="/media/press/tuner3.jpg" alt=""></a></li>
+                          <li><a href="#"><img src="/media/press/tuner4.jpg" alt=""></a></li>
+                          <li><a href="#"><img src="/media/press/tuner5.jpg" alt=""></a></li>
+                    </ul>
+                </div>
+
+                <h1>SEO</h1>
+                <p>Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse potenti. Integer a posuere tortor. Praesent malesuada mauris massa, non blandit neque tempus nec. Quisque fermentum nunc non hendrerit tempus.</p>
+{#                <a href="#" class="btn btn-primary">{% trans 'Checkout' %}</a>#}
+            </div>
+
+            <div id="thumb3">
+                <div class="media">
+                     <ul class="rslides" id="slider2">
+                          <li><a href="#"><img src="/media/press/traume1.jpg" alt=""></a></li>
+                          <li><a href="#"><img src="/media/press/traume2.jpg" alt=""></a></li>
+                          <li><a href="#"><img src="/media/press/traume2.jpg" alt=""></a></li>
+                    </ul>
+                </div>
+                <h1>Web design</h1>
+                <p>Ut condimentum eros bibendum metus lacinia, ac condimentum justo faucibus. Nam nec dui convallis, sodales sapien in, gravida justo. Pellentesque pulvinar massa a nisl iaculis, quis iaculis elit tincidunt.</p>
+{#                <a href="#" class="btn btn-primary">{% trans 'Checkout' %}</a>#}
+            </div>
+
+            <div id="thumb4">
+                <div class="media">
+                     <ul class="rslides" id="slider2">
+                          <li><a href="#"><img src="/media/press/traume1.jpg" alt=""></a></li>
+                          <li><a href="#"><img src="/media/press/traume2.jpg" alt=""></a></li>
+                          <li><a href="#"><img src="/media/press/traume2.jpg" alt=""></a></li>
+                    </ul>
+                </div>
+                <h1>Project management</h1>
+                <p>Suspendisse cursus commodo elit, at tempus felis hendrerit vel. Cras condimentum aliquam mauris at blandit. Pellentesque ac velit iaculis, lobortis nibh id, ultricies ante. Fusce vel urna justo. Maecenas rhoncus vel ligula eget feugiat. Maecenas blandit risus eros, vel imperdiet augue dapibus vitae.</p>
+{#                <a href="#" class="btn btn-primary">{% trans 'Checkout' %}</a>#}
+            </div>
+
+            <div id="thumb5">
+                <div class="media">
+                     <ul class="rslides" id="slider2">
+                          <li><a href="#"><img src="/media/press/traume1.jpg" alt=""></a></li>
+                          <li><a href="#"><img src="/media/press/traume2.jpg" alt=""></a></li>
+                          <li><a href="#"><img src="/media/press/traume2.jpg" alt=""></a></li>
+                    </ul>
+                </div>
+                <h1>Graphic design</h1>
+                <p>Vestibulum gravida, ante ut consectetur dictum, dolor sapien pretium elit, sed tincidunt augue sem a lorem. Vivamus quis neque pharetra, consequat dolor vel, venenatis urna. Praesent diam quam, fermentum vel tortor eget, pulvinar tincidunt velit.</p>
+{#                <a href="#" class="btn btn-primary">{% trans 'Checkout' %}</a>#}
+            </div>
+
+            <div id="thumb5">
+{#                <div class="media"><img src="images/media.jpg"/></div>#}
+                <div class="media">
+                     <ul class="rslides" id="slider2">
+                          <li><a href="#"><img src="/media/press/traume1.jpg" alt=""></a></li>
+                          <li><a href="#"><img src="/media/press/traume2.jpg" alt=""></a></li>
+                          <li><a href="#"><img src="/media/press/traume2.jpg" alt=""></a></li>
+                    </ul>
+                </div>
+                <h1>Graphic design</h1>
+                <p>Vestibulum gravida, ante ut consectetur dictum, dolor sapien pretium elit, sed tincidunt augue sem a lorem. Vivamus quis neque pharetra, consequat dolor vel, venenatis urna. Praesent diam quam, fermentum vel tortor eget, pulvinar tincidunt velit.</p>
+{#                <a href="#" class="btn btn-primary">{% trans 'Checkout' %}</a>#}
+            </div>
+
+            <div id="thumb5">
+{#                <div class="media"><img src="images/media.jpg"/></div>#}
+                <div class="media">
+                     <ul class="rslides" id="slider2">
+                          <li><a href="#"><img src="/media/press/traume1.jpg" alt=""></a></li>
+                          <li><a href="#"><img src="/media/press/traume2.jpg" alt=""></a></li>
+                          <li><a href="#"><img src="/media/press/traume2.jpg" alt=""></a></li>
+                    </ul>
+                </div>
+                <h1>Graphic design</h1>
+                <p>Vestibulum gravida, ante ut consectetur dictum, dolor sapien pretium elit, sed tincidunt augue sem a lorem. Vivamus quis neque pharetra, consequat dolor vel, venenatis urna. Praesent diam quam, fermentum vel tortor eget, pulvinar tincidunt velit.</p>
+{#                <a href="#" class="btn btn-primary">{% trans 'Checkout' %}</a>#}
+            </div>
+
+            <div id="thumb5">
+{#                <div class="media"><img src="images/media.jpg"/></div>#}
+                <div class="media">
+                     <ul class="rslides" id="slider2">
+                          <li><a href="#"><img src="/media/press/traume1.jpg" alt=""></a></li>
+                          <li><a href="#"><img src="/media/press/traume2.jpg" alt=""></a></li>
+                          <li><a href="#"><img src="/media/press/traume2.jpg" alt=""></a></li>
+                    </ul>
+                </div>
+                <h1>Graphic design</h1>
+                <p>Vestibulum gravida, ante ut consectetur dictum, dolor sapien pretium elit, sed tincidunt augue sem a lorem. Vivamus quis neque pharetra, consequat dolor vel, venenatis urna. Praesent diam quam, fermentum vel tortor eget, pulvinar tincidunt velit.</p>
+{#                <a href="#" class="btn btn-primary">{% trans 'Checkout' %}</a>#}
+            </div>
+
+            <div id="thumb6">
+{#                <div class="media"><img src="images/media.jpg"/></div>#}
+                <div class="media">
+                     <ul class="rslides" id="slider2">
+                          <li><a href="#"><img src="/media/press/traume1.jpg" alt=""></a></li>
+                          <li><a href="#"><img src="/media/press/traume2.jpg" alt=""></a></li>
+                          <li><a href="#"><img src="/media/press/traume2.jpg" alt=""></a></li>
+                    </ul>
+                </div>
+                <h1>Graphic design</h1>
+                <p>Vestibulum gravida, ante ut consectetur dictum, dolor sapien pretium elit, sed tincidunt augue sem a lorem. Vivamus quis neque pharetra, consequat dolor vel, venenatis urna. Praesent diam quam, fermentum vel tortor eget, pulvinar tincidunt velit.</p>
+{#                <a href="#" class="btn btn-primary">{% trans 'Checkout' %}</a>#}
+            </div>
+
+            <div id="thumb7">
+{#                <div class="media"><img src="images/media.jpg"/></div>#}
+                <div class="media">
+                     <ul class="rslides" id="slider2">
+                          <li><a href="#"><img src="/media/press/traume1.jpg" alt=""></a></li>
+                          <li><a href="#"><img src="/media/press/traume2.jpg" alt=""></a></li>
+                          <li><a href="#"><img src="/media/press/traume2.jpg" alt=""></a></li>
+                    </ul>
+                </div>
+                <h1>Graphic design</h1>
+                <p>Vestibulum gravida, ante ut consectetur dictum, dolor sapien pretium elit, sed tincidunt augue sem a lorem. Vivamus quis neque pharetra, consequat dolor vel, venenatis urna. Praesent diam quam, fermentum vel tortor eget, pulvinar tincidunt velit.</p>
+{#                <a href="#" class="btn btn-primary">{% trans 'Checkout' %}</a>#}
+            </div>
+
+            <div id="thumb8">
+{#                <div class="media"><img src="images/media.jpg"/></div>#}
+                <div class="media">
+                     <ul class="rslides" id="slider2">
+                          <li><a href="#"><img src="/media/press/traume1.jpg" alt=""></a></li>
+                          <li><a href="#"><img src="/media/press/traume2.jpg" alt=""></a></li>
+                          <li><a href="#"><img src="/media/press/traume2.jpg" alt=""></a></li>
+                    </ul>
+                </div>
+                <h1>Graphic design</h1>
+                <p>Vestibulum gravida, ante ut consectetur dictum, dolor sapien pretium elit, sed tincidunt augue sem a lorem. Vivamus quis neque pharetra, consequat dolor vel, venenatis urna. Praesent diam quam, fermentum vel tortor eget, pulvinar tincidunt velit.</p>
+{#                <a href="#" class="btn btn-primary">{% trans 'Checkout' %}</a>#}
+            </div>
+
+            <div id="thumb9">
+{#                <div class="media"><img src="images/media.jpg"/></div>#}
+                <div class="media">
+                     <ul class="rslides" id="slider2">
+                          <li><a href="#"><img src="/media/press/traume1.jpg" alt=""></a></li>
+                          <li><a href="#"><img src="/media/press/traume2.jpg" alt=""></a></li>
+                          <li><a href="#"><img src="/media/press/traume2.jpg" alt=""></a></li>
+                    </ul>
+                </div>
+                <h1>Graphic design</h1>
+                <p>Vestibulum gravida, ante ut consectetur dictum, dolor sapien pretium elit, sed tincidunt augue sem a lorem. Vivamus quis neque pharetra, consequat dolor vel, venenatis urna. Praesent diam quam, fermentum vel tortor eget, pulvinar tincidunt velit.</p>
+{#                <a href="#" class="btn btn-primary">{% trans 'Checkout' %}</a>#}
+            </div>
+
+            <div id="thumb10">
+{#                <div class="media"><img src="images/media.jpg"/></div>#}
+                <div class="media">
+                     <ul class="rslides" id="slider2">
+                          <li><a href="#"><img src="/media/press/traume1.jpg" alt=""></a></li>
+                          <li><a href="#"><img src="/media/press/traume2.jpg" alt=""></a></li>
+                          <li><a href="#"><img src="/media/press/traume2.jpg" alt=""></a></li>
+                    </ul>
+                </div>
+                <h1>Graphic design</h1>
+                <p>Vestibulum gravida, ante ut consectetur dictum, dolor sapien pretium elit, sed tincidunt augue sem a lorem. Vivamus quis neque pharetra, consequat dolor vel, venenatis urna. Praesent diam quam, fermentum vel tortor eget, pulvinar tincidunt velit.</p>
+{#                <a href="#" class="btn btn-primary">{% trans 'Checkout' %}</a>#}
+            </div>
+        </div>
+
+                    </div>
+				</div>
+				<!-- /row -->
+
+			</div>
+			<!-- /container -->
+{#        <script>#}
+{#            $(function() {#}
+{#                    $(".rslides").responsiveSlides({#}
+{#                      pager: true,           // Boolean: Show pager, true or false#}
+{#                      nav: true,             // Boolean: Show navigation, true or false#}
+{#                      prevText: "Previous",   // String: Text for the "previous" button#}
+{#                      nextText: "Next"       // String: Text for the "next" button#}
+{#                    });#}
+{#             });#}
+{#        </script>#}
+
+{#            test.children().attr('class', 'newclass')#}
+        <script>
+
+{#test.children().attr('class', 'newclass')#}
+{#            $("#slider2").responsiveSlides({#}
+{#                auto: false,#}
+{#                pager: true,#}
+{#                speed: 300,#}
+{#                maxwidth: 540#}
+{#              });#}
+        </script>
+		</div>
+		<!-- /News -->
+{% endblock %}

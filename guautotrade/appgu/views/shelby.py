@@ -1,5 +1,6 @@
 from django.core.paginator import Paginator
 from django.shortcuts import render
+from .. import forms
 
 from ..models import Vehicles, NewsPosts
 
@@ -40,8 +41,8 @@ def events(request):
     return render(request, 'shelby/events.html')
 
 # shop page
-def shop(request):
-    return render(request, 'shelby/contact.html')
+# def shop(request):
+#     return render(request, 'shelby/contact.html')
 
 # news page
 def news(request):
@@ -49,9 +50,14 @@ def news(request):
         n = request.GET['n']
         if n is not None and n != '':
             print(request.GET)
-            news = NewsPosts.objects.filter(pk=request.GET.get('n'))
+            news_list = NewsPosts.objects.filter(pk=request.GET.get('n'))
+            if len(news_list) == 0:
+                exists = False
+            else:
+                exists = True
+            return render(request, 'shelby/news.html', {'newsposts': news_list, 'exists': exists, 'news': NewsPosts.objects.order_by('-date'), 'singlepost': True})
     else:
-        news_list = NewsPosts.objects.all()
+        news_list = NewsPosts.objects.order_by('-date')[:30]
         if len(news_list) == 0:
             exists = False
         else:
@@ -59,7 +65,7 @@ def news(request):
         paginator = Paginator(news_list, 1)  # Show 1 newspost per page
         page = request.GET.get('page')
         newsposts = paginator.get_page(page)
-        return render(request, 'shelby/news.html', {'newsposts': newsposts, 'exists': exists})
+        return render(request, 'shelby/news.html', {'newsposts': newsposts, 'exists': exists, 'news': news_list})
 
     if not news:
         print("nothing in news found!")
@@ -79,14 +85,51 @@ def news(request):
 
     return render(request, 'shelby/news.html',
                   {'banner': l[0], 'title': l[1], 'headline': l[2], 'desc': l[3], 'quote': l[4], 'quotefooter': l[5], 'date': l[6], 'writtenby': l[7], 'exists': True})
+
 # press and media page
 def pressandmedia(request):
-    return render(request, 'shelby/contact.html')
+    return render(request, 'shelby/media.html')
 
 
 # contact page
 def contact(request):
-    return render(request, 'shelby/contact.html')
+    form_class = forms.ContactForm(auto_id=False)
+
+    if request.method == 'POST':
+        form = forms.ContactForm(request.POST)
+
+        if form.is_valid():
+            contact_name = request.POST.get(
+                'contact_name'
+                , '')
+            contact_email = request.POST.get(
+                'contact_email'
+                , '')
+            form_content = request.POST.get('content', '')
+
+            # Email the profile with the
+            # contact information
+            template = get_template('shelby/contact_template.txt')
+        context = {
+            'contact_name': contact_name,
+            'contact_email': contact_email,
+            'form_content': form_content,
+        }
+        content = template.render(context)
+
+        email = EmailMessage(
+            "New contact form submission",
+            content,
+            "Shelby" + '',
+            ['selimaydi@gmail.com'],
+            headers={'Reply-To': contact_email}
+        )
+        email.send()
+        return redirect('contact')
+
+    return render(request, 'shelby/contact.html', {
+        'form': form_class,
+    })
 
 # description page for a particular vehicle
 def vehicledesc(request):
@@ -110,7 +153,7 @@ def vehicledesc(request):
                 print(i.description)
 
             print(request.GET.get('q'))
-            return render(request, 'shelby/vehicledesc.html', {'image': l[0], 'model': l[1], 'headline': l[2], 'desc': l[3], 'exists': True})
+            return render(request, 'shelby/vehicledesc.html', {'image': l[0], 'model': l[1], 'headline': l[2], 'desc': l[3], 'exists': True, 'vehicles': Vehicles.objects.all()})
     else:
         print("canceled")
         return render(request, 'shelby/vehicledesc.html')

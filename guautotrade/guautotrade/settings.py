@@ -11,6 +11,11 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 """
 
 import os
+import oscar
+from django.urls import reverse_lazy, reverse
+from oscar import OSCAR_MAIN_TEMPLATE_DIR
+from oscar import get_core_apps
+from oscar.defaults import *
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -27,11 +32,17 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+OSCAR_DEFAULT_CURRENCY = 'EUR'
+
+location = lambda x: os.path.join(
+    os.path.dirname(os.path.realpath(__file__)), x)
 
 # Application definition
 
 INSTALLED_APPS = [
     'django_countries',
+    'paypal',
+    'modeltranslation',
 	'appgu',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -39,7 +50,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-]
+	'django.contrib.sites',
+	'django.contrib.flatpages',
+    'compressor',
+    'widget_tweaks',
+] + get_core_apps()
+
+SITE_ID = 1
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -50,6 +67,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+	'oscar.apps.basket.middleware.BasketMiddleware',
+    'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
 ]
 
 ROOT_URLCONF = 'guautotrade.urls'
@@ -57,14 +76,30 @@ ROOT_URLCONF = 'guautotrade.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
-        'APP_DIRS': True,
+        'DIRS': [
+            # os.path.join(BASE_DIR, 'templates'),
+			#OSCAR_MAIN_TEMPLATE_DIR,
+            location('../appgu/templates'),
+			location('../appgu/templates/oscar'),
+        ],
         'OPTIONS': {
+            'loaders': [
+                'django.template.loaders.filesystem.Loader',
+                'django.template.loaders.app_directories.Loader',
+                # 'django.template.loaders.eggs.Loader',
+
+            ],
             'context_processors': [
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+
+				'oscar.apps.search.context_processors.search_form',
+                'oscar.apps.promotions.context_processors.promotions',
+                'oscar.apps.checkout.context_processors.checkout',
+                'oscar.apps.customer.notifications.context_processors.notifications',
+                'oscar.core.context_processors.metadata',
             ],
         },
     },
@@ -83,7 +118,8 @@ DATABASES = {
 		'USER': 'postgres',
 		'PASSWORD': 'kaas123',
 		'HOST': 'localhost',
-        'PORT': '5432',
+        'PORT': '5433',
+        'ATOMIC_REQUESTS': True,
     }
 }
 
@@ -110,6 +146,32 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+AUTHENTICATION_BACKENDS = (
+    'oscar.apps.customer.auth_backends.EmailBackend',
+    'django.contrib.auth.backends.ModelBackend',
+)
+
+HAYSTACK_CONNECTIONS = {
+    'default': {
+        'ENGINE': 'haystack.backends.simple_backend.SimpleEngine',
+    },
+}
+
+OSCAR_SHOP_NAME = 'Shelby Webshop'
+# print(reverse_lazy('promotions:home'))
+OSCAR_PROMOTIONS_ENABLED = False
+
+OSCAR_HOMEPAGE = reverse_lazy('catalogue:index')
+OSCAR_FROM_EMAIL = 'info@guautotrade.com'
+# OSCAR_HOMEPAGE = 'catalogue:index'
+OSCAR_SHOP_TAGLINE = 'Shelby Merchandise'
+OSCAR_INITIAL_ORDER_STATUS = 'Pending'
+OSCAR_INITIAL_LINE_STATUS = 'Pending'
+OSCAR_ORDER_STATUS_PIPELINE = {
+    'Pending': ('Being processed', 'Cancelled',),
+    'Being processed': ('Processed', 'Cancelled',),
+    'Cancelled': (),
+}
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.0/topics/i18n/
@@ -135,10 +197,23 @@ LOCALE_PATHS = [
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
+STATIC_ROOT = '/static/'
+STATIC_URL = STATIC_ROOT
 
-STATIC_URL = '/static/'
 LOGIN_REDIRECT_URL = '/portal'
 LOGOUT_REDIRECT_URL = '/portal'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+DEFAULT_FROM_EMAIL = 'questions@guautotrade.com'
+EMAIL_HOST_USER = ''
+EMAIL_HOST_PASSWORD = ''
+EMAIL_USE_TLS = False
+EMAIL_PORT = 1025
+
+PAYPAL_API_USERNAME = 'uitbetaling-facilitator_api1.wemoney.nl'
+PAYPAL_API_PASSWORD = 'PXZSY2PNZ3GWPYJQ'
+PAYPAL_API_SIGNATURE = 'A5rbR..nAsPB.9eX2Kko49PtM-AMAceoxw6B-EToi4q6Z5VRDP4lWLVp'
+SECURE_SSL_REDIRECT = False

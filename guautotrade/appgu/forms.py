@@ -1,6 +1,8 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
+from django.utils.translation import ugettext_lazy
+
 from . import models
 from django.db.models import Max
 from .models import Dealers, MapDealers, Orders
@@ -8,10 +10,10 @@ from django_countries.fields import CountryField
 from PIL import Image
 
 class RegistrationDealerForm(UserCreationForm):
-    firstname = forms.CharField(required=True, label="First Name:")
-    lastname = forms.CharField(required=True, label="Surname:")
-    username = forms.CharField(required=True)
-    telephone = forms.CharField(required=False, label="Telephone Number:")
+    firstname = forms.CharField(required=True, label=ugettext_lazy('First Name:'))
+    lastname = forms.CharField(required=True, label=ugettext_lazy('Surname:'))
+    username = forms.CharField(required=True, label=ugettext_lazy('Username:'))
+    telephone = forms.CharField(required=False, label=ugettext_lazy('Telephone Number:'))
     email = forms.EmailField(required=True, label="E-mail:")
 
     class Meta:
@@ -20,24 +22,24 @@ class RegistrationDealerForm(UserCreationForm):
 
     def clean_email(self):
         if User.objects.filter(email=self.cleaned_data['email']).exists():
-            raise forms.ValidationError('This e-mail address already exists, use a different e-mail address.')
+            raise forms.ValidationError(ugettext_lazy('This e-mail address already exists, use a different e-mail address.'))
         return self.cleaned_data['email']
 
     def __init__(self, *args, **kwargs):
         super(RegistrationDealerForm, self).__init__(*args, **kwargs)
-        self.fields['password1'].label = "Password:"
-        self.fields['password2'].label = "Repeat password:"
+        self.fields['password1'].label = ugettext_lazy('Password:')
+        self.fields['password2'].label = ugettext_lazy('Repeat Password:')
         self.fields[
-            'password1'].help_text = "Password should at least consist of 5 characters. Do not only use numbers."
-        self.fields['password2'].help_text = "Repeat the password."
+            'password1'].help_text = ugettext_lazy('Password should at least consist of 5 characters. Do not only use numbers.')
+        self.fields['password2'].help_text = ugettext_lazy('Repeat the password:')
         self.error_messages = {
-            'password_mismatch': ("Oops! The two given passwords do not match. Please try again."),
+            'password_mismatch': ugettext_lazy("Oops! The two given passwords do not match. Please try again."),
         }
         self.fields['username'].widget.attrs['placeholder'] = 'johndoe123'
         self.fields['firstname'].widget.attrs['placeholder'] = 'John'
         self.fields['lastname'].widget.attrs['placeholder'] = 'Doe'
         self.fields['telephone'].widget.attrs['placeholder'] = '31612345678'
-        self.fields['email'].widget.attrs['placeholder'] = 'john@example.com'
+        self.fields['email'].widget.attrs['placeholder'] = ugettext_lazy('john@example.com')
         self.fields['password1'].widget.attrs['placeholder'] = '********'
         self.fields['password2'].widget.attrs['placeholder'] = '********'
 
@@ -66,11 +68,11 @@ class RegistrationDealerForm(UserCreationForm):
 
 
 class RegistrationAdminForm(UserCreationForm):
-    firstname = forms.CharField(required=True, label="First Name:")
-    lastname = forms.CharField(required=True, label="Surname:")
-    username = forms.CharField(required=True)
-    telephone = forms.CharField(required=False, label="Telephone Number:")
-    email = forms.EmailField(required=True, label="E-mail:")
+    firstname = forms.CharField(required=True, label=ugettext_lazy("First Name:"))
+    lastname = forms.CharField(required=True, label=ugettext_lazy("Surname:"))
+    username = forms.CharField(required=True, label=ugettext_lazy("Username:"))
+    telephone = forms.CharField(required=False, label=ugettext_lazy("Telephone Number:"))
+    email = forms.EmailField(required=True, label=ugettext_lazy("E-mail:"))
     superuser = forms.BooleanField(required=False)
 
     class Meta:
@@ -79,16 +81,16 @@ class RegistrationAdminForm(UserCreationForm):
 
     def clean_email(self):
         if User.objects.filter(email=self.cleaned_data['email']).exists():
-            raise forms.ValidationError('This e-mail address already exists, use a different e-mail address.')
+            raise forms.ValidationError(ugettext_lazy('This e-mail address already exists, use a different e-mail address.'))
         return self.cleaned_data['email']
 
     def __init__(self, *args, **kwargs):
         super(RegistrationAdminForm, self).__init__(*args, **kwargs)
-        self.fields['password1'].label = "Password:"
-        self.fields['password2'].label = "Repeat password:"
+        self.fields['password1'].label = ugettext_lazy("Password:")
+        self.fields['password2'].label = ugettext_lazy("Repeat password:")
         self.fields[
-            'password1'].help_text = "Password should at least consist of 5 characters. Do not only use numbers."
-        self.fields['password2'].help_text = "Repeat the password."
+            'password1'].help_text = ugettext_lazy("Password should at least consist of 5 characters. Do not only use numbers.")
+        self.fields['password2'].help_text = ugettext_lazy("Repeat the password.")
         self.error_messages = {
             'password_mismatch': ("Oops! The two given passwords do not match. Please try again."),
         }
@@ -132,10 +134,10 @@ class OrderForm(forms.ModelForm):
     CHOICES_model = (('Shelby F150 Super Snake', 'Shelby F150 Super Snake'), ('Shelby F150 Offroad', 'Shelby F150 Offroad'), ('Shelby F150 Offroad Longbed', 'Shelby F150 Offroad Longbed'),)
     CHOICES_colour = (('Lightning Blue', 'Lightning Blue'), ('Ruby Red', 'Ruby Red'), ('Shadow Black', 'Shadow Black'), ('Oxford White', 'Oxford White'), ('Magnetic', 'Magnetic'),)
     model = forms.ChoiceField(choices=CHOICES_model, required=True)
-    colour = forms.ChoiceField(choices=CHOICES_colour, required=True)
-    additional_comments = forms.CharField(required=False, widget=forms.Textarea)
-    homologation = forms.BooleanField(required=False)
-    custom_clearance = forms.BooleanField(required=False)
+    colour = forms.ChoiceField(choices=CHOICES_colour, required=True, label=ugettext_lazy('Color'))
+    additional_comments = forms.CharField(required=False, widget=forms.Textarea, label=ugettext_lazy('Additional Comments'))
+    homologation = forms.BooleanField(required=False, label=ugettext_lazy('Homologation'))
+    custom_clearance = forms.BooleanField(required=False, label=ugettext_lazy('Custom Clearance'))
 
     class Meta:
         model = models.Orders
@@ -144,14 +146,14 @@ class OrderForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         kwargs.setdefault('label_suffix', '')
         super(OrderForm, self).__init__(*args, **kwargs)
-        self.fields['model'].label = "Model"
-        self.fields['colour'].label = "Colour"
-        self.fields['additional_comments'].label = "Additional Comments"
-        self.fields['model'].widget.attrs['placeholder'] = 'Modelnumber'
-        self.fields['colour'].widget.attrs['placeholder'] = 'What colour?'
-        self.fields['additional_comments'].widget.attrs['placeholder'] = 'Put extra information or remarks here'
-        self.fields['homologation'].label = "Homologation: "
-        self.fields['custom_clearance'].label = "Custom Clearance: "
+        self.fields['model'].label = ugettext_lazy('Model')
+        self.fields['colour'].label = ugettext_lazy('Colour')
+        self.fields['additional_comments'].label = ugettext_lazy('Additional Comments')
+        self.fields['model'].widget.attrs['placeholder'] = ugettext_lazy('Modelnumber')
+        self.fields['colour'].widget.attrs['placeholder'] = ugettext_lazy('What colour?')
+        self.fields['additional_comments'].widget.attrs['placeholder'] = ugettext_lazy('Put extra information or remarks here')
+        self.fields['homologation'].label = ugettext_lazy('Homologation: ')
+        self.fields['custom_clearance'].label = ugettext_lazy('Custom Clearance: ')
         self.fields['homologation'].widget.attrs.update({'class': 'registeradmincheckbox'})
         self.fields['custom_clearance'].widget.attrs.update({'class': 'registeradmincheckbox'})
 
@@ -178,29 +180,34 @@ class VehicleForm(forms.ModelForm):
 
     class Meta:
         model = models.Vehicles
-        fields = ("model", "headline", "description", "image")
+        fields = '__all__'
 
     def __init__(self, *args, **kwargs):
         kwargs.setdefault('label_suffix', '')
         super(VehicleForm, self).__init__(*args, **kwargs)
         self.fields['image'].label = ""
-        self.fields['model'].label = "Model"
-        self.fields['headline'].label = "Headline"
-        self.fields['description'].label = "Description"
+        self.fields['model'].label = ugettext_lazy("Model")
+        self.fields['headline'].label = ugettext_lazy("Headline")
+        self.fields['description'].label = ugettext_lazy("Description")
 
         self.fields['image'].widget.attrs.update({'class': 'invis'})
         self.fields['model'].widget.attrs['placeholder'] = 'Shelby Super Snake'
-        self.fields['headline'].widget.attrs['placeholder'] = 'Shelby Super Snake is one of the most..'
-        self.fields['description'].widget.attrs['placeholder'] = 'A description of the model'
+        self.fields['headline'].widget.attrs['placeholder'] = ugettext_lazy('Shelby Super Snake is one of the most..')
+        self.fields['description'].widget.attrs['placeholder'] = ugettext_lazy('A description of the model')
+
+class VehicleTuscanyForm(VehicleForm):
+    class Meta:
+        model = models.Vehicles_Tuscany
+        fields = '__all__'
 
 class NewsPostForm(forms.ModelForm):
     writtenby = forms.CharField(required=True)
-    banner = forms.ImageField()
+    banner = forms.ImageField(required=False)
     title = forms.CharField(required=True)
     headline = forms.CharField(required=True)
     description = forms.CharField(required=True, widget=forms.Textarea)
-    quote = forms.CharField(required=True)
-    quotefooter = forms.URLField(required=True)
+    quote = forms.CharField(required=False)
+    quotefooter = forms.URLField(required=False)
     field_order = ['title', 'headline', 'writtenby', 'quote', 'quotefooter', 'description', 'banner']
 
     class Meta:
@@ -211,20 +218,20 @@ class NewsPostForm(forms.ModelForm):
         kwargs.setdefault('label_suffix', '')
         super(NewsPostForm, self).__init__(*args, **kwargs)
         self.fields['banner'].label = ""
-        self.fields['title'].label = "Title"
-        self.fields['headline'].label = "Headline"
-        self.fields['writtenby'].label = "Author"
-        self.fields['description'].label = "Description"
-        self.fields['quote'].label = "Quote"
-        self.fields['quotefooter'].label = "Quote Reference"
+        self.fields['title'].label = ugettext_lazy("Title")
+        self.fields['headline'].label = ugettext_lazy("Headline")
+        self.fields['writtenby'].label = ugettext_lazy("Author")
+        self.fields['description'].label = ugettext_lazy("Description")
+        self.fields['quote'].label = ugettext_lazy("Quote")
+        self.fields['quotefooter'].label = ugettext_lazy("Quote Reference")
 
         self.fields['banner'].widget.attrs.update({'class': 'invis'})
-        self.fields['title'].widget.attrs['placeholder'] = 'Shelby Super Snake is amazing'
-        self.fields['writtenby'].widget.attrs['placeholder'] = 'John Doe'
-        self.fields['headline'].widget.attrs['placeholder'] = 'Shelby Super Snake is one of the most..'
-        self.fields['quote'].widget.attrs['placeholder'] = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
-        self.fields['quotefooter'].widget.attrs['placeholder'] = 'From Example.com'
-        self.fields['description'].widget.attrs['placeholder'] = 'The actual newspost text goes here'
+        self.fields['title'].widget.attrs['placeholder'] = ugettext_lazy('Shelby Super Snake is amazing')
+        self.fields['writtenby'].widget.attrs['placeholder'] = ugettext_lazy('John Doe')
+        self.fields['headline'].widget.attrs['placeholder'] = ugettext_lazy('Shelby Super Snake is one of the most..')
+        self.fields['quote'].widget.attrs['placeholder'] = ugettext_lazy('Lorem ipsum dolor sit amet, consectetur adipiscing elit.')
+        self.fields['quotefooter'].widget.attrs['placeholder'] = ugettext_lazy('From Example.com')
+        self.fields['description'].widget.attrs['placeholder'] = ugettext_lazy('The actual newspost text goes here')
 
 class EventForm(forms.ModelForm):
     title = forms.CharField(required=True)
@@ -234,26 +241,31 @@ class EventForm(forms.ModelForm):
     field_order = ['title', 'link', 'date', 'description']
 
     class Meta:
-        model = models.Vehicles
+        model = models.Events
         fields = ("title", "description", "link")
 
     def __init__(self, *args, **kwargs):
         kwargs.setdefault('label_suffix', '')
         super(EventForm, self).__init__(*args, **kwargs)
-        self.fields['title'].label = "Title"
-        self.fields['description'].label = "Description"
-        self.fields['date'].label = "Date"
-        self.fields['link'].label = "Link"
+        self.fields['title'].label = ugettext_lazy("Title")
+        self.fields['description'].label = ugettext_lazy("Description")
+        self.fields['date'].label = ugettext_lazy("Date")
+        self.fields['link'].label = ugettext_lazy("Link")
 
-        self.fields['title'].widget.attrs['placeholder'] = 'Shelby Drag Race'
-        self.fields['description'].widget.attrs['placeholder'] = 'Information about the event'
-        self.fields['link'].widget.attrs['placeholder'] = 'http://www.example.com/event'
-        self.fields['date'].widget.attrs['placeholder'] = 'YYYY/MM/DD'
-        self.fields['link'].help_text = "Optional. Leave blank if there is no link to the event."
+        self.fields['title'].widget.attrs['placeholder'] = ugettext_lazy('Shelby Drag Race')
+        self.fields['description'].widget.attrs['placeholder'] = ugettext_lazy('Information about the event')
+        self.fields['link'].widget.attrs['placeholder'] = ugettext_lazy('http://www.example.com/event')
+        self.fields['date'].widget.attrs['placeholder'] = ugettext_lazy('YYYY/MM/DD')
+        self.fields['link'].help_text = ugettext_lazy("Optional. Leave blank if there is no link to the event.")
+
+class EventTuscanyForm(EventForm):
+    class Meta:
+        model = models.Events_Tuscany
+        fields = '__all__'
 
 class MapDealerForm(forms.ModelForm):
     customer_name = forms.CharField(required=True)
-    email = forms.EmailField(required=False, error_messages = {'invalid': 'Your Email Confirmation Not Equal With Your Email'})
+    email = forms.EmailField(required=False)
     phone = forms.CharField(required=False)
     address = forms.CharField(required=True, widget=forms.Textarea)
     country = CountryField().formfield()
@@ -265,26 +277,16 @@ class MapDealerForm(forms.ModelForm):
         model = models.Vehicles
         fields = ("customer_name", "email", "phone", "address", "country", "latitude", "longitude")
 
-    def clean_email(self):
-        print("cleaning email")
-        print(self.cleaned_data)
-        if self.cleaned_data['email'] == "":
-            print("returning None")
-            return None
-        if MapDealers.objects.filter(email=self.cleaned_data['email']).exists():
-            print("IT EXISTS")
-            raise forms.ValidationError("This e-mail address already exists, use a different e-mail address.")
-        print("returning the email")
-        return self.cleaned_data['email']
-
     def __init__(self, *args, **kwargs):
         kwargs.setdefault('label_suffix', '')
         super(MapDealerForm, self).__init__(*args, **kwargs)
-        self.fields['customer_name'].label = "Customer Name"
-        self.fields['phone'].label = "Phone Number"
-        self.fields['email'].label = "Email"
-        self.fields['address'].label = "Address"
-        self.fields['country'].label = "Country"
+        self.fields['customer_name'].label = ugettext_lazy("Customer Name")
+        self.fields['phone'].label = ugettext_lazy("Phone Number")
+        self.fields['email'].label = ugettext_lazy("Email")
+        self.fields['address'].label = ugettext_lazy("Address")
+        self.fields['country'].label = ugettext_lazy("Country")
+        self.fields['latitude'].label = ugettext_lazy("Latitude")
+        self.fields['longitude'].label = ugettext_lazy("Longitude")
 
         self.fields['customer_name'].widget.attrs['placeholder'] = 'American Car City'
         self.fields['phone'].widget.attrs['placeholder'] = '33169221900'
@@ -292,8 +294,8 @@ class MapDealerForm(forms.ModelForm):
         self.fields['address'].widget.attrs['placeholder'] = '197 BD John Kennedy 91100 Corbeil-Essonnes'
         self.fields['latitude'].widget.attrs['placeholder'] = '48.579013'
         self.fields['longitude'].widget.attrs['placeholder'] = '2.4766'
-        self.fields['phone'].help_text = "Optional field."
-        self.fields['email'].help_text = "Optional field."
+        self.fields['phone'].help_text = ugettext_lazy("Optional field.")
+        self.fields['email'].help_text = ugettext_lazy("Optional field.")
 
     def save(self, commit=True):
         map = super(MapDealerForm, self).save(commit=False)
@@ -348,15 +350,35 @@ class AdminOrderForm(OrderForm):
 
     def __init__(self, *args, **kwargs):
         super(OrderForm, self).__init__(*args, **kwargs)
-        self.fields['forwho'].label = "For User ID"
-        self.fields['forwho'].help_text = "Leave blank if this order is on your name."
+        self.fields['forwho'].label = ugettext_lazy("For User ID")
+        self.fields['forwho'].help_text = ugettext_lazy("Leave blank if this order is on your name.")
 
     def clean_forwho(self):
-        print("IS THIS DOING ANYTHING")
         print(self.cleaned_data['forwho'])
         if Dealers.objects.filter(dealerID=self.cleaned_data['forwho']).exists():
             print("EXISTS")
             return self.cleaned_data['forwho']
         raise forms.ValidationError('Invalid ID.')
-        # print("returning good data")
-        # return self.cleaned_data['forwho']
+
+
+class ContactForm(forms.Form):
+    contact_name = forms.CharField(required=True, label="")
+    contact_email = forms.EmailField(required=True, label="")
+    contact_subject = forms.CharField(required=True, label="")
+    content = forms.CharField(
+        required=True,
+        widget=forms.Textarea,
+        label=""
+    )
+
+    def __init__(self, *args, **kwargs):
+        super(ContactForm, self).__init__(*args, **kwargs)
+        self.fields['contact_name'].widget.attrs.update({'class': 'input'})
+        self.fields['contact_email'].widget.attrs.update({'class': 'input'})
+        self.fields['contact_subject'].widget.attrs.update({'class': 'input'})
+        self.fields['content'].widget.attrs.update({'class': 'input'})
+
+        self.fields['contact_name'].widget.attrs['placeholder'] = ugettext_lazy('Name')
+        self.fields['contact_email'].widget.attrs['placeholder'] = ugettext_lazy('Email')
+        self.fields['contact_subject'].widget.attrs['placeholder'] = ugettext_lazy('Subject')
+        self.fields['content'].widget.attrs['placeholder'] = ugettext_lazy('Message')

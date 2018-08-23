@@ -32,15 +32,20 @@ body {
     font-family: 'Lato', sans-serif;
     font-size: 15px;
     font-weight: 400;
-    color: #798696;
+    color: #656464;
     overflow-x:hidden;
+}
+
+@font-face {
+    font-family: "Shelby";
+    src: url(/static/fonts/Shelby.ttf) format("truetype");
 }
 
 h1,h2,h3,h4,h5,h6 {
 	margin-top: 2vh;
 	margin-bottom: 2vh;
 	font-weight: 700;
-	color: #374050;
+	color: #a5a5a5;
 }
 
 h1 {
@@ -49,6 +54,7 @@ h1 {
 
 h2 {
 	font-size: 5vh;
+	font-family: 'Montserrat';
 }
 
 h3 {
@@ -60,9 +66,9 @@ h4 {
 }
 
 a {
-	font-family: 'Lato', sans-serif;
+	font-family: 'Montserrat', 'sans-serif';
 	color: #574b4b;
-	font-weight: 700;
+	font-weight: 300;
 	cursor: pointer;
 }
 
@@ -82,6 +88,14 @@ ul,ol{
 .white-text {
 	color: #FFF;
 	text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.black-text{
+	color: #525252;
+}
+
+g {
+	fill: #919090;
 }
 
 blockquote {
@@ -139,12 +153,11 @@ blockquote:before{
 }
 
 #contact {
-	padding-top: 250px;
-	height: calc(100vh);
+	padding-top: 100px;
 }
 
 #news {
-	padding-top: 250px;
+	padding-top: 100px;
 }
 
 #event {
@@ -216,9 +229,9 @@ blockquote:before{
 }
 
 .main-button:hover , .main-button:focus {
-	background-color: #fff;
+	background-color: #c8c7c7;
 	border: 2px solid rgba(0, 0, 0, 0.06);
-	color: #555555;
+	color: #ffffff;
 }
 
 .main-button.icon-button:hover , .main-button.icon-button:focus {
@@ -226,7 +239,7 @@ blockquote:before{
 }
 
 .main-button.icon-button:after {
-	content:"\f178";
+	content: "\f150";
 	font-family:FontAwesome;
 	position:absolute;
 	width: 30px;
@@ -295,23 +308,24 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
 .navbar-brand .bluelogo {
 	/* margin-top: 10px; */
 	display: inline-block;
-	padding: 15px;
-	border-bottom-left-radius: 10px;
-	border-bottom-right-radius: 10px;
-	background-color: #374050;
+	/* padding: 15px; */
+	/* height: 10px; */
+	/* border-bottom-left-radius: 10px; */
+	/* border-bottom-right-radius: 10px; */
+	/* background-color: #374050; */
 }
 
 .bluelogo > svg{
-	width: 100px;
-	height: 100px;
+	width: 130px;
+	height: 70px;
 }
 
 .bluelogo svg > g{
-	fill: #e8e8e8;
+	fill: #5d5959;
 }
 
 .footer-logo .logo svg > g{
-	fill: #00000021;
+	fill: #ebeaea63;
 }
 
 .navbar-brand .logo > img {
@@ -351,9 +365,12 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
 
 #header.portal {
 	position:absolute;
-	background-color: #374050;
+	background-color: #f5f5f5;
 	/* border-bottom: solid 0.1vh #00000026; */
 }
+
+
+.index {background-color: #efefef !important;}
 
 .portal i{
 	padding-left: 9px;
@@ -361,7 +378,7 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
 }
 
 .portal .navbar-right li a:hover{
-	color:	#41bff8 !important;
+	color: #a5acaf !important;
 }
 
 #header.portal li a:after{
@@ -369,9 +386,10 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
 }
 
 .portal .navbar-right a, .portal .navbar-left li a{
-	color:	#ffffff !important;
+	color: #5d5959 !important;
 	height: 100%;
 	/* font-size: 12px; */
+	font-weight: 600;
 }
 
 .portal .navbar-left li a{
@@ -397,7 +415,9 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
 
 #header.transparent-nav .main-menu li a {
 	color: #e7e5e5;
-	font-size: 15px;
+	font-family: 'Montserrat', 'sans-serif';
+	font-weight: 100;
+	font-size: 13px;
 }
 
 .main-menu li a {
@@ -554,11 +574,12 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
 	height: calc(100vh);
 	padding-top: 0px;
 	padding-bottom: 0px;
+	background-color: #f6f6f6;
 }
 
 .home-wrapper {
 	position:absolute;
-	top: 50%;
+	top: 60%;
 	-webkit-transform:translateY(-50%);
 	-ms-transform:translateY(-50%);
 	transform:translateY(-50%);
@@ -592,8 +613,7 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
 
 #about {
 	background-color: #f2f2f2;
-	border-bottom: #d6d6d638 3px solid;
-	border-top: #5e5e5e30 5px solid;
+	/* border-top: #5e5e5e30 1px solid; */
 }
 
 /* -- Feature -- */
@@ -644,6 +664,10 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
 	display: block;
 	border-radius: 4px;
 	overflow: hidden;
+}
+
+iframe {
+	box-shadow: 0 10px 6px -6px rgba(119, 119, 119, 0.47);
 }
 
 .about-video > img {
@@ -734,10 +758,17 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
 	position: relative;
 	display:block;
 	margin-bottom:20px;
-	border-radius:4px;
+	/* border-radius:4px; */
 	overflow:hidden;
+	border: solid 5px rgba(69, 69, 70, 0.12);
 	/* width: 360px; */
 	/* height: 220px; */
+}
+
+.col-md-5 .vehicle .vehicle-img > img {
+	width: 100%;
+	height: auto;
+	max-height: 300px;
 }
 
 .col-md-6 .vehicle .vehicle-img > img {
@@ -917,7 +948,7 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
 	text-align:center;
 	border-radius: 10%;
 	color:#FFF;
-	background-color:#EBEBEB;
+	/* background-color:#EBEBEB; */
 	-webkit-transition:0.2s opacity;
 	transition:0.2s opacity;
 }
@@ -1808,17 +1839,17 @@ input[type=checkbox] {
 [ Footer ]*/
 
 #footer {
-	background-color: #f2f2f2!important;
-	color: #374050 !important;
+	background-color: #363636!important;
+	color: #c8c8c8 !important;
 }
 
 #footer li a{
-	color: #374050 !important;
+	color: #ababab !important;
 	cursor: pointer;
 }
 
 #footer li a:hover{
-	color: #448bc8 !important;
+	color: #ffffff !important;
 }
 
 #footer i{
@@ -1959,8 +1990,8 @@ input[type="file"] {
 .mapbox {
 	position: absolute;
 	max-height: 305px;
-	width: 17%;
-	background-color: #374050;
+	width: 20%;
+	background-color: #f6f6f6;
 	z-index: 15;
 	top: 40%;
 	/* bottom: 0; */
@@ -1979,15 +2010,15 @@ input[type="file"] {
 }
 
 .mapbox .nav>li>a:hover{
-	background-color: #4e586a;
+	background-color: #e4e4e4;
 }
 
 .mapbox .nav>li>a {
-	color: white;
+	color: #7c7a7a;
 }
 
 .mapbox li>a {
-	color: #71b7f3;
+	color: #3d4042;
 }
 
 .under a {
@@ -1999,7 +2030,7 @@ input[type="file"] {
 }
 
 .mapbox .nav>li>a:focus{
-	background-color: #4e586a;
+	background-color: #e7e7e7;
 }
 
 /*==================================================================
@@ -2025,7 +2056,7 @@ input[type="file"] {
 }
 
 #cal a{
-	color: #41a1ec;
+	color: #e9e9e9;
 	font-size: 13px;
 	text-decoration: underline;
 }
@@ -2039,4 +2070,8 @@ input[type="file"] {
 #navlang {
 	margin-top: 8px;
 	padding: 5px;
+}
+
+.nav-sidebar li>a{
+	font-family: 'Lato', 'sans-serif';
 }
