@@ -14,13 +14,6 @@
     <script src="{% static 'js/responsiveslides.min.js' %}"></script>
 {#    <script src="{% static 'css/responsiveslides.css' %}"></script>#}
     <script>
-        {#$(function () {#}
-        {#  $("#slider2").responsiveSlides({#}
-        {#    auto: false,#}
-        {#    pager: true,#}
-        {#    speed: 300,#}
-        {#    maxwidth: 540#}
-        {#  });#}
     function initSlides(){
         $("#slider2").responsiveSlides({
                 auto: false,
@@ -49,12 +42,6 @@
             <p class="lead">Libris vivendo eloquentiam ex ius, nec id splendide abhorreant.</p>
 			<!-- container -->
 			<div class="container">
-
-{#                <ul class="rslides" id="slider2">#}
-{#                          <li><a href="#"><img src="/media/press/traume1.jpg" alt=""></a></li>#}
-{#                          <li><a href="#"><img src="/media/press/traume2.jpg" alt=""></a></li>#}
-{#                          <li><a href="#"><img src="/media/press/traume2.jpg" alt=""></a></li>#}
-{#                </ul>#}
 				<!-- row -->
 				<div class="row">
 
@@ -73,10 +60,10 @@
                 <a href="#thumb3" class="thumbnail" style="background-image: url('/media/press/back1.jpg')"><h4>Magazine “Chrom & Flammen”</h4><span class="description">“Back to the Future”</span></a>
             </li>
             <li>
-                <a href="#thumb4" class="thumbnail" style="background-image: url('/media/press/back2.jpg')"><h4>Magazine “Cars & Stripes”</h4><span class="description">“Baja Badass by Shelby”</span></a>
+                <a href="#thumb4" class="thumbnail" style="background-image: url('/media/press/baja1.jpg')"><h4>Magazine “Cars & Stripes”</h4><span class="description">“Baja Badass by Shelby”</span></a>
             </li>
             <li>
-                <a href="#thumb5" class="thumbnail" style="background-image: url('/media/press/back3.jpg')"><h4>German Magazine “GRIP”</h4><span class="description">“Shelby ist Startklar!”</span></a>
+                <a href="#thumb5" class="thumbnail" style="background-image: url('/media/press/grip1.jpg')"><h4>German Magazine “GRIP”</h4><span class="description">“Shelby ist Startklar!”</span></a>
             </li>
             <li>
                 <a href="#thumb6" class="thumbnail" style="background-image: url('/media/press/back4.jpg')"><h4>Magazine “Eurotuner”</h4><span class="description">Shelby is Back</span></a>
@@ -120,7 +107,7 @@
                     </ul>
                 </div>
 
-                <h1>SEO</h1>
+                <h1>Magazine “Eurotuner”</h1>
                 <p>Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse potenti. Integer a posuere tortor. Praesent malesuada mauris massa, non blandit neque tempus nec. Quisque fermentum nunc non hendrerit tempus.</p>
 {#                <a href="#" class="btn btn-primary">{% trans 'Checkout' %}</a>#}
             </div>
@@ -128,12 +115,14 @@
             <div id="thumb3">
                 <div class="media">
                      <ul class="rslides" id="slider2">
-                          <li><a href="#"><img src="/media/press/traume1.jpg" alt=""></a></li>
-                          <li><a href="#"><img src="/media/press/traume2.jpg" alt=""></a></li>
-                          <li><a href="#"><img src="/media/press/traume2.jpg" alt=""></a></li>
+                          <li><a href="#"><img src="/media/press/back1.jpg" alt=""></a></li>
+                          <li><a href="#"><img src="/media/press/back2.jpg" alt=""></a></li>
+                          <li><a href="#"><img src="/media/press/back3.jpg" alt=""></a></li>
+                          <li><a href="#"><img src="/media/press/back4.jpg" alt=""></a></li>
+                          <li><a href="#"><img src="/media/press/back5.jpg" alt=""></a></li>
                     </ul>
                 </div>
-                <h1>Web design</h1>
+                <h1>Magazine “Chrom & Flammen”</h1>
                 <p>Ut condimentum eros bibendum metus lacinia, ac condimentum justo faucibus. Nam nec dui convallis, sodales sapien in, gravida justo. Pellentesque pulvinar massa a nisl iaculis, quis iaculis elit tincidunt.</p>
 {#                <a href="#" class="btn btn-primary">{% trans 'Checkout' %}</a>#}
             </div>
@@ -141,12 +130,18 @@
             <div id="thumb4">
                 <div class="media">
                      <ul class="rslides" id="slider2">
-                          <li><a href="#"><img src="/media/press/traume1.jpg" alt=""></a></li>
-                          <li><a href="#"><img src="/media/press/traume2.jpg" alt=""></a></li>
-                          <li><a href="#"><img src="/media/press/traume2.jpg" alt=""></a></li>
+                          <li><a href="#"><img src="/media/press/baja1.jpg" alt=""></a></li>
+                          <li><a href="#"><img src="/media/press/baja2.jpg" alt=""></a></li>
+                          <li><a href="#"><img src="/media/press/baja3.jpg" alt=""></a></li>
+                          <li><a href="#"><img src="/media/press/baja4.jpg" alt=""></a></li>
+                          <li><a href="#"><img src="/media/press/baja5.jpg" alt=""></a></li>
+                          <li><a href="#"><img src="/media/press/baja6.jpg" alt=""></a></li>
+                          <li><a href="#"><img src="/media/press/baja7.jpg" alt=""></a></li>
+                          <li><a href="#"><img src="/media/press/baja8.jpg" alt=""></a></li>
+                          <li><a href="#"><img src="/media/press/baja9.jpg" alt=""></a></li>
                     </ul>
                 </div>
-                <h1>Project management</h1>
+                <h1>Magazine “Car & Stripes”</h1>
                 <p>Suspendisse cursus commodo elit, at tempus felis hendrerit vel. Cras condimentum aliquam mauris at blandit. Pellentesque ac velit iaculis, lobortis nibh id, ultricies ante. Fusce vel urna justo. Maecenas rhoncus vel ligula eget feugiat. Maecenas blandit risus eros, vel imperdiet augue dapibus vitae.</p>
 {#                <a href="#" class="btn btn-primary">{% trans 'Checkout' %}</a>#}
             </div>
@@ -154,12 +149,11 @@
             <div id="thumb5">
                 <div class="media">
                      <ul class="rslides" id="slider2">
-                          <li><a href="#"><img src="/media/press/traume1.jpg" alt=""></a></li>
-                          <li><a href="#"><img src="/media/press/traume2.jpg" alt=""></a></li>
-                          <li><a href="#"><img src="/media/press/traume2.jpg" alt=""></a></li>
+                          <li><a href="#"><img src="/media/press/grip1.jpg" alt=""></a></li>
+                          <li><a href="#"><img src="/media/press/grip2.jpg" alt=""></a></li>
                     </ul>
                 </div>
-                <h1>Graphic design</h1>
+                <h1>German Magazine "Grip"</h1>
                 <p>Vestibulum gravida, ante ut consectetur dictum, dolor sapien pretium elit, sed tincidunt augue sem a lorem. Vivamus quis neque pharetra, consequat dolor vel, venenatis urna. Praesent diam quam, fermentum vel tortor eget, pulvinar tincidunt velit.</p>
 {#                <a href="#" class="btn btn-primary">{% trans 'Checkout' %}</a>#}
             </div>
@@ -173,7 +167,20 @@
                           <li><a href="#"><img src="/media/press/traume2.jpg" alt=""></a></li>
                     </ul>
                 </div>
-                <h1>Graphic design</h1>
+                <h1>Magazine “Eurotuner”</h1>
+                <p>Vestibulum gravida, ante ut consectetur dictum, dolor sapien pretium elit, sed tincidunt augue sem a lorem. Vivamus quis neque pharetra, consequat dolor vel, venenatis urna. Praesent diam quam, fermentum vel tortor eget, pulvinar tincidunt velit.</p>
+{#                <a href="#" class="btn btn-primary">{% trans 'Checkout' %}</a>#}
+            </div>
+
+            <div id="thumb5">
+{#                <div class="media"><img src="images/media.jpg"/></div>#}
+                <div class="media">
+                     <ul class="rslides" id="slider2">
+                          <li><a href="#"><img src="/media/press/grip1.jpg" alt=""></a></li>
+                          <li><a href="#"><img src="/media/press/grip2.jpg" alt=""></a></li>
+                    </ul>
+                </div>
+                <h1>Magazine “Car & Stripes”</h1>
                 <p>Vestibulum gravida, ante ut consectetur dictum, dolor sapien pretium elit, sed tincidunt augue sem a lorem. Vivamus quis neque pharetra, consequat dolor vel, venenatis urna. Praesent diam quam, fermentum vel tortor eget, pulvinar tincidunt velit.</p>
 {#                <a href="#" class="btn btn-primary">{% trans 'Checkout' %}</a>#}
             </div>
@@ -187,21 +194,7 @@
                           <li><a href="#"><img src="/media/press/traume2.jpg" alt=""></a></li>
                     </ul>
                 </div>
-                <h1>Graphic design</h1>
-                <p>Vestibulum gravida, ante ut consectetur dictum, dolor sapien pretium elit, sed tincidunt augue sem a lorem. Vivamus quis neque pharetra, consequat dolor vel, venenatis urna. Praesent diam quam, fermentum vel tortor eget, pulvinar tincidunt velit.</p>
-{#                <a href="#" class="btn btn-primary">{% trans 'Checkout' %}</a>#}
-            </div>
-
-            <div id="thumb5">
-{#                <div class="media"><img src="images/media.jpg"/></div>#}
-                <div class="media">
-                     <ul class="rslides" id="slider2">
-                          <li><a href="#"><img src="/media/press/traume1.jpg" alt=""></a></li>
-                          <li><a href="#"><img src="/media/press/traume2.jpg" alt=""></a></li>
-                          <li><a href="#"><img src="/media/press/traume2.jpg" alt=""></a></li>
-                    </ul>
-                </div>
-                <h1>Graphic design</h1>
+                <h1>German Magazine “GRIP”</h1>
                 <p>Vestibulum gravida, ante ut consectetur dictum, dolor sapien pretium elit, sed tincidunt augue sem a lorem. Vivamus quis neque pharetra, consequat dolor vel, venenatis urna. Praesent diam quam, fermentum vel tortor eget, pulvinar tincidunt velit.</p>
 {#                <a href="#" class="btn btn-primary">{% trans 'Checkout' %}</a>#}
             </div>
@@ -215,7 +208,7 @@
                           <li><a href="#"><img src="/media/press/traume2.jpg" alt=""></a></li>
                     </ul>
                 </div>
-                <h1>Graphic design</h1>
+                <h1>Magazine “Eurotuner”</h1>
                 <p>Vestibulum gravida, ante ut consectetur dictum, dolor sapien pretium elit, sed tincidunt augue sem a lorem. Vivamus quis neque pharetra, consequat dolor vel, venenatis urna. Praesent diam quam, fermentum vel tortor eget, pulvinar tincidunt velit.</p>
 {#                <a href="#" class="btn btn-primary">{% trans 'Checkout' %}</a>#}
             </div>
@@ -229,7 +222,7 @@
                           <li><a href="#"><img src="/media/press/traume2.jpg" alt=""></a></li>
                     </ul>
                 </div>
-                <h1>Graphic design</h1>
+                <h1>Magazine “Car & Stripes”</h1>
                 <p>Vestibulum gravida, ante ut consectetur dictum, dolor sapien pretium elit, sed tincidunt augue sem a lorem. Vivamus quis neque pharetra, consequat dolor vel, venenatis urna. Praesent diam quam, fermentum vel tortor eget, pulvinar tincidunt velit.</p>
 {#                <a href="#" class="btn btn-primary">{% trans 'Checkout' %}</a>#}
             </div>
@@ -243,7 +236,7 @@
                           <li><a href="#"><img src="/media/press/traume2.jpg" alt=""></a></li>
                     </ul>
                 </div>
-                <h1>Graphic design</h1>
+                <h1>German Magazine “GRIP”</h1>
                 <p>Vestibulum gravida, ante ut consectetur dictum, dolor sapien pretium elit, sed tincidunt augue sem a lorem. Vivamus quis neque pharetra, consequat dolor vel, venenatis urna. Praesent diam quam, fermentum vel tortor eget, pulvinar tincidunt velit.</p>
 {#                <a href="#" class="btn btn-primary">{% trans 'Checkout' %}</a>#}
             </div>
@@ -257,7 +250,7 @@
                           <li><a href="#"><img src="/media/press/traume2.jpg" alt=""></a></li>
                     </ul>
                 </div>
-                <h1>Graphic design</h1>
+                <h1>German Magazine “TräumeWagen”</h1>
                 <p>Vestibulum gravida, ante ut consectetur dictum, dolor sapien pretium elit, sed tincidunt augue sem a lorem. Vivamus quis neque pharetra, consequat dolor vel, venenatis urna. Praesent diam quam, fermentum vel tortor eget, pulvinar tincidunt velit.</p>
 {#                <a href="#" class="btn btn-primary">{% trans 'Checkout' %}</a>#}
             </div>
@@ -271,7 +264,7 @@
                           <li><a href="#"><img src="/media/press/traume2.jpg" alt=""></a></li>
                     </ul>
                 </div>
-                <h1>Graphic design</h1>
+                <h1>Magazine “Chrom & Flammen”</h1>
                 <p>Vestibulum gravida, ante ut consectetur dictum, dolor sapien pretium elit, sed tincidunt augue sem a lorem. Vivamus quis neque pharetra, consequat dolor vel, venenatis urna. Praesent diam quam, fermentum vel tortor eget, pulvinar tincidunt velit.</p>
 {#                <a href="#" class="btn btn-primary">{% trans 'Checkout' %}</a>#}
             </div>
@@ -283,28 +276,6 @@
 
 			</div>
 			<!-- /container -->
-{#        <script>#}
-{#            $(function() {#}
-{#                    $(".rslides").responsiveSlides({#}
-{#                      pager: true,           // Boolean: Show pager, true or false#}
-{#                      nav: true,             // Boolean: Show navigation, true or false#}
-{#                      prevText: "Previous",   // String: Text for the "previous" button#}
-{#                      nextText: "Next"       // String: Text for the "next" button#}
-{#                    });#}
-{#             });#}
-{#        </script>#}
-
-{#            test.children().attr('class', 'newclass')#}
-        <script>
-
-{#test.children().attr('class', 'newclass')#}
-{#            $("#slider2").responsiveSlides({#}
-{#                auto: false,#}
-{#                pager: true,#}
-{#                speed: 300,#}
-{#                maxwidth: 540#}
-{#              });#}
-        </script>
 		</div>
 		<!-- /News -->
 {% endblock %}

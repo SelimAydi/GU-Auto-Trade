@@ -69,7 +69,7 @@
 {#						<li><a href="/tuscany/dealers">Dealers</a></li>#}
 						<li><a href="/tuscany/events">Events</a></li>
 						<li><a href="/tuscany/news">News</a></li>
-						<li><a href="#">Press & Media</a></li>
+						<li><a href="/tuscany/media">Press & Media</a></li>
 						<li><a href="/portal">{% if not user.is_authenticated %}Login{% else %}Portal{% endif %}</a></li>
 						<li><a href="/tuscany/contact">Contact</a></li>
 					</ul>
@@ -112,9 +112,9 @@
 							<li><a href="/tuscany">Home</a></li>
 							<li><a {% if request.path == 'tuscany' %} {% endif %}onclick="$(window).scrollTo(document.getElementById('vehicles'), 1000);">Vehicles</a></li>
 {#							<li><a href="#">Dealers</a></li>#}
-							<li><a href="#">Events</a></li>
-							<li><a href="#">News</a></li>
-							<li><a href="#">Press & Media</a></li>
+							<li><a href="/tuscany/events">Events</a></li>
+							<li><a href="/tuscany/news">News</a></li>
+							<li><a href="/tuscany/media">Press & Media</a></li>
 							<li><a href="/portal">{% if not user.is_authenticated %}Login{% else %}Portal {% endif %}</a></li>
 							<li><a href="/tuscany/contact">Contact</a></li>
 						</ul>

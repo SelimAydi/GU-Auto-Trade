@@ -158,6 +158,7 @@ blockquote:before{
 
 #news {
 	padding-top: 100px;
+	min-height: calc(100vh);
 }
 
 #event {
@@ -220,6 +221,7 @@ blockquote:before{
 	display:inline-block;
 	padding: 1.5vh 2vh;
 	font-size: 1.7vh;
+	padding-right: 5px;
 	background-color: #353535;
 	border: 2px solid transparent;
 	border-radius: 5px;
@@ -234,16 +236,17 @@ blockquote:before{
 	color: #ffffff;
 }
 
-.main-button.icon-button:hover , .main-button.icon-button:focus {
-	padding-right: 45px;
+.main-button.icon-button:hover, .main-button.icon-button:focus i {
+	padding-left: 10px;
 }
 
 .main-button.icon-button:after {
-	content: "\f150";
-	font-family:FontAwesome;
-	position:absolute;
-	width: 30px;
-	right: 15px;
+	content: "\f054";
+	font-family: "Font Awesome 5 Free";
+	/* width: 30px; */
+	padding-left: 5px;
+	padding-right: 5px;
+	font-weight: 900;
 	text-align:center;
 	opacity:0;
 	-webkit-transition:0.2s all;
@@ -428,7 +431,7 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
 
 .main-menu li a:hover , .main-menu li a:focus {
 	background-color:transparent;
-	color: #99d0ff !important;
+	/* color: #99d0ff !important; */
 }
 
 .main-menu li a:after {

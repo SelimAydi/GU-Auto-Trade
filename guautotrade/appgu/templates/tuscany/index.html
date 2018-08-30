@@ -23,8 +23,8 @@
 			<div class="home-wrapper">
                 <div class="jumbotron-fluid">
                   <div class="container">
-                    <h1 class="black-text">Amazing automobiles</h1>
-                    <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+                    <h1 class="black-text">{% trans 'Tuscany Automotive' %}</h1>
+                    <p class="lead">{% trans "Working with truck manufacturers and dealerships around the nation to provide the world's finest lifted trucks." %}</p>
                     <a class="main-button icon-button" href="#" onclick="$(window).scrollTo(document.getElementById('vehicles'), 1000);">{% trans "Check vehicles" %}</a>
                   </div>
                 </div>
@@ -110,7 +110,7 @@
 								<a class="vehicle-title" href="#">{{ vehicle.model }}</a>
 								<div class="vehicle-details">
 									<span class="vehicle-category">Type</span>
-									<span class="vehicle-price vehicle-free">{% trans "More Info" %}</span>
+                                    <a href="vehicle/?v={{ vehicle.id }}"><span class="vehicle-price vehicle-free">{% trans "More Info" %}</span></a>
 								</div>
 							</div>
 						</div>

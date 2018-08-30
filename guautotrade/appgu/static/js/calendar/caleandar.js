@@ -10,9 +10,6 @@ function htmlEntities(str) {
 
 var Calendar = function(model, options, date){
   // Default Values
-    console.log("---MODELLLLL-----")
-    console.log(model)
-    console.log("---MODELLLLL-----")
   this.Options = {
     Color: '',
     LinkColor: '',
@@ -100,7 +97,6 @@ function createCalendar(calendar, element, adjuster){
         //prevent losing var adj value (for whatever reason that is happening)
         (function () {
           var adj = (i-4);
-          //x.addEventListener('click', function(){createCalendar(calendar, element, adj);console.log('kk', adj);} );
           x.addEventListener('click', function(){
             typeof calendar.Options.ModelChange == 'function'?calendar.Model = calendar.Options.ModelChange():calendar.Model = calendar.Options.ModelChange;
             createCalendar(calendar, element, adj);} );
@@ -258,13 +254,12 @@ function createCalendar(calendar, element, adjuster){
             var a = document.createElement('a');
             a.innerHTML += calendar.Model[n].Title;
             listitem.appendChild(a);
-            title.innerHTML += '<li><a>' + calendar.Model[n].Title + '</a></li>';
+            title.innerHTML += '<li><a>' + calendar.Model[n].Title + '</a></li><hr>';
           }
           ulist.appendChild(listitem);
           // number.appendChild(a);
           a.addEventListener('click', addL(n, calendar.Model));
         }
-        console.log("its lit fam");
       }
       // var ul = document.createElement('ul');
       // ulist.appendChild(number)
@@ -325,8 +320,5 @@ function caleandar(el, data, settings){
 function addL(i, model){
   return function(){
     append(model[i].Title, model[i].Description, model[i].Link);
-    console.log("current loopnr: " + i);
-    console.log(model[i]);
-    console.log(model[i].Link);
   }
 }

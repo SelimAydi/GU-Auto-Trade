@@ -43,14 +43,6 @@
             $.getJSON("/api/shelby/events/", saveJSON);
 
             function append(title, description, link){
-
-                console.log("------TITLE----------------------")
-                console.log(title);
-                console.log("------DESC----------------------")
-                console.log(description);
-                console.log("------LINK----------------------")
-                console.log(link);
-                console.log("----------------------------")
                 var htm = "<p class='title'>Event:</p><p>" + title +"</p>";
                 htm += "<p>" + description + "</p>"
 

@@ -10,14 +10,12 @@
         <meta name="description" content="{% block description %}{% endblock %}" />
         <meta name="viewport" content="{% block viewport %}width=device-width{% endblock %}" />
         <meta name="robots" content="NOARCHIVE,NOCACHE" />
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
         {% block favicon %}
             <link rel="shortcut icon" href="{% static "oscar/favicon.ico" %}" />
         {% endblock %}
 
         {# Block where global CSS will go. #}
-        {% block styles %}
-        {% endblock %}
+        {% block styles %}{% endblock %}
 
         {# Additional CSS - specific to certain pages #}
         {% block extrastyles %}{% endblock %}

@@ -25,7 +25,8 @@ urlpatterns = [
     path('portal/', include('appgu.urls.portal')),
     path('shelby/', include('appgu.urls.shelby')),
     path('tuscany/', include('appgu.urls.tuscany')),
-    path('api/', include('appgu.urls.api')),
+    path('gu/', include('appgu.urls.gu')),
+    path('api/', include('appgu.urls.api'))
 ]
 
 urlpatterns += staticfiles_urlpatterns()

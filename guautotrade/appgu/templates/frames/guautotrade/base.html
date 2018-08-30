@@ -1,0 +1,155 @@
+{% load static %}
+{% load i18n %}
+{# HTML5 declaration #}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>X-Corporation</title>
+    <!-- web-fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,700,500' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <!-- off-canvas -->
+    <link href="{% static 'css/guautotrade/mobile-menu.css' %}" rel="stylesheet">
+    <!-- font-awesome -->
+{#    <link href="fonts/font-awesome/css/font-awesome.min.css" rel="stylesheet">#}
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+          integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <!-- Style CSS -->
+    <link href="{% static '/css/guautotrade/style.css' %}" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+    {# Navigation Menu #}
+<!-- Header -->
+{% block header %}
+
+{% endblock %}
+		<!-- /Header -->
+	
+        {% block content %}
+                <!-- Navigation -->
+                <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+                      <div class="container">
+                        <a class="navbar-brand" href="#">Start Bootstrap</a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                          <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarResponsive">
+                          <ul class="navbar-nav ml-auto">
+                            <li class="nav-item active">
+                              <a class="nav-link" href="#">Home
+                                <span class="sr-only">(current)</span>
+                              </a>
+                            </li>
+                            <li class="nav-item">
+                              <a class="nav-link" href="#">About</a>
+                            </li>
+                            <li class="nav-item">
+                              <a class="nav-link" href="#">Services</a>
+                            </li>
+                            <li class="nav-item">
+                              <a class="nav-link" href="#">Contact</a>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </nav>
+                    <!-- Navigation -->
+
+
+
+        {% endblock content %}
+
+    {# The Footer #}
+		{% block footer %}
+            <footer class="footer">
+
+    <!-- Footer Widget Section -->
+    <div class="footer-widget-section">
+        <div class="container text-center">
+            <div class="row">
+                <div class="col-sm-4 footer-block">
+                    <div class="footer-widget widget_text">
+                        <div class="footer-logo">
+                            <a href="#"><img src="{% static 'img/guautotrade/logo.png' %}" alt=''></a>
+                        </div>
+                        <p>Continually matrix cross functional opportunities whereas ethical information. Compellingly streamline enabled human capital before resource-leveling internal or "organic".</p>
+
+                    </div>
+                </div><!-- /.col-sm-4 -->
+
+                <div class="col-sm-4 footer-block">
+                    <div class="footer-widget widget_text">
+                        <h3>We work for your profit</h3>
+                        <p>Distinctively expedite viral materials rather than out-of-the-box solutions. Credibly empower revolutionary ROI rather than unique products. Collaboratively maximize principle-centered ideas before highly efficient data. Phosfluorescently.</p>
+                    </div>
+                </div><!-- /.col-sm-4 -->
+
+                <div class="col-sm-4 footer-block last">
+                    <div class="footer-widget widget_text">
+                        <h3>Contact Us Today</h3>
+                        <address>
+                            Call Us 666 777 888 OR 111 222 333<br>
+                            Send an Email on <a href="mailto:#">contact@domain.com</a><br>
+                            Visit Us 123 Fake Street- Blla 12358<br>
+                            Fake Kingdom<br>
+                        </address>
+
+                        <ul class="list-inline social-links">
+                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                            <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                        </ul>
+                    </div>
+                </div><!-- /.col-sm-4 -->
+            </div>
+        </div>
+    </div><!-- /.Footer Widget Section -->
+
+    <div class="copyright-section">
+        <div class="container clearfix">
+                <span class="copytext">Copyright &copy; 2016 | <a href="https://uicookies.com/downloads/x-corporation-free-bootstrap-html-template/">X-Corporation</a> Designed And Developed By: <strong style="color: #31aae2;"">uiCookies.com</strong></span>
+
+            <ul class="list-inline pull-right">
+                <li class="active"><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Portfolio</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </div><!-- .container -->
+    </div><!-- .copyright-section -->
+</footer>
+    <!-- .footer -->
+    {% endblock footer %}
+		
+		<!-- preloader -->
+		<div id='preloader'><div class='preloader'></div></div>
+		<!-- /preloader -->
+
+
+		<!-- jQuery Plugins -->
+        <script src="{% static 'js/guautotrade/jquery-2.1.4.min.js'%}"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
+                integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
+                crossorigin="anonymous"></script>
+        <script src="{% static 'js/guautotrade/smoothscroll.js'%}"></script>
+        <script src="{% static 'js/guautotrade/mobile-menu.js'%}"></script>
+        <script src="{% static 'js/guautotrade/flexSlider/jquery.flexslider-min.js'%}"></script>
+        <script src="{% static 'js/guautotrade/scripts.js'%}"></script>
+	</body>
+</html>

@@ -31,7 +31,7 @@
 						<div class="col-md-8">
 							<h1 class="white-text">{% trans "Top class automobiles" %}</h1>
 							<p class="lead white-text">{% trans "Delivering cars and products that provide an unparalleled driving experience" %}</p>
-							<a class="main-button icon-button" href="#">{% trans "Check dealers" %}</a>
+							<a class="main-button icon-button" href="/shelby/dealers">{% trans "Check dealers" %}</a>
 						</div>
 					</div>
 				</div>
@@ -123,7 +123,7 @@
 								<a class="vehicle-title" href="#">{{ vehicle.model }}</a>
 								<div class="vehicle-details">
 									<span class="vehicle-category">Type</span>
-									<span class="vehicle-price vehicle-free">{% trans "More Info" %}</span>
+                                    <a href="vehicle/?v={{ vehicle.id }}"><span class="vehicle-price vehicle-free">{% trans "More Info" %}</span></a>
 								</div>
 							</div>
 						</div>

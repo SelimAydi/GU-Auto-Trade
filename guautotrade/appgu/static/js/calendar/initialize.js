@@ -8,10 +8,8 @@
 
 function saveJSON(result){
     if (result.length === 0){
-        console.log("no events");
           caleandar(document.getElementById('caleandar'), null, {});
     } else {
-        console.log("there are events");
         var dateparts = (result[0]['fields']['date']).split('-');
 
         var eventsx = [];

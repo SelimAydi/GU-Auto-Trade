@@ -22,16 +22,22 @@ def index(request):
 def order(request):
     if request.user.is_authenticated:
         if request.user.is_staff:
-            form = forms.AdminOrderForm(request.POST)
+            # form = forms.AdminOrderForm(request.POST)
             newform = forms.AdminOrderForm()
         else:
-            form = forms.OrderForm(request.POST)
+            # form = forms.OrderForm(request.POST)
             newform = forms.OrderForm()
         if request.method == "POST":
+            if request.user.is_staff:
+                form = forms.AdminOrderForm(request.POST)
+            else:
+                form = forms.OrderForm(request.POST)
+            print(request.POST)
             response_data = {'result': _('Failed to place order.'), 'status': 'failed', 'formerr': form.errors,'form': str(newform)}
             if form.is_valid():
                 userid = request.user.id
                 print("VALID FORM")
+                print(userid)
                 userobj = Dealers.objects.get(dealerID=userid)
                 order = Orders(dealerID=userobj if 'forwho' not in request.POST or request.POST['forwho'] == '' else Dealers.objects.get(dealerID=request.POST['forwho']), model=request.POST['model'], colour=request.POST['colour'], homologation=True if 'homologation' in request.POST else False, custom_clearance=True if 'custom_clearance' in request.POST else False, additional_comments=request.POST['additional_comments'])
                 order.save()

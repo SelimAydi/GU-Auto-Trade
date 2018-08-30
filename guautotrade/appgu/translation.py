@@ -14,11 +14,3 @@ class ProductTranslationOptions(TranslationOptions):
 
 translator.register(Product, ProductTranslationOptions)
 
-# class VehiclesTranslationOptions(TranslationOptions):
-#     fields = ('headline', 'description',)
-#
-# translator.register(Vehicles, VehiclesTranslationOptions)
-
-
-print("IS ANY OF THIS TAKING PLACE?")
-# from oscar.apps.catalogue.models import *

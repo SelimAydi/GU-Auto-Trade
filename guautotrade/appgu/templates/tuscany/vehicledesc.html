@@ -13,14 +13,8 @@
 {% block content %}
 
 		<!-- Home -->
-		<div id="home" class="hero-area">
+		<div id="news" class="section">
 
-			<!-- Backgound Image -->
-			<div style="background-color: white;"></div>
-
-			<!-- /Backgound Image -->
-
-			<div class="home-wrapper" style="top: 60%;">
 				<div class="container">
                     {% if exists %}
 					<div class="row">
@@ -36,9 +30,9 @@
 								<a href="#" class="vehicle-img">
 									<img id="vehicleimg" src="/media/{{ image }}" data-zoom-image="/media/{{ image }}" alt="">
 								</a>
-								<a class="vehicle-title" href="#">{{ model }}</a>
+{#								<a class="vehicle-title" href="#"></a>#}
 								<div class="vehicle-details">
-									<span class="vehicle-category">Price</span>
+									<span class="vehicle-category">{{ model }}</span>
 									<span class="vehicle-price vehicle-free"><a class="main-button icon-button" href="#">More</a></span>
 								</div>
 							</div>
@@ -49,7 +43,6 @@
                         <h1>No vehicle has been found.</h1>
                 {% endif %}
 				</div>
-			</div>
 
 		</div>
 

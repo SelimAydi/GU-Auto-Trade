@@ -355,10 +355,11 @@ class AdminOrderForm(OrderForm):
 
     def clean_forwho(self):
         print(self.cleaned_data['forwho'])
-        if Dealers.objects.filter(dealerID=self.cleaned_data['forwho']).exists():
-            print("EXISTS")
-            return self.cleaned_data['forwho']
-        raise forms.ValidationError('Invalid ID.')
+        if self.cleaned_data['forwho']:
+            if Dealers.objects.filter(dealerID=self.cleaned_data['forwho']).exists():
+                print("EXISTS")
+                return self.cleaned_data['forwho']
+            raise forms.ValidationError('Invalid ID.')
 
 
 class ContactForm(forms.Form):

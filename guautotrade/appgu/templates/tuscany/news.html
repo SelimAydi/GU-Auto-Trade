@@ -9,7 +9,7 @@
 
 {% block content %}
 		<!-- News -->
-		<div id="news" class="section" {% if not exists %}style="height: calc(100vh)"{% endif %}>
+		<div id="news" class="section" style="min-height: calc(100vh)">
 
 			<!-- container -->
 			<div class="container">
@@ -67,13 +67,12 @@
                         </nav>
 
 					</div>
-                    {% else %}
-                    <div class="col-md-12" style="text-align: center;">
-                        <h3>{% trans 'No newspost found!' %}</h3>
-                    </div>
-                {% endif %}
 				</div>
+            </div>
+                    {% else %}
 				<!-- /row -->
+                    <h1>{% trans 'No newspost found!' %}</h1>
+                {% endif %}
 			</div>
 			<!-- /container -->
 

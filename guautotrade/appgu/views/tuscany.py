@@ -92,7 +92,7 @@ def news(request):
 
 # press and media page
 def pressandmedia(request):
-    return render(request, 'tuscany/contact.html')
+    return render(request, 'tuscany/media.html')
 
 
 # contact page
