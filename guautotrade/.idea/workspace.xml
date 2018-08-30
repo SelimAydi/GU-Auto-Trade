@@ -29,7 +29,17 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/appgu/static/css/style.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="50">
+              <caret line="2" column="49" lean-forward="false" selection-start-line="2" selection-start-column="49" selection-end-line="2" selection-end-column="49" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/appgu/templates/gu/index.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="417">
@@ -39,11 +49,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
+      <file leaf-file-name="style.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/appgu/static/css/guautotrade/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="724">
-              <caret line="1623" column="1" lean-forward="false" selection-start-line="1623" selection-start-column="1" selection-end-line="1623" selection-end-column="1" />
+            <state relative-caret-position="4975">
+              <caret line="913" column="0" lean-forward="true" selection-start-line="913" selection-start-column="0" selection-end-line="913" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -91,38 +101,22 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="api.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/appgu/urls/api.py">
+      <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/appgu/static/css/tuscany/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding>
-                <element signature="e#0#28#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="-75">
+              <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="portal.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/appgu/urls/portal.py">
+      <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/appgu/static/css/portal/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding>
-                <element signature="e#0#28#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="shelby.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/appgu/urls/shelby.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="350">
-              <caret line="14" column="1" lean-forward="true" selection-start-line="14" selection-start-column="1" selection-end-line="14" selection-end-column="1" />
-              <folding>
-                <element signature="e#0#28#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="75">
+              <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -139,8 +133,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>car</find>
-      <find>copy</find>
       <find>bordered</find>
       <find>facebook</find>
       <find>carou</find>
@@ -169,6 +161,8 @@
       <find>Our Serv</find>
       <find>about</find>
       <find>features</find>
+      <find>copyrigh</find>
+      <find>blog</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -183,7 +177,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/appgu/templates/tuscany/contact.html" />
         <option value="$PROJECT_DIR$/appgu/templates/shelby/contact.html" />
         <option value="$PROJECT_DIR$/appgu/templates/oscar/dashboard/layout.html" />
         <option value="$PROJECT_DIR$/appgu/templates/oscar/catalogue/browse.html" />
@@ -202,7 +195,6 @@
         <option value="$PROJECT_DIR$/appgu/translation.py" />
         <option value="$PROJECT_DIR$/appgu/templates/shelby/vehicledesc.html" />
         <option value="$PROJECT_DIR$/appgu/templates/tuscany/vehicledesc.html" />
-        <option value="$PROJECT_DIR$/appgu/static/css/tuscany/style.css" />
         <option value="$PROJECT_DIR$/appgu/static/js/calendar/caleandar.js" />
         <option value="$PROJECT_DIR$/appgu/templates/shelby/events.html" />
         <option value="$PROJECT_DIR$/appgu/static/js/calendar/initialize.js" />
@@ -220,7 +212,6 @@
         <option value="$PROJECT_DIR$/appgu/templates/frames/guautotrade/base.html" />
         <option value="$PROJECT_DIR$/appgu/templates/shelby/media.html" />
         <option value="$PROJECT_DIR$/appgu/templates/index.html" />
-        <option value="$PROJECT_DIR$/appgu/static/css/style.css" />
         <option value="$PROJECT_DIR$/appgu/templates/shelby/index.html" />
         <option value="$PROJECT_DIR$/appgu/static/js/guautotrade/scripts.js" />
         <option value="$PROJECT_DIR$/appgu/views/guautotrade.py" />
@@ -231,9 +222,12 @@
         <option value="$PROJECT_DIR$/appgu/urls/guautotrade.py" />
         <option value="$PROJECT_DIR$/guautotrade/urls.py" />
         <option value="$PROJECT_DIR$/appgu/urls/gu.py" />
-        <option value="$PROJECT_DIR$/appgu/static/css/guautotrade/style.css" />
         <option value="$PROJECT_DIR$/appgu/templates/gu/contact.html" />
         <option value="$PROJECT_DIR$/appgu/templates/gu/index.html" />
+        <option value="$PROJECT_DIR$/appgu/static/css/portal/style.css" />
+        <option value="$PROJECT_DIR$/appgu/static/css/tuscany/style.css" />
+        <option value="$PROJECT_DIR$/appgu/static/css/style.css" />
+        <option value="$PROJECT_DIR$/appgu/static/css/guautotrade/style.css" />
       </list>
     </option>
   </component>
@@ -243,7 +237,7 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="431" />
     <option name="y" value="1" />
     <option name="width" value="974" />
@@ -297,6 +291,22 @@
               <item name="static" type="462c0819:PsiDirectoryNode" />
               <item name="css" type="462c0819:PsiDirectoryNode" />
               <item name="guautotrade" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="guautotrade" type="b2602c69:ProjectViewProjectNode" />
+              <item name="guautotrade" type="462c0819:PsiDirectoryNode" />
+              <item name="appgu" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="css" type="462c0819:PsiDirectoryNode" />
+              <item name="portal" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="guautotrade" type="b2602c69:ProjectViewProjectNode" />
+              <item name="guautotrade" type="462c0819:PsiDirectoryNode" />
+              <item name="appgu" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="css" type="462c0819:PsiDirectoryNode" />
+              <item name="tuscany" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="guautotrade" type="b2602c69:ProjectViewProjectNode" />
@@ -433,7 +443,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-11" y="-11" width="1942" height="1042" extended-state="7" />
+    <frame x="-11" y="-11" width="1942" height="1042" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -504,14 +514,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/appgu/translation.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="350">
-          <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/appgu/templates/shelby/vehicledesc.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="350">
@@ -524,14 +526,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="250">
           <caret line="35" column="119" lean-forward="false" selection-start-line="35" selection-start-column="119" selection-end-line="35" selection-end-column="119" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/appgu/static/css/tuscany/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="542">
-          <caret line="256" column="14" lean-forward="true" selection-start-line="256" selection-start-column="14" selection-end-line="256" selection-end-column="14" />
           <folding />
         </state>
       </provider>
@@ -728,14 +722,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/appgu/static/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="724">
-          <caret line="2109" column="3" lean-forward="false" selection-start-line="2109" selection-start-column="3" selection-end-line="2109" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/appgu/static/js/guautotrade/flexSlider/jquery.flexslider.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -922,14 +908,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/appgu/static/css/guautotrade/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="724">
-          <caret line="1623" column="1" lean-forward="false" selection-start-line="1623" selection-start-column="1" selection-end-line="1623" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/appgu/templates/gu/contact.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="327">
@@ -944,6 +922,38 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="417">
           <caret line="438" column="30" lean-forward="false" selection-start-line="438" selection-start-column="30" selection-end-line="438" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/appgu/static/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="50">
+          <caret line="2" column="49" lean-forward="false" selection-start-line="2" selection-start-column="49" selection-end-line="2" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/appgu/static/css/tuscany/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-75">
+          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/appgu/static/css/portal/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/appgu/static/css/guautotrade/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4975">
+          <caret line="913" column="0" lean-forward="true" selection-start-line="913" selection-start-column="0" selection-end-line="913" selection-end-column="0" />
           <folding />
         </state>
       </provider>
