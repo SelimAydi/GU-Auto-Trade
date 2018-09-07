@@ -21,6 +21,7 @@ urlpatterns = [
     path('checkout/paypal/', include('paypal.express.urls')),
     # Optional
     # path('dashboard/paypal/express/', application.urls),
+    path('mollie/', include(('mollie_oscar.urls', 'mollie_oscar'), namespace='mollie_oscar')),
     path('accounts/', include('django.contrib.auth.urls')),
     path('portal/', include('appgu.urls.portal')),
     path('shelby/', include('appgu.urls.shelby')),

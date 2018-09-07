@@ -19,7 +19,7 @@ from oscar.defaults import *
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
+SITE_ID = '2862770f.ngrok.io'
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
@@ -30,7 +30,7 @@ SECRET_KEY = 'k^_-a^0mocfym(l*y-(!a=i2@hgmuz=bxf4qoxyd0ko+q4yrwe'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 OSCAR_DEFAULT_CURRENCY = 'EUR'
 
@@ -54,7 +54,7 @@ INSTALLED_APPS = [
 	'django.contrib.flatpages',
     'compressor',
     'widget_tweaks',
-] + get_core_apps()
+] + get_core_apps(['appgu.checkout', 'appgu.order'])
 
 SITE_ID = 1
 
@@ -216,3 +216,28 @@ PAYPAL_API_USERNAME = 'uitbetaling-facilitator_api1.wemoney.nl'
 PAYPAL_API_PASSWORD = 'PXZSY2PNZ3GWPYJQ'
 PAYPAL_API_SIGNATURE = 'A5rbR..nAsPB.9eX2Kko49PtM-AMAceoxw6B-EToi4q6Z5VRDP4lWLVp'
 SECURE_SSL_REDIRECT = False
+
+ORDER_STATUS_PAID = 'Being processed'
+# Oscar Shop settings
+OSCAR_INITIAL_ORDER_STATUS = OSCAR_INITIAL_LINE_STATUS = 'Pending Payment'
+OSCAR_ORDER_STATUS_PIPELINE = {
+    'Pending Payment': (ORDER_STATUS_PAID, 'Cancelled',),
+    ORDER_STATUS_PAID: (ORDER_STATUS_PAID, 'Cancelled',),
+    'Cancelled': (),
+}
+
+# Mollie settings
+OSCAR_MOLLIE_CONFIRMED_STATUSES = [ORDER_STATUS_PAID]
+OSCAR_MOLLIE_HTTPS = False
+MOLLIE_API_KEY = 'test_48zQtdS6SAHmmrVQTs3af53Q99Nzzg'
+MOLLIE_STATUS_MAPPING = {
+    'Paid': 'No Payment',
+    'Pending': 'Pending Payment',
+    'Open': 'Pending Payment',
+    'Cancelled': 'Cancelled'
+}
+
+ORDER_PENDING_STATUS = 'Pending payment!!!!'
+ORDER_CANCELLED_STATUS = 'Canceled payment!!!!'
+ORDER_OPEN_STATUS = 'Open payment!!!!'
+ORDER_PAID_STATUS = 'Paid payment!!!!'
