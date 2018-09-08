@@ -17,7 +17,7 @@
 			<div class="home-wrapper" style="-webkit-transform: initial;position: relative;top: initial;">
 				<div class="container">
 					<div class="row">
-					<div class="section-intro text-center">
+					<div class="section text-center">
 						{% if user.is_authenticated %}
 							<h3>{% trans 'Welcome to the Dealer Portal' %} <h1>{{ user.get_full_name }}</h1></h3>
 							<p class="lead">{% if user.is_staff %}{% trans 'In this portal you can check and modify orders and website entities.' %}{% else %}{% trans 'In this portal you can place and access your orders.' %}{% endif %}</p>

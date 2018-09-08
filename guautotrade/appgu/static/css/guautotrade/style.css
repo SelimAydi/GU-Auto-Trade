@@ -839,6 +839,7 @@ features start
     .x-features .img-left {
         margin-bottom : 40px;
         margin-top    : 0px;
+        position: absolute;
         }
     }
 

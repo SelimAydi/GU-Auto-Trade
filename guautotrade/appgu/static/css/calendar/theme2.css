@@ -5,6 +5,8 @@
   color: #343536;
   display: block;
   font-size: 12px;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
   .cld-datetime{
     position: relative;
@@ -102,4 +104,10 @@
 
 .dayevents > li:nth-child(odd) a{
   color: #839eb4 !important;
+}
+
+@media (max-width: 660px){
+	#caleandar, .cld-main, .cld-day {
+		width: 100% !important;
+	}
 }

@@ -45,11 +45,22 @@ class RegistrationDealerForm(UserCreationForm):
 
     def save(self, commit=True):
         user = super(RegistrationDealerForm, self).save(commit=False)
-        maxID = Dealers.objects.all().aggregate(Max('dealerID'))
-        if maxID.get('dealerID__max') == None:
+        maxDealerID = Dealers.objects.all().aggregate(Max('dealerID'))
+        maxUserID = User.objects.all().aggregate(Max('id'))
+
+        if maxDealerID.get('dealerID__max') == None:
+            dealerID = 1
+        else:
+            dealerID = maxDealerID.get('dealerID__max') + 1
+            print('dealer id that it is giving for the newly registered dealer: ', dealerID)
+
+
+        if maxUserID.get('id__max') == None:
             user.id = 1
         else:
-            user.id = maxID.get('dealerID__max') + 1
+            user.id = maxUserID.get('id__max') + 1
+            # print('maxID: ', maxID.get('dealerID__max'))
+            print('user id that it is giving for the newly registered user: ', user.id)
 
         user.first_name = self.cleaned_data['firstname']
         user.last_name = self.cleaned_data['lastname']
@@ -57,7 +68,7 @@ class RegistrationDealerForm(UserCreationForm):
         user.email = self.cleaned_data['email']
         user.telephone = self.cleaned_data['telephone']
 
-        dealerEntry = Dealers(dealerID=user.id, username=user.username, email=user.email, name=user.first_name,
+        dealerEntry = Dealers(dealerID=dealerID, username=user.username, email=user.email, name=user.first_name,
                               surname=user.last_name, telephone=user.telephone)
         dealerEntry.save()
 

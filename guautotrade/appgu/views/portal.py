@@ -13,12 +13,13 @@ from django.contrib.auth.models import User
 from django.utils.translation import gettext as _
 from django.db.models import Q
 
-# place an order in the portal
+
 def index(request):
     if request.user.is_authenticated:
         return render(request, 'portal/portal.html')
     redirect(login)
 
+# place an order in the portal
 def order(request):
     if request.user.is_authenticated:
         if request.user.is_staff:
@@ -37,8 +38,9 @@ def order(request):
             if form.is_valid():
                 userid = request.user.id
                 print("VALID FORM")
-                print(userid)
+                print("User ID: ", userid)
                 userobj = Dealers.objects.get(dealerID=userid)
+                print('printing userobj: ', userobj)
                 order = Orders(dealerID=userobj if 'forwho' not in request.POST or request.POST['forwho'] == '' else Dealers.objects.get(dealerID=request.POST['forwho']), model=request.POST['model'], colour=request.POST['colour'], homologation=True if 'homologation' in request.POST else False, custom_clearance=True if 'custom_clearance' in request.POST else False, additional_comments=request.POST['additional_comments'])
                 order.save()
                 response_data = {'result': _('Order has been succesfully placed.'), 'status': 'success'}

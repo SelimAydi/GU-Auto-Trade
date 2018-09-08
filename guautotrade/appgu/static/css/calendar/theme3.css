@@ -103,3 +103,9 @@
 .dayevents > li:nth-child(odd) a{
   color: #839eb4 !important;
 }
+
+@media (max-width: 660px){
+	#caleandar, .cld-main, .cld-day {
+		width: 100% !important;
+	}
+}
