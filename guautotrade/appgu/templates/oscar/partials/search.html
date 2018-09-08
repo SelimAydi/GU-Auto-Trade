@@ -1,6 +1,5 @@
 {% load i18n %}
-
-<form method="get" action="{% url 'search:search' %}" class="navbar-form navbar-right">
+<form method="get" id="searchform" action="{% url 'search:search' %}" class="navbar-form navbar-right">
     <div class="form-group">
         {{ search_form.q }}
     </div>

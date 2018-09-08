@@ -1,5 +1,5 @@
 /* ---------------------------------------------
-COPYRIGHT GU AUTO TRADE © Designed by Selim Aydi
+COPYRIGHT GU AUTO TRADE Ã‚Â© Designed by Selim Aydi
 -----------------------------------------------*/
 
 /*
@@ -140,10 +140,12 @@ blockquote:before{
 	padding-bottom: 1%;
 	padding-left: 5%;
 	padding-right: 5%;
-	width: 100vh;
+	/* width: 100vh; */
+	position: relative;
 	/* margin-bottom:40px; */
 	border-radius: 5px;
-	margin: 0 auto;
+	margin: 0 auto !important;
+	float: initial !important;
 }
 
 #contact {
@@ -463,7 +465,7 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
 		top: 0;
 		right: 0;
 		width: 0%;
-		max-width: 100px;
+		max-width: 300px;
 		height: 100vh;
 		background: #FFF;
 		-webkit-box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.1);
@@ -498,6 +500,10 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
 		color: #374050 !important;
 		display: inline-block;
 	}
+
+	#nav ul li a {
+		color: #374050 !important;
+	}
 }
 
 /* -- Mobile Toggle Btn -- */
@@ -506,7 +512,7 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
 	right: 2.3%;
 	/* left: 0; */
 	padding: 0;
-	top: 0;
+	top: 8px;
 	/* margin: 0 auto; */
 	height: 40px;
 	width: 40px;
@@ -538,10 +544,11 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
 .navbar-toggle > span , .navbar-toggle > span:before , .navbar-toggle > span:after {
 	height: 2px;
 	width: 25px;
-	background-color:#374050;
+	background-color: #4d96d6;
 }
 
 .navbar-toggle > span:before {
+
 	top: -10px;
 }
 

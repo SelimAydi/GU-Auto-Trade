@@ -19,7 +19,6 @@ from oscar.defaults import *
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-SITE_ID = '2862770f.ngrok.io'
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
@@ -31,6 +30,8 @@ SECRET_KEY = 'k^_-a^0mocfym(l*y-(!a=i2@hgmuz=bxf4qoxyd0ko+q4yrwe'
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
+
+SITE_ID = 2
 
 OSCAR_DEFAULT_CURRENCY = 'EUR'
 
@@ -54,9 +55,7 @@ INSTALLED_APPS = [
 	'django.contrib.flatpages',
     'compressor',
     'widget_tweaks',
-] + get_core_apps(['appgu.checkout', 'appgu.order'])
-
-SITE_ID = 1
+] + get_core_apps(['appgu.oscar.checkout', 'appgu.oscar.order', 'appgu.oscar.partner', 'appgu.oscar.shipping'])
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -118,7 +117,7 @@ DATABASES = {
 		'USER': 'postgres',
 		'PASSWORD': 'kaas123',
 		'HOST': 'localhost',
-        'PORT': '5433',
+        'PORT': '5432',
         'ATOMIC_REQUESTS': True,
     }
 }
@@ -224,7 +223,14 @@ OSCAR_ORDER_STATUS_PIPELINE = {
     'Pending Payment': (ORDER_STATUS_PAID, 'Cancelled',),
     ORDER_STATUS_PAID: (ORDER_STATUS_PAID, 'Cancelled',),
     'Cancelled': (),
+    'Open': (),
+    'Paid': (),
 }
+
+ORDER_PENDING_STATUS = 'Pending'
+ORDER_CANCELLED_STATUS = 'Cancelled'
+ORDER_OPEN_STATUS = 'Open'
+ORDER_PAID_STATUS = 'Paid'
 
 # Mollie settings
 OSCAR_MOLLIE_CONFIRMED_STATUSES = [ORDER_STATUS_PAID]
@@ -237,7 +243,3 @@ MOLLIE_STATUS_MAPPING = {
     'Cancelled': 'Cancelled'
 }
 
-ORDER_PENDING_STATUS = 'Pending payment!!!!'
-ORDER_CANCELLED_STATUS = 'Canceled payment!!!!'
-ORDER_OPEN_STATUS = 'Open payment!!!!'
-ORDER_PAID_STATUS = 'Paid payment!!!!'

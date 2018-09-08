@@ -82,7 +82,8 @@ ul.thumbs li a.thumbnail .active-arrow {
 
 @media (max-width: 970px)  {
 	ul.thumbs li {
-		width: 50% !important;
+		width: 100% !important;
+		float: initial;
 	}
 	.media iframe{
 		width: 100%;
@@ -91,7 +92,8 @@ ul.thumbs li a.thumbnail .active-arrow {
 
 @media (max-width: 1200px) and (min-width: 970px) {
     ul.thumbs li {
-        width: 33.3333% !important;
+        width: 100%% !important;
+        float: initial;
     }
 }
 

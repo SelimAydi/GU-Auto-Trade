@@ -1460,7 +1460,7 @@ service-icon-style
     }
 
 .carousel-inner {
-    height: calc(100vh);
+    max-height: calc(100vh);
 }
 
 .carousel-inner > .item > img {
