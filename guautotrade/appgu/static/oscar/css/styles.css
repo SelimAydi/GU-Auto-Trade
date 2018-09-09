@@ -8856,6 +8856,9 @@ input[type="number"][id*="quantity"] {
 .checkout_svg svg {
   width: 130px !important;
 }
+.pull-right--text-center {
+  text-align: center;
+}
 @media (max-width: 767px){
   .mobilelogo {
     display: inline;

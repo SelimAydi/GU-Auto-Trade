@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 """
 
 import os
+from os.path import join
+
 import oscar
 from django.urls import reverse_lazy, reverse
 from oscar import OSCAR_MAIN_TEMPLATE_DIR
@@ -30,6 +32,9 @@ SECRET_KEY = 'k^_-a^0mocfym(l*y-(!a=i2@hgmuz=bxf4qoxyd0ko+q4yrwe'
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
+
+LOGIN_REDIRECT_URL = '/shelby/shop/accounts/profile'
+LOGIN_URL ='/shelby/shop/accounts/login'
 
 SITE_ID = 2
 
@@ -78,10 +83,11 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            # os.path.join(BASE_DIR, 'templates'),
+            os.path.join(BASE_DIR, 'appgu/templates'),
 			#OSCAR_MAIN_TEMPLATE_DIR,
             location('../appgu/templates'),
 			location('../appgu/templates/oscar'),
+            # BASE_DIR + '/templates/',
         ],
         'OPTIONS': {
             'loaders': [
@@ -201,8 +207,8 @@ LOCALE_PATHS = [
 STATIC_ROOT = '/static/'
 STATIC_URL = STATIC_ROOT
 
-LOGIN_REDIRECT_URL = '/portal'
-LOGOUT_REDIRECT_URL = '/portal'
+# LOGIN_REDIRECT_URL = '/portal'
+# LOGOUT_REDIRECT_URL = '/portal'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
@@ -245,4 +251,3 @@ MOLLIE_STATUS_MAPPING = {
     'Open': 'Pending Payment',
     'Cancelled': 'Cancelled'
 }
-
