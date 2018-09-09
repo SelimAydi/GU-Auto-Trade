@@ -44,15 +44,17 @@ class RegistrationDealerForm(UserCreationForm):
         self.fields['password2'].widget.attrs['placeholder'] = '********'
 
     def save(self, commit=True):
-        user = super(RegistrationDealerForm, self).save(commit=False)
-        maxDealerID = Dealers.objects.all().aggregate(Max('dealerID'))
+        # user = super(RegistrationDealerForm, self).save(commit=False)
+        # maxDealerID = Dealers.objects.all().aggregate(Max('dealerID'))
         maxUserID = User.objects.all().aggregate(Max('id'))
 
-        if maxDealerID.get('dealerID__max') == None:
-            dealerID = 1
-        else:
-            dealerID = maxDealerID.get('dealerID__max') + 1
-            print('dealer id that it is giving for the newly registered dealer: ', dealerID)
+        user = super(RegistrationDealerForm, self).save(commit=False)
+
+        # if maxDealerID.get('dealerID__max') == None:
+        #     dealerID = 1
+        # else:
+        #     dealerID = maxDealerID.get('dealerID__max') + 1
+        #     print('dealer id that it is giving for the newly registered dealer: ', dealerID)
 
 
         if maxUserID.get('id__max') == None:
@@ -68,8 +70,10 @@ class RegistrationDealerForm(UserCreationForm):
         user.email = self.cleaned_data['email']
         user.telephone = self.cleaned_data['telephone']
 
-        dealerEntry = Dealers(dealerID=dealerID, username=user.username, email=user.email, name=user.first_name,
-                              surname=user.last_name, telephone=user.telephone)
+        # dealerEntry = Dealers(user=user, username=user.username, email=user.email, name=user.first_name,
+        #                       surname=user.last_name, telephone=user.telephone)
+
+        dealerEntry = Dealers(user=user, telephone=user.telephone)
         dealerEntry.save()
 
         if commit:
@@ -362,12 +366,12 @@ class AdminOrderForm(OrderForm):
     def __init__(self, *args, **kwargs):
         super(OrderForm, self).__init__(*args, **kwargs)
         self.fields['forwho'].label = ugettext_lazy("For User ID")
-        self.fields['forwho'].help_text = ugettext_lazy("Leave blank if this order is on your name.")
+        self.fields['forwho'].help_text = ugettext_lazy("This field must consist of number(s) only.")
 
     def clean_forwho(self):
         print(self.cleaned_data['forwho'])
         if self.cleaned_data['forwho']:
-            if Dealers.objects.filter(dealerID=self.cleaned_data['forwho']).exists():
+            if Dealers.objects.filter(user=self.cleaned_data['forwho']).exists():
                 print("EXISTS")
                 return self.cleaned_data['forwho']
             raise forms.ValidationError('Invalid ID.')

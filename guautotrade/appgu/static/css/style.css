@@ -1,5 +1,5 @@
 /* ---------------------------------------------
-COPYRIGHT GU AUTO TRADE Ã‚Â© Designed by Selim Aydi
+COPYRIGHT GU AUTO TRADE Ãƒâ€šÃ‚Â© Designed by Selim Aydi
 -----------------------------------------------*/
 
 /*
@@ -392,9 +392,10 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
 }
 
 .portal .navbar-right a, .portal .navbar-left li a{
-	color:	#ffffff !important;
+	color: #ffffff !important;
 	height: 100%;
 	/* font-size: 12px; */
+	font-weight: 800;
 	font-family: 'Montserrat', 'sans-serif';
 }
 
@@ -420,10 +421,10 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
 }
 
 #header.transparent-nav .main-menu li a {
-	color: #e7e5e5;
+	color: #ffffff;
 	font-family: 'Montserrat', 'sans-serif';
-	/* font-weight: 600; */
-	font-size: 15px;
+	font-weight: 800;
+	font-size: 16px;
 }
 
 .main-menu li a {

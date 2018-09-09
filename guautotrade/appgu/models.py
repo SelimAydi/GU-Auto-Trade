@@ -1,15 +1,15 @@
 from django.db import models
-# from django.contrib.auth.models import User
+from django.contrib.auth.models import User
 from django_countries.fields import CountryField
-from django.contrib.auth.models import AbstractUser
+# from django.contrib.auth.models import AbstractUser
 
 import datetime
 
 
-class User(AbstractUser):
-    is_dealer = models.BooleanField(default=False)
+# class User(AbstractUser):
+#     is_dealer = models.BooleanField(default=False)
 
-class Dealers(models.Model):
+class Dealers(User):
     class Meta:
         verbose_name_plural = "Dealers"
 
@@ -26,7 +26,7 @@ class Orders(models.Model):
     class Meta:
         verbose_name_plural = "Orders"
 
-    dealerID = models.ForeignKey(Dealers, on_delete=models.CASCADE)
+    dealerID = models.ForeignKey(Dealers, related_name="dealer_order", on_delete=models.CASCADE)
     model = models.CharField(max_length=1000)
     colour = models.CharField(max_length=1000)
     date = models.DateField(auto_now_add=True)

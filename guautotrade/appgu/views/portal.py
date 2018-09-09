@@ -2,7 +2,6 @@ from django.core import serializers
 from django.http import HttpResponse
 import json
 from django.contrib.auth.views import login
-# from ..testing import getLogin
 from django.shortcuts import render, redirect
 from ..models import Vehicles, Vehicles_Tuscany, Dealers, Orders, NewsPosts, Events, Events_Tuscany, NewsPosts_Tuscany
 from .. import forms
@@ -24,6 +23,7 @@ def order(request):
     if request.user.is_authenticated:
         if request.user.is_staff:
             # form = forms.AdminOrderForm(request.POST)
+            print("showing AdminOrderForm!!!")
             newform = forms.AdminOrderForm()
         else:
             # form = forms.OrderForm(request.POST)
@@ -39,10 +39,21 @@ def order(request):
                 userid = request.user.id
                 print("VALID FORM")
                 print("User ID: ", userid)
-                userobj = Dealers.objects.get(dealerID=userid)
-                print('printing userobj: ', userobj)
-                order = Orders(dealerID=userobj if 'forwho' not in request.POST or request.POST['forwho'] == '' else Dealers.objects.get(dealerID=request.POST['forwho']), model=request.POST['model'], colour=request.POST['colour'], homologation=True if 'homologation' in request.POST else False, custom_clearance=True if 'custom_clearance' in request.POST else False, additional_comments=request.POST['additional_comments'])
-                order.save()
+                try:
+                    dealerobj = Dealers.objects.get(pk=User.objects.get(id=userid))
+                except Dealers.DoesNotExist:
+                    print("Does not exist!")
+                    dealerobj = None
+                    response_data = {'result': _('Order could not be placed.'), 'status': 'failed', 'formerr': 'No dealer found with the given ID.'}
+                    return HttpResponse(
+                        json.dumps(response_data),
+                        content_type="application/json"
+                    )
+
+                print('printing userobj: ', dealerobj)
+                # order = Orders(dealerID=userid if 'forwho' not in request.POST or request.POST['forwho'] == '' else Dealers.objects.get(user=request.POST['forwho']), model=request.POST['model'], colour=request.POST['colour'], homologation=True if 'homologation' in request.POST else False, custom_clearance=True if 'custom_clearance' in request.POST else False, additional_comments=request.POST['additional_comments'])
+                # order.save()
+
                 response_data = {'result': _('Order has been succesfully placed.'), 'status': 'success'}
                 return HttpResponse(
                     json.dumps(response_data),
