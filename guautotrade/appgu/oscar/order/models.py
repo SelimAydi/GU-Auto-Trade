@@ -4,17 +4,22 @@ from oscar.apps.order.abstract_models import AbstractOrder
 
 
 class Order(AbstractOrder):
-    def is_open_payment(self):
-        print('is open payment: ', self.status == settings.ORDER_OPEN_STATUS)
-        return self.status == settings.ORDER_OPEN_STATUS
+    # def is_open_order(self):
+    #     print('is open payment: ', self.status == settings.ORDER_OPEN_STATUS)
+    #     return self.status == settings.ORDER_OPEN_STATUS
+
+    def is_failed_order(self):
+        print('is failed order: ', self.status == settings.ORDER_FAILED_STATUS)
+        return self.status == settings.ORDER_FAILED_STATUS
+
+    def is_paid_order(self):
+        print('is paid payment: ', self.status == settings.ORDER_PAID_STATUS)
+        return self.status == settings.ORDER_PAID_STATUS
 
     def is_cancelled_order(self):
         print('is cancelled order: ', self.status == settings.ORDER_CANCELLED_STATUS)
         return self.status == settings.ORDER_CANCELLED_STATUS
 
-    def is_pending_order(self):
-        print('is pending order: ', self.status == settings.ORDER_PENDING_STATUS)
-        return self.status == settings.ORDER_PENDING_STATUS
 
 
 from oscar.apps.order.models import *

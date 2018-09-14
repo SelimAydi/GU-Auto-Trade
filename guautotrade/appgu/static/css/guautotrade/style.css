@@ -1214,16 +1214,6 @@ service-icon-style
     margin-bottom: 0;
     }
 
-
-/* ------------------
-   Google Map
-   ------------------*/
-
-#googleMap{
-    height: 500px;
-    }
-
-
 /*------------------
   FORM STYLE
   -------------------- */
@@ -1423,6 +1413,28 @@ service-icon-style
     }
 
 
+
+@media (max-width : 568px) {
+    .overlay{
+        display: none;
+    }
+
+    .single-page-title h2 {
+        font-size: 24px;
+    }
+}
+
+@media (max-width : 400px) {
+    .single-page-title {
+        display: none;
+    }
+}
+
+.overlay {
+    width: 500px;
+    margin: 0 auto;
+    margin-bottom: 30px;
+}
 
 /* ---------------------------------------------- /*
  * Preloader

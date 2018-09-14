@@ -54,13 +54,13 @@
                                     {% endthumbnail %}
                                 {% endwith %}
                             </div>
-                            <div class="col-sm-4">
+                            <div class="col-sm-4 group-responsive">
                                 <h3><a href="{{ product.get_absolute_url }}">{{ line.description }}</a></h3>
                                 <p class="availability {{ session.availability.code }}">{{ session.availability.message }}</p>
                             </div>
-                            <div class="col-sm-3">
+                            <div class="col-sm-3 group-responsive">
                                 <div class="checkout-quantity">
-                                    <div class="input-group  {% if form.errors %}error{% endif %}">
+                                    <div class="input-group group-responsive {% if form.errors %}error{% endif %}">
                                         {% render_field form.quantity class+="form-control" %}
                                     <span class="input-group-btn">
                                         <button class="btn btn-default" type="submit" data-loading-text="{% trans 'Updating...' %}">{% trans "Update" %}</button>

@@ -81,11 +81,12 @@
                 </li>
             </ul>
 
-            <ul class="nav navbar-nav navbar-right main-nav">
+            <ul class="nav navx navbar-nav navbar-right main-nav">
                 <li class="active"><a href="/gu">Home</a></li>
-                <li><a href="#x-services">About</a></li>
-                <li><a href="#x-features">Services</a></li>
-                <li><a href="/gu/contact">Contact</a></li>
+                <li><a class="navlink" href="#x-services">About</a></li>
+                <li><a class="navlink" href="#x-features">Services</a></li>
+                <li><a class="navlink" href="#team">Team</a></li>
+                <li><a class="navlink" href="/gu/contact">Contact</a></li>
 {#                <li class="dropdown m-menu-fw"><a href="#" data-toggle="dropdown" class="dropdown-toggle">Features#}
 {#                    <span><i class="fa fa-angle-down"></i></span></a>#}
 {#                    <ul class="dropdown-menu">#}
@@ -190,8 +191,8 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6">
-                <div class="overlay" style=" background-color: #001721; width: 518px;">
-                    <img src="{% static 'img/guautotrade/shelbysupersnake.png' %}" style="opacity: 0.2; border: solid 3px #0016191a">
+                <div class="overlay" style=" background-color: #001721; width: 450px;">
+                    <img class="img-about" src="{% static 'img/guautotrade/shelbysupersnake.png' %}" style="opacity: 0.2; border: solid 3px #0016191a; width: 100%;">
                 </div>
             </div>
 
@@ -274,7 +275,7 @@
 </section>
 <!-- .x-features -->
 
-<section class="team ptb-100">
+<section class="team ptb-100" id="team">
     <section class="section-title">
         <div class="container text-center">
             <h2>Our Team</h2>
@@ -372,10 +373,10 @@
     </section>
     <div class="container">
         <div class="row">
-            <div class="col-md-6 col-sm-4 col-xs-6 section-margin">
+            <div class="col-md-6">
                 <a href="#">{% include 'includes/logo.svg' %}</a>
             </div>
-            <div class="col-md-6 col-sm-4 col-xs-6 section-margin">
+            <div class="col-md-6">
                 <a href="#">{% include 'includes/Tuscany_Logo.svg' %}</a>
             </div>
         </div>
@@ -433,11 +434,12 @@
         <div class="container clearfix">
                 <span class="copytext">Copyright GU Auto Trade &copy; 2018 </span>
 
-            <ul class="list-inline pull-right">
-                <li class="active"><a href="#">Home</a></li>
-                <li><a href="#x-services">About</a></li>
-                <li><a href="#x-features">Services</a></li>
-                <li><a href="/gu/contact">Contact</a></li>
+            <ul class="list-inline pull-right navx">
+                <li class="active"><a href="/gu">Home</a></li>
+                <li><a class="navlink" href="#x-services">About</a></li>
+                <li><a class="navlink" href="#x-features">Services</a></li>
+                <li><a class="navlink" href="#team">Team</a></li>
+                <li><a class="navlink" href="/gu/contact">Contact</a></li>
             </ul>
         </div><!-- .container -->
     </div><!-- .copyright-section -->
@@ -454,11 +456,12 @@
             id="uc-mobile-menu-close-btn">&times;</button>
     <div>
         <div>
-            <ul id="menu">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="#x-services">About</a></li>
-                <li><a href="#x-features">Services</a></li>
-                <li><a href="/gu/contact">Contact</a></li>
+            <ul id="menu" class="navx">
+                <li class="active"><a href="/gu">Home</a></li>
+                <li><a class="navlink" href="/gu/#about">About</a></li>
+                <li><a class="navlink" href="#x-features">Services</a></li>
+                <li><a class="navlink" href="#team">Team</a></li>
+                <li><a class="navlink" href="/gu/contact">Contact</a></li>
             </ul>
         </div>
     </div>
@@ -505,12 +508,12 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
         integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
         crossorigin="anonymous"></script>
-<script src="{% static 'js/guautotrade/smoothscroll.js'%}"></script>
 <script src="{% static 'js/guautotrade/flexSlider/jquery.flexslider-min.js'%}"></script>
 <script src="{% static 'js/guautotrade/mobile-menu.js'%}"></script>
 <script src="{% static 'js/guautotrade/scripts.js'%}"></script>
-    <script>
-    $('a').click(function(){
+<!--<script src="{% static 'js/guautotrade/scroll.js'%}"></script>-->
+<script>
+    $('ul.navx').find('a').click(function(){
         console.log('clicked');
         console.log($(this).attr('href'));
         $('html, body').animate({

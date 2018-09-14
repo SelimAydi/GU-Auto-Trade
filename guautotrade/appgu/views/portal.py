@@ -44,7 +44,7 @@ def order(request):
                 except Dealers.DoesNotExist:
                     print("Does not exist!")
                     dealerobj = None
-                    response_data = {'result': _('Order could not be placed.'), 'status': 'failed', 'formerr': 'No dealer found with the given ID.'}
+                    response_data = {'result': _('Order could not be placed.'), 'status': 'failed', 'formerr': _('No dealer found with the given ID.')}
                     return HttpResponse(
                         json.dumps(response_data),
                         content_type="application/json"
@@ -132,28 +132,24 @@ def portalorderlist(request):
             if str(request.POST['check6x']) == 'True' and str(obj.homologation) == 'False':
                 obj = True
             elif str(request.POST['check6x']) == 'False' and str(obj.homologation) == 'True':
-                print("CHECK MAKES OBJ FALSE")
                 obj = False
                 print("newobj: ", obj)
 
             if request.POST['check7x'] == 'True' and obj.custom_clearance == 'False':
                 obj = True
             elif str(request.POST['check7x']) == 'False' and str(obj.custom_clearance) == 'True':
-                print("CHECK MAKES OBJ FALSE")
                 obj = False
                 print("newobj: ", obj)
 
             if request.POST['check9x'] == 'True' and obj.deposit_received == 'False':
                 obj = True
             elif str(request.POST['check9x']) == 'False' and str(obj.deposit_received) == 'True':
-                print("CHECK MAKES OBJ FALSE")
                 obj = False
                 print("newobj: ", obj)
 
             if request.POST['check10x'] == 'True' and obj.payment_received == 'False':
                 obj = True
             elif str(request.POST['check10x']) == 'False' and str(obj.payment_received) == 'True':
-                print("CHECK MAKES OBJ FALSE")
                 obj = False
                 print("newobj: ", obj)
 

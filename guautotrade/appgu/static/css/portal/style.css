@@ -215,16 +215,8 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
 \*------------------------------------*/
 
 .errorlist {
-	font-size: 13px;
-	display: inline;
-	background-color: rgba(228, 100, 100, 0.13);
-	padding: 2px;
-	color: #fff3f3;
-	border-radius: 3px;
-	border: dashed 1px rgb(199, 175, 175);
-	padding-left: 10px;
-	padding-right: 10px;
-	text-align: center;
+	padding: 10px;
+	margin-bottom: 10px;
 }
 
 .errorlist > li{
@@ -233,11 +225,8 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
 }
 
 .errorlist > li:before {
-	/* float: left; */
 	font-size: 12px;
 	margin-right: 5px;
-	/* margin-left: 0px; */
-	/* margin-right: -50px; */
 	content: "\f06a";
 	font-family: FontAwesome;
 	display: inline;

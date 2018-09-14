@@ -226,28 +226,38 @@ PAYPAL_API_SIGNATURE = 'A5rbR..nAsPB.9eX2Kko49PtM-AMAceoxw6B-EToi4q6Z5VRDP4lWLVp
 SECURE_SSL_REDIRECT = False
 
 ORDER_STATUS_PAID = 'Being processed'
+
 # Oscar Shop settings
 OSCAR_INITIAL_ORDER_STATUS = OSCAR_INITIAL_LINE_STATUS = 'Pending Payment'
+# OSCAR_ORDER_STATUS_PIPELINE = {
+#     'Pending Payment': ('Being processed', 'Cancelled', 'Open'),
+#     'Being processed': ('Being processed', 'Paid'),
+#     'Cancelled': (),
+#     'Open': (),
+#     'Paid': (),
+# }
 OSCAR_ORDER_STATUS_PIPELINE = {
-    'Pending Payment': (ORDER_STATUS_PAID, 'Cancelled',),
-    ORDER_STATUS_PAID: (ORDER_STATUS_PAID, 'Cancelled',),
+    'Open': ('Pending Payment', 'Cancelled', 'Paid', 'Failed'),
+    'Pending Payment': ('Cancelled', 'Paid', 'Failed'),
     'Cancelled': (),
-    'Open': (),
     'Paid': (),
+    'Failed': (),
 }
 
 ORDER_PENDING_STATUS = 'Pending'
 ORDER_CANCELLED_STATUS = 'Cancelled'
+ORDER_FAILED_STATUS = 'Failed'
 ORDER_OPEN_STATUS = 'Open'
 ORDER_PAID_STATUS = 'Paid'
 
 # Mollie settings
-OSCAR_MOLLIE_CONFIRMED_STATUSES = [ORDER_STATUS_PAID]
+OSCAR_MOLLIE_CONFIRMED_STATUSES = [ORDER_STATUS_PAID, 'Paid'],
 OSCAR_MOLLIE_HTTPS = False
-MOLLIE_API_KEY = 'test_48zQtdS6SAHmmrVQTs3af53Q99Nzzg'
+MOLLIE_API_KEY = 'test_cCKc9q6jPNxb8MM7ta2uuNs2s5Wp79'
 MOLLIE_STATUS_MAPPING = {
-    'Paid': 'No Payment',
+    'Open': 'Open',
+    'Paid': 'Paid',
     'Pending': 'Pending Payment',
-    'Open': 'Pending Payment',
-    'Cancelled': 'Cancelled'
+    'Cancelled': 'Cancelled',
+    'Failed': 'Failed'
 }

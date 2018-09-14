@@ -11,7 +11,16 @@
 		 <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
 		<title>{% block title %} Home {% endblock title %} | GU Auto Trade</title>
-		 
+
+		<!-- Favicon area -->
+		<link rel="apple-touch-icon" sizes="180x180" href="{% static 'favicon/apple-touch-icon.png' %}">
+		<link rel="icon" type="image/png" sizes="32x32" href="{% static 'favicon/favicon-32x32.png' %}">
+		<link rel="icon" type="image/png" sizes="16x16" href="{% static 'favicon/favicon-16x16.png' %}">
+		<link rel="manifest" href="{% static 'favicon/site.webmanifest' %}">
+		<link rel="mask-icon" href="{% static 'favicon/safari-pinned-tab.svg' %}" color="#5bbad5">
+		<meta name="msapplication-TileColor" content="#ffffff">
+		<meta name="theme-color" content="#ffffff">
+
 		<!-- Google font -->
 		<link href="https://fonts.googleapis.com/css?family=Lato:700%7CMontserrat:400,600" rel="stylesheet">
 
@@ -104,7 +113,7 @@
 					<div class="col-md-2">
 						<div class="footer-logo">
 							<a class="logo" href="index.html">
-                                {% include 'includes/logo.svg' %}
+                                {% include 'includes/logo_shelby.svg' %}
 							</a>
 						</div>
 					</div>

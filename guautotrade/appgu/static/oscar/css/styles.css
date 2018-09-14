@@ -1089,11 +1089,12 @@ textarea {
 a {
   color: #444444;
   text-decoration: none;
+  transition: 0.2s;
 }
 a:hover,
 a:focus {
   color: #08c;
-  text-decoration: underline;
+  transition: 0.2s;
 }
 a:focus {
   outline: 5px auto -webkit-focus-ring-color;
@@ -3092,7 +3093,7 @@ select[multiple].input-lg {
   cursor: pointer;
   background-image: none;
   border: 1px solid transparent;
-  white-space: nowrap;
+  /*white-space: nowrap;*/
   padding: 6px 12px;
   font-size: 14px;
   line-height: 1.42857143;
@@ -9103,6 +9104,10 @@ input[type="number"][id*="quantity"] {
 @media (max-width: 767px) {
   .hidden-xs {
     display: none !important;
+  }
+  .group-responsive {
+    text-align: center;
+    margin: 0 auto;
   }
 }
 @media (min-width: 768px) and (max-width: 991px) {
