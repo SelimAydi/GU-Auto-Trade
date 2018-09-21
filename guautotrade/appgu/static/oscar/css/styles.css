@@ -5205,7 +5205,6 @@ a.thumbnail.active {
 }
 .alert .alertinner [class*="icon-"] {
   position: absolute;
-  top: 0.3em;
   right: 100%;
 }
 .alert .alertinner p {
@@ -8356,6 +8355,9 @@ ul.row {
 .product_pod .price_color .small {
   font-size: 75%;
 }
+.availability {
+    color: #5cb85c;
+}
 .product_pod .availability,
 .product_pod .price_color {
   min-height: 30px;
@@ -8870,6 +8872,9 @@ input[type="number"][id*="quantity"] {
   }
   .mobilelogo span{
     padding-left: 10px;
+  }
+  .mobile-logo {
+    display: none !important;
   }
 }
 .clearfix:before,

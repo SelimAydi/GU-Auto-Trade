@@ -5176,7 +5176,6 @@ a.thumbnail.active {
 }
 .alert .alertinner [class*="icon-"] {
   position: absolute;
-  top: 0.3em;
   right: 100%;
 }
 .alert .alertinner p {

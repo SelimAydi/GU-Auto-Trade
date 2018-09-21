@@ -31,7 +31,7 @@
             {% trans "Please make a note of this reference or print this page and quote it in any communication with us regarding your order." %}</p>
 
         {% elif order.is_cancelled_order %}
-            {% trans "You have cancelled your payment. Please complete your order with a different payment method." %}
+            {% trans "You have cancelled your payment." %}
         {% elif order.is_failed_order %}
             {% trans "Order failed to take place." %}
         {% else %}
