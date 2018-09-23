@@ -1,5 +1,6 @@
 {% extends "frames/sub_base.html" %}
 {% load static %}
+{% load i18n %}
 
 {% block header %}
 	{% with headerclass='portal' %}
@@ -34,12 +35,11 @@
                     transition: 'slideDown'
                 });
             });
-            var test;
         </script>
 		<!-- News -->
 		<div id="event" class="section text-center">
-            <h2>Press & media</h2>
-            <p class="lead">Libris vivendo eloquentiam ex ius, nec id splendide abhorreant.</p>
+            <h2>{% trans 'Press & media' %}</h2>
+            <p class="lead">{% trans 'An insight of Shelby in the press and media' %}</p>
 			<!-- container -->
 			<div class="container">
 				<!-- row -->
@@ -69,16 +69,10 @@
                 <a href="#thumb6" class="thumbnail" style="background-image: url('/media/press/back4.jpg')"><h4>Magazine “Eurotuner”</h4><span class="description">Shelby is Back</span></a>
             </li>
             <li>
-                <a href="#thumb7" class="thumbnail" style="background-image: url('images/thumb7.jpg')"><h4>Magazine “Cars & Stripes”</h4><span class="description">Super Snake is Back</span></a>
+                <a href="#thumb7" class="thumbnail" style="background-image: url('/media/press/sback1.jpeg')"><h4>Magazine “Cars & Stripes”</h4><span class="description">Super Snake is Back</span></a>
             </li>
             <li>
-                <a href="#thumb8" class="thumbnail" style="background-image: url('images/thumb8.jpg')"><h4>German Magazine “GRIP”</h4><span class="description">“Shelby is back in Europe”</span></a>
-            </li>
-            <li>
-                <a href="#thumb9" class="thumbnail" style="background-image: url('images/thumb9.jpg')"><h4>German Magazine “Traeume Wagen”</h4><span class="description">55 years of Shelby Special</span></a>
-            </li>
-            <li>
-                <a href="#thumb10" class="thumbnail" style="background-image: url('images/thumb10.jpg')"><h4>German Magazine “Chrom & Flammen”</h4><span class="description">“Eilige Lieferung” Special</span></a>
+                <a href="#thumb8" class="thumbnail" style="background-image: url('/media/press/gripback1.jpg')"><h4>German Magazine “GRIP”</h4><span class="description">“Shelby is back in Europe”</span></a>
             </li>
         </ul>
 
@@ -92,8 +86,7 @@
                     </ul>
                 </div>
                 <h2>German Magazine “TräumeWagen”</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mollis nisi sit amet metus venenatis, ut congue turpis aliquet. Pellentesque eget elit sollicitudin, feugiat felis in, ornare diam. Morbi blandit sapien nibh, eu pulvinar tortor luctus nec. Aenean lobortis lacus cursus gravida adipiscing. Praesent in odio porta, placerat felis id, viverra est. Nam magna quam, tincidunt eget augue in, aliquet tristique ipsum.</p>
-{#                <a href="#" class="btn btn-primary">{% trans 'Checkout' %}</a>#}
+                <p>Here's a preview of published content in the magazine 'TräumeWagen'</p>
             </div>
 
             <div id="thumb2">
@@ -162,9 +155,11 @@
 {#                <div class="media"><img src="images/media.jpg"/></div>#}
                 <div class="media">
                      <ul class="rslides" id="slider2">
-                          <li><a href="#"><img src="/media/press/traume1.jpg" alt=""></a></li>
-                          <li><a href="#"><img src="/media/press/traume2.jpg" alt=""></a></li>
-                          <li><a href="#"><img src="/media/press/traume2.jpg" alt=""></a></li>
+                          <li><a href="#"><img src="/media/press/sback1.jpeg" alt=""></a></li>
+                          <li><a href="#"><img src="/media/press/sback2.jpeg" alt=""></a></li>
+                          <li><a href="#"><img src="/media/press/sback3.jpeg" alt=""></a></li>
+                          <li><a href="#"><img src="/media/press/sback4.jpeg" alt=""></a></li>
+                          <li><a href="#"><img src="/media/press/sback5.jpeg" alt=""></a></li>
                     </ul>
                 </div>
                 <h2>Magazine “Eurotuner”</h2>
@@ -189,7 +184,7 @@
 {#                <div class="media"><img src="images/media.jpg"/></div>#}
                 <div class="media">
                      <ul class="rslides" id="slider2">
-                          <li><a href="#"><img src="/media/press/traume1.jpg" alt=""></a></li>
+                          <li><a href="#"><img src="/media/press/sback1.jpeg" alt=""></a></li>
                           <li><a href="#"><img src="/media/press/traume2.jpg" alt=""></a></li>
                           <li><a href="#"><img src="/media/press/traume2.jpg" alt=""></a></li>
                     </ul>
@@ -203,7 +198,7 @@
 {#                <div class="media"><img src="images/media.jpg"/></div>#}
                 <div class="media">
                      <ul class="rslides" id="slider2">
-                          <li><a href="#"><img src="/media/press/traume1.jpg" alt=""></a></li>
+                          <li><a href="#"><img src="/media/press/traume1.jpeg" alt=""></a></li>
                           <li><a href="#"><img src="/media/press/traume2.jpg" alt=""></a></li>
                           <li><a href="#"><img src="/media/press/traume2.jpg" alt=""></a></li>
                     </ul>
@@ -217,12 +212,14 @@
 {#                <div class="media"><img src="images/media.jpg"/></div>#}
                 <div class="media">
                      <ul class="rslides" id="slider2">
-                          <li><a href="#"><img src="/media/press/traume1.jpg" alt=""></a></li>
-                          <li><a href="#"><img src="/media/press/traume2.jpg" alt=""></a></li>
-                          <li><a href="#"><img src="/media/press/traume2.jpg" alt=""></a></li>
+                          <li><a href="#"><img src="/media/press/sback1.jpeg" alt=""></a></li>
+                          <li><a href="#"><img src="/media/press/sback2.jpeg" alt=""></a></li>
+                          <li><a href="#"><img src="/media/press/sback3.jpeg" alt=""></a></li>
+                          <li><a href="#"><img src="/media/press/sback4.jpeg" alt=""></a></li>
+                          <li><a href="#"><img src="/media/press/sback5.jpeg" alt=""></a></li>
                     </ul>
                 </div>
-                <h2>Magazine “Car & Stripes”</h2>
+                <h2>Super Snake is Back in the German Magazine “Cars & Stripes”</h2>
                 <p>Vestibulum gravida, ante ut consectetur dictum, dolor sapien pretium elit, sed tincidunt augue sem a lorem. Vivamus quis neque pharetra, consequat dolor vel, venenatis urna. Praesent diam quam, fermentum vel tortor eget, pulvinar tincidunt velit.</p>
 {#                <a href="#" class="btn btn-primary">{% trans 'Checkout' %}</a>#}
             </div>
@@ -231,40 +228,14 @@
 {#                <div class="media"><img src="images/media.jpg"/></div>#}
                 <div class="media">
                      <ul class="rslides" id="slider2">
-                          <li><a href="#"><img src="/media/press/traume1.jpg" alt=""></a></li>
-                          <li><a href="#"><img src="/media/press/traume2.jpg" alt=""></a></li>
-                          <li><a href="#"><img src="/media/press/traume2.jpg" alt=""></a></li>
+                          <li><a href="#"><img src="/media/press/gripback1.jpg" alt=""></a></li>
+                          <li><a href="#"><img src="/media/press/gripback2.jpg" alt=""></a></li>
+                          <li><a href="#"><img src="/media/press/gripback3.jpg" alt=""></a></li>
+                          <li><a href="#"><img src="/media/press/gripback4.jpg" alt=""></a></li>
+                          <li><a href="#"><img src="/media/press/gripback5.jpg" alt=""></a></li>
                     </ul>
                 </div>
                 <h2>German Magazine “GRIP”</h2>
-                <p>Vestibulum gravida, ante ut consectetur dictum, dolor sapien pretium elit, sed tincidunt augue sem a lorem. Vivamus quis neque pharetra, consequat dolor vel, venenatis urna. Praesent diam quam, fermentum vel tortor eget, pulvinar tincidunt velit.</p>
-{#                <a href="#" class="btn btn-primary">{% trans 'Checkout' %}</a>#}
-            </div>
-
-            <div id="thumb9">
-{#                <div class="media"><img src="images/media.jpg"/></div>#}
-                <div class="media">
-                     <ul class="rslides" id="slider2">
-                          <li><a href="#"><img src="/media/press/traume1.jpg" alt=""></a></li>
-                          <li><a href="#"><img src="/media/press/traume2.jpg" alt=""></a></li>
-                          <li><a href="#"><img src="/media/press/traume2.jpg" alt=""></a></li>
-                    </ul>
-                </div>
-                <h2>German Magazine “TräumeWagen”</h2>
-                <p>Vestibulum gravida, ante ut consectetur dictum, dolor sapien pretium elit, sed tincidunt augue sem a lorem. Vivamus quis neque pharetra, consequat dolor vel, venenatis urna. Praesent diam quam, fermentum vel tortor eget, pulvinar tincidunt velit.</p>
-{#                <a href="#" class="btn btn-primary">{% trans 'Checkout' %}</a>#}
-            </div>
-
-            <div id="thumb10">
-{#                <div class="media"><img src="images/media.jpg"/></div>#}
-                <div class="media">
-                     <ul class="rslides" id="slider2">
-                          <li><a href="#"><img src="/media/press/traume1.jpg" alt=""></a></li>
-                          <li><a href="#"><img src="/media/press/traume2.jpg" alt=""></a></li>
-                          <li><a href="#"><img src="/media/press/traume2.jpg" alt=""></a></li>
-                    </ul>
-                </div>
-                <h2>Magazine “Chrom & Flammen”</h2>
                 <p>Vestibulum gravida, ante ut consectetur dictum, dolor sapien pretium elit, sed tincidunt augue sem a lorem. Vivamus quis neque pharetra, consequat dolor vel, venenatis urna. Praesent diam quam, fermentum vel tortor eget, pulvinar tincidunt velit.</p>
 {#                <a href="#" class="btn btn-primary">{% trans 'Checkout' %}</a>#}
             </div>

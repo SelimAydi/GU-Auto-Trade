@@ -218,7 +218,7 @@ blockquote:before{
 	display:inline-block;
 	padding: 1.6vh 2vh;
 	font-size: 1.7vh;
-	background-color: #12121252;
+	background-color: rgba(18, 18, 18, 0.3215686274509804);
 	border: 2px solid transparent;
 	border-radius: 5px;
 	color: #FFF;

@@ -30,7 +30,6 @@
                                 </div>
 								  <form action="{{ request.path }}" {% if fileUpload %}enctype="multipart/form-data"{% endif %} method="post" class="registerform">
                                     {% csrf_token %}
-
                                     {% if selectCompany %}
                                         <p>
                                           <label for="selectcomp">{% trans 'Company' %}</label>
@@ -69,6 +68,11 @@
 			</div>
 
 		</div>
+        <script>
+            $(document).ready(function() {
+              $('#summernote').summernote();
+            });
+        </script>
 
 		<!-- /Home -->
 {% endblock %}

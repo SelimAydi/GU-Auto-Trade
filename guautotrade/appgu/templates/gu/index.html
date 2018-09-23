@@ -1,4 +1,5 @@
 {% load static %}
+{% load i18n %}
 <!DOCTYPE html>
 <html>
 <head>
@@ -82,52 +83,11 @@
             </ul>
 
             <ul class="nav navx navbar-nav navbar-right main-nav">
-                <li class="active"><a href="/gu">Home</a></li>
-                <li><a class="navlink" href="#x-services">About</a></li>
-                <li><a class="navlink" href="#x-features">Services</a></li>
-                <li><a class="navlink" href="#team">Team</a></li>
-                <li><a class="navlink" href="/gu/contact">Contact</a></li>
-{#                <li class="dropdown m-menu-fw"><a href="#" data-toggle="dropdown" class="dropdown-toggle">Features#}
-{#                    <span><i class="fa fa-angle-down"></i></span></a>#}
-{#                    <ul class="dropdown-menu">#}
-{#                        <li>#}
-{#                            <div class="m-menu-content">#}
-{#                                <ul class="col-sm-3">#}
-{#                                    <li class="dropdown-header">Widget Haeder</li>#}
-{#                                    <li><a href="#">Awesome Features</a></li>#}
-{#                                    <li><a href="#">Clean Interface</a></li>#}
-{#                                    <li><a href="#">Available Possibilities</a></li>#}
-{#                                    <li><a href="#">Responsive Design</a></li>#}
-{#                                    <li><a href="#">Pixel Perfect Graphics</a></li>#}
-{#                                </ul>#}
-{#                                <ul class="col-sm-3">#}
-{#                                    <li class="dropdown-header">Widget Haeder</li>#}
-{#                                    <li><a href="#">Awesome Features</a></li>#}
-{#                                    <li><a href="#">Clean Interface</a></li>#}
-{#                                    <li><a href="#">Available Possibilities</a></li>#}
-{#                                    <li><a href="#">Responsive Design</a></li>#}
-{#                                    <li><a href="#">Pixel Perfect Graphics</a></li>#}
-{#                                </ul>#}
-{#                                <ul class="col-sm-3">#}
-{#                                    <li class="dropdown-header">Widget Haeder</li>#}
-{#                                    <li><a href="#">Awesome Features</a></li>#}
-{#                                    <li><a href="#">Clean Interface</a></li>#}
-{#                                    <li><a href="#">Available Possibilities</a></li>#}
-{#                                    <li><a href="#">Responsive Design</a></li>#}
-{#                                    <li><a href="#">Pixel Perfect Graphics</a></li>#}
-{#                                </ul>#}
-{#                                <ul class="col-sm-3">#}
-{#                                    <li class="dropdown-header">Widget Haeder</li>#}
-{#                                    <li><a href="#">Awesome Features</a></li>#}
-{#                                    <li><a href="#">Clean Interface</a></li>#}
-{#                                    <li><a href="#">Available Possibilities</a></li>#}
-{#                                    <li><a href="#">Responsive Design</a></li>#}
-{#                                    <li><a href="#">Pixel Perfect Graphics</a></li>#}
-{#                                </ul>#}
-{#                            </div>#}
-{#                        </li>#}
-{#                    </ul>#}
-{#                </li>#}
+                <li class="active"><a href="/gu">{% trans 'Home' %}</a></li>
+                <li><a class="navlink" href="#x-services">{% trans 'About' %}</a></li>
+                <li><a class="navlink" href="#x-features">{% trans 'Services' %}</a></li>
+                <li><a class="navlink" href="#team">{% trans 'Team' %}</a></li>
+                <li><a class="navlink" href="/gu/contact">{% trans 'Contact' %}</a></li>
                 
             </ul>
 
@@ -184,7 +144,7 @@
 
     <section class="section-title">
         <div class="container text-center">
-            <h2>About GU Auto Trade</h2>
+            <h2>{% trans 'About GU Auto Trade' %}</h2>
         </div>
     </section>
 
@@ -197,17 +157,10 @@
             </div>
 
     <div class="col-md-6"><div class="promo-content">
-                        <h3>Fusce convallis metus id felis luctus adipiscing</h3>
+                        <h3>{% trans 'A brief insight' %}</h3>
 
-                        <p>Lorem ipsum dolor sit consectetuer adipiscing elit nonummy ib uismod tincidunt ut laoreet
-                            dolore magna aliquam erat volutpat.Lorem ipsum dolor sit consectetuer adipiscing elit nonummy ib uismod tincidunt ut laoreet
-                            dolore magna aliquam erat volutpat.Lorem ipsum dolor sit consectetuer adipiscing elit nonummy ib uismod tincidunt ut laoreet
-                            dolore magna aliquam erat volutpat.Lorem ipsum dolor sit consectetuer adipiscing elit nonummy ib uismod tincidunt ut laoreet
-                            dolore magna aliquam erat volutpat.Lorem ipsum dolor sit consectetuer adipiscing elit nonummy ib uismod tincidunt ut laoreet
-                            dolore magna aliquam erat volutpat.Lorem ipsum dolor sit consectetuer adipiscing elit nonummy ib uismod tincidunt ut laoreet
-                            dolore ma
-
-                            gna aliquam erat volutpat.</p>
+                        <p>{% trans "GU Auto Trade B.V, situated in the Netherlands, is a multinational B-2-B automobile trading company operating globally. GU Auto Trade is specialized in providing its clients with premium automobiles whilst handling proficient services. Competitive prices, fast delivery and excellent service is what characterizes our company's approach. For more information, feel free to reach us by calling or sending a message through our contact form." %}
+                        </p>
                     </div>
 
 </div>
@@ -221,7 +174,7 @@
 <section class="x-features" id="services">
     <section class="section-title">
         <div class="container text-center">
-            <h2>Our Services</h2>
+            <h2>{% trans 'Our Services' %}</h2>
         </div>
     </section>
     <div class="container">
@@ -235,10 +188,8 @@
                         <i class="fa fa-line-chart"></i>
                     </div>
                     <div class="promo-content">
-                        <h3>Donec sodales sagittis magna</h3>
+                        <h3>{% trans 'At GU Auto trade offer our clients competitively priced automobiles with quality service.' %}</h3>
 
-                        <p>Lorem ipsum dolor sit consectetuer adipiscing elit nonummy ib uismod tincidunt ut laoreet
-                            dolore magna aliquam erat volutpat.</p>
                     </div>
                 </div>
                 <!-- /.promo-block-wrapper -->
@@ -248,10 +199,9 @@
                         <i class="fa fa-life-ring"></i>
                     </div>
                     <div class="promo-content">
-                        <h3>Etiam ultricies nisi vel augue</h3>
+                        <h3>{% trans 'Operating with excellence' %}</h3>
 
-                        <p>Lorem ipsum dolor sit consectetuer adipiscing elit nonummy ib uismod tincidunt ut laoreet
-                            dolore magna aliquam erat volutpat.</p>
+                        <p>{% trans 'GU Auto Trade is enriched with expertise and experience in providing premium automobiles.' %}</p>
                     </div>
                 </div>
                 <!-- /.promo-block-wrapper -->
@@ -261,10 +211,9 @@
                         <i class="fa fa-calculator"></i>
                     </div>
                     <div class="promo-content last-type">
-                        <h3>Curabitur ullamcorper ultricies nisi</h3>
+                        <h3>{% trans 'Quality customer services' %}</h3>
 
-                        <p>Lorem ipsum dolor sit consectetuer adipiscing elit nonummy ib uismod tincidunt ut laoreet
-                            dolore magna aliquam erat volutpat.</p>
+                        <p>{% trans 'At GU Auto Trade we don’t only trade automobiles, we build a relationship with our clients to provide the most feasible solutions' %}</p>
                     </div>
                 </div>
                 <!-- /.promo-block-wrapper -->
@@ -392,24 +341,16 @@
     <div class="footer-widget-section">
         <div class="container text-center">
             <div class="row">
-                <div class="col-sm-4 footer-block">
+                <div class="col-sm-6 footer-block">
                     <div class="footer-widget widget_text">
                         <div class="footer-logo">
                             <a href="#"><img src="{% static 'img/guautotrade/GUAutotrade_Logo.png' %}" alt='' style="width: 100%;"></a>
                         </div>
-                        <p>Morbi nec metus. Phasellus blandit leo ut odio. Maecenas ullamcorper, dui et placerat feugiat, eros pede varius nisi, condimentum viverra felis nunc et lorem. Sed magna purus, fermentum eu, tincidunt eu, varius ut, felis.</p>
-
+                        <p>We at GU Auto Trade strive to deliver the best experiences for our clients. For more information, reach out to us by calling or sending a message through our contact form.</p>
                     </div>
                 </div><!-- /.col-sm-4 -->
 
-                <div class="col-sm-4 footer-block">
-                    <div class="footer-widget widget_text">
-                        <h3>Phasellus blandit leo ut odio</h3>
-                        <p>Maecenas ullamcorper, dui et placerat feugiat, eros pede varius nisi, condimentum viverra felis nunc et lorem. Sed magna purus, fermentum eu, tincidunt eu, varius ut, felis. In auctor lobortis lacus. Quisque libero metus, condimentum nec, tempor a, commodo mollis, magna.</p>
-                    </div>
-                </div><!-- /.col-sm-4 -->
-
-                <div class="col-sm-4 footer-block last">
+                <div class="col-sm-6 footer-block last">
                     <div class="footer-widget widget_text">
                         <h3>Contact us</h3>
                         <address>

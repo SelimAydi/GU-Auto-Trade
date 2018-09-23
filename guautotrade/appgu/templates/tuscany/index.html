@@ -45,9 +45,9 @@
 
 					<div class="col-md-6">
 						<h3>{% trans "About Tuscany" %}</h3>
-						<p class="lead">Libris vivendo eloquentiam ex ius, nec id splendide abhorreant.</p>
-						<p>In 1962, Carroll Tuscany Put a Ford V8 engine into a European racecar chassis and went on to beat the world’s best teams and claim the first and only FIA World Sportcar championship for an American company. Ever since there’s not been another company more synonymous with developing high performance Ford Products than Tuscany American.</p>
-					</div>
+						<p class="lead">{% trans 'Enjoy the drive' %}</p>
+					    <p>{% trans 'That’s our goal for every one of our customers. What began in 1988 as a small idea has grown into a company recognized and respected throughout the industry. We have the same mission today as we did when we started: design fun, expressive vehicles that make people happy.' %}</p>
+                    </div>
 
 					<div class="col-md-5 col-md-offset-1">
 						<a class="about-video" href="#">
@@ -109,7 +109,6 @@
 								</a>
 								<a class="vehicle-title" href="#">{{ vehicle.model }}</a>
 								<div class="vehicle-details">
-									<span class="vehicle-category">Type</span>
                                     <a href="vehicle/?v={{ vehicle.id }}"><span class="vehicle-price vehicle-free">{% trans "More Info" %}</span></a>
 								</div>
 							</div>
@@ -153,64 +152,6 @@
 
 		</div>
 		<!-- /Vehicles -->
-
-		<!-- Why us -->
-		<div id="why-us" class="section" style="background-color: #2e2e2e;">
-
-			<!-- container -->
-			<div class="container">
-
-				<!-- row -->
-				<div class="row">
-					<div class="section-header text-center">
-						<h2>Tuscany</h2>
-						<p class="lead">Libris vivendo eloquentiam ex ius, nec id splendide abhorreant.</p>
-					</div>
-
-					<!-- feature -->
-					<div class="col-md-4">
-						<div class="feature">
-							<i class="feature-icon fas fa-file-contract"></i>
-							<div class="feature-content">
-								<h4>Lorem Ipsum</h4>
-								<p>Ceteros fuisset mei no, soleat epicurei adipiscing ne vis. Et his suas veniam nominati.</p>
-							</div>
-						</div>
-					</div>
-					<!-- /feature -->
-
-					<!-- feature -->
-					<div class="col-md-4">
-						<div class="feature">
-							<i class="feature-icon fas fa-flag-checkered"></i>
-							<div class="feature-content">
-								<h4>Ceteros fuisset</h4>
-								<p>Ceteros fuisset mei no, soleat epicurei adipiscing ne vis. Et his suas veniam nominati.</p>
-							</div>
-						</div>
-					</div>
-					<!-- /feature -->
-
-					<!-- feature -->
-					<div class="col-md-4">
-						<div class="feature">
-							<i class="feature-icon fas fa-check"></i>
-							<div class="feature-content">
-								<h4>Lorem Ipsum</h4>
-								<p>Ceteros fuisset mei no, soleat epicurei adipiscing ne vis. Et his suas veniam nominati.</p>
-							</div>
-						</div>
-					</div>
-					<!-- /feature -->
-
-				</div>
-				<!-- /row -->
-
-			</div>
-			<!-- /container -->
-
-		</div>
-		<!-- /Why us -->
 
 {% endblock %}
 

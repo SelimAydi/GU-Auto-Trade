@@ -1,5 +1,8 @@
+from django.core.mail import EmailMessage
 from django.core.paginator import Paginator
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.template.loader import get_template
+
 from .. import forms
 
 from ..models import Vehicles, NewsPosts
@@ -15,10 +18,8 @@ def index(request):
         print("AMOUNT OF VEHICLES________: " ,len(vehicle_list))
         if len(vehicle_list) % 3 == 1:
             c_type = 1
-            print("1 class")
         elif len(vehicle_list) % 3 == 2:
             c_type = 2
-            print("2 class")
 
         last = Vehicles.objects.latest('id')
         if len(vehicle_list) > 1:
@@ -39,10 +40,6 @@ def dealers(request):
 # events page
 def events(request):
     return render(request, 'shelby/events.html')
-
-# shop page
-# def shop(request):
-#     return render(request, 'shelby/contact.html')
 
 # news page
 def news(request):

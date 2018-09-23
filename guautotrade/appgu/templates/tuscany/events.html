@@ -1,5 +1,6 @@
 {% extends "frames/tuscany/sub_base_tuscany.html" %}
 {% load static %}
+{% load i18n %}
 
 {% block header %}
 	{% with headerclass='portal' %}
@@ -17,7 +18,7 @@
 		<!-- News -->
 		<div id="event" class="section text-center">
             <h2>Event Calendar</h2>
-            <p class="lead">Libris vivendo eloquentiam ex ius, nec id splendide abhorreant.</p>
+            <p class="lead">{% trans 'Find out what exciting events are coming up' %}</p>
 			<!-- container -->
 			<div class="container">
 

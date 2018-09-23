@@ -7,7 +7,6 @@ from ..models import Vehicles, Vehicles_Tuscany, Dealers, Orders, NewsPosts, Eve
 from .. import forms
 from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib.auth import update_session_auth_hash
-from django.contrib import messages
 from django.contrib.auth.models import User
 from django.utils.translation import gettext as _
 from django.db.models import Q

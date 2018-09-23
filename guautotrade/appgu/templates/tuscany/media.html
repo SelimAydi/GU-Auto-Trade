@@ -1,5 +1,6 @@
 {% extends "frames/tuscany/sub_base_tuscany.html" %}
 {% load static %}
+{% load i18n %}
 
 {% block header %}
 	{% with headerclass='portal' %}
@@ -39,7 +40,7 @@
 		<!-- News -->
 		<div id="event" class="section text-center">
             <h2>Press & media</h2>
-            <p class="lead">Libris vivendo eloquentiam ex ius, nec id splendide abhorreant.</p>
+            <p class="lead">{% trans 'An insight of Tuscany in the press and media' %}</p>
 			<!-- container -->
 			<div class="container">
 				<!-- row -->

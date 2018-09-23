@@ -189,7 +189,8 @@ class OrderForm(forms.ModelForm):
 class VehicleForm(forms.ModelForm):
     model = forms.CharField(required=True)
     headline = forms.CharField(required=True)
-    description = forms.CharField(required=True, widget=forms.Textarea)
+    description = forms.CharField(required=True, widget=forms.Textarea(attrs={
+            'id': 'summernote'}))
     image = forms.ImageField()
     field_order = ['model', 'headline', 'description', 'image']
 
@@ -220,7 +221,8 @@ class NewsPostForm(forms.ModelForm):
     banner = forms.ImageField(required=False)
     title = forms.CharField(required=True)
     headline = forms.CharField(required=True)
-    description = forms.CharField(required=True, widget=forms.Textarea)
+    description = forms.CharField(required=True, widget=forms.Textarea(attrs={
+            'id': 'summernote'}))
     quote = forms.CharField(required=False)
     quotefooter = forms.URLField(required=False)
     field_order = ['title', 'headline', 'writtenby', 'quote', 'quotefooter', 'description', 'banner']

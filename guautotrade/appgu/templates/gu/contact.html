@@ -1,4 +1,5 @@
 {% load static %}
+{% load i18n %}
 <!DOCTYPE html>
 <html>
 <head>
@@ -83,51 +84,10 @@
             </ul>
 
             <ul class="nav navbar-nav navbar-right main-nav">
-                <li class="active"><a href="/gu">Home</a></li>
-                <li><a href="/gu/#about">About</a></li>
-                <li><a href="/gu/#services">Services</a></li>
-                <li><a href="/gu/contact">Contact</a></li>
-{#                <li class="dropdown m-menu-fw"><a href="#" data-toggle="dropdown" class="dropdown-toggle">Features#}
-{#                    <span><i class="fa fa-angle-down"></i></span></a>#}
-{#                    <ul class="dropdown-menu">#}
-{#                        <li>#}
-{#                            <div class="m-menu-content">#}
-{#                                <ul class="col-sm-3">#}
-{#                                    <li class="dropdown-header">Widget Haeder</li>#}
-{#                                    <li><a href="#">Awesome Features</a></li>#}
-{#                                    <li><a href="#">Clean Interface</a></li>#}
-{#                                    <li><a href="#">Available Possibilities</a></li>#}
-{#                                    <li><a href="#">Responsive Design</a></li>#}
-{#                                    <li><a href="#">Pixel Perfect Graphics</a></li>#}
-{#                                </ul>#}
-{#                                <ul class="col-sm-3">#}
-{#                                    <li class="dropdown-header">Widget Haeder</li>#}
-{#                                    <li><a href="#">Awesome Features</a></li>#}
-{#                                    <li><a href="#">Clean Interface</a></li>#}
-{#                                    <li><a href="#">Available Possibilities</a></li>#}
-{#                                    <li><a href="#">Responsive Design</a></li>#}
-{#                                    <li><a href="#">Pixel Perfect Graphics</a></li>#}
-{#                                </ul>#}
-{#                                <ul class="col-sm-3">#}
-{#                                    <li class="dropdown-header">Widget Haeder</li>#}
-{#                                    <li><a href="#">Awesome Features</a></li>#}
-{#                                    <li><a href="#">Clean Interface</a></li>#}
-{#                                    <li><a href="#">Available Possibilities</a></li>#}
-{#                                    <li><a href="#">Responsive Design</a></li>#}
-{#                                    <li><a href="#">Pixel Perfect Graphics</a></li>#}
-{#                                </ul>#}
-{#                                <ul class="col-sm-3">#}
-{#                                    <li class="dropdown-header">Widget Haeder</li>#}
-{#                                    <li><a href="#">Awesome Features</a></li>#}
-{#                                    <li><a href="#">Clean Interface</a></li>#}
-{#                                    <li><a href="#">Available Possibilities</a></li>#}
-{#                                    <li><a href="#">Responsive Design</a></li>#}
-{#                                    <li><a href="#">Pixel Perfect Graphics</a></li>#}
-{#                                </ul>#}
-{#                            </div>#}
-{#                        </li>#}
-{#                    </ul>#}
-{#                </li>#}
+                <li class="active"><a href="/gu">{% trans 'Home' %}</a></li>
+                <li><a href="/gu/#about">{% trans 'About' %}</a></li>
+                <li><a href="/gu/#services">{% trans 'Services' %}</a></li>
+                <li><a href="/gu/contact">{% trans 'Contact' %}</a></li>
 
             </ul>
 
@@ -157,28 +117,28 @@
                         <div class="col-md-6">
                             <div class="form-group user-name">
                                 <label for="nameFive-first" class="sr-only">Name</label>
-                                <input type="text" class="form-control" required="" id="nameFive-first" placeholder="First Name">
+                                <input type="text" class="form-control" required="" id="nameFive-first" placeholder="{% trans 'First Name' %}">
                             </div>
 
                             <div class="form-group user-email">
                                 <label for="emailFive" class="sr-only">Email</label>
-                                <input type="email" class="form-control" required="" id="emailFive" placeholder="Email Address">
+                                <input type="email" class="form-control" required="" id="emailFive" placeholder="{% trans 'Email Address' %}">
                             </div>
 
 
                             <div class="form-group user-phone">
                                 <label for="websiteOne" class="sr-only">Website</label>
-                                <input type="text" class="form-control" required="" id="websiteOne" placeholder="Phone">
+                                <input type="text" class="form-control" required="" id="websiteOne" placeholder="{% trans 'Phone' %}">
                             </div>
                         </div><!-- /.col-md-6 -->
                         <div class="col-md-6">
                             <div class="form-group user-message">
                                 <label for="messageOne" class="sr-only">Message</label>
-                                <textarea class="form-control" required="" id="messageOne" placeholder="Write Message"></textarea>
+                                <textarea class="form-control" required="" id="messageOne" placeholder="{% trans 'Write Message' %}"></textarea>
                             </div>
                         </div><!-- /.col-md-6 -->
                     </div><!-- /.row-->
-                    <button type="submit" class="btn btn-primary">Send Message</button>
+                    <button type="submit" class="btn btn-primary">{% trans 'Send Message' %}</button>
                 </form>
             </div><!-- /.col-md-8 -->
         </div>
@@ -193,24 +153,16 @@
     <div class="footer-widget-section">
         <div class="container text-center">
             <div class="row">
-                <div class="col-sm-4 footer-block">
+                <div class="col-sm-6 footer-block">
                     <div class="footer-widget widget_text">
                         <div class="footer-logo">
                             <a href="#"><img src="{% static 'img/guautotrade/GUAutotrade_Logo.png' %}" alt='' style="width: 100%;"></a>
                         </div>
-                        <p>Morbi nec metus. Phasellus blandit leo ut odio. Maecenas ullamcorper, dui et placerat feugiat, eros pede varius nisi, condimentum viverra felis nunc et lorem. Sed magna purus, fermentum eu, tincidunt eu, varius ut, felis.</p>
-
+                        <p>We at GU Auto Trade strive to deliver the best experiences for our clients. For more information, reach out to us by calling or sending a message through our contact form.</p>
                     </div>
-                </div><!-- /.col-sm-4 -->
+                </div>
 
-                <div class="col-sm-4 footer-block">
-                    <div class="footer-widget widget_text">
-                        <h3>Phasellus blandit leo ut odio</h3>
-                        <p>Maecenas ullamcorper, dui et placerat feugiat, eros pede varius nisi, condimentum viverra felis nunc et lorem. Sed magna purus, fermentum eu, tincidunt eu, varius ut, felis. In auctor lobortis lacus. Quisque libero metus, condimentum nec, tempor a, commodo mollis, magna.</p>
-                    </div>
-                </div><!-- /.col-sm-4 -->
-
-                <div class="col-sm-4 footer-block last">
+                <div class="col-sm-6 footer-block last">
                     <div class="footer-widget widget_text">
                         <h3>Contact us</h3>
                         <address>

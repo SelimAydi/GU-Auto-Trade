@@ -51,7 +51,7 @@
 
 					<div class="col-md-5">
 						<h3>{% trans "About Shelby" %}</h3>
-						<p class="lead">Libris vivendo eloquentiam ex ius, nec id splendide abhorreant.</p>
+						<p class="lead">{% trans 'At the forefront of automotive innovation since 1962' %}</p>
 						<p>{% trans 'In 1962, Carroll Shelby Put a Ford V8 engine into a European racecar chassis and went on to beat the world’s best teams and claim the first and only FIA World Sportcar championship for an American company. Ever since there’s not been another company more synonymous with developing high performance Ford Products than Shelby American.' %}</p>
 					</div>
 
@@ -122,7 +122,6 @@
 								</a>
 								<a class="vehicle-title" href="#">{{ vehicle.model }}</a>
 								<div class="vehicle-details">
-									<span class="vehicle-category">Type</span>
                                     <a href="vehicle/?v={{ vehicle.id }}"><span class="vehicle-price vehicle-free">{% trans "More Info" %}</span></a>
 								</div>
 							</div>
@@ -167,64 +166,6 @@
 		</div>
 		<!-- /Vehicles -->
 
-		<!-- Why us -->
-		<div id="why-us" class="section" style="background-color: #f2f2f2;">
-
-			<!-- container -->
-			<div class="container">
-
-				<!-- row -->
-				<div class="row">
-					<div class="section-header text-center">
-						<h2>Shelby</h2>
-						<p class="lead">Libris vivendo eloquentiam ex ius, nec id splendide abhorreant.</p>
-					</div>
-
-					<!-- feature -->
-					<div class="col-md-4">
-						<div class="feature">
-							<i class="feature-icon fas fa-file-contract"></i>
-							<div class="feature-content">
-								<h4>Lorem Ipsum</h4>
-								<p>Ceteros fuisset mei no, soleat epicurei adipiscing ne vis. Et his suas veniam nominati.</p>
-							</div>
-						</div>
-					</div>
-					<!-- /feature -->
-
-					<!-- feature -->
-					<div class="col-md-4">
-						<div class="feature">
-							<i class="feature-icon fas fa-flag-checkered"></i>
-							<div class="feature-content">
-								<h4>Ceteros fuisset</h4>
-								<p>Ceteros fuisset mei no, soleat epicurei adipiscing ne vis. Et his suas veniam nominati.</p>
-							</div>
-						</div>
-					</div>
-					<!-- /feature -->
-
-					<!-- feature -->
-					<div class="col-md-4">
-						<div class="feature">
-							<i class="feature-icon fas fa-check"></i>
-							<div class="feature-content">
-								<h4>Lorem Ipsum</h4>
-								<p>Ceteros fuisset mei no, soleat epicurei adipiscing ne vis. Et his suas veniam nominati.</p>
-							</div>
-						</div>
-					</div>
-					<!-- /feature -->
-
-				</div>
-				<!-- /row -->
-
-			</div>
-			<!-- /container -->
-
-		</div>
-		<!-- /Why us -->
-
 		<!-- Contact CTA -->
 		<div id="contact-cta" class="section">
 		
@@ -240,7 +181,7 @@
 
 					<div class="col-md-8 col-md-offset-2 text-center">
 						<h2 class="white-text">{% trans "Contact Us" %}</h2>
-						<p class="lead white-text">Libris vivendo eloquentiam ex ius, nec id splendide abhorreant.</p>
+						<p class="lead white-text">{% trans 'Feel free to reach out. We will respond as soon as possible.' %}</p>
 						<a class="main-button icon-button" href="contact">{% trans "Contact Us Now" %}</a>
 					</div>
 

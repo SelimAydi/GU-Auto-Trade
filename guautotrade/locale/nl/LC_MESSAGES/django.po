@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-08-20 00:00+0200\n"
+"POT-Creation-Date: 2018-09-22 20:31+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,27 +18,27 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: .\appgu\forms.py:13 .\appgu\forms.py:71
+#: .\appgu\forms.py:13 .\appgu\forms.py:86
 msgid "First Name:"
 msgstr "Voornaam:"
 
-#: .\appgu\forms.py:14 .\appgu\forms.py:72
+#: .\appgu\forms.py:14 .\appgu\forms.py:87
 msgid "Surname:"
 msgstr "Achternaam:"
 
-#: .\appgu\forms.py:15 .\appgu\forms.py:73
+#: .\appgu\forms.py:15 .\appgu\forms.py:88
 msgid "Username:"
 msgstr "Gebruikersnaam:"
 
-#: .\appgu\forms.py:16 .\appgu\forms.py:74
+#: .\appgu\forms.py:16 .\appgu\forms.py:89
 msgid "Telephone Number:"
 msgstr "Telefoon nummer:"
 
-#: .\appgu\forms.py:25 .\appgu\forms.py:84
+#: .\appgu\forms.py:25 .\appgu\forms.py:99
 msgid "This e-mail address already exists, use a different e-mail address."
 msgstr "Dit e-mail adres bestaat al, gebruik a.u.b een andere e-mail adres."
 
-#: .\appgu\forms.py:30 .\appgu\forms.py:89
+#: .\appgu\forms.py:30 .\appgu\forms.py:104
 msgid "Password:"
 msgstr "Wachtwoord:"
 
@@ -46,7 +46,7 @@ msgstr "Wachtwoord:"
 msgid "Repeat Password:"
 msgstr "Herhaal wachtwoord:"
 
-#: .\appgu\forms.py:33 .\appgu\forms.py:92
+#: .\appgu\forms.py:33 .\appgu\forms.py:107
 msgid ""
 "Password should at least consist of 5 characters. Do not only use numbers."
 msgstr ""
@@ -67,73 +67,73 @@ msgstr ""
 msgid "john@example.com"
 msgstr "john@voorbeeld.com"
 
-#: .\appgu\forms.py:75
+#: .\appgu\forms.py:90
 msgid "E-mail:"
 msgstr "E-mail:"
 
-#: .\appgu\forms.py:90
+#: .\appgu\forms.py:105
 msgid "Repeat password:"
 msgstr "Herhaal wachtwoord:"
 
-#: .\appgu\forms.py:93
+#: .\appgu\forms.py:108
 msgid "Repeat the password."
 msgstr "Herhaal het wachtwoord:"
 
-#: .\appgu\forms.py:137 .\appgu\templates\portal\myorders.html:36
+#: .\appgu\forms.py:152 .\appgu\templates\portal\myorders.html:36
 #: .\appgu\templates\portal\orderlist.html:56
 msgid "Color"
 msgstr "Kleur"
 
-#: .\appgu\forms.py:138 .\appgu\forms.py:151
+#: .\appgu\forms.py:153 .\appgu\forms.py:166
 #: .\appgu\templates\portal\orderlist.html:63
 msgid "Additional Comments"
 msgstr "Extra info"
 
-#: .\appgu\forms.py:139 .\appgu\templates\portal\myorders.html:38
+#: .\appgu\forms.py:154 .\appgu\templates\portal\myorders.html:38
 #: .\appgu\templates\portal\orderlist.html:58
 msgid "Homologation"
 msgstr "Goedkeuring"
 
-#: .\appgu\forms.py:140 .\appgu\templates\portal\myorders.html:39
+#: .\appgu\forms.py:155 .\appgu\templates\portal\myorders.html:39
 #: .\appgu\templates\portal\orderlist.html:59
 msgid "Custom Clearance"
 msgstr "Inklaring"
 
-#: .\appgu\forms.py:149 .\appgu\forms.py:189
+#: .\appgu\forms.py:164 .\appgu\forms.py:205
 #: .\appgu\templates\portal\myorders.html:35
 #: .\appgu\templates\portal\orderlist.html:55
 msgid "Model"
 msgstr "Model"
 
-#: .\appgu\forms.py:150
+#: .\appgu\forms.py:165
 msgid "Colour"
 msgstr "Kleur"
 
-#: .\appgu\forms.py:152
+#: .\appgu\forms.py:167
 msgid "Modelnumber"
 msgstr "Modelnummer"
 
-#: .\appgu\forms.py:153
+#: .\appgu\forms.py:168
 msgid "What colour?"
 msgstr "Welke kleur?"
 
-#: .\appgu\forms.py:154
+#: .\appgu\forms.py:169
 msgid "Put extra information or remarks here"
 msgstr "Vul hier extra informatie in"
 
-#: .\appgu\forms.py:155
+#: .\appgu\forms.py:170
 msgid "Homologation: "
 msgstr "Goedkeuring: "
 
-#: .\appgu\forms.py:156
+#: .\appgu\forms.py:171
 msgid "Custom Clearance: "
 msgstr "Inklaring: "
 
-#: .\appgu\forms.py:190 .\appgu\forms.py:222
+#: .\appgu\forms.py:206 .\appgu\forms.py:238
 msgid "Headline"
 msgstr "Hoofdregel"
 
-#: .\appgu\forms.py:191 .\appgu\forms.py:224 .\appgu\forms.py:251
+#: .\appgu\forms.py:207 .\appgu\forms.py:240 .\appgu\forms.py:267
 #: .\appgu\templates\oscar\dashboard\offers\offer_detail.html:67
 #: .\appgu\templates\oscar\dashboard\offers\summary.html:12
 #: .\appgu\templates\oscar\dashboard\shipping\weight_based_detail.html:35
@@ -141,53 +141,53 @@ msgstr "Hoofdregel"
 msgid "Description"
 msgstr "Beschrijving"
 
-#: .\appgu\forms.py:195 .\appgu\forms.py:231
+#: .\appgu\forms.py:211 .\appgu\forms.py:247
 msgid "Shelby Super Snake is one of the most.."
 msgstr "Shelby Super Snake is.."
 
-#: .\appgu\forms.py:196
+#: .\appgu\forms.py:212
 msgid "A description of the model"
 msgstr "Beschrijving van het model"
 
-#: .\appgu\forms.py:221 .\appgu\forms.py:250
+#: .\appgu\forms.py:237 .\appgu\forms.py:266
 #: .\appgu\templates\oscar\dashboard\catalogue\product_update.html:253
 #: .\appgu\templates\oscar\dashboard\vouchers\voucher_set_detail.html:42
 msgid "Title"
 msgstr "Titel"
 
-#: .\appgu\forms.py:223
+#: .\appgu\forms.py:239
 msgid "Author"
 msgstr "Auteur"
 
-#: .\appgu\forms.py:225
+#: .\appgu\forms.py:241
 msgid "Quote"
 msgstr "Citaat"
 
-#: .\appgu\forms.py:226
+#: .\appgu\forms.py:242
 msgid "Quote Reference"
 msgstr "Citaat Referentie"
 
-#: .\appgu\forms.py:229
+#: .\appgu\forms.py:245
 msgid "Shelby Super Snake is amazing"
 msgstr "Shelby Super Snake is geweldig"
 
-#: .\appgu\forms.py:230
+#: .\appgu\forms.py:246
 msgid "John Doe"
 msgstr "John Doe"
 
-#: .\appgu\forms.py:232
+#: .\appgu\forms.py:248
 msgid "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
 msgstr ""
 
-#: .\appgu\forms.py:233
+#: .\appgu\forms.py:249
 msgid "From Example.com"
 msgstr "Van Voorbeeld.com"
 
-#: .\appgu\forms.py:234
+#: .\appgu\forms.py:250
 msgid "The actual newspost text goes here"
 msgstr "De nieuws tekst"
 
-#: .\appgu\forms.py:252
+#: .\appgu\forms.py:268
 #: .\appgu\templates\oscar\dashboard\orders\line_detail.html:138
 #: .\appgu\templates\oscar\dashboard\orders\line_detail.html:168
 #: .\appgu\templates\oscar\dashboard\orders\order_detail.html:342
@@ -199,42 +199,43 @@ msgstr "De nieuws tekst"
 msgid "Date"
 msgstr "Datum"
 
-#: .\appgu\forms.py:253
+#: .\appgu\forms.py:269
 msgid "Link"
 msgstr "Link"
 
-#: .\appgu\forms.py:255
+#: .\appgu\forms.py:271
 msgid "Shelby Drag Race"
 msgstr ""
 
-#: .\appgu\forms.py:256
+#: .\appgu\forms.py:272
 msgid "Information about the event"
 msgstr "Informatie over het evenement"
 
-#: .\appgu\forms.py:257
+#: .\appgu\forms.py:273
 msgid "http://www.example.com/event"
 msgstr "http://www.voorbeeld.com/evenement"
 
-#: .\appgu\forms.py:258
+#: .\appgu\forms.py:274
 msgid "YYYY/MM/DD"
 msgstr "JJJJ/MM/DD"
 
-#: .\appgu\forms.py:259
+#: .\appgu\forms.py:275
 msgid "Optional. Leave blank if there is no link to the event."
 msgstr "Optioneel. Laat dit leeg als er geen link is naar het evenement."
 
-#: .\appgu\forms.py:283
+#: .\appgu\forms.py:299
 msgid "Customer Name"
 msgstr "Klant Naam"
 
-#: .\appgu\forms.py:284
+#: .\appgu\forms.py:300
 msgid "Phone Number"
 msgstr "Telefoon nummer"
 
-#: .\appgu\forms.py:285 .\appgu\templates\frames\base.html:58
-#: .\appgu\templates\frames\base_portal.html:94
+#: .\appgu\forms.py:301 .\appgu\forms.py:399
+#: .\appgu\templates\frames\base.html:58
+#: .\appgu\templates\frames\base_portal.html:99
 #: .\appgu\templates\oscar\checkout\checkout.html:49
-#: .\appgu\templates\oscar\checkout\thank_you.html:52
+#: .\appgu\templates\oscar\checkout\thank_you.html:62
 #: .\appgu\templates\oscar\dashboard\partners\partner_manage.html:41
 #: .\appgu\templates\oscar\dashboard\partners\partner_user_list.html:43
 #: .\appgu\templates\oscar\dashboard\partners\partner_user_select.html:49
@@ -246,8 +247,8 @@ msgstr "Telefoon nummer"
 msgid "Email"
 msgstr "Email"
 
-#: .\appgu\forms.py:286 .\appgu\templates\oscar\checkout\checkout.html:37
-#: .\appgu\templates\oscar\checkout\thank_you.html:39
+#: .\appgu\forms.py:302 .\appgu\templates\oscar\checkout\checkout.html:37
+#: .\appgu\templates\oscar\checkout\thank_you.html:49
 #: .\appgu\templates\oscar\customer\address\address_list.html:10
 #: .\appgu\templates\oscar\customer\anon_order.html:25
 #: .\appgu\templates\oscar\customer\order\order_detail.html:154
@@ -255,52 +256,100 @@ msgstr "Email"
 msgid "Address"
 msgstr "Adres"
 
-#: .\appgu\forms.py:287
+#: .\appgu\forms.py:303
 msgid "Country"
 msgstr "Land"
 
-#: .\appgu\forms.py:288
+#: .\appgu\forms.py:304
 msgid "Latitude"
 msgstr "Breedtegraad"
 
-#: .\appgu\forms.py:289
+#: .\appgu\forms.py:305
 msgid "Longitude"
 msgstr "Lengtegraad"
 
-#: .\appgu\forms.py:297 .\appgu\forms.py:298
+#: .\appgu\forms.py:313 .\appgu\forms.py:314
 msgid "Optional field."
 msgstr "Optionele veld."
 
-#: .\appgu\forms.py:353
+#: .\appgu\forms.py:369
 msgid "For User ID"
 msgstr "Voor Gebruiker ID"
 
-#: .\appgu\forms.py:354
-msgid "Leave blank if this order is on your name."
-msgstr "Laat leeg als het bestelling op uw naam komt te staan"
+#: .\appgu\forms.py:370
+msgid "This field must consist of number(s) only."
+msgstr ""
+
+#: .\appgu\forms.py:398 .\appgu\templates\oscar\customer\profile\profile.html:9
+#: .\appgu\templates\oscar\customer\wishlists\wishlists_list.html:9
+#: .\appgu\templates\oscar\dashboard\catalogue\product_class_form.html:97
+#: .\appgu\templates\oscar\dashboard\catalogue\product_class_list.html:26
+#: .\appgu\templates\oscar\dashboard\comms\list.html:32
+#: .\appgu\templates\oscar\dashboard\offers\offer_detail.html:62
+#: .\appgu\templates\oscar\dashboard\offers\summary.html:10
+#: .\appgu\templates\oscar\dashboard\orders\order_detail.html:33
+#: .\appgu\templates\oscar\dashboard\orders\order_detail.html:44
+#: .\appgu\templates\oscar\dashboard\partners\partner_list.html:44
+#: .\appgu\templates\oscar\dashboard\promotions\promotion_list.html:41
+#: .\appgu\templates\oscar\dashboard\ranges\range_list.html:31
+#: .\appgu\templates\oscar\dashboard\reports\partials\open_basket_report.html:9
+#: .\appgu\templates\oscar\dashboard\reports\partials\order_report.html:10
+#: .\appgu\templates\oscar\dashboard\reports\partials\submitted_basket_report.html:9
+#: .\appgu\templates\oscar\dashboard\reports\partials\user_report.html:9
+#: .\appgu\templates\oscar\dashboard\shipping\weight_based_detail.html:31
+#: .\appgu\templates\oscar\dashboard\shipping\weight_based_list.html:31
+#: .\appgu\templates\oscar\dashboard\users\detail.html:32
+#: .\appgu\templates\oscar\dashboard\vouchers\voucher_delete.html:37
+#: .\appgu\templates\oscar\dashboard\vouchers\voucher_detail.html:32
+#: .\appgu\templates\oscar\dashboard\vouchers\voucher_list.html:52
+#: .\appgu\templates\oscar\dashboard\vouchers\voucher_set_list.html:35
+msgid "Name"
+msgstr ""
+
+#: .\appgu\forms.py:400
+#: .\appgu\templates\oscar\customer\email\email_detail.html:19
+#: .\appgu\templates\oscar\customer\email\email_list.html:9
+#: .\appgu\templates\oscar\customer\notifications\detail.html:24
+#: .\appgu\templates\oscar\dashboard\comms\detail.html:89
+msgid "Subject"
+msgstr ""
+
+#: .\appgu\forms.py:401
+#: .\appgu\templates\oscar\customer\notifications\detail.html:33
+#: .\appgu\templates\oscar\dashboard\orders\order_detail.html:565
+#: .\appgu\templates\oscar\dashboard\orders\order_detail.html:612
+msgid "Message"
+msgstr ""
+
+#: .\appgu\oscar\checkout\views.py:129
+msgid ""
+"A problem occurred while processing payment for this order - no payment has "
+"been taken.  Please contact customer services if this problem persists"
+msgstr ""
 
 # ---------------------------------Begin Oscar--------------------------------------------
 #: .\appgu\templates\frames\base.html:57
-#: .\appgu\templates\frames\base_portal.html:93
+#: .\appgu\templates\frames\base_portal.html:98
+#: .\appgu\templates\gu\contact.html:131
 #: .\appgu\templates\oscar\checkout\checkout.html:47
-#: .\appgu\templates\oscar\checkout\thank_you.html:50
+#: .\appgu\templates\oscar\checkout\thank_you.html:60
 #: .\appgu\templates\oscar\dashboard\orders\order_detail.html:457
 msgid "Phone"
 msgstr "Telefoon-nummer"
 
-#: .\appgu\templates\frames\base_portal.html:61 .\appgu\views\portal.py:372
+#: .\appgu\templates\frames\base_portal.html:66 .\appgu\views\portal.py:386
 msgid "Change Password"
 msgstr "Wachtwoord veranderen"
 
-#: .\appgu\templates\frames\base_portal.html:69
+#: .\appgu\templates\frames\base_portal.html:74
 msgid "Place an Order"
 msgstr "Plaats een bestelling"
 
-#: .\appgu\templates\frames\base_portal.html:70
+#: .\appgu\templates\frames\base_portal.html:75
 msgid "My orders"
 msgstr "Mijn bestellingen"
 
-#: .\appgu\templates\frames\base_portal.html:73
+#: .\appgu\templates\frames\base_portal.html:78
 #: .\appgu\templates\oscar\customer\login_registration.html:33
 #: .\appgu\templates\oscar\customer\login_registration.html:36
 #: .\appgu\templates\oscar\customer\registration.html:6
@@ -312,12 +361,12 @@ msgstr "Mijn bestellingen"
 msgid "Register"
 msgstr "Aanmelden"
 
-#: .\appgu\templates\frames\base_portal.html:76
+#: .\appgu\templates\frames\base_portal.html:81
 #: .\appgu\templates\oscar\dashboard\orders\order_detail.html:613
 msgid "Admin"
 msgstr "Admin"
 
-#: .\appgu\templates\frames\base_portal.html:79
+#: .\appgu\templates\frames\base_portal.html:84
 #: .\appgu\templates\oscar\dashboard\orders\line_detail.html:16
 #: .\appgu\templates\oscar\dashboard\orders\order_detail.html:17
 #: .\appgu\templates\oscar\dashboard\orders\order_list.html:10
@@ -331,30 +380,30 @@ msgstr "Admin"
 msgid "Orders"
 msgstr "Bestellingen"
 
-#: .\appgu\templates\frames\base_portal.html:80
+#: .\appgu\templates\frames\base_portal.html:85
 #: .\appgu\templates\oscar\dashboard\partners\partner_list.html:45
 #: .\appgu\templates\oscar\dashboard\partners\partner_manage.html:36
 msgid "Users"
 msgstr ""
 
-#: .\appgu\templates\frames\base_portal.html:82
+#: .\appgu\templates\frames\base_portal.html:87
 #: .\appgu\templates\oscar\dashboard\widgets\related_widget_wrapper.html:14
 msgid "Add"
 msgstr "Toevoegen"
 
-#: .\appgu\templates\frames\base_portal.html:84
-#: .\appgu\templates\frames\sub_base.html:71
-#: .\appgu\templates\frames\sub_base.html:117
-#: .\appgu\templates\gu\index.html:84 .\appgu\templates\shelby\index.html:90
-#: .\appgu\templates\tuscany\index.html:83
+#: .\appgu\templates\frames\base_portal.html:89
+#: .\appgu\templates\frames\sub_base.html:79
+#: .\appgu\templates\frames\sub_base.html:125
+#: .\appgu\templates\shelby\index.html:90
+#: .\appgu\templates\tuscany\index.html:77
 msgid "Vehicles"
 msgstr "Voertuigen"
 
-#: .\appgu\templates\frames\base_portal.html:85
+#: .\appgu\templates\frames\base_portal.html:90
 msgid "Newspost"
 msgstr "Nieuws"
 
-#: .\appgu\templates\frames\base_portal.html:86
+#: .\appgu\templates\frames\base_portal.html:91
 #: .\appgu\templates\oscar\dashboard\orders\line_detail.html:135
 #: .\appgu\templates\oscar\dashboard\orders\line_detail.html:166
 #: .\appgu\templates\oscar\dashboard\orders\order_detail.html:343
@@ -362,136 +411,173 @@ msgstr "Nieuws"
 msgid "Event"
 msgstr "Evenement"
 
-#: .\appgu\templates\frames\base_portal.html:87
+#: .\appgu\templates\frames\base_portal.html:92
 msgid "Map dealers"
 msgstr "Dealers"
 
-#: .\appgu\templates\frames\base_portal.html:91
-#: .\appgu\templates\oscar\partials\nav_accounts.html:57
+#: .\appgu\templates\frames\base_portal.html:96
+#: .\appgu\templates\oscar\partials\nav_accounts.html:58
 msgid "Logout"
 msgstr "Uitloggen"
 
-#: .\appgu\templates\frames\sub_base.html:72
-#: .\appgu\templates\frames\sub_base.html:118
+#: .\appgu\templates\frames\sub_base.html:80
+#: .\appgu\templates\frames\sub_base.html:126
 msgid "Dealers"
 msgstr "Dealers"
 
-#: .\appgu\templates\frames\sub_base.html:73
-#: .\appgu\templates\frames\sub_base.html:119
+#: .\appgu\templates\frames\sub_base.html:81
+#: .\appgu\templates\frames\sub_base.html:127
 msgid "Events"
 msgstr "Evenementen"
 
-#: .\appgu\templates\frames\sub_base.html:74
-#: .\appgu\templates\frames\sub_base.html:120
+#: .\appgu\templates\frames\sub_base.html:82
+#: .\appgu\templates\frames\sub_base.html:128
 msgid "Shop"
 msgstr "Webshop"
 
-#: .\appgu\templates\frames\sub_base.html:75
-#: .\appgu\templates\frames\sub_base.html:121
+#: .\appgu\templates\frames\sub_base.html:83
+#: .\appgu\templates\frames\sub_base.html:129
 msgid "News"
 msgstr "Nieuws"
 
-#: .\appgu\templates\frames\sub_base.html:76
-#: .\appgu\templates\frames\sub_base.html:122
+#: .\appgu\templates\frames\sub_base.html:84
+#: .\appgu\templates\frames\sub_base.html:130
 msgid "Press & Media"
 msgstr "Pers & Media"
 
-#: .\appgu\templates\frames\sub_base.html:77
-#: .\appgu\templates\frames\sub_base.html:123
+#: .\appgu\templates\frames\sub_base.html:85
+#: .\appgu\templates\frames\sub_base.html:131
 #: .\appgu\templates\oscar\dashboard\login.html:41
 #: .\appgu\templates\portal\index.html:33
 msgid "Login"
 msgstr "Inloggen"
 
-#: .\appgu\templates\frames\sub_base.html:77
-#: .\appgu\templates\frames\sub_base.html:123
+#: .\appgu\templates\frames\sub_base.html:85
+#: .\appgu\templates\frames\sub_base.html:131
 msgid "Portal"
 msgstr "Portaal"
 
-#: .\appgu\templates\frames\sub_base.html:78
-#: .\appgu\templates\frames\sub_base.html:124
+#: .\appgu\templates\frames\sub_base.html:86
+#: .\appgu\templates\frames\sub_base.html:132
+#: .\appgu\templates\gu\contact.html:90 .\appgu\templates\gu\index.html:90
 #: .\appgu\templates\oscar\checkout\checkout.html:45
-#: .\appgu\templates\oscar\checkout\thank_you.html:48
+#: .\appgu\templates\oscar\checkout\thank_you.html:58
 msgid "Contact"
 msgstr "Contact"
 
-#: .\appgu\templates\gu\index.html:26 .\appgu\templates\shelby\index.html:32
-msgid "Top class automobiles"
-msgstr "Klasse auto's"
+#: .\appgu\templates\gu\contact.html:87 .\appgu\templates\gu\index.html:86
+#: .\appgu\templates\oscar\basket\basket.html:12
+#: .\appgu\templates\oscar\catalogue\browse.html:17
+#: .\appgu\templates\oscar\catalogue\category.html:25
+#: .\appgu\templates\oscar\catalogue\detail.html:23
+#: .\appgu\templates\oscar\catalogue\reviews\review_detail.html:11
+#: .\appgu\templates\oscar\catalogue\reviews\review_list.html:13
+#: .\appgu\templates\oscar\customer\baseaccountpage.html:14
+#: .\appgu\templates\oscar\customer\login_registration.html:11
+#: .\appgu\templates\oscar\customer\order\order_list.html:9
+#: .\appgu\templates\oscar\customer\registration.html:12
+#: .\appgu\templates\oscar\customer\wishlists\wishlists_delete.html:7
+#: .\appgu\templates\oscar\customer\wishlists\wishlists_delete_product.html:7
+#: .\appgu\templates\oscar\customer\wishlists\wishlists_detail.html:9
+#: .\appgu\templates\oscar\customer\wishlists\wishlists_form.html:7
+#: .\appgu\templates\oscar\dashboard\catalogue\category_list.html:31
+#: .\appgu\templates\oscar\flatpages\default.html:20
+#: .\appgu\templates\oscar\offer\detail.html:14
+#: .\appgu\templates\oscar\offer\list.html:14
+#: .\appgu\templates\oscar\offer\range.html:15
+#: .\appgu\templates\oscar\registration\password_reset_complete.html:9
+#: .\appgu\templates\oscar\registration\password_reset_confirm.html:9
+#: .\appgu\templates\oscar\registration\password_reset_done.html:9
+#: .\appgu\templates\oscar\registration\password_reset_form.html:9
+#: .\appgu\templates\oscar\search\results.html:15
+msgid "Home"
+msgstr "Home"
 
-#: .\appgu\templates\gu\index.html:27 .\appgu\templates\shelby\index.html:33
+#: .\appgu\templates\gu\contact.html:88 .\appgu\templates\gu\index.html:87
+msgid "About"
+msgstr ""
+
+#: .\appgu\templates\gu\contact.html:89 .\appgu\templates\gu\index.html:88
+msgid "Services"
+msgstr ""
+
+#: .\appgu\templates\gu\contact.html:120
+#, fuzzy
+#| msgid "First Name:"
+msgid "First Name"
+msgstr "Voornaam:"
+
+#: .\appgu\templates\gu\contact.html:125
+#, fuzzy
+#| msgid "Address"
+msgid "Email Address"
+msgstr "Adres"
+
+#: .\appgu\templates\gu\contact.html:137
+msgid "Write Message"
+msgstr ""
+
+#: .\appgu\templates\gu\contact.html:141
+#: .\appgu\templates\shelby\contact.html:28
+#: .\appgu\templates\tuscany\contact.html:28
+msgid "Send Message"
+msgstr ""
+
+#: .\appgu\templates\gu\index.html:89
+msgid "Team"
+msgstr ""
+
+#: .\appgu\templates\gu\index.html:147
+#, fuzzy
+#| msgid "Or continue to GU Auto Trade"
+msgid "About GU Auto Trade"
+msgstr "Of ga door naar GU Auto Trade"
+
+#: .\appgu\templates\gu\index.html:160
+msgid "A brief insight"
+msgstr ""
+
+#: .\appgu\templates\gu\index.html:162
 msgid ""
-"Delivering cars and products that provide an unparalleled driving experience"
-msgstr "Auto's en producten die mensen ongeëvenaard rij-ervaring geven"
+"GU Auto Trade B.V, situated in the Netherlands, is a multinational B-2-B "
+"automobile trading company operating globally. GU Auto Trade is specialized "
+"in providing its clients with premium automobiles whilst handling proficient "
+"services. Competitive prices, fast delivery and excellent service is what "
+"characterizes our company's approach. For more information, feel free to "
+"reach us by calling or sending a message through our contact form."
+msgstr ""
 
-#: .\appgu\templates\gu\index.html:28 .\appgu\templates\gu\index.html:48
-#: .\appgu\templates\shelby\index.html:34
-msgid "Check dealers"
-msgstr "Dealers"
+#: .\appgu\templates\gu\index.html:177
+msgid "Our Services"
+msgstr ""
 
-#: .\appgu\templates\gu\index.html:49
-msgid "Our dealers provide you with the best services"
-msgstr "Onze dealers voorzien u met de beste diensten"
+#: .\appgu\templates\gu\index.html:191
+msgid ""
+"At GU Auto trade offer our clients competitively priced automobiles with "
+"quality service."
+msgstr ""
 
-#: .\appgu\templates\gu\index.html:85 .\appgu\templates\shelby\index.html:91
-#: .\appgu\templates\tuscany\index.html:84
-msgid "Checkout our vehicles"
-msgstr "Neem een kijkje naar onze voertuigen"
+#: .\appgu\templates\gu\index.html:202
+msgid "Operating with excellence"
+msgstr ""
 
-#: .\appgu\templates\gu\index.html:120 .\appgu\templates\shelby\index.html:126
-#: .\appgu\templates\tuscany\index.html:119
-msgid "More Info"
-msgstr "Meer Informatie"
+#: .\appgu\templates\gu\index.html:204
+msgid ""
+"GU Auto Trade is enriched with expertise and experience in providing premium "
+"automobiles."
+msgstr ""
 
-#: .\appgu\templates\gu\index.html:131 .\appgu\templates\shelby\index.html:137
-#: .\appgu\templates\tuscany\index.html:130
-msgid "first"
-msgstr "eerste"
+#: .\appgu\templates\gu\index.html:214
+#, fuzzy
+#| msgid "Customer Reviews"
+msgid "Quality customer services"
+msgstr "Klant Recensies"
 
-#: .\appgu\templates\gu\index.html:132
-#: .\appgu\templates\oscar\dashboard\partials\pagination.html:8
-#: .\appgu\templates\oscar\partials\pagination.html:8
-#: .\appgu\templates\oscar\search\partials\pagination.html:8
-#: .\appgu\templates\shelby\index.html:138
-#: .\appgu\templates\tuscany\index.html:131
-msgid "previous"
-msgstr "vorige"
-
-#: .\appgu\templates\gu\index.html:136 .\appgu\templates\shelby\index.html:142
-#: .\appgu\templates\tuscany\index.html:135
-msgid "Page"
-msgstr "Pagina"
-
-#: .\appgu\templates\gu\index.html:136 .\appgu\templates\shelby\index.html:142
-#: .\appgu\templates\tuscany\index.html:135
-msgid "of"
-msgstr "van de"
-
-#: .\appgu\templates\gu\index.html:140
-#: .\appgu\templates\oscar\dashboard\partials\pagination.html:16
-#: .\appgu\templates\oscar\partials\pagination.html:16
-#: .\appgu\templates\oscar\search\partials\pagination.html:16
-#: .\appgu\templates\shelby\index.html:146
-#: .\appgu\templates\tuscany\index.html:139
-msgid "next"
-msgstr "volgende"
-
-#: .\appgu\templates\gu\index.html:141 .\appgu\templates\shelby\index.html:147
-#: .\appgu\templates\tuscany\index.html:140
-msgid "last"
-msgstr "laatste"
-
-#: .\appgu\templates\gu\index.html:250 .\appgu\templates\shelby\index.html:53
-msgid "About Shelby"
-msgstr "Over Shelby"
-
-#: .\appgu\templates\gu\index.html:285 .\appgu\templates\shelby\index.html:270
-msgid "Contact Us"
-msgstr "Neem Contact op met ons"
-
-#: .\appgu\templates\gu\index.html:287 .\appgu\templates\shelby\index.html:272
-msgid "Contact Us Now"
-msgstr "Contact opnemen"
+#: .\appgu\templates\gu\index.html:216
+msgid ""
+"At GU Auto Trade we don’t only trade automobiles, we build a relationship "
+"with our clients to provide the most feasible solutions"
+msgstr ""
 
 #: .\appgu\templates\index.html:23
 msgid "Make a choice"
@@ -546,36 +632,9 @@ msgstr "Dit incident is gestuurd naar een administrator."
 #: .\appgu\templates\oscar\basket\basket.html:22
 #: .\appgu\templates\oscar\basket\partials\basket_totals.html:9
 #: .\appgu\templates\oscar\basket\partials\basket_totals.html:164
-#: .\appgu\templates\oscar\checkout\thank_you.html:174
+#: .\appgu\templates\oscar\checkout\thank_you.html:184
 msgid "Basket"
 msgstr "Winkelwagen"
-
-#: .\appgu\templates\oscar\basket\basket.html:12
-#: .\appgu\templates\oscar\catalogue\browse.html:17
-#: .\appgu\templates\oscar\catalogue\category.html:25
-#: .\appgu\templates\oscar\catalogue\detail.html:23
-#: .\appgu\templates\oscar\catalogue\reviews\review_detail.html:11
-#: .\appgu\templates\oscar\catalogue\reviews\review_list.html:13
-#: .\appgu\templates\oscar\customer\baseaccountpage.html:14
-#: .\appgu\templates\oscar\customer\login_registration.html:11
-#: .\appgu\templates\oscar\customer\order\order_list.html:9
-#: .\appgu\templates\oscar\customer\registration.html:12
-#: .\appgu\templates\oscar\customer\wishlists\wishlists_delete.html:7
-#: .\appgu\templates\oscar\customer\wishlists\wishlists_delete_product.html:7
-#: .\appgu\templates\oscar\customer\wishlists\wishlists_detail.html:9
-#: .\appgu\templates\oscar\customer\wishlists\wishlists_form.html:7
-#: .\appgu\templates\oscar\dashboard\catalogue\category_list.html:31
-#: .\appgu\templates\oscar\flatpages\default.html:20
-#: .\appgu\templates\oscar\offer\detail.html:14
-#: .\appgu\templates\oscar\offer\list.html:14
-#: .\appgu\templates\oscar\offer\range.html:15
-#: .\appgu\templates\oscar\registration\password_reset_complete.html:9
-#: .\appgu\templates\oscar\registration\password_reset_confirm.html:9
-#: .\appgu\templates\oscar\registration\password_reset_done.html:9
-#: .\appgu\templates\oscar\registration\password_reset_form.html:9
-#: .\appgu\templates\oscar\search\results.html:15
-msgid "Home"
-msgstr "Home"
 
 #: .\appgu\templates\oscar\basket\messages\addition.html:4
 #, python-format
@@ -704,7 +763,7 @@ msgstr "Producten om nu te kopen"
 
 #: .\appgu\templates\oscar\basket\partials\basket_content.html:30
 #: .\appgu\templates\oscar\checkout\checkout.html:110
-#: .\appgu\templates\oscar\checkout\thank_you.html:119
+#: .\appgu\templates\oscar\checkout\thank_you.html:129
 #: .\appgu\templates\oscar\customer\anon_order.html:61
 #: .\appgu\templates\oscar\customer\wishlists\wishlists_detail.html:32
 #: .\appgu\templates\oscar\dashboard\orders\line_detail.html:53
@@ -716,13 +775,13 @@ msgid "Quantity"
 msgstr "Aantal"
 
 #: .\appgu\templates\oscar\basket\partials\basket_content.html:31
-#: .\appgu\templates\oscar\basket\partials\basket_content.html:181
+#: .\appgu\templates\oscar\basket\partials\basket_content.html:202
 msgid "Price"
 msgstr "Prijs"
 
 #: .\appgu\templates\oscar\basket\partials\basket_content.html:32
 #: .\appgu\templates\oscar\checkout\checkout.html:111
-#: .\appgu\templates\oscar\checkout\thank_you.html:120
+#: .\appgu\templates\oscar\checkout\thank_you.html:130
 msgid "Total"
 msgstr "Totaal"
 
@@ -741,7 +800,7 @@ msgid "Update"
 msgstr "Update"
 
 #: .\appgu\templates\oscar\basket\partials\basket_content.html:71
-#: .\appgu\templates\oscar\basket\partials\basket_content.html:204
+#: .\appgu\templates\oscar\basket\partials\basket_content.html:225
 #: .\appgu\templates\oscar\basket\partials\basket_totals.html:48
 #: .\appgu\templates\oscar\catalogue\partials\add_to_wishlist.html:41
 #: .\appgu\templates\oscar\customer\wishlists\wishlists_delete_product.html:32
@@ -874,34 +933,34 @@ msgstr ""
 
 #: .\appgu\templates\oscar\basket\partials\basket_content.html:146
 #: .\appgu\templates\oscar\checkout\checkout.html:151
-#: .\appgu\templates\oscar\checkout\thank_you.html:168
+#: .\appgu\templates\oscar\checkout\thank_you.html:178
 #: .\appgu\templates\oscar\customer\anon_order.html:95
 msgid "Totals"
 msgstr ""
 
-#: .\appgu\templates\oscar\basket\partials\basket_content.html:158
+#: .\appgu\templates\oscar\basket\partials\basket_content.html:181
 msgid "Proceed to checkout"
 msgstr "Door naar afrekenen"
 
-#: .\appgu\templates\oscar\basket\partials\basket_content.html:167
+#: .\appgu\templates\oscar\basket\partials\basket_content.html:188
 #: .\appgu\templates\oscar\basket\partials\basket_quick.html:42
 msgid "Your basket is empty."
 msgstr "Uw winkelwagen is leeg."
 
-#: .\appgu\templates\oscar\basket\partials\basket_content.html:168
-#: .\appgu\templates\oscar\checkout\thank_you.html:317
+#: .\appgu\templates\oscar\basket\partials\basket_content.html:189
+#: .\appgu\templates\oscar\checkout\thank_you.html:327
 msgid "Continue shopping"
 msgstr "Doorgaan met shoppen"
 
-#: .\appgu\templates\oscar\basket\partials\basket_content.html:177
+#: .\appgu\templates\oscar\basket\partials\basket_content.html:198
 msgid "Items to buy later"
 msgstr "Producten om later te kopen"
 
-#: .\appgu\templates\oscar\basket\partials\basket_content.html:180
+#: .\appgu\templates\oscar\basket\partials\basket_content.html:201
 msgid "Items"
 msgstr "Producten"
 
-#: .\appgu\templates\oscar\basket\partials\basket_content.html:221
+#: .\appgu\templates\oscar\basket\partials\basket_content.html:242
 msgid "Move to basket"
 msgstr "Verplaats naar winkelwagen"
 
@@ -921,7 +980,7 @@ msgid "Checkout"
 msgstr "Afrekenen"
 
 #: .\appgu\templates\oscar\basket\partials\basket_totals.html:16
-#: .\appgu\templates\oscar\checkout\thank_you.html:180
+#: .\appgu\templates\oscar\checkout\thank_you.html:190
 #, fuzzy
 #| msgid "Basket total (after discounts)"
 msgid "Basket total (before discounts)"
@@ -929,8 +988,8 @@ msgstr "Winkelwagen totaal (met korting)"
 
 #: .\appgu\templates\oscar\basket\partials\basket_totals.html:28
 #: .\appgu\templates\oscar\basket\partials\basket_totals.html:134
-#: .\appgu\templates\oscar\checkout\thank_you.html:185
-#: .\appgu\templates\oscar\checkout\thank_you.html:232
+#: .\appgu\templates\oscar\checkout\thank_you.html:195
+#: .\appgu\templates\oscar\checkout\thank_you.html:242
 #: .\appgu\templates\oscar\customer\order\order_detail.html:74
 #: .\appgu\templates\oscar\customer\order\order_detail.html:107
 #: .\appgu\templates\oscar\dashboard\orders\order_detail.html:159
@@ -955,12 +1014,12 @@ msgid "Vouchers"
 msgstr "Korting"
 
 #: .\appgu\templates\oscar\basket\partials\basket_totals.html:62
-#: .\appgu\templates\oscar\checkout\thank_you.html:195
+#: .\appgu\templates\oscar\checkout\thank_you.html:205
 msgid "Basket total (after discounts)"
 msgstr "Winkelwagen totaal (met korting)"
 
 #: .\appgu\templates\oscar\basket\partials\basket_totals.html:74
-#: .\appgu\templates\oscar\checkout\thank_you.html:200
+#: .\appgu\templates\oscar\checkout\thank_you.html:210
 #: .\appgu\templates\oscar\customer\order\order_detail.html:91
 #: .\appgu\templates\oscar\dashboard\orders\order_detail.html:195
 msgid "Basket total"
@@ -969,8 +1028,8 @@ msgstr "Winkelwagen totaal"
 #: .\appgu\templates\oscar\basket\partials\basket_totals.html:95
 #: .\appgu\templates\oscar\basket\partials\basket_totals.html:170
 #: .\appgu\templates\oscar\checkout\checkout.html:28
-#: .\appgu\templates\oscar\checkout\thank_you.html:36
-#: .\appgu\templates\oscar\checkout\thank_you.html:219
+#: .\appgu\templates\oscar\checkout\thank_you.html:46
+#: .\appgu\templates\oscar\checkout\thank_you.html:229
 #: .\appgu\templates\oscar\dashboard\orders\order_detail.html:87
 #: .\appgu\templates\oscar\dashboard\orders\order_detail.html:425
 msgid "Shipping"
@@ -985,8 +1044,8 @@ msgstr ""
 #: .\appgu\templates\oscar\checkout\checkout.html:68
 #: .\appgu\templates\oscar\checkout\shipping_methods.html:8
 #: .\appgu\templates\oscar\checkout\shipping_methods.html:15
-#: .\appgu\templates\oscar\checkout\thank_you.html:67
-#: .\appgu\templates\oscar\checkout\thank_you.html:222
+#: .\appgu\templates\oscar\checkout\thank_you.html:77
+#: .\appgu\templates\oscar\checkout\thank_you.html:232
 #: .\appgu\templates\oscar\customer\anon_order.html:48
 #: .\appgu\templates\oscar\dashboard\shipping\weight_based_detail.html:27
 msgid "Shipping method"
@@ -1006,7 +1065,7 @@ msgid "Tax"
 msgstr ""
 
 #: .\appgu\templates\oscar\basket\partials\basket_totals.html:185
-#: .\appgu\templates\oscar\checkout\thank_you.html:273
+#: .\appgu\templates\oscar\checkout\thank_you.html:283
 msgid "Post order actions"
 msgstr "Acties"
 
@@ -1015,7 +1074,7 @@ msgid "These will be applied once your order is placed."
 msgstr "Deze worden toegepast zodra uw bestelling geplaatsd is."
 
 #: .\appgu\templates\oscar\basket\partials\basket_totals.html:205
-#: .\appgu\templates\oscar\checkout\thank_you.html:289
+#: .\appgu\templates\oscar\checkout\thank_you.html:299
 #: .\appgu\templates\oscar\customer\anon_order.html:105
 #: .\appgu\templates\oscar\customer\order\order_detail.html:127
 #: .\appgu\templates\oscar\dashboard\offers\offer_detail.html:107
@@ -1038,7 +1097,7 @@ msgstr "Laat resultaten zien voor"
 msgid "Refine by"
 msgstr "Sorteer op"
 
-#: .\appgu\templates\oscar\catalogue\browse.html:71
+#: .\appgu\templates\oscar\catalogue\browse.html:70
 #, python-format
 msgid ""
 "\n"
@@ -1053,7 +1112,7 @@ msgid_plural ""
 msgstr[0] ""
 msgstr[1] ""
 
-#: .\appgu\templates\oscar\catalogue\browse.html:77
+#: .\appgu\templates\oscar\catalogue\browse.html:76
 #, python-format
 msgid ""
 "\n"
@@ -1066,11 +1125,11 @@ msgid_plural ""
 msgstr[0] ""
 msgstr[1] ""
 
-#: .\appgu\templates\oscar\catalogue\browse.html:90
+#: .\appgu\templates\oscar\catalogue\browse.html:89
 msgid "<strong>0</strong> results."
 msgstr ""
 
-#: .\appgu\templates\oscar\catalogue\browse.html:107
+#: .\appgu\templates\oscar\catalogue\browse.html:106
 #: .\appgu\templates\oscar\dashboard\catalogue\product_list.html:86
 #: .\appgu\templates\oscar\dashboard\ranges\range_product_list.html:127
 #: .\appgu\templates\oscar\offer\detail.html:62
@@ -1181,7 +1240,7 @@ msgstr ""
 #: .\appgu\templates\oscar\dashboard\orders\order_list.html:109
 #: .\appgu\templates\oscar\dashboard\orders\partials\bulk_edit_form.html:6
 #: .\appgu\templates\oscar\dashboard\orders\partials\bulk_edit_form.html:27
-#: .\appgu\templates\oscar\partials\nav_accounts.html:30
+#: .\appgu\templates\oscar\partials\nav_accounts.html:31
 msgid "Submitting..."
 msgstr ""
 
@@ -1366,7 +1425,7 @@ msgid "All reviews"
 msgstr ""
 
 #: .\appgu\templates\oscar\catalogue\reviews\review_list.html:44
-#: .\appgu\templates\oscar\partials\nav_accounts.html:30
+#: .\appgu\templates\oscar\partials\nav_accounts.html:31
 msgid "Go"
 msgstr ""
 
@@ -1382,15 +1441,15 @@ msgid "Change"
 msgstr ""
 
 #: .\appgu\templates\oscar\checkout\checkout.html:55
-#: .\appgu\templates\oscar\checkout\thank_you.html:58
+#: .\appgu\templates\oscar\checkout\thank_you.html:68
 #: .\appgu\templates\oscar\dashboard\orders\order_detail.html:461
 msgid "Instructions"
 msgstr ""
 
 #: .\appgu\templates\oscar\checkout\checkout.html:84
 #: .\appgu\templates\oscar\checkout\checkout.html:90
-#: .\appgu\templates\oscar\checkout\thank_you.html:76
-#: .\appgu\templates\oscar\checkout\thank_you.html:79
+#: .\appgu\templates\oscar\checkout\thank_you.html:86
+#: .\appgu\templates\oscar\checkout\thank_you.html:89
 #: .\appgu\templates\oscar\dashboard\orders\order_detail.html:88
 #, fuzzy
 #| msgid "Payment Received"
@@ -1398,7 +1457,7 @@ msgid "Payment"
 msgstr "Betaling Ontvangen"
 
 #: .\appgu\templates\oscar\checkout\checkout.html:91
-msgid "Payment details to go here"
+msgid "Payment through Mollie"
 msgstr ""
 
 #: .\appgu\templates\oscar\checkout\checkout.html:101
@@ -1406,7 +1465,7 @@ msgid "Edit order contents"
 msgstr ""
 
 #: .\appgu\templates\oscar\checkout\checkout.html:105
-#: .\appgu\templates\oscar\checkout\thank_you.html:113
+#: .\appgu\templates\oscar\checkout\thank_you.html:123
 #: .\appgu\templates\oscar\customer\anon_order.html:53
 #: .\appgu\templates\oscar\dashboard\orders\order_detail.html:86
 #, fuzzy
@@ -1436,7 +1495,7 @@ msgid "Continuing..."
 msgstr ""
 
 #: .\appgu\templates\oscar\checkout\gateway.html:59
-#: .\appgu\templates\oscar\checkout\payment_details.html:29
+#: .\appgu\templates\oscar\checkout\payment_details.html:24
 #: .\appgu\templates\oscar\checkout\shipping_address.html:77
 #: .\appgu\templates\oscar\dashboard\offers\step_form.html:74
 msgid "Continue"
@@ -1476,9 +1535,7 @@ msgid "Enter payment details"
 msgstr ""
 
 #: .\appgu\templates\oscar\checkout\payment_details.html:21
-msgid ""
-"This page needs implementing within your project.  You may want to use one "
-"of Oscar's payment gateway libraries:"
+msgid "Payments may be taken by Mollie only."
 msgstr ""
 
 #: .\appgu\templates\oscar\checkout\preview.html:5
@@ -1612,27 +1669,45 @@ msgid ""
 "    "
 msgstr ""
 
-#: .\appgu\templates\oscar\checkout\thank_you.html:25
+#: .\appgu\templates\oscar\checkout\thank_you.html:27
 #, python-format
 msgid ""
 "\n"
-"        Your order has been placed and a confirmation email has been sent - "
-"your order number is\n"
-"        <strong>%(number)s</strong>.\n"
-"        "
+"                Your order has been placed and a confirmation email has been "
+"sent - your order number is\n"
+"                <strong>%(number)s</strong>.\n"
+"            "
 msgstr ""
 
-#: .\appgu\templates\oscar\checkout\thank_you.html:29
+#: .\appgu\templates\oscar\checkout\thank_you.html:31
 msgid ""
 "Please make a note of this reference or print this page and quote it in any "
 "communication with us regarding your order."
 msgstr ""
 
-#: .\appgu\templates\oscar\checkout\thank_you.html:62
+#: .\appgu\templates\oscar\checkout\thank_you.html:34
+#, fuzzy
+#| msgid "You haven't placed any orders yet."
+msgid "You have cancelled your payment."
+msgstr "U heeft nog geen bestellingen geplaatst."
+
+#: .\appgu\templates\oscar\checkout\thank_you.html:36
+#, fuzzy
+#| msgid "Failed to place order."
+msgid "Order failed to take place."
+msgstr "Bestelling toevoegen is niet gelukt."
+
+#: .\appgu\templates\oscar\checkout\thank_you.html:38
+msgid ""
+"We have not received a definite payment status. You will receive an email as "
+"soon as we receive a confirmation of the bank/merchant."
+msgstr ""
+
+#: .\appgu\templates\oscar\checkout\thank_you.html:72
 msgid "No shipping address required."
 msgstr ""
 
-#: .\appgu\templates\oscar\checkout\thank_you.html:83
+#: .\appgu\templates\oscar\checkout\thank_you.html:93
 #, python-format
 msgid ""
 "\n"
@@ -1641,7 +1716,7 @@ msgid ""
 "                            "
 msgstr ""
 
-#: .\appgu\templates\oscar\checkout\thank_you.html:87
+#: .\appgu\templates\oscar\checkout\thank_you.html:97
 #, python-format
 msgid ""
 "\n"
@@ -1649,21 +1724,21 @@ msgid ""
 "                            "
 msgstr ""
 
-#: .\appgu\templates\oscar\checkout\thank_you.html:94
+#: .\appgu\templates\oscar\checkout\thank_you.html:104
 msgid "No payment was required for this order."
 msgstr ""
 
-#: .\appgu\templates\oscar\checkout\thank_you.html:99
+#: .\appgu\templates\oscar\checkout\thank_you.html:109
 #: .\appgu\templates\oscar\dashboard\orders\order_detail.html:474
 #: .\appgu\templates\oscar\dashboard\orders\order_list.html:123
 msgid "Billing address"
 msgstr ""
 
-#: .\appgu\templates\oscar\checkout\thank_you.html:118
+#: .\appgu\templates\oscar\checkout\thank_you.html:128
 msgid "Items purchased"
 msgstr ""
 
-#: .\appgu\templates\oscar\checkout\thank_you.html:141
+#: .\appgu\templates\oscar\checkout\thank_you.html:151
 #, python-format
 msgid ""
 "\n"
@@ -1671,37 +1746,37 @@ msgid ""
 "                        "
 msgstr ""
 
-#: .\appgu\templates\oscar\checkout\thank_you.html:227
+#: .\appgu\templates\oscar\checkout\thank_you.html:237
 msgid "Shipping charge (before discounts)"
 msgstr ""
 
-#: .\appgu\templates\oscar\checkout\thank_you.html:237
+#: .\appgu\templates\oscar\checkout\thank_you.html:247
 msgid "Shipping charge (after discounts)"
 msgstr ""
 
-#: .\appgu\templates\oscar\checkout\thank_you.html:242
+#: .\appgu\templates\oscar\checkout\thank_you.html:252
 msgid "Shipping charge"
 msgstr ""
 
-#: .\appgu\templates\oscar\checkout\thank_you.html:259
+#: .\appgu\templates\oscar\checkout\thank_you.html:269
 #, fuzzy
 #| msgid "Order List"
 msgid "Order tax"
 msgstr "Lijst van Bestellingen"
 
-#: .\appgu\templates\oscar\checkout\thank_you.html:302
+#: .\appgu\templates\oscar\checkout\thank_you.html:312
 msgid "Tracking your order"
 msgstr ""
 
-#: .\appgu\templates\oscar\checkout\thank_you.html:304
+#: .\appgu\templates\oscar\checkout\thank_you.html:314
 msgid "You can track the status of your order"
 msgstr ""
 
-#: .\appgu\templates\oscar\checkout\thank_you.html:305
+#: .\appgu\templates\oscar\checkout\thank_you.html:315
 msgid "View order status"
 msgstr ""
 
-#: .\appgu\templates\oscar\checkout\thank_you.html:314
+#: .\appgu\templates\oscar\checkout\thank_you.html:324
 msgid "Print this page"
 msgstr ""
 
@@ -1948,8 +2023,8 @@ msgstr ""
 #: .\appgu\templates\oscar\customer\wishlists\wishlists_detail.html:12
 #: .\appgu\templates\oscar\customer\wishlists\wishlists_form.html:10
 #: .\appgu\templates\oscar\dashboard\layout.html:44
-#: .\appgu\templates\oscar\partials\nav_accounts.html:47
-#: .\appgu\templates\oscar\partials\nav_accounts.html:51
+#: .\appgu\templates\oscar\partials\nav_accounts.html:48
+#: .\appgu\templates\oscar\partials\nav_accounts.html:52
 msgid "Account"
 msgstr ""
 
@@ -1964,13 +2039,6 @@ msgstr ""
 #| msgid "Date"
 msgid "Date sent"
 msgstr "Datum"
-
-#: .\appgu\templates\oscar\customer\email\email_detail.html:19
-#: .\appgu\templates\oscar\customer\email\email_list.html:9
-#: .\appgu\templates\oscar\customer\notifications\detail.html:24
-#: .\appgu\templates\oscar\dashboard\comms\detail.html:89
-msgid "Subject"
-msgstr ""
 
 #: .\appgu\templates\oscar\customer\email\email_detail.html:23
 #: .\appgu\templates\oscar\customer\notifications\detail.html:28
@@ -2251,7 +2319,7 @@ msgstr ""
 
 #: .\appgu\templates\oscar\customer\login_registration.html:5
 #: .\appgu\templates\oscar\customer\login_registration.html:13
-#: .\appgu\templates\oscar\partials\nav_accounts.html:60
+#: .\appgu\templates\oscar\partials\nav_accounts.html:61
 msgid "Login or register"
 msgstr ""
 
@@ -2281,12 +2349,6 @@ msgstr ""
 
 #: .\appgu\templates\oscar\customer\notifications\detail.html:14
 msgid "Sender"
-msgstr ""
-
-#: .\appgu\templates\oscar\customer\notifications\detail.html:33
-#: .\appgu\templates\oscar\dashboard\orders\order_detail.html:565
-#: .\appgu\templates\oscar\dashboard\orders\order_detail.html:612
-msgid "Message"
 msgstr ""
 
 #: .\appgu\templates\oscar\customer\notifications\detail.html:38
@@ -2504,32 +2566,6 @@ msgstr ""
 #: .\appgu\templates\oscar\customer\wishlists\wishlists_detail.html:15
 #: .\appgu\templates\oscar\customer\wishlists\wishlists_form.html:13
 msgid "Wish Lists"
-msgstr ""
-
-#: .\appgu\templates\oscar\customer\profile\profile.html:9
-#: .\appgu\templates\oscar\customer\wishlists\wishlists_list.html:9
-#: .\appgu\templates\oscar\dashboard\catalogue\product_class_form.html:97
-#: .\appgu\templates\oscar\dashboard\catalogue\product_class_list.html:26
-#: .\appgu\templates\oscar\dashboard\comms\list.html:32
-#: .\appgu\templates\oscar\dashboard\offers\offer_detail.html:62
-#: .\appgu\templates\oscar\dashboard\offers\summary.html:10
-#: .\appgu\templates\oscar\dashboard\orders\order_detail.html:33
-#: .\appgu\templates\oscar\dashboard\orders\order_detail.html:44
-#: .\appgu\templates\oscar\dashboard\partners\partner_list.html:44
-#: .\appgu\templates\oscar\dashboard\promotions\promotion_list.html:41
-#: .\appgu\templates\oscar\dashboard\ranges\range_list.html:31
-#: .\appgu\templates\oscar\dashboard\reports\partials\open_basket_report.html:9
-#: .\appgu\templates\oscar\dashboard\reports\partials\order_report.html:10
-#: .\appgu\templates\oscar\dashboard\reports\partials\submitted_basket_report.html:9
-#: .\appgu\templates\oscar\dashboard\reports\partials\user_report.html:9
-#: .\appgu\templates\oscar\dashboard\shipping\weight_based_detail.html:31
-#: .\appgu\templates\oscar\dashboard\shipping\weight_based_list.html:31
-#: .\appgu\templates\oscar\dashboard\users\detail.html:32
-#: .\appgu\templates\oscar\dashboard\vouchers\voucher_delete.html:37
-#: .\appgu\templates\oscar\dashboard\vouchers\voucher_detail.html:32
-#: .\appgu\templates\oscar\dashboard\vouchers\voucher_list.html:52
-#: .\appgu\templates\oscar\dashboard\vouchers\voucher_set_list.html:35
-msgid "Name"
 msgstr ""
 
 #: .\appgu\templates\oscar\customer\profile\profile.html:13
@@ -2769,7 +2805,7 @@ msgstr ""
 #: .\appgu\templates\oscar\dashboard\vouchers\voucher_set_detail.html:13
 #: .\appgu\templates\oscar\dashboard\vouchers\voucher_set_form.html:14
 #: .\appgu\templates\oscar\dashboard\vouchers\voucher_set_list.html:13
-#: .\appgu\templates\oscar\partials\nav_accounts.html:55
+#: .\appgu\templates\oscar\partials\nav_accounts.html:56
 msgid "Dashboard"
 msgstr ""
 
@@ -3115,7 +3151,7 @@ msgstr ""
 #: .\appgu\templates\oscar\dashboard\vouchers\voucher_list.html:40
 #: .\appgu\templates\oscar\dashboard\vouchers\voucher_set_detail.html:69
 #: .\appgu\templates\oscar\dashboard\vouchers\voucher_set_detail.html:74
-#: .\appgu\templates\oscar\partials\search.html:7
+#: .\appgu\templates\oscar\partials\search.html:6
 #: .\appgu\templates\oscar\search\results.html:18
 msgid "Search"
 msgstr ""
@@ -4254,6 +4290,14 @@ msgstr ""
 msgid "please check the error messages below and try again"
 msgstr ""
 
+#: .\appgu\templates\oscar\dashboard\partials\pagination.html:8
+#: .\appgu\templates\oscar\partials\pagination.html:8
+#: .\appgu\templates\oscar\search\partials\pagination.html:8
+#: .\appgu\templates\shelby\index.html:137
+#: .\appgu\templates\tuscany\index.html:124
+msgid "previous"
+msgstr "vorige"
+
 #: .\appgu\templates\oscar\dashboard\partials\pagination.html:11
 #: .\appgu\templates\oscar\partials\pagination.html:11
 #: .\appgu\templates\oscar\search\partials\pagination.html:11
@@ -4263,6 +4307,14 @@ msgid ""
 "                Page %(page_num)s of %(total_pages)s\n"
 "            "
 msgstr ""
+
+#: .\appgu\templates\oscar\dashboard\partials\pagination.html:16
+#: .\appgu\templates\oscar\partials\pagination.html:16
+#: .\appgu\templates\oscar\search\partials\pagination.html:16
+#: .\appgu\templates\shelby\index.html:145
+#: .\appgu\templates\tuscany\index.html:132
+msgid "next"
+msgstr "volgende"
 
 #: .\appgu\templates\oscar\dashboard\partners\messages\user_unlinked.html:2
 #, python-format
@@ -5485,6 +5537,10 @@ msgstr ""
 msgid "Browse products in offer"
 msgstr ""
 
+#: .\appgu\templates\oscar\partials\nav_accounts.html:6
+msgid "Shelby Merchandise"
+msgstr ""
+
 #: .\appgu\templates\oscar\partials\nav_primary.html:40
 msgid "Browse store"
 msgstr ""
@@ -5642,15 +5698,15 @@ msgstr ""
 "\">\"%(suggestion)s\"</a>?\n"
 "                    "
 
-#: .\appgu\templates\portal\base_form.html:36
+#: .\appgu\templates\portal\base_form.html:35
 msgid "Company"
 msgstr "Bedrijf"
 
-#: .\appgu\templates\portal\base_form.html:50
+#: .\appgu\templates\portal\base_form.html:49
 msgid "Choose Image"
 msgstr "Selecteer Afbeelding"
 
-#: .\appgu\templates\portal\base_form.html:58
+#: .\appgu\templates\portal\base_form.html:57
 msgid "Submit"
 msgstr "Versturen"
 
@@ -5735,7 +5791,7 @@ msgstr "NA"
 msgid "Additional comments for order"
 msgstr "Extra informatie over bestelling"
 
-#: .\appgu\templates\portal\portal.html:24 .\appgu\views\portal.py:49
+#: .\appgu\templates\portal\portal.html:24 .\appgu\views\portal.py:67
 msgid "Order Form"
 msgstr "Bestelling Formulier"
 
@@ -5755,112 +5811,261 @@ msgstr "Inactief"
 msgid "Staff Member"
 msgstr "Admin"
 
-#: .\appgu\templates\shelby\news.html:73 .\appgu\templates\tuscany\news.html:72
-msgid "No newspost found!"
+#: .\appgu\templates\shelby\contact.html:24
+msgid "Send a Message"
+msgstr "Stuur een bericht"
+
+#: .\appgu\templates\shelby\contact.html:36
+#: .\appgu\templates\tuscany\contact.html:36
+#, fuzzy
+#| msgid "Product Information"
+msgid "Contact Information"
+msgstr "Product Informatie"
+
+#: .\appgu\templates\shelby\contact.html:41
+#: .\appgu\templates\tuscany\contact.html:41
+msgid "The Netherlands"
+msgstr "Nederland"
+
+#: .\appgu\templates\shelby\events.html:21
+#: .\appgu\templates\tuscany\events.html:21
+msgid "Find out what exciting events are coming up"
+msgstr "Kijk welke leuke evenementen aankomen"
+
+#: .\appgu\templates\shelby\index.html:32
+msgid "Top class automobiles"
+msgstr "Klasse auto's"
+
+#: .\appgu\templates\shelby\index.html:33
+msgid ""
+"Delivering cars and products that provide an unparalleled driving experience"
+msgstr "Auto's en producten die mensen ongeëvenaard rij-ervaring geven"
+
+#: .\appgu\templates\shelby\index.html:34
+msgid "Check dealers"
+msgstr "Dealers"
+
+#: .\appgu\templates\shelby\index.html:53
+msgid "About Shelby"
+msgstr "Over Shelby"
+
+#: .\appgu\templates\shelby\index.html:54
+msgid "At the forefront of automotive innovation since 1962"
+msgstr ""
+
+#: .\appgu\templates\shelby\index.html:55
+msgid ""
+"In 1962, Carroll Shelby Put a Ford V8 engine into a European racecar chassis "
+"and went on to beat the world’s best teams and claim the first and only FIA "
+"World Sportcar championship for an American company. Ever since there’s not "
+"been another company more synonymous with developing high performance Ford "
+"Products than Shelby American."
+msgstr ""
+
+#: .\appgu\templates\shelby\index.html:91
+#: .\appgu\templates\tuscany\index.html:78
+msgid "Checkout our vehicles"
+msgstr "Neem een kijkje naar onze voertuigen"
+
+#: .\appgu\templates\shelby\index.html:125
+#: .\appgu\templates\tuscany\index.html:112
+msgid "More Info"
+msgstr "Meer Informatie"
+
+#: .\appgu\templates\shelby\index.html:136
+#: .\appgu\templates\tuscany\index.html:123
+msgid "first"
+msgstr "eerste"
+
+#: .\appgu\templates\shelby\index.html:141
+#: .\appgu\templates\tuscany\index.html:128
+msgid "Page"
+msgstr "Pagina"
+
+#: .\appgu\templates\shelby\index.html:141
+#: .\appgu\templates\tuscany\index.html:128
+msgid "of"
+msgstr "van de"
+
+#: .\appgu\templates\shelby\index.html:146
+#: .\appgu\templates\tuscany\index.html:133
+msgid "last"
+msgstr "laatste"
+
+#: .\appgu\templates\shelby\index.html:183
+msgid "Contact Us"
+msgstr "Neem Contact op met ons"
+
+#: .\appgu\templates\shelby\index.html:184
+msgid "Feel free to reach out. We will respond as soon as possible."
+msgstr ""
+
+#: .\appgu\templates\shelby\index.html:185
+msgid "Contact Us Now"
+msgstr "Contact opnemen"
+
+#: .\appgu\templates\shelby\media.html:41
+#, fuzzy
+#| msgid "Press & Media"
+msgid "Press & media"
+msgstr "Pers & Media"
+
+#: .\appgu\templates\shelby\media.html:42
+msgid "An insight of Shelby in the press and media"
+msgstr ""
+
+#: .\appgu\templates\shelby\news.html:76
+#, fuzzy
+#| msgid "No newspost found!"
+msgid "No newspost found."
 msgstr "Geen nieuws gevonden!"
 
-#: .\appgu\templates\tuscany\index.html:34
+#: .\appgu\templates\tuscany\contact.html:24
+msgid "Send A Message"
+msgstr "Stuur een bericht"
+
+#: .\appgu\templates\tuscany\index.html:26
+msgid "Tuscany Automotive"
+msgstr ""
+
+#: .\appgu\templates\tuscany\index.html:27
+msgid ""
+"Working with truck manufacturers and dealerships around the nation to "
+"provide the world's finest lifted trucks."
+msgstr ""
+
+#: .\appgu\templates\tuscany\index.html:28
 #, fuzzy
 #| msgid "Checkout our vehicles"
 msgid "Check vehicles"
 msgstr "Neem een kijkje naar onze voertuigen"
 
-#: .\appgu\templates\tuscany\index.html:53
+#: .\appgu\templates\tuscany\index.html:47
 msgid "About Tuscany"
 msgstr "Over Tuscany"
 
-#: .\appgu\views\portal.py:31
+#: .\appgu\templates\tuscany\index.html:48
+msgid "Enjoy the drive"
+msgstr ""
+
+#: .\appgu\templates\tuscany\index.html:49
+msgid ""
+"That’s our goal for every one of our customers. What began in 1988 as a "
+"small idea has grown into a company recognized and respected throughout the "
+"industry. We have the same mission today as we did when we started: design "
+"fun, expressive vehicles that make people happy."
+msgstr ""
+
+#: .\appgu\templates\tuscany\media.html:43
+msgid "An insight of Tuscany in the press and media"
+msgstr ""
+
+#: .\appgu\templates\tuscany\news.html:74
+msgid "No newspost found!"
+msgstr "Geen nieuws gevonden!"
+
+#: .\appgu\views\portal.py:36
 msgid "Failed to place order."
 msgstr "Bestelling toevoegen is niet gelukt."
 
-#: .\appgu\views\portal.py:38
+#: .\appgu\views\portal.py:46
+#, fuzzy
+#| msgid "Order has been succesfully placed."
+msgid "Order could not be placed."
+msgstr "Bestelling plaatsen is gelukt."
+
+#: .\appgu\views\portal.py:46
+msgid "No dealer found with the given ID."
+msgstr "Geen dealer gevonden met de gegeven ID."
+
+#: .\appgu\views\portal.py:56
 msgid "Order has been succesfully placed."
 msgstr "Bestelling plaatsen is gelukt."
 
-#: .\appgu\views\portal.py:49
+#: .\appgu\views\portal.py:67
 msgid "Place an order for a vehicle"
 msgstr "Plaats een bestelling voor een voertuig"
 
-#: .\appgu\views\portal.py:161
+#: .\appgu\views\portal.py:175
 msgid "Succesfully registered dealer."
 msgstr "Dealer aangemeld."
 
-#: .\appgu\views\portal.py:168
+#: .\appgu\views\portal.py:182
 msgid "Failed to register dealer."
 msgstr "Dealer aanmelden is niet gelukt."
 
-#: .\appgu\views\portal.py:178
+#: .\appgu\views\portal.py:192
 msgid "Register Dealer"
 msgstr "Dealer aanmelden"
 
-#: .\appgu\views\portal.py:178
+#: .\appgu\views\portal.py:192
 msgid "Here you can register a new dealer."
 msgstr "Hier kunt u een nieuwe dealer aanmelden."
 
-#: .\appgu\views\portal.py:192
+#: .\appgu\views\portal.py:206
 msgid "Succesfully registered admin."
 msgstr "Admin aangemeld."
 
-#: .\appgu\views\portal.py:199
+#: .\appgu\views\portal.py:213
 msgid "Failed to register admin."
 msgstr "Admin aanmelden is niet gelukt."
 
-#: .\appgu\views\portal.py:208
+#: .\appgu\views\portal.py:222
 msgid "Register Admin"
 msgstr "Admin Aanmelden"
 
-#: .\appgu\views\portal.py:208
+#: .\appgu\views\portal.py:222
 msgid "Here you can register a new administrator."
 msgstr "Hier kunt u een administrator aanmelden."
 
-#: .\appgu\views\portal.py:230
-msgid "Succesfully added vehicle."
-msgstr "Evenement is toegevoegd."
-
-#: .\appgu\views\portal.py:237
-msgid "Failed to add vehicle."
-msgstr "Evenement toevoegen is niet gelukt."
-
 #: .\appgu\views\portal.py:244
+msgid "Succesfully added vehicle."
+msgstr "Voertuig is toegevoegd."
+
+#: .\appgu\views\portal.py:251
+msgid "Failed to add vehicle."
+msgstr "Voertuig toevoegen is niet gelukt."
+
+#: .\appgu\views\portal.py:258
 msgid "Add Vehicle"
 msgstr "Voertuig toevoegen"
 
-#: .\appgu\views\portal.py:244
+#: .\appgu\views\portal.py:258
 msgid ""
 "Here you can add vehicles to the database, to be displayed on the website."
 msgstr ""
 "Hier kunt u voertuigen toevoegen aan de database, te zien op de website."
 
-#: .\appgu\views\portal.py:261
+#: .\appgu\views\portal.py:275
 msgid "Succesfully added newspost."
 msgstr "Evenement is toegevoegd."
 
-#: .\appgu\views\portal.py:268
+#: .\appgu\views\portal.py:282
 msgid "Failed to add newspost."
 msgstr "Evenement toevoegen is niet gelukt."
 
-#: .\appgu\views\portal.py:276
+#: .\appgu\views\portal.py:290
 msgid "Add News Post"
 msgstr "Nieuws toevoegen"
 
-#: .\appgu\views\portal.py:276
+#: .\appgu\views\portal.py:290
 msgid ""
 "Here you can add news posts to the database, to be displayed on the website."
 msgstr "Hier kunt u nieuws toevoegen aan de database, te zien op de website."
 
-#: .\appgu\views\portal.py:295
+#: .\appgu\views\portal.py:309
 msgid "Event succesfully added."
 msgstr "Evenement is toegevoegd"
 
-#: .\appgu\views\portal.py:302
+#: .\appgu\views\portal.py:316
 msgid "Failed to add event."
 msgstr "Evenement toevoegen is niet gelukt."
 
-#: .\appgu\views\portal.py:310
+#: .\appgu\views\portal.py:324
 msgid "Add Event"
 msgstr "Evenement toevoegen"
 
-#: .\appgu\views\portal.py:310
+#: .\appgu\views\portal.py:324
 msgid ""
 "Here you can add events to the database, to be displayed on the events "
 "calendar."
@@ -5868,33 +6073,39 @@ msgstr ""
 "Hier kunt u evenementen toevoegen aan de database, te zien op evenementen "
 "kalender."
 
-#: .\appgu\views\portal.py:327
+#: .\appgu\views\portal.py:341
 msgid "Succesfully added dealer to the map."
 msgstr "Dealer is toegevoegd."
 
-#: .\appgu\views\portal.py:335
+#: .\appgu\views\portal.py:349
 msgid "Failed to add dealer to the map."
 msgstr "Dealer toevoegen is niet gelukt."
 
-#: .\appgu\views\portal.py:343
+#: .\appgu\views\portal.py:357
 msgid "Add Map Dealer for Shelby"
 msgstr "Map Dealer Toevoegen aan Shelby"
 
-#: .\appgu\views\portal.py:343
+#: .\appgu\views\portal.py:357
 msgid "Here you can add a dealer to the map, to be displayed on the website."
 msgstr "Hier kunt u een dealer toevoegen aan de map, te zien op de website."
 
-#: .\appgu\views\portal.py:356
+#: .\appgu\views\portal.py:370
 msgid "Succesfully changed password"
 msgstr "Wachtwoord is veranderd"
 
-#: .\appgu\views\portal.py:363
+#: .\appgu\views\portal.py:377
 msgid "Failed to change password"
 msgstr "Wachtwoord veranderen is niet gelukt"
 
-#: .\appgu\views\portal.py:372
+#: .\appgu\views\portal.py:386
 msgid "If you would like to change your password, fill out this form."
 msgstr "As u uw wachtwoord wilt wijzigen, vul a.u.b dit formulier in."
+
+#~ msgid "Leave blank if this order is on your name."
+#~ msgstr "Laat leeg als het bestelling op uw naam komt te staan"
+
+#~ msgid "Our dealers provide you with the best services"
+#~ msgstr "Onze dealers voorzien u met de beste diensten"
 
 #~ msgid "Settings"
 #~ msgstr "Instellingen"
