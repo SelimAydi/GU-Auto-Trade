@@ -1,3 +1,10 @@
-Testing text.
+A new message has been sent from the contact form (Shelby).
 
-1234
+Contact Name:
+{{ contact_name }}
+
+Email:
+{{ contact_email }}
+
+Content:
+{{ form_content|safe|striptags }}

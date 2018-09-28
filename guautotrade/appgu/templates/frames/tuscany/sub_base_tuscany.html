@@ -70,7 +70,7 @@
 {#						<li><a href="/tuscany/dealers">Dealers</a></li>#}
 						<li><a href="/tuscany/events">{% trans 'Events' %}</a></li>
 						<li><a href="/tuscany/news">{% trans 'News' %}</a></li>
-						<li><a href="/tuscany/media">{% trans 'Press & Media' %}</a></li>
+						<!-- <li><a href="/tuscany/media">{% trans 'Press & Media' %}</a></li> -->
 						<li><a href="/portal">{% if not user.is_authenticated %}{% trans 'Login' %}{% else %}{% trans 'Portal' %}{% endif %}</a></li>
 						<li><a href="/tuscany/contact">{% trans 'Contact' %}</a></li>
 					</ul>
@@ -111,11 +111,11 @@
 					<div class="col-md-10">
 						<ul class="footer-nav">
 							<li><a href="/tuscany">Home</a></li>
-							<li><a {% if request.path == 'tuscany' %} {% endif %}onclick="$(window).scrollTo(document.getElementById('vehicles'), 1000);">{% trans 'Vehicles' %}</a></li>
+							{% if vehicles %}<li><a {% if request.path|stripslashes == 'tuscany' %} onclick="$(window).scrollTo(document.getElementById('vehicles'), 1000);" {% else %}href="/tuscany/#vehicles"{% endif %}>{% trans 'Vehicles' %}</a></li>{% endif %}
 {#							<li><a href="#">Dealers</a></li>#}
 							<li><a href="/tuscany/events">{% trans 'Events' %}</a></li>
 							<li><a href="/tuscany/news">{% trans 'News' %}</a></li>
-							<li><a href="/tuscany/media">{% trans 'Press & Media' %}</a></li>
+							<!-- <li><a href="/tuscany/media">{% trans 'Press & Media' %}</a></li> -->
 							<li><a href="/portal">{% if not user.is_authenticated %}{% trans 'Login' %}{% else %}{% trans 'Portal' %}{% endif %}</a></li>
 							<li><a href="/tuscany/contact">{% trans 'Contact' %}</a></li>
 						</ul>

@@ -115,11 +115,11 @@ WSGI_APPLICATION = 'guautotrade.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'guautodb',
+        'NAME': 'guautodb2',
 		'USER': 'postgres',
 		'PASSWORD': 'kaas123',
 		'HOST': 'localhost',
-        'PORT': '5433',
+        'PORT': '5432',
         'ATOMIC_REQUESTS': True,
     }
 }
@@ -128,6 +128,8 @@ DATABASES = {
 
 # Password validation
 # https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators
+
+# AUTH_USER_MODEL = 'appgu.dealers'
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -202,13 +204,13 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
 SEND_GRID_API_KEY = ''
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-DEFAULT_FROM_EMAIL = 'info@guautotrade.com'
 EMAIL_HOST = 'smtp.sendgrid.net'
 EMAIL_HOST_USER = 'guautotrade'
 EMAIL_HOST_PASSWORD = 'Auto2018!'
-EMAIL_USE_TLS = True
 EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = 'info@guautotrade.com'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
 # Paypal settings
 # PAYPAL_API_USERNAME = 'uitbetaling-facilitator_api1.wemoney.nl'
@@ -220,13 +222,6 @@ ORDER_STATUS_PAID = 'Being processed'
 
 # Oscar Shop settings
 OSCAR_INITIAL_ORDER_STATUS = OSCAR_INITIAL_LINE_STATUS = 'Pending Payment'
-# OSCAR_ORDER_STATUS_PIPELINE = {
-#     'Pending Payment': ('Being processed', 'Cancelled', 'Open'),
-#     'Being processed': ('Being processed', 'Paid'),
-#     'Cancelled': (),
-#     'Open': (),
-#     'Paid': (),
-# }
 OSCAR_ORDER_STATUS_PIPELINE = {
     'Open': ('Pending Payment', 'Cancelled', 'Paid', 'Failed'),
     'Pending Payment': ('Cancelled', 'Paid', 'Failed'),
@@ -254,8 +249,8 @@ MOLLIE_STATUS_MAPPING = {
 }
 
 # Production settings
-SECURE_CONTENT_TYPE_NOSNIFF = True
-SECURE_BROWSER_XSS_FILTER = True
-SESSION_COOKIE_SECURE = True
-CSRF_COOKIE_SECURE = True
-X_FRAME_OPTIONS = "DENY"
+# SECURE_CONTENT_TYPE_NOSNIFF = True
+# SECURE_BROWSER_XSS_FILTER = True
+# SESSION_COOKIE_SECURE = True
+# CSRF_COOKIE_SECURE = True
+# X_FRAME_OPTIONS = "DENY"

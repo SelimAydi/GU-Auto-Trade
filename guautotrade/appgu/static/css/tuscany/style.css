@@ -222,8 +222,8 @@ blockquote:before{
 .main-button {
 	position:relative;
 	display:inline-block;
-	padding: 1.5vh 2vh;
-	font-size: 1.7vh;
+	padding: 10px;
+	font-size: 15px;
 	padding-right: 5px;
 	background-color: #353535;
 	border: 2px solid transparent;

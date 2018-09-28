@@ -122,7 +122,7 @@
 					<div class="col-md-10">
 						<ul class="footer-nav">
 							<li><a href="/shelby">Home</a></li>
-							<li><a {% if request.path == 'shelby' %} {% endif %}onclick="$(window).scrollTo(document.getElementById('vehicles'), 1000);">{% trans 'Vehicles' %}</a></li>
+                            {% if vehicles %}<li><a {% if request.path|stripslashes == 'shelby' %} onclick="$(window).scrollTo(document.getElementById('vehicles'), 1000);" {% else %}href="/shelby/#vehicles"{% endif %}>{% trans 'Vehicles' %}</a></li>{% endif %}
 							<li><a href="/shelby/dealers">{% trans 'Dealers' %}</a></li>
 							<li><a href="/shelby/events">{% trans 'Events' %}</a></li>
 							<li><a href="/shelby/shop">{% trans 'Shop' %}</a></li>

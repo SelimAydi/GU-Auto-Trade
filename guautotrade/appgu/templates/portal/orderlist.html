@@ -42,7 +42,7 @@
 			</div>
             {% if exists %}
                 <div class="tb">
-                        <form method="POST" enctype="multipart/form-data" id="orderchange">
+                        <form method="POST" enctype="multipart/form-data" id="orderchange" style="max-width: initial; margin: initial;">
                         {% csrf_token %}
                         <input id="change" name="change" type="hidden">
                         <table id="orderstb">

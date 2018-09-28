@@ -1,4 +1,4 @@
-A new message has been sent from the contact form (Tuscany).
+A new message has been sent from the contact form (GU Auto Trade).
 
 Contact Name:
 {{ contact_name }}

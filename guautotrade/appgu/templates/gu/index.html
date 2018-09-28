@@ -47,13 +47,6 @@
     <div class="container">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-                    data-target="#navbar-collapse-1">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
             <a class="navbar-brand" href="/gu"><img src="{% static 'img/guautotrade/GUAutotrade_Logo.png' %}" alt=''></a>
         </div>
 
@@ -61,14 +54,14 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="#navbar-collapse-1">
 
-            <ul class="nav-cta hidden-xs">
+            <!-- <ul class="nav-cta hidden-xs">
                 <li class="dropdown"><a href="#" data-toggle="dropdown" class="dropdown-toggle"><i
                         class="fa fa-search"></i></a>
                     <ul class="dropdown-menu">
                         <li>
                             <div class="head-search">
                                 <form role="form">
-                                    <!-- Input Group -->
+                                     
                                     <div class="input-group">
                                         <input type="text" class="form-control" placeholder="Type Something">
 			                                <span class="input-group-btn">
@@ -80,7 +73,7 @@
                         </li>
                     </ul>
                 </li>
-            </ul>
+            </ul> -->
 
             <ul class="nav navx navbar-nav navbar-right main-nav">
                 <li class="active"><a href="/gu">{% trans 'Home' %}</a></li>
@@ -107,10 +100,9 @@
             <div class="placeholder" data-large="{% static 'img/guautotrade/shelby1.jpg' %}">
               <img src="{% static 'img/guautotrade/shelby1_small.jpg' %}" class="img-small">
                 <div class="carousel-caption">
-                    <h1>It′s simple, smart and occasionally magical.</h1>
+                    <h1>{% trans 'Auto trade perfected' %}</h1>
 
-                    <p>Intrinsicly negotiate corporate synergy rather than user-centric web services. Synergistically
-                        transition emerging schemas and.</p>
+                    <p>{% trans 'GU Auto Trade is enriched with expertise and experience in providing premium automobiles.' %}</p>
                 </div>
               <div style="padding-bottom: 66.6%;"></div>
             </div>
@@ -120,20 +112,17 @@
             <img src="{% static 'img/guautotrade/f150.JPG' %}" alt='...'>
 
             <div class="carousel-caption">
-                <h1>It′s profitable and successful!</h1>
+                <h1>{% trans 'Passion for automobiles' %}</h1>
 
-                <p>Synergistically enhance low-risk high-yield testing procedures with clicks-and-mortar architectures.
-                    Compellingly revolutionize future-proof interfaces and.</p>
+                <p>{% trans 'We offer our clients competitively priced automobiles with quality service.' %}</p>
             </div>
         </div>
         <div class="item">
             <img src="{% static 'img/guautotrade/f150_2.JPG' %}" alt='...'>
 
             <div class="carousel-caption">
-                <h1>One of the leading autotrade companies</h1>
-
-                <p>Monotonectally envisioneer 24/7 bandwidth with reliable imperatives. Continually unleash unique
-                    niches after go forward.</p>
+                <h1>{% trans 'Solutions tailored to your needs' %}</h1>
+                <p>{% trans 'At GU Auto Trade we provide the most feasible solutions for our clients.' %}</p>
             </div>
         </div>
     </div>
@@ -188,7 +177,7 @@
                         <i class="fa fa-line-chart"></i>
                     </div>
                     <div class="promo-content">
-                        <h3>{% trans 'At GU Auto trade offer our clients competitively priced automobiles with quality service.' %}</h3>
+                        <h3>{% trans 'At GU Auto Trade we offer our clients competitively priced automobiles with quality service.' %}</h3>
 
                     </div>
                 </div>
@@ -208,10 +197,10 @@
 
                 <div class="promo-block-wrapper clearfix">
                     <div class="promo-icon">
-                        <i class="fa fa-calculator"></i>
+                        <i class="fas fa-hands-helping"></i>
                     </div>
                     <div class="promo-content last-type">
-                        <h3>{% trans 'Quality customer services' %}</h3>
+                        <h3>{% trans 'Quality customer service' %}</h3>
 
                         <p>{% trans 'At GU Auto Trade we don’t only trade automobiles, we build a relationship with our clients to provide the most feasible solutions' %}</p>
                     </div>
@@ -354,10 +343,10 @@
                     <div class="footer-widget widget_text">
                         <h3>Contact us</h3>
                         <address>
-                            Call us +31 (0) 10 307 4260<br>
-                            Send an Email at <a href="mailto:#">info@guautotrade.com</a><br>
-                            Visit Us Havenstraat 34- Schiedam 3115HD<br>
-                            Netherlands<br>
+                            {% trans 'Call us' %} +31 (0) 10 307 4260<br>
+                            {% trans 'Send an e-mail to' %} <a href="mailto:#">info@guautotrade.com</a><br>
+                            {% trans 'Visit us' %} Havenstraat 34- Schiedam 3115HD<br>
+                            {% trans 'Netherlands' %}<br>
                         </address>
 
                         <ul class="list-inline social-links">
@@ -391,23 +380,6 @@
 <!-- .content-wrapper -->
 </div>
 <!-- .offcanvas-pusher -->
-
-<div class="uc-mobile-menu uc-mobile-menu-effect">
-    <button type="button" class="close" aria-hidden="true" data-toggle="offcanvas"
-            id="uc-mobile-menu-close-btn">&times;</button>
-    <div>
-        <div>
-            <ul id="menu" class="navx">
-                <li class="active"><a href="/gu">Home</a></li>
-                <li><a class="navlink" href="/gu/#about">About</a></li>
-                <li><a class="navlink" href="#x-features">Services</a></li>
-                <li><a class="navlink" href="#team">Team</a></li>
-                <li><a class="navlink" href="/gu/contact">Contact</a></li>
-            </ul>
-        </div>
-    </div>
-</div>
-<!-- .uc-mobile-menu -->
 
 </div>
 <!-- #main-wrapper -->

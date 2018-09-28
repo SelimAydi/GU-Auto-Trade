@@ -10,6 +10,6 @@ urlpatterns = [
     path('shop/', application.urls),
     path('news/', shelby.news, name='news'),
     path('media/', shelby.pressandmedia, name='pressandmedia'),
-    path('contact/', shelby.contact, name='contact'),
+    path('contact/', shelby.contact, name='shelby_contact'),
     path('vehicle/', shelby.vehicledesc, name='vehicledesc'),
 ]

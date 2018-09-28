@@ -917,6 +917,7 @@ Team
 /* client-logo */
 .client-logo {
     text-align: center;
+    background-color: #f1f1f1;
     }
 
 .client-logo a svg {

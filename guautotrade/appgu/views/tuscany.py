@@ -129,7 +129,7 @@ def contact(request):
             headers={'Reply-To': contact_email}
         )
         email.send()
-        return redirect('contact')
+        return redirect('tuscany_contact')
 
     return render(request, 'tuscany/contact.html', {
         'form': form_class,
