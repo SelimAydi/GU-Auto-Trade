@@ -5,19 +5,11 @@ from django_countries.fields import CountryField
 
 import datetime
 
-
-# class User(AbstractUser):
-#     is_dealer = models.BooleanField(default=False)
-
 class Dealers(User):
     class Meta:
         verbose_name_plural = "Dealers"
 
     user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True)
-    # username = models.CharField(max_length=100)
-    # name = models.CharField(max_length=50)
-    # surname = models.CharField(max_length=50)
-    # email = models.CharField(max_length=100)
     telephone = models.CharField(max_length=12)
     isBlocked = models.BooleanField(default=False)
 
@@ -87,7 +79,7 @@ class Events_Tuscany(models.Model):
 class MapDealers(models.Model):
     customer_name = models.CharField(max_length=100)
     phone = models.CharField(max_length=12)
-    email = models.EmailField(max_length=70, blank=True, null=True, unique=True)
+    email = models.EmailField(max_length=70, blank=True, null=True)
     address = models.CharField(max_length=500)
     country = models.CharField(max_length=100)
     latitude = models.FloatField()

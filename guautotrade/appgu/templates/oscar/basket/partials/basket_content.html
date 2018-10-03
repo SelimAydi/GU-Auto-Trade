@@ -173,10 +173,7 @@
 </style>
     <div class="form-actions">
         {% if anon_checkout_allowed or request.user.is_authenticated %}
-            <a href="{% url 'paypal-redirect' %}" class="btn btn-large btn-pp">
-                <i class="fab fa-paypal"></i>
-                Checkout with Paypal</a>
-            <div id="paypal-button-container"></div>
+            <a href="#" class="btn btn-large btn-pp">
         {% endif %}
         <a href="{% url 'checkout:index' %}" class="pull-right btn btn-large btn-primary">{% trans "Proceed to checkout" %}</a>
     </div>

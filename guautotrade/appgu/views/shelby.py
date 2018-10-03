@@ -2,6 +2,9 @@ from django.core.paginator import Paginator
 from django.shortcuts import render, redirect
 from django.template.loader import get_template
 from django.core.mail import send_mail
+from django.http import HttpResponse
+import json
+from django.utils.translation import gettext as _
 
 from .. import forms
 
@@ -11,11 +14,9 @@ from ..models import Vehicles, NewsPosts
 def index(request):
     vehicle_list = Vehicles.objects.all()
     if len(vehicle_list) != 0:
-        print("OUT OF RANGE")
         # the c_type determines what style class each vehicle item gets
         c_type = 0
 
-        print("AMOUNT OF VEHICLES________: " ,len(vehicle_list))
         if len(vehicle_list) % 3 == 1:
             c_type = 1
         elif len(vehicle_list) % 3 == 2:
@@ -46,7 +47,6 @@ def news(request):
     if request.method == 'GET' and 'n' in request.GET:
         n = request.GET['n']
         if n is not None and n != '':
-            print(request.GET)
             news_list = NewsPosts.objects.filter(pk=request.GET.get('n'))
             if len(news_list) == 0:
                 exists = False
@@ -65,9 +65,7 @@ def news(request):
         return render(request, 'shelby/news.html', {'newsposts': newsposts, 'exists': exists, 'news': news_list})
 
     if not news:
-        print("nothing in news found!")
         return render(request, 'shelby/news.html', {"exists": False})
-    print("found newspost(s)")
     l = []
     for i in news:
         l.append(i.banner)
@@ -78,7 +76,6 @@ def news(request):
         l.append(i.quotefooter)
         l.append(i.date)
         l.append(i.writtenby)
-        print(i.title)
 
     return render(request, 'shelby/news.html',
                   {'banner': l[0], 'title': l[1], 'headline': l[2], 'desc': l[3], 'quote': l[4], 'quotefooter': l[5], 'date': l[6], 'writtenby': l[7], 'exists': True})
@@ -112,7 +109,11 @@ def contact(request):
 
             send_mail("New contact form submission", contact_message, "messages@guautotrade.com", [contact_email], fail_silently=False)
 
-            return redirect('shelby_contact')
+            response_data = {'result': _("Mail has been sent. We'll respond as soon as possible!"), 'status': 'success'}
+            return HttpResponse(
+                json.dumps(response_data),
+                content_type="application/json"
+            )
 
     return render(request, 'shelby/contact.html', {
         'form': form_class,
@@ -123,24 +124,16 @@ def vehicledesc(request):
     if request.method == "GET" and 'v' in request.GET:
         v = request.GET['v']
         if v is not None and v != '':
-            print(request.GET)
             vehicles = Vehicles.objects.filter(pk=request.GET.get('v'))
             if not vehicles:
-                print("nothing in vehicles found!")
                 return render(request, 'shelby/vehicledesc.html', {"exists": False})
-            else:
-                print("found vehicle")
             l = []
             for i in vehicles:
                 l.append(i.image)
                 l.append(i.model)
                 l.append(i.headline)
                 l.append(i.description)
-                print(i.model)
-                print(i.description)
 
-            print(request.GET.get('q'))
             return render(request, 'shelby/vehicledesc.html', {'image': l[0], 'model': l[1], 'headline': l[2], 'desc': l[3], 'exists': True, 'vehicles': Vehicles.objects.all()})
     else:
-        print("canceled")
         return render(request, 'shelby/vehicledesc.html')

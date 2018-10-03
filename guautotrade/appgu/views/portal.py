@@ -21,37 +21,32 @@ def index(request):
 def order(request):
     if request.user.is_authenticated:
         if request.user.is_staff:
-            # form = forms.AdminOrderForm(request.POST)
-            print("showing AdminOrderForm!!!")
             newform = forms.AdminOrderForm()
         else:
-            # form = forms.OrderForm(request.POST)
             newform = forms.OrderForm()
         if request.method == "POST":
             if request.user.is_staff:
                 form = forms.AdminOrderForm(request.POST)
             else:
                 form = forms.OrderForm(request.POST)
-            print(request.POST)
             response_data = {'result': _('Failed to place order.'), 'status': 'failed', 'formerr': form.errors,'form': str(newform)}
             if form.is_valid():
                 userid = request.user.id
-                print("VALID FORM")
-                print("User ID: ", userid)
+
                 try:
-                    dealerobj = Dealers.objects.get(pk=User.objects.get(id=userid))
-                except Dealers.DoesNotExist:
-                    print("Does not exist!")
-                    dealerobj = None
+                    if request.user.is_staff:
+                        dealerobj = Dealers.objects.get(user=User.objects.get(pk=request.POST['forwho']))
+                    else:
+                        dealerobj = Dealers.objects.get(pk=User.objects.get(id=userid))
+                except:
                     response_data = {'result': _('Order could not be placed.'), 'status': 'failed', 'formerr': _('No dealer found with the given ID.')}
                     return HttpResponse(
                         json.dumps(response_data),
                         content_type="application/json"
                     )
 
-                print('printing userobj: ', dealerobj)
-                # order = Orders(dealerID=userid if 'forwho' not in request.POST or request.POST['forwho'] == '' else Dealers.objects.get(user=request.POST['forwho']), model=request.POST['model'], colour=request.POST['colour'], homologation=True if 'homologation' in request.POST else False, custom_clearance=True if 'custom_clearance' in request.POST else False, additional_comments=request.POST['additional_comments'])
-                # order.save()
+                order = Orders(dealerID=dealerobj, model=request.POST['model'], colour=request.POST['colour'], homologation=True if 'homologation' in request.POST else False, custom_clearance=True if 'custom_clearance' in request.POST else False, additional_comments=request.POST['additional_comments'])
+                order.save()
 
                 response_data = {'result': _('Order has been succesfully placed.'), 'status': 'success'}
                 return HttpResponse(
@@ -59,7 +54,6 @@ def order(request):
                     content_type="application/json"
                 )
 
-            print(form.errors)
             return HttpResponse(
                 json.dumps(response_data),
                 content_type="application/json"
@@ -76,8 +70,6 @@ def addnewspost(request):
                 if form.is_valid():
                     v = NewsPosts(writtenby=request.user, banner=form.cleaned_data['banner'], title=request.POST['title'], headline=request.POST['headline'], quote=request.POST['quote'], quotefooter=request.POST['quotefooter'], description=request.POST['description'])
                     v.save()
-                    print("CREATED ID = ", v.id)
-                    # return redirect('/shelby/news/?n=' + str(v.id))
                     response_data = {'result': 'Create succesful', 'status': 'success'}
                     return HttpResponse(
                         json.dumps(response_data),
@@ -88,7 +80,6 @@ def addnewspost(request):
                     response_data = {'result': 'Create unsuccesful', 'status': 'failed', 'formerr': form.errors,
                                      'form': str(newform)}
 
-                    print(form.errors)
                     return HttpResponse(
                         json.dumps(response_data),
                         content_type="application/json"
@@ -110,8 +101,6 @@ def portalorderlist(request):
     if request.user.is_authenticated:
         form = forms.PartialOrderForm()
         if request.method == "POST":
-            print(request.POST)
-            print(request.FILES)
 
             obj = Orders.objects.get(pk=request.POST['change'])
             obj.model = request.POST['inp3']
@@ -126,31 +115,25 @@ def portalorderlist(request):
             if request.FILES:
                 obj.invoice = request.FILES['invoice']
 
-            # obj.additional_comments = form.cleaned_data['additional_comments']
-
             if str(request.POST['check6x']) == 'True' and str(obj.homologation) == 'False':
                 obj = True
             elif str(request.POST['check6x']) == 'False' and str(obj.homologation) == 'True':
                 obj = False
-                print("newobj: ", obj)
 
             if request.POST['check7x'] == 'True' and obj.custom_clearance == 'False':
                 obj = True
             elif str(request.POST['check7x']) == 'False' and str(obj.custom_clearance) == 'True':
                 obj = False
-                print("newobj: ", obj)
 
             if request.POST['check9x'] == 'True' and obj.deposit_received == 'False':
                 obj = True
             elif str(request.POST['check9x']) == 'False' and str(obj.deposit_received) == 'True':
                 obj = False
-                print("newobj: ", obj)
 
             if request.POST['check10x'] == 'True' and obj.payment_received == 'False':
                 obj = True
             elif str(request.POST['check10x']) == 'False' and str(obj.payment_received) == 'True':
                 obj = False
-                print("newobj: ", obj)
 
             obj.save()
 
@@ -166,10 +149,8 @@ def portalorderlist(request):
 def registerdealer(request):
     if request.user.is_authenticated:
         if request.method == "POST":
-            print("Get request ", request.POST)
             form = forms.RegistrationDealerForm(request.POST)
             if form.is_valid():
-                print("form is valid")
                 form.save()
 
                 response_data = {'result': _("Succesfully registered dealer."), 'status': 'success'}
@@ -182,7 +163,6 @@ def registerdealer(request):
                 response_data = {'result': _("Failed to register dealer."), 'status': 'failed', 'formerr': form.errors,
                                  'form': str(newform)}
 
-                print(form.errors)
                 return HttpResponse(
                     json.dumps(response_data),
                     content_type="application/json"
@@ -197,10 +177,8 @@ def registeradmin(request):
     if request.user.is_authenticated:
         if request.user.is_superuser:
             if request.method == "POST":
-                print("Get request ", request.POST)
                 form = forms.RegistrationAdminForm(request.POST)
                 if form.is_valid():
-                    print("form is valid")
                     form.save()
 
                     response_data = {'result': _("Succesfully registered admin."), 'status': 'success'}
@@ -213,7 +191,6 @@ def registeradmin(request):
                     response_data = {'result': _("Failed to register admin."), 'status': 'failed', 'formerr': form.errors,
                                      'form': str(newform)}
 
-                    print(form.errors)
                     return HttpResponse(
                         json.dumps(response_data),
                         content_type="application/json"
@@ -229,17 +206,13 @@ def addvehicle(request):
             form = forms.VehicleForm()
             if request.method == 'POST':
                 form = forms.VehicleForm(request.POST, request.FILES)
-                print("IS POSTING")
-                print(request.POST)
                 if form.is_valid():
-                    print("form is valid")
                     if request.POST['companyselect'] == 'shelby':
                         v = Vehicles(image=form.cleaned_data['image'], model=request.POST['model'], headline=request.POST['headline'], description=request.POST['description'])
                     else:
                         v = Vehicles_Tuscany(image=form.cleaned_data['image'], model=request.POST['model'], headline=request.POST['headline'], description=request.POST['description'])
 
                     v.save()
-                    print("CREATED ID = ", v.id)
 
                     response_data = {'result': _('Succesfully added vehicle.'), 'status': 'success'}
                     return HttpResponse(
@@ -250,7 +223,6 @@ def addvehicle(request):
                     newform = forms.VehicleForm()
                     response_data = {'result': _('Failed to add vehicle.'), 'status': 'failed', 'formerr': form.errors, 'form': str(newform)}
 
-                    print(form.errors)
                     return HttpResponse(
                         json.dumps(response_data),
                         content_type="application/json"
@@ -271,7 +243,6 @@ def addnewspost(request):
                     else:
                         v = NewsPosts_Tuscany(writtenby=request.user, banner=form.cleaned_data['banner'], title=request.POST['title'], headline=request.POST['headline'], quote=request.POST['quote'], quotefooter=request.POST['quotefooter'], description=request.POST['description'])
                     v.save()
-                    print("CREATED ID = ", v.id)
                     response_data = {'result': _('Succesfully added newspost.'), 'status': 'success'}
                     return HttpResponse(
                         json.dumps(response_data),
@@ -282,7 +253,6 @@ def addnewspost(request):
                     response_data = {'result': _('Failed to add newspost.'), 'status': 'failed', 'formerr': form.errors,
                                      'form': str(newform)}
 
-                    print(form.errors)
                     return HttpResponse(
                         json.dumps(response_data),
                         content_type="application/json"
@@ -296,16 +266,12 @@ def addeventpost(request):
             form = forms.EventForm()
             if request.method == 'POST':
                 form = forms.EventForm(request.POST)
-                print(request.POST)
                 if form.is_valid():
                     if request.POST['companyselect'] == 'shelby':
                         e = Events(title=request.POST['title'], description=request.POST['description'], link=request.POST['link'], date=request.POST['date'])
-                        print("adding to Shelby")
                     else:
-                        print("adding to tuscany")
                         e = Events_Tuscany(title=request.POST['title'], description=request.POST['description'], link=request.POST['link'], date=request.POST['date'])
                     e.save()
-                    print("CREATED ID = ", e.id)
                     response_data = {'result': _("Event succesfully added."), 'status': 'success'}
                     return HttpResponse(
                         json.dumps(response_data),
@@ -316,7 +282,6 @@ def addeventpost(request):
                     response_data = {'result': _("Failed to add event."), 'status': 'failed', 'formerr': form.errors,
                                      'form': str(newform)}
 
-                    print(form.errors)
                     return HttpResponse(
                         json.dumps(response_data),
                         content_type="application/json"
@@ -330,13 +295,8 @@ def addmapdealer(request):
             form = forms.MapDealerForm()
             if request.method == 'POST':
                 form = forms.MapDealerForm(request.POST)
-                print("POSTING")
                 if form.is_valid():
-                    print("IS VALID")
-                    # m = MapDealers(customer_name=request.POST['customer_name'], phone=request.POST['phone'], email=request.POST['email'], address=request.POST['address'], country=dict(countries)[request.POST['country']], latitude=request.POST['latitude'], longitude=request.POST['longitude'])
-                    # m.save()
                     form.save()
-                    # print("CREATED ID = ", m.id)
 
                     response_data = {'result': _('Succesfully added dealer to the map.'), 'status': 'success'}
                     return HttpResponse(
@@ -344,12 +304,10 @@ def addmapdealer(request):
                         content_type="application/json"
                     )
                 else:
-                    print("IS NOT VALID")
                     newform = forms.MapDealerForm()
                     response_data = {'result': _('Failed to add dealer to the map.'), 'status': 'failed', 'formerr': form.errors,
                                      'form': str(newform)}
 
-                    print(form.errors)
                     return HttpResponse(
                         json.dumps(response_data),
                         content_type="application/json"
@@ -361,10 +319,8 @@ def addmapdealer(request):
 def changePassword(request):
     if request.user.is_authenticated:
         if request.method == "POST":
-            print("Get request ", request.POST)
             form = PasswordChangeForm(request.user, request.POST)
             if form.is_valid():
-                print("form is valid")
                 form.save()
                 update_session_auth_hash(request, form)
                 response_data = {'result': _('Succesfully changed password'), 'status': 'success'}
@@ -377,7 +333,6 @@ def changePassword(request):
                 response_data = {'result': _('Failed to change password'), 'status': 'failed', 'formerr': form.errors,
                                  'form': str(newform)}
 
-                print("form invalid")
                 return HttpResponse(
                     json.dumps(response_data),
                     content_type="application/json"
@@ -388,7 +343,6 @@ def changePassword(request):
 
 def search(request):
     if request.method == 'POST':
-        print(request.POST)
         search_text = request.POST['searchtext']
         users = User.objects.all().filter(Q(first_name__icontains=search_text)
                                           | Q(last_name__icontains=search_text)
@@ -396,6 +350,5 @@ def search(request):
                                           | Q(email__icontains=search_text))
 
         serialized_obj = serializers.serialize("json", users)
-        # print(serialized_obj)
         return HttpResponse(serialized_obj, content_type="application/json")
     return render(request, 'portal/search.html')

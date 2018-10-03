@@ -27,7 +27,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'k^_-a^0mocfym(l*y-(!a=i2@hgmuz=bxf4qoxyd0ko+q4yrwe'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -60,7 +60,7 @@ INSTALLED_APPS = [
 	'django.contrib.flatpages',
     'compressor',
     'widget_tweaks',
-] + get_core_apps(['appgu.oscar.checkout', 'appgu.oscar.order', 'appgu.oscar.partner', 'appgu.oscar.shipping'])
+] + get_core_apps(['appgu.oscar.checkout', 'appgu.oscar.order', 'appgu.oscar.partner', 'appgu.oscar.shipping', 'appgu.oscar.customer'])
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -120,16 +120,14 @@ DATABASES = {
 		'PASSWORD': 'kaas123',
 		'HOST': 'localhost',
         'PORT': '5432',
-        'ATOMIC_REQUESTS': True,
+        'ATOMIC_REQUESTS': True
     }
 }
-
 
 
 # Password validation
 # https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators
 
-# AUTH_USER_MODEL = 'appgu.dealers'
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -237,7 +235,7 @@ ORDER_OPEN_STATUS = 'Open'
 ORDER_PAID_STATUS = 'Paid'
 
 # Mollie settings
-OSCAR_MOLLIE_CONFIRMED_STATUSES = [ORDER_STATUS_PAID, 'Paid'],
+OSCAR_MOLLIE_CONFIRMED_STATUSES = ['Paid']
 OSCAR_MOLLIE_HTTPS = False
 MOLLIE_API_KEY = 'test_cCKc9q6jPNxb8MM7ta2uuNs2s5Wp79'
 MOLLIE_STATUS_MAPPING = {
@@ -249,8 +247,9 @@ MOLLIE_STATUS_MAPPING = {
 }
 
 # Production settings
-# SECURE_CONTENT_TYPE_NOSNIFF = True
-# SECURE_BROWSER_XSS_FILTER = True
+
+X_FRAME_OPTIONS = "DENY"
+
+# These settings should only be used when running the server over HTTPS
 # SESSION_COOKIE_SECURE = True
 # CSRF_COOKIE_SECURE = True
-# X_FRAME_OPTIONS = "DENY"

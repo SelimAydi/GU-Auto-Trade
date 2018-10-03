@@ -44,34 +44,19 @@ class RegistrationDealerForm(UserCreationForm):
         self.fields['password2'].widget.attrs['placeholder'] = '********'
 
     def save(self, commit=True):
-        # user = super(RegistrationDealerForm, self).save(commit=False)
-        # maxDealerID = Dealers.objects.all().aggregate(Max('dealerID'))
         maxUserID = User.objects.all().aggregate(Max('id'))
-
         user = super(RegistrationDealerForm, self).save(commit=False)
-
-        # if maxDealerID.get('dealerID__max') == None:
-        #     dealerID = 1
-        # else:
-        #     dealerID = maxDealerID.get('dealerID__max') + 1
-        #     print('dealer id that it is giving for the newly registered dealer: ', dealerID)
-
 
         if maxUserID.get('id__max') == None:
             user.id = 1
         else:
             user.id = maxUserID.get('id__max') + 1
-            # print('maxID: ', maxID.get('dealerID__max'))
-            print('user id that it is giving for the newly registered user: ', user.id)
 
         user.first_name = self.cleaned_data['firstname']
         user.last_name = self.cleaned_data['lastname']
         user.username = self.cleaned_data['username']
         user.email = self.cleaned_data['email']
         user.telephone = self.cleaned_data['telephone']
-
-        # dealerEntry = Dealers(user=user, username=user.username, email=user.email, name=user.first_name,
-        #                       surname=user.last_name, telephone=user.telephone)
 
         dealerEntry = Dealers(user=user, telephone=user.telephone)
         dealerEntry.save()
@@ -120,11 +105,11 @@ class RegistrationAdminForm(UserCreationForm):
 
     def save(self, commit=True):
         user = super(RegistrationAdminForm, self).save(commit=False)
-        maxID = Dealers.objects.all().aggregate(Max('dealerID'))
-        if maxID.get('dealerID__max') == None:
+        maxID = User.objects.all().aggregate(Max('id'))
+        if maxID.get('id__max') == None:
             user.id = 1
         else:
-            user.id = maxID.get('dealerID__max') + 1
+            user.id = maxID.get('id__max') + 1
 
         user.first_name = self.cleaned_data['firstname']
         user.last_name = self.cleaned_data['lastname']
@@ -133,10 +118,6 @@ class RegistrationAdminForm(UserCreationForm):
         user.telephone = self.cleaned_data['telephone']
         user.is_superuser = self.cleaned_data['superuser']
         user.is_staff = True
-
-        dealerEntry = Dealers(dealerID=user.id, username=user.username, email=user.email, name=user.first_name,
-                              surname=user.last_name, telephone=user.telephone)
-        dealerEntry.save()
 
         if commit:
             user.save()
@@ -228,7 +209,7 @@ class NewsPostForm(forms.ModelForm):
     field_order = ['title', 'headline', 'writtenby', 'quote', 'quotefooter', 'description', 'banner']
 
     class Meta:
-        model = models.Vehicles
+        model = models.NewsPosts
         fields = ("title", "headline", 'writtenby', 'quote', 'quotefooter', "description", "banner")
 
     def __init__(self, *args, **kwargs):
@@ -249,6 +230,12 @@ class NewsPostForm(forms.ModelForm):
         self.fields['quote'].widget.attrs['placeholder'] = ugettext_lazy('Lorem ipsum dolor sit amet, consectetur adipiscing elit.')
         self.fields['quotefooter'].widget.attrs['placeholder'] = ugettext_lazy('From Example.com')
         self.fields['description'].widget.attrs['placeholder'] = ugettext_lazy('The actual newspost text goes here')
+
+
+class NewsPostTuscanyForm(NewsPostForm):
+    class Meta:
+        model = models.NewsPosts_Tuscany
+        fields = '__all__'
 
 class EventForm(forms.ModelForm):
     title = forms.CharField(required=True)
@@ -291,7 +278,7 @@ class MapDealerForm(forms.ModelForm):
 
 
     class Meta:
-        model = models.Vehicles
+        model = models.MapDealers
         fields = ("customer_name", "email", "phone", "address", "country", "latitude", "longitude")
 
     def __init__(self, *args, **kwargs):
@@ -316,11 +303,6 @@ class MapDealerForm(forms.ModelForm):
 
     def save(self, commit=True):
         map = super(MapDealerForm, self).save(commit=False)
-        # maxID = MapDealers.objects.all().aggregate(Max('id'))
-        # if maxID.get('id__max') == None:
-        #     user.id = 1
-        # else:
-        #     user.id = maxID.get('dealerID__max') + 1
 
         map.customer_name = self.cleaned_data['customer_name']
         map.email = self.cleaned_data['email']
@@ -329,10 +311,6 @@ class MapDealerForm(forms.ModelForm):
         map.country = self.cleaned_data['country']
         map.latitude = self.cleaned_data['latitude']
         map.longitude = self.cleaned_data['longitude']
-
-        Entry = MapDealers(customer_name=map.customer_name, email=map.email, phone=map.phone,
-                              address=map.address, country=map.country, latitude=map.latitude, longitude=map.longitude)
-        Entry.save()
 
         if commit:
             map.save()
@@ -371,10 +349,8 @@ class AdminOrderForm(OrderForm):
         self.fields['forwho'].help_text = ugettext_lazy("This field must consist of number(s) only.")
 
     def clean_forwho(self):
-        print(self.cleaned_data['forwho'])
         if self.cleaned_data['forwho']:
-            if Dealers.objects.filter(user=self.cleaned_data['forwho']).exists():
-                print("EXISTS")
+            if Dealers.objects.filter(user=User(pk=self.cleaned_data['forwho'])).exists():
                 return self.cleaned_data['forwho']
             raise forms.ValidationError('Invalid ID.')
 

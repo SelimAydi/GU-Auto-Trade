@@ -1,28 +1,26 @@
 from django.core.mail import EmailMessage
 from django.core.paginator import Paginator
 from django.shortcuts import render, redirect
+from django.http import HttpResponse
+import json
+from django.utils.translation import gettext as _
 
 from appgu.forms import ContactForm
 from ..models import Vehicles, NewsPosts, Vehicles_Tuscany, NewsPosts_Tuscany
 from django.template.loader import get_template
 from .. import forms
 
-
 # Tuscany index (homepage)
 def index(request):
     vehicle_list = Vehicles_Tuscany.objects.all()
     if len(vehicle_list) != 0:
-        print("OUT OF RANGE")
         # the c_type determines what style class each vehicle item gets
         c_type = 0
 
-        print("AMOUNT OF VEHICLES________: " ,len(vehicle_list))
         if len(vehicle_list) % 3 == 1:
             c_type = 1
-            print("1 class")
         elif len(vehicle_list) % 3 == 2:
             c_type = 2
-            print("2 class")
 
         last = Vehicles_Tuscany.objects.latest('id')
         if len(vehicle_list) > 1:
@@ -53,7 +51,6 @@ def news(request):
     if request.method == 'GET' and 'n' in request.GET:
         n = request.GET['n']
         if n is not None and n != '':
-            print(request.GET)
             news_list = NewsPosts_Tuscany.objects.filter(pk=request.GET.get('n'))
             if len(news_list) == 0:
                 exists = False
@@ -72,9 +69,7 @@ def news(request):
         return render(request, 'tuscany/news.html', {'newsposts': newsposts, 'exists': exists, 'news': news_list})
 
     if not news:
-        print("nothing in news found!")
         return render(request, 'tuscany/news.html', {"exists": False})
-    print("found newspost(s)")
     l = []
     for i in news:
         l.append(i.banner)
@@ -85,7 +80,6 @@ def news(request):
         l.append(i.quotefooter)
         l.append(i.date)
         l.append(i.writtenby)
-        print(i.title)
 
     return render(request, 'shelby/news.html',
                   {'banner': l[0], 'title': l[1], 'headline': l[2], 'desc': l[3], 'quote': l[4], 'quotefooter': l[5], 'date': l[6], 'writtenby': l[7], 'exists': True})
@@ -140,24 +134,16 @@ def vehicledesc(request):
     if request.method == "GET" and 'v' in request.GET:
         v = request.GET['v']
         if v is not None and v != '':
-            print(request.GET)
             vehicles = Vehicles_Tuscany.objects.filter(pk=request.GET.get('v'))
             if not vehicles:
-                print("nothing in vehicles found!")
                 return render(request, 'tuscany/vehicledesc.html', {"exists": False})
-            else:
-                print("found vehicle")
             l = []
             for i in vehicles:
                 l.append(i.image)
                 l.append(i.model)
                 l.append(i.headline)
                 l.append(i.description)
-                print(i.model)
-                print(i.description)
 
-            print(request.GET.get('q'))
             return render(request, 'tuscany/vehicledesc.html', {'image': l[0], 'model': l[1], 'headline': l[2], 'desc': l[3], 'exists': True})
     else:
-        print("canceled")
         return render(request, 'tuscany/vehicledesc.html')

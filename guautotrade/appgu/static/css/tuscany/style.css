@@ -157,6 +157,7 @@ blockquote:before{
 
 #contact {
 	padding-top: 100px;
+	min-height: calc(100vh);
 }
 
 #news {

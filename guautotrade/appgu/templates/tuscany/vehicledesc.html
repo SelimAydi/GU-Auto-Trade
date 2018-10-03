@@ -22,7 +22,7 @@
 					<div class="col-md-6">
 						<h3>About {{ model }}</h3>
 						<p class="lead">{{ headline }}</p>
-						<p>{{ desc }}</p>
+						<p>{% autoescape off %}{{ desc }}{% endautoescape %}</p>
 					</div>
 
 					<div class="col-md-5 col-md-offset-1">
@@ -33,7 +33,7 @@
 {#								<a class="vehicle-title" href="#"></a>#}
 								<div class="vehicle-details">
 									<span class="vehicle-category">{{ model }}</span>
-									<span class="vehicle-price vehicle-free"><a class="main-button icon-button" href="#">More</a></span>
+									<!--<span class="vehicle-price vehicle-free"><a class="main-button icon-button" href="#">More</a></span>-->
 								</div>
 							</div>
 					</div>

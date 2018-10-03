@@ -1,1 +1,2 @@
-{% load i18n %}{% trans 'Thank you for registering.' %}
+{% load i18n %}{% trans 'Welcome, thank you for registering at our webshop!' %}
+- GU Auto Trade

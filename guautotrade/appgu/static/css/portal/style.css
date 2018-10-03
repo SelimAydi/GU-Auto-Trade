@@ -502,7 +502,8 @@ form {
 
 .success::before{
 	padding: 5px;
-	font-family: 'FontAwesome';
+	font-family: 'Font Awesome 5 Free';
+	font-weight: 900;
 	content: '\f00c';
 }
 
@@ -528,7 +529,8 @@ form {
 
 .error::before{
 	padding: 7px;
-	font-family: 'FontAwesome';
+	font-family: 'Font Awesome 5 Free';
+	font-weight: 900;
 	content: '\f071';
 }
 

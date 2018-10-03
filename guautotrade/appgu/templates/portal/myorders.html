@@ -21,10 +21,10 @@
 						{% if orders%}
                             {% if user.is_authenticated %}
                                     <h2>{% trans 'My Orders' %}</h2>
-                                    <p class="lead">Libris vivendo eloquentiam ex ius, nec id splendide abhorreant.</p>
+                                    <p class="lead">{% trans 'Here you can view the orders you placed' %}</p>
                                     <div class="row">
                                         <div class="tb">
-                                            <form method="POST" id="orderchange">
+                                            <form method="POST" id="orderchange" style="max-width: initial">
                                             {% csrf_token %}
                                             <input id="change" name="change" type="hidden">
                                             <table id="orderstb">
