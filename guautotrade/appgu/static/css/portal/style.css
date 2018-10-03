@@ -175,8 +175,9 @@ ul,ol{
 }
 
 .main-button.icon-button:after {
-	content:"\f178";
-	font-family:FontAwesome;
+	content: "\f054";
+	font-family: "Font Awesome 5 Free";
+	font-weight: 900;
 	position:absolute;
 	width: 30px;
 	right: 15px;
@@ -228,8 +229,8 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
 	font-size: 12px;
 	margin-right: 5px;
 	content: "\f06a";
-	font-family: FontAwesome;
-	display: inline;
+	font-family: "Font Awesome 5 Free";
+	font-weight: 900;
 }
 
 /*==================================================================
