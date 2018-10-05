@@ -2,6 +2,7 @@ from django.core.mail import EmailMessage
 from django.core.paginator import Paginator
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
+from django.core.mail import send_mail
 import json
 from django.utils.translation import gettext as _
 
@@ -95,35 +96,29 @@ def contact(request):
 
     if request.method == 'POST':
         form = forms.ContactForm(request.POST)
-
         if form.is_valid():
-            contact_name = request.POST.get(
-                'contact_name'
-                , '')
-            contact_email = request.POST.get(
-                'contact_email'
-                , '')
-            form_content = request.POST.get('content', '')
+            contact_name = request.POST.get('contact_name')
+            contact_email = request.POST.get('contact_email')
+            contact_subject = request.POST.get('contact_subject')
 
-            # Email the profile with the
-            # contact information
-            template = get_template('tuscany/contact_template.txt')
-        context = {
-            'contact_name': contact_name,
-            'contact_email': contact_email,
-            'form_content': form_content,
-        }
-        content = template.render(context)
+            form_content = request.POST.get('content')
 
-        email = EmailMessage(
-            "New contact form submission",
-            content,
-            "Tuscany" + '',
-            ['selimaydi@gmail.com'],
-            headers={'Reply-To': contact_email}
-        )
-        email.send()
-        return redirect('tuscany_contact')
+            context = {
+                'contact_name': contact_name,
+                'contact_email': contact_email,
+                'contact_subject': contact_subject,
+                'form_content': form_content
+            }
+
+            contact_message = get_template('tuscany/contact_template.txt').render(context)
+
+            send_mail("New contact form submission", contact_message, "messages@guautotrade.com", [contact_email], fail_silently=False)
+
+            response_data = {'result': _("Mail has been sent. We'll respond as soon as possible!"), 'status': 'success'}
+            return HttpResponse(
+                json.dumps(response_data),
+                content_type="application/json"
+            )
 
     return render(request, 'tuscany/contact.html', {
         'form': form_class,
