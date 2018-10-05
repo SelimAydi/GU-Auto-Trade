@@ -45,7 +45,7 @@ class Vehicles_Tuscany(models.Model):
     image = models.ImageField(default='default_vehicle.png', upload_to='vehicles/', blank=True, null=True)
 
 class NewsPosts(models.Model):
-    writtenby = models.ForeignKey(User, on_delete=models.CASCADE)
+    writtenby = models.CharField(max_length=50)
     banner = models.ImageField(default='default_banner.png', upload_to='news/banners/', blank=True, null=True)
     title = models.CharField(max_length=1000)
     headline = models.CharField(max_length=1000)
