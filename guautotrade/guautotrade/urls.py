@@ -16,7 +16,7 @@ from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     path('i18n/', include('django.conf.urls.i18n')),
-    path('admin/', admin.site.urls),
+    path('gu-admin/', admin.site.urls),
     path('', base_index.index, name='index'),
     path('checkout/paypal/', include('paypal.express.urls')),
     # Optional
