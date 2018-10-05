@@ -196,15 +196,19 @@ LOCALE_PATHS = [
 
 # Static files (CSS, JavaScript, Images)
 # Development
+
 # STATIC_ROOT = '/static/'
 # STATIC_URL = STATIC_ROOT
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-MEDIA_URL = '/media/'
+# MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+# MEDIA_URL = '/media/'
 
 # Production
 STATIC_ROOT = '/var/www/static/'
 STATIC_URL = '/static/'
+
+MEDIA_ROOT = '/var/www/media/'
+MEDIA_URL = '/media/'
 
 SEND_GRID_API_KEY = ''
 EMAIL_HOST = 'smtp.sendgrid.net'
