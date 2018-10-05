@@ -13,16 +13,12 @@ def stripslashes(url):
 def vehiclesExist():
     vehicle_list = Vehicles.objects.all()
     if len(vehicle_list) == 0:
-        print("no vehicles")
         return False
-    print("yes vehicles")
     return True
 
 @register.simple_tag()
 def getCountry():
     map = MapDealers.objects.all()
-    for i in map:
-        print(i.country)
     urlx = "https://restcountries.eu/rest/v2/alpha/"
 
     lst = {}
@@ -31,7 +27,6 @@ def getCountry():
 
     for i in map:
         if i.country not in lst:
-            # lst.append(i.country)
             lst[i.country] = []
         lst[i.country].append(i.customer_name)
 
@@ -43,21 +38,9 @@ def getCountry():
             region = data['region']
             if region == 'Americas':
                 region = data['subregion']
-                print("is Americas")
 
-            # lst.append(data['region'])
             if region not in dic:
-                print("NOT")
                 dic[region] = {}
-            # dic[region].append(dict(countries)[x])
             dic[region][dict(countries)[x]] = lst[x]
-            # dic[data['region']] = []
 
-
-    # region = data['region']
-    print("dic", dic)
-    print("list", lst)
-
-    # x = dict(countries)
-    # print(x)
     return dic
