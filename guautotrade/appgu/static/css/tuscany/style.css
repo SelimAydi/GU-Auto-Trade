@@ -1,5 +1,5 @@
 /* ---------------------------------------------
-COPYRIGHT GU AUTO TRADE © Designed by Selim Aydi
+COPYRIGHT GU AUTO TRADE - Made by Selim Aydi
 -----------------------------------------------*/
 
 /*
@@ -780,7 +780,7 @@ iframe {
 
 .col-md-6 .vehicle .vehicle-img > img {
 	width: 100%;
-	height: 360px;
+	height: auto;
 }
 
 .col-md-12 .vehicle .vehicle-img > img {
