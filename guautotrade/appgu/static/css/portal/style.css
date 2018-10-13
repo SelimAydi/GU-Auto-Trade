@@ -1,5 +1,5 @@
 /* ---------------------------------------------
-COPYRIGHT GU AUTO TRADE © Designed by Selim Aydi
+COPYRIGHT GU AUTO TRADE Â© Designed by Selim Aydi
 -----------------------------------------------*/
 
 /*
@@ -567,7 +567,7 @@ form {
 	display: block;
 }
 
-input[type=text]::placeholder, textarea::placeholder, input[type=url]::placeholder, input[type=password]::placeholder, input[type=email]::placeholder {
+input[type=text]::placeholder, textarea::placeholder, input[type=url]::placeholder, input[type=password]::placeholder, input[type=email]::placeholder, input[type=number]::placeholder {
 	color: #dadada;
 }
 

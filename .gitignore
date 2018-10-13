@@ -1,4 +1,12 @@
+**/__pycache__
+__pycache__/
+*.py[cod]
+*.pyc
+eggs/
+*.egg
+static/
 env/
 guenv/
 .idea/
-__pycache__/
+guautotrade/__pycache__/
+settings.py

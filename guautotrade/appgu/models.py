@@ -10,7 +10,7 @@ class Dealers(User):
         verbose_name_plural = "Dealers"
 
     user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True)
-    telephone = models.CharField(max_length=12)
+    telephone = models.CharField(max_length=50)
     isBlocked = models.BooleanField(default=False)
 
 
@@ -45,7 +45,6 @@ class Vehicles_Tuscany(models.Model):
     image = models.ImageField(default='default_vehicle.png', upload_to='vehicles/', blank=True, null=True)
 
 class NewsPosts(models.Model):
-    writtenby = models.CharField(max_length=50)
     banner = models.ImageField(default='default_banner.png', upload_to='news/banners/', blank=True, null=True)
     title = models.CharField(max_length=1000)
     headline = models.CharField(max_length=1000)
@@ -55,7 +54,6 @@ class NewsPosts(models.Model):
     date = models.DateField(auto_now_add=True)
 
 class NewsPosts_Tuscany(models.Model):
-    writtenby = models.CharField(max_length=50)
     banner = models.ImageField(default='default_banner.png', upload_to='news/banners/', blank=True, null=True)
     title = models.CharField(max_length=1000)
     headline = models.CharField(max_length=1000)
@@ -78,10 +76,14 @@ class Events_Tuscany(models.Model):
 
 class MapDealers(models.Model):
     customer_name = models.CharField(max_length=100)
-    phone = models.CharField(max_length=12)
+    phone = models.CharField(max_length=50)
     email = models.EmailField(max_length=70, blank=True, null=True)
     address = models.CharField(max_length=500)
+    city = models.CharField(max_length=500)
+    state = models.CharField(max_length=200)
+    zip = models.CharField(max_length=30)
     country = models.CharField(max_length=100)
+    link = models.CharField(max_length=1000)
     latitude = models.FloatField()
     longitude = models.FloatField()
 

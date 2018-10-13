@@ -42,11 +42,11 @@
 {#                                                    <td>{{v}}</td>#}
                                                     <a href="#"><i class="fas fa-angle-down"></i>{{ a }}</a>
                                                 </li>
-                                            <ul class="sub-menu collapse" id="reg{{ forloop.parentloop.counter0 }}_country_{{ forloop.counter0 }}">
+                                            <ol class="sub-menu collapse" style="padding: 0px 40px" id="reg{{ forloop.parentloop.counter0 }}_country_{{ forloop.counter0 }}">
                                                 {% for dealer in b %}
-                                                    <li class="under2">{{ dealer }}</li>
+                                                    <li style="padding: initial" onclick="togglePopup('{{ dealer }}')" class="under2">{{ dealer }}</li>
                                                 {% endfor %}
-                                            </ul>
+                                            </ol>
                                         {% endfor %}
                                     </ul>
                                 {% endfor %}
@@ -59,22 +59,25 @@
                 <div id="mapid"></div>
                 <script>
                     $.getJSON("/api/shelby/mapdealers/", getResults);
-
+                    var dealers = {};
                     function getResults(results){
                         initMap(results);
                     }
 
 
                     function initMap(results) {
-                        var mymap = L.map('mapid').setView([35.746512, -39.462891], 3);
-
+                        var mymap = L.map('mapid', {attributionControl: false}).setView([35.746512, -39.462891], 3);
+                        console.log(results);
                         if (results.length !== 0) {
-                            console.log("trueeee");
                             for (var i = 0; i < results.length; i++) {
                                 console.log(i);
                                 var dealer = L.marker([results[i]['fields']['latitude'], results[i]['fields']['longitude']], {title: results[i]['fields']['customer_name']}).addTo(mymap);
-                                dealer.bindPopup("<b>" + results[i]['fields']['customer_name'] + "</b><br>" + results[i]['fields']['address'] + "<br>" + results[i]['fields']['country']);
+                                dealer.bindPopup("<b>" + results[i]['fields']['customer_name'] + "</b><br>" + results[i]['fields']['address'] + "<br>" + results[i]['fields']['city'] + "<br>" + results[i]['fields']['state'] + "<br>" + results[i]['fields']['zip'] + "<br>" + results[i]['fields']['country'] + "<br><br>" + results[i]['fields']['phone'] + "<br><a href='" + results[i]['fields']['link'] + "'>Dealer Website</a>");
+                                console.log(dealer);
+                                dealers[dealer.options.title] = dealer;
                             }
+                            console.log("printing dealers");
+                            console.log(dealers);
                         }
 
                         L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
@@ -83,6 +86,15 @@
                             id: 'mapbox.streets',
                             accessToken: 'pk.eyJ1Ijoidml0YWx5bngiLCJhIjoiY2prMWVmZHV2MGZhdTNqcnlpOTJodXh5NSJ9.uZto22S1ULdHUiZrkVDmxA'
                         }).addTo(mymap);
+                    }
+
+                    function togglePopup(mapid){
+                        var e = dealers[mapid];
+                        if (e._popup.isOpen()){
+                            e.closePopup();
+                        } else {
+                            e.openPopup();
+                        }
                     }
                 </script>
 

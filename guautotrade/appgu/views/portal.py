@@ -68,7 +68,7 @@ def addnewspost(request):
             if request.method == 'POST':
                 form = forms.NewsPostForm(request.POST, request.FILES)
                 if form.is_valid():
-                    v = NewsPosts(writtenby=request.user, banner=form.cleaned_data['banner'], title=request.POST['title'], headline=request.POST['headline'], quote=request.POST['quote'], quotefooter=request.POST['quotefooter'], description=request.POST['description'])
+                    v = NewsPosts(banner=form.cleaned_data['banner'], title=request.POST['title'], headline=request.POST['headline'], quote=request.POST['quote'], quotefooter=request.POST['quotefooter'], description=request.POST['description'])
                     v.save()
                     response_data = {'result': 'Create succesful', 'status': 'success'}
                     return HttpResponse(
@@ -239,9 +239,9 @@ def addnewspost(request):
                 form = forms.NewsPostForm(request.POST, request.FILES)
                 if form.is_valid():
                     if request.POST['companyselect'] == 'shelby':
-                        v = NewsPosts(writtenby=request.user, banner=form.cleaned_data['banner'], title=request.POST['title'], headline=request.POST['headline'], quote=request.POST['quote'], quotefooter=request.POST['quotefooter'], description=request.POST['description'])
+                        v = NewsPosts(banner=form.cleaned_data['banner'], title=request.POST['title'], headline=request.POST['headline'], quote=request.POST['quote'], quotefooter=request.POST['quotefooter'], description=request.POST['description'])
                     else:
-                        v = NewsPosts_Tuscany(writtenby=request.user, banner=form.cleaned_data['banner'], title=request.POST['title'], headline=request.POST['headline'], quote=request.POST['quote'], quotefooter=request.POST['quotefooter'], description=request.POST['description'])
+                        v = NewsPosts_Tuscany(banner=form.cleaned_data['banner'], title=request.POST['title'], headline=request.POST['headline'], quote=request.POST['quote'], quotefooter=request.POST['quotefooter'], description=request.POST['description'])
                     v.save()
                     response_data = {'result': _('Succesfully added newspost.'), 'status': 'success'}
                     return HttpResponse(

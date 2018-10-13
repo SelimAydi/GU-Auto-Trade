@@ -198,7 +198,6 @@ class VehicleTuscanyForm(VehicleForm):
         fields = '__all__'
 
 class NewsPostForm(forms.ModelForm):
-    writtenby = forms.CharField(required=True)
     banner = forms.ImageField(required=False)
     title = forms.CharField(required=True)
     headline = forms.CharField(required=True)
@@ -206,11 +205,11 @@ class NewsPostForm(forms.ModelForm):
             'id': 'summernote'}))
     quote = forms.CharField(required=False)
     quotefooter = forms.URLField(required=False)
-    field_order = ['title', 'headline', 'writtenby', 'quote', 'quotefooter', 'description', 'banner']
+    field_order = ['title', 'headline', 'quote', 'quotefooter', 'description', 'banner']
 
     class Meta:
         model = models.NewsPosts
-        fields = ("title", "headline", 'writtenby', 'quote', 'quotefooter', "description", "banner")
+        fields = ("title", "headline", 'quote', 'quotefooter', "description", "banner")
 
     def __init__(self, *args, **kwargs):
         kwargs.setdefault('label_suffix', '')
@@ -218,14 +217,12 @@ class NewsPostForm(forms.ModelForm):
         self.fields['banner'].label = ""
         self.fields['title'].label = ugettext_lazy("Title")
         self.fields['headline'].label = ugettext_lazy("Headline")
-        self.fields['writtenby'].label = ugettext_lazy("Author")
         self.fields['description'].label = ugettext_lazy("Description")
         self.fields['quote'].label = ugettext_lazy("Quote")
         self.fields['quotefooter'].label = ugettext_lazy("Quote Reference")
 
         self.fields['banner'].widget.attrs.update({'class': 'invis'})
         self.fields['title'].widget.attrs['placeholder'] = ugettext_lazy('Shelby Super Snake is amazing')
-        self.fields['writtenby'].widget.attrs['placeholder'] = ugettext_lazy('John Doe')
         self.fields['headline'].widget.attrs['placeholder'] = ugettext_lazy('Shelby Super Snake is one of the most..')
         self.fields['quote'].widget.attrs['placeholder'] = ugettext_lazy('Lorem ipsum dolor sit amet, consectetur adipiscing elit.')
         self.fields['quotefooter'].widget.attrs['placeholder'] = ugettext_lazy('From Example.com')
@@ -271,15 +268,18 @@ class MapDealerForm(forms.ModelForm):
     customer_name = forms.CharField(required=True)
     email = forms.EmailField(required=False)
     phone = forms.CharField(required=False)
-    address = forms.CharField(required=True, widget=forms.Textarea)
+    address = forms.CharField(required=True)
+    city = forms.CharField(required=True)
+    state = forms.CharField(required=True)
+    zip = forms.CharField(required=True)
     country = CountryField().formfield()
     latitude = forms.FloatField(required=True)
     longitude = forms.FloatField(required=True)
-
+    link = forms.URLField(required=False)
 
     class Meta:
         model = models.MapDealers
-        fields = ("customer_name", "email", "phone", "address", "country", "latitude", "longitude")
+        fields = ("customer_name", "email", "phone", "address", "city", "state", "zip", "country", "latitude", "longitude", "link")
 
     def __init__(self, *args, **kwargs):
         kwargs.setdefault('label_suffix', '')
@@ -288,16 +288,24 @@ class MapDealerForm(forms.ModelForm):
         self.fields['phone'].label = ugettext_lazy("Phone Number")
         self.fields['email'].label = ugettext_lazy("Email")
         self.fields['address'].label = ugettext_lazy("Address")
+        self.fields['city'].label = ugettext_lazy("City / Town")
+        self.fields['state'].label = ugettext_lazy("State / Province")
+        self.fields['zip'].label = ugettext_lazy("Zip / Postal code")
         self.fields['country'].label = ugettext_lazy("Country")
         self.fields['latitude'].label = ugettext_lazy("Latitude")
         self.fields['longitude'].label = ugettext_lazy("Longitude")
+        self.fields['link'].label = ugettext_lazy("Link")
 
         self.fields['customer_name'].widget.attrs['placeholder'] = 'American Car City'
         self.fields['phone'].widget.attrs['placeholder'] = '33169221900'
         self.fields['email'].widget.attrs['placeholder'] = 'info@americancarcity.fr'
-        self.fields['address'].widget.attrs['placeholder'] = '197 BD John Kennedy 91100 Corbeil-Essonnes'
+        self.fields['address'].widget.attrs['placeholder'] = '197 BD John Kennedy'
+        self.fields['city'].widget.attrs['placeholder'] = 'Corbeil-Essonnes'
+        self.fields['state'].widget.attrs['placeholder'] = 'Évry'
+        self.fields['zip'].widget.attrs['placeholder'] = '91100'
         self.fields['latitude'].widget.attrs['placeholder'] = '48.579013'
         self.fields['longitude'].widget.attrs['placeholder'] = '2.4766'
+        self.fields['link'].widget.attrs['placeholder'] = 'https://www.company.com/about'
         self.fields['phone'].help_text = ugettext_lazy("Optional field.")
         self.fields['email'].help_text = ugettext_lazy("Optional field.")
 
@@ -311,6 +319,7 @@ class MapDealerForm(forms.ModelForm):
         map.country = self.cleaned_data['country']
         map.latitude = self.cleaned_data['latitude']
         map.longitude = self.cleaned_data['longitude']
+        map.link = self.cleaned_data['link']
 
         if commit:
             map.save()

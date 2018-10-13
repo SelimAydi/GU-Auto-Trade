@@ -75,10 +75,9 @@ def news(request):
         l.append(i.quote)
         l.append(i.quotefooter)
         l.append(i.date)
-        l.append(i.writtenby)
 
     return render(request, 'shelby/news.html',
-                  {'banner': l[0], 'title': l[1], 'headline': l[2], 'desc': l[3], 'quote': l[4], 'quotefooter': l[5], 'date': l[6], 'writtenby': l[7], 'exists': True})
+                  {'banner': l[0], 'title': l[1], 'headline': l[2], 'desc': l[3], 'quote': l[4], 'quotefooter': l[5], 'date': l[6], 'exists': True})
 
 # press and media page
 def pressandmedia(request):
