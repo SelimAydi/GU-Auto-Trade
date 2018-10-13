@@ -115,10 +115,10 @@ WSGI_APPLICATION = 'guautotrade.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'guautodb2',
+        'NAME': 'guautodb',
 		'USER': 'postgres',
-		'PASSWORD': 'kaas123',
-		'HOST': 'localhost',
+
+		'HOST': '95.179.180.184',
         'PORT': '5432',
         'ATOMIC_REQUESTS': True
     }
@@ -197,20 +197,19 @@ LOCALE_PATHS = [
 # Static files (CSS, JavaScript, Images)
 # Development
 
-# STATIC_ROOT = '/static/'
-# STATIC_URL = STATIC_ROOT
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
-# MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-# MEDIA_URL = '/media/'
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Production
-STATIC_ROOT = '/var/www/static/'
-STATIC_URL = '/static/'
+# STATIC_ROOT = '/var/www/static/'
+# STATIC_URL = '/static/'
+#
+# MEDIA_ROOT = '/var/www/media/'
+# MEDIA_URL = '/media/'
 
-MEDIA_ROOT = '/var/www/media/'
-MEDIA_URL = '/media/'
-
-SEND_GRID_API_KEY = ''
 EMAIL_HOST = 'smtp.sendgrid.net'
 EMAIL_HOST_USER = 'guautotrade'
 EMAIL_HOST_PASSWORD = 'Auto2018!'
