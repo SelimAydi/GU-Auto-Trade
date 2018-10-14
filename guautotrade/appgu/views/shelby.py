@@ -132,7 +132,8 @@ def vehicledesc(request):
                 l.append(i.model)
                 l.append(i.headline)
                 l.append(i.description)
+                l.append(i.extra)
 
-            return render(request, 'shelby/vehicledesc.html', {'image': l[0], 'model': l[1], 'headline': l[2], 'desc': l[3], 'exists': True, 'vehicles': Vehicles.objects.all()})
+            return render(request, 'shelby/vehicledesc.html', {'image': l[0], 'model': l[1], 'headline': l[2], 'desc': l[3], 'extra': l[4], 'exists': True, 'vehicles': Vehicles.objects.all()})
     else:
         return render(request, 'shelby/vehicledesc.html')

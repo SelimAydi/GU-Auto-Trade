@@ -4,7 +4,7 @@
 {% load Tools %}
 
 {% block header %}
-	{% with headerclass='portal noborder' %}
+	{% with headerclass='dealer noborder' %}
 			{{ block.super }}
 	{% endwith%}
 {% endblock header%}
@@ -25,7 +25,7 @@
 {% block content %}
 {#    <script src="{% static 'js/leaflet/leaflet.js' %}"></script>#}
 		<!-- News -->
-		<div id="dealers" class="section" style="margin-top: 37px;">
+		<div id="dealers" class="section" style="padding-top: 0px">
                 <div class="col-md-9 mapbox">
                     <nav class="nav-sidebar" data-simplebar data-simplebar-auto-hide="false">
                         {% getCountry as res %}
@@ -66,7 +66,7 @@
 
 
                     function initMap(results) {
-                        var mymap = L.map('mapid', {attributionControl: false}).setView([35.746512, -39.462891], 3);
+                        var mymap = L.map('mapid', {attributionControl: false, zoomControl: false}).setView([35.746512, -39.462891], 3);
                         console.log(results);
                         if (results.length !== 0) {
                             for (var i = 0; i < results.length; i++) {

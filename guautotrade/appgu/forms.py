@@ -173,7 +173,8 @@ class VehicleForm(forms.ModelForm):
     description = forms.CharField(required=True, widget=forms.Textarea(attrs={
             'id': 'summernote'}))
     image = forms.ImageField()
-    field_order = ['model', 'headline', 'description', 'image']
+    extra = forms.CharField(required=False, widget=forms.Textarea)
+    field_order = ['model', 'headline', 'description', 'image', 'extra']
 
     class Meta:
         model = models.Vehicles
@@ -184,11 +185,13 @@ class VehicleForm(forms.ModelForm):
         super(VehicleForm, self).__init__(*args, **kwargs)
         self.fields['image'].label = ""
         self.fields['model'].label = ugettext_lazy("Model")
+        self.fields['extra'].label = ugettext_lazy("Extra")
         self.fields['headline'].label = ugettext_lazy("Headline")
         self.fields['description'].label = ugettext_lazy("Description")
 
         self.fields['image'].widget.attrs.update({'class': 'invis'})
         self.fields['model'].widget.attrs['placeholder'] = 'Shelby Super Snake'
+        self.fields['extra'].widget.attrs['placeholder'] = 'Insert HTML here'
         self.fields['headline'].widget.attrs['placeholder'] = ugettext_lazy('Shelby Super Snake is one of the most..')
         self.fields['description'].widget.attrs['placeholder'] = ugettext_lazy('A description of the model')
 

@@ -118,7 +118,6 @@
                             <div class="vehicle">
 								<a href="vehicle/?v={{ vehicle.id }}" class="vehicle-img">
 									<img src="/media/{{ vehicle.image }}" alt="">
-									<i class="vehicle-link-icon fa fa-link"></i>
 								</a>
 								<a class="vehicle-title" href="#">{{ vehicle.model }}</a>
 								<div class="vehicle-details">
@@ -129,7 +128,7 @@
 						<!-- /vehicle -->
 
                     {% endfor %}
-
+					{% if vehicles.paginator.num_pages > 1 %}
                         <div class="pagination">
                             <span class="step-links">
                                 {% if vehicles.has_previous %}
@@ -147,7 +146,7 @@
                                 {% endif %}
                             </span>
                         </div>
-
+					{% endif %}
 
 
 					</div>
