@@ -4,7 +4,6 @@ __pycache__/
 *.pyc
 eggs/
 *.egg
-static/
 env/
 guenv/
 .idea/
