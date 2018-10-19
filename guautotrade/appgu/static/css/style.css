@@ -774,8 +774,17 @@ iframe {
 }
 
 .vehicle a > svg > g{
-	fill: #a7a7a7;
+	fill: #00444c;
 }
+
+.shelbylogo a > svg > g path:nth-child(1){
+	fill: #d6d6d6;
+}
+
+.shelbylogo a > svg > g path:nth-child(2){
+	fill: #eaeaea;
+}
+
 
 .vehicle .vehicle-img {
 	position: relative;

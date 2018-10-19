@@ -50,10 +50,11 @@
                     </div>
 
 					<div class="col-md-5 col-md-offset-1">
-						<a class="about-video" href="#">
-							<img src="https://hips.hearstapps.com/amv-prod-cad-assets.s3.amazonaws.com/images/media/672264/2018-ford-mustang-shelby-gt350-gt350r-in-depth-model-review-car-and-driver-photo-694522-s-original.jpg" alt="">
-							<i class="play-icon fa fa-play"></i>
-						</a>
+						<!--<a class="about-video" href="#">-->
+							<!--<img src="https://hips.hearstapps.com/amv-prod-cad-assets.s3.amazonaws.com/images/media/672264/2018-ford-mustang-shelby-gt350-gt350r-in-depth-model-review-car-and-driver-photo-694522-s-original.jpg" alt="">-->
+							<!--<i class="play-icon fa fa-play"></i>-->
+						<!--</a>-->
+						<img src="https://pictures.dealer.com/b/bullvalleyfordfd/0321/ff92f3616de1d9dc815bac3fe1d13090x.jpg" style="opacity: 0.5">
 					</div>
 
 				</div>
@@ -105,7 +106,6 @@
                             <div class="vehicle">
 								<a href="vehicle/?v={{ vehicle.id }}" class="vehicle-img">
 									<img src="/media/{{ vehicle.image }}" alt="">
-									<i class="vehicle-link-icon fa fa-link"></i>
 								</a>
 								<a class="vehicle-title" href="#">{{ vehicle.model }}</a>
 								<div class="vehicle-details">
@@ -116,7 +116,7 @@
 						<!-- /vehicle -->
 
                     {% endfor %}
-
+					{% if vehicles.paginator.num_pages > 1 %}
                         <div class="pagination">
                             <span class="step-links">
                                 {% if vehicles.has_previous %}
@@ -134,7 +134,7 @@
                                 {% endif %}
                             </span>
                         </div>
-
+					{% endif %}
 
 
 					</div>
