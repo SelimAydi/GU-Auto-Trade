@@ -2204,23 +2204,18 @@ input[type="file"] {
 		display: none;
 	}
 
-	.section-intro-mobile {
-		border-radius: 0px !important;
-		margin-top: 65px !important
-	}
-
 	.navbar-toggle {
 		position: relative !important;
 	}
 }
 
 @media (max-width: 580px){ 
-	.home-wrapper {
-		position: relative !important;
-	}
-
 	.alternative {
 		background-color: #606673;
+	}
+	.section-intro-mobile {
+		border-radius: 0px !important;
+		margin-top: 135px !important;
 	}
 }
 
