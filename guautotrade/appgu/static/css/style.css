@@ -2219,6 +2219,7 @@ input[type="file"] {
 		top: initial !important;
 		bottom: initial !important;
 		-webkit-transform: initial !important;
+		position: relative !important;
 	}
 
 	.alternative {
