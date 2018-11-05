@@ -766,6 +766,7 @@ iframe {
 	display:block;
 	margin-bottom:20px;
 	/* border-radius:4px; */
+	max-height: 339px;
 	overflow:hidden;
 	/* border: solid 5px rgba(69, 69, 70, 0.04); */
 	/* width: 360px; */
@@ -781,7 +782,8 @@ iframe {
 
 .col-md-6 .vehicle .vehicle-img > img {
 	width: 100%;
-	height: 360px;
+	overflow: hidden;
+	height: auto;
 }
 
 .col-md-12 .vehicle .vehicle-img > img {
@@ -791,8 +793,9 @@ iframe {
 
 
 .vehicle .vehicle-img > img {
-	width: 360px;
-	height: auto;
+	/* width: 360px; */
+	height: 300px;
+	overflow: hidden;
 	transition: all 0.7s ease;
 }
 

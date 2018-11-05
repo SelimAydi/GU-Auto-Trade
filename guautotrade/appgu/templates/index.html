@@ -19,35 +19,68 @@
 			<div class="home-wrapper">
 				<div class="container">
 					<div class="row">
-					<div class="section-intro text-center col-sm-8">
-						<h2>{% trans 'Make a choice' %}</h2>
-						<p class="lead">{% trans 'Make a selection between Tuscany and Shelby' %}</p>
+					<div class="section-intro section-intro-mobile text-center col-sm-12">
+						<h2>{% trans 'Welcome to GU Auto Trade' %}</h2>
+						<p class="lead">{% trans 'What would you like to check out?' %}</p>
                 <div class="row">
 
-						<!-- vehicle -->
-						<div class="col-md-6 col-sm-6 col-xs-6">
-							<div class="vehicle">
-								<a href="/tuscany" class="vehicle-img" style="border: 0; box-shadow: none;">
-{#									<img alt="" src="{% static 'img/Tuscany_Logo.png' %}" style="width: 35vh; height: 96px;">#}
-                                    {% include 'includes/Tuscany_Logo.svg' %}
-								</a>
-								<a class="vehicle-title" href="/tuscany">Tuscany</a>
-								
-							</div>
-						</div>
-						
 
-						
-						<div class="col-md-6 col-sm-6 col-xs-6">
-							<div class="vehicle shelbylogo">
-								<a href="/shelby" class="vehicle-img" style="border: 0; box-shadow: none;">
-{#									<img alt="" src="http://www.guautotrade.com/mtw-themes/GU/images/shelbylogocircle2.png?crc=512746376" style="width: 10vh; height: 96px;">#}
-                                    {% include 'includes/logo.svg' %}
-								</a>
-								<a class="vehicle-title" href="/shelby" >Shelby</a>
-                </div>
-                            
+					<div class="col-md-2 col-sm-6 col-xs-6">
+						<div class="vehicle shelbylogo">
+							<a href="/shelby" class="vehicle-img" style="border: 0; box-shadow: none;">
+								{% include 'includes/logo.svg' %}
+							</a>
+							<a class="vehicle-title" href="/shelby" >Shelby Supercars</a>
 						</div>
+					</div>
+
+
+					<div class="col-md-2 col-sm-6 col-xs-6">
+						<div class="vehicle shelbylogo">
+							<a href="http://95.179.180.184/shelby" class="vehicle-img" style="border: 0; box-shadow: none;">
+								{% include 'includes/ebikes.svg' %}
+							</a>
+							<a class="vehicle-title" href="#" style="font-size: 14px;">Shelby E-Bike</a>
+						</div>
+					</div>
+
+					<div class="col-md-2 col-sm-6 col-xs-6">
+						<div class="vehicle shelbylogo">
+							<a href="http://95.179.180.184/shelby" class="vehicle-img" style="border: 0; box-shadow: none;">
+								{% include 'includes/shelby_electronics.svg' %}
+							</a>
+							<a class="vehicle-title" href="#" style="font-size: 14px;">Shelby Electronics</a>
+						</div>
+					</div>
+
+					<div class="col-md-2 col-sm-6 col-xs-6">
+						<div class="vehicle shelbylogo">
+							<a href="http://95.179.180.184/shelby" class="vehicle-img" style="border: 0; box-shadow: none;">
+								{% include 'includes/shelby_merchandise.svg' %}
+							</a>
+							<a class="vehicle-title" href="/shelby/shop" style="font-size: 14px;">Shelby Merchandise</a>
+						</div>
+					</div>
+
+					<div class="col-md-2 col-sm-6 col-xs-6">
+						<div class="vehicle">
+							<a href="http://95.179.180.184/shelby" class="vehicle-img" style="border: 0; box-shadow: none;">
+								{% include 'includes/harley.svg' %}
+							</a>
+							<a class="vehicle-title" href="#" style="font-size: 14px;">Harley Davidson Trucks</a>
+						</div>
+					</div>
+
+					<div class="col-md-2 col-sm-6 col-xs-6">
+						<div class="vehicle">
+							<a href="/tuscany" class="vehicle-img" style="border: 0; box-shadow: none;">
+								{% include 'includes/Tuscany_Logo.svg' %}
+							</a>
+							<div class="col-md-8 tagline"><a class="vehicletags">Black Ops</a></div>
+							<div class="col-md-4 tagline"><a class="vehicletags">FTX</a></div>
+							
+						</div>
+					</div>
 
 					</div>
                        
