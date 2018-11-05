@@ -2216,9 +2216,6 @@ input[type="file"] {
 
 @media (max-width: 580px){ 
 	.home-wrapper {
-		top: initial !important;
-		bottom: initial !important;
-		-webkit-transform: initial !important;
 		position: relative !important;
 	}
 
