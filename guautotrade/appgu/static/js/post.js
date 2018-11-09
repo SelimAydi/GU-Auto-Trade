@@ -2,7 +2,6 @@ var frm = $('form');
 
 frm.submit(function () {
     var data = new FormData($('form').get(0));
-    console.log(data);
     $("#suc").html("");
     $.ajax({
         type: frm.attr('method'),
@@ -35,7 +34,6 @@ frm.submit(function () {
             }
         },
         error: function (data) {
-            console.log("err");
             $("#er").html("Something went wrong!");
             frm[0].reset();
         }

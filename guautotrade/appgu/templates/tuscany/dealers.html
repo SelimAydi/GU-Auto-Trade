@@ -65,9 +65,7 @@
                         var mymap = L.map('mapid').setView([35.746512, -39.462891], 3);
 
                         if (results.length !== 0) {
-                            console.log("trueeee");
                             for (var i = 0; i < results.length; i++) {
-                                console.log(i);
                                 var dealer = L.marker([results[i]['fields']['latitude'], results[i]['fields']['longitude']], {title: results[i]['fields']['customer_name']}).addTo(mymap);
                                 dealer.bindPopup("<b>" + results[i]['fields']['customer_name'] + "</b><br>" + results[i]['fields']['address'] + "<br>" + results[i]['fields']['country']);
                             }

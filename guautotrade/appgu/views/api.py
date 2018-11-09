@@ -24,5 +24,4 @@ def eventsTuscanyAPI(request):
 # def mapdealersTuscanyAPI(request):
 #     obj = MapDealers.objects.all()
 #     serialized_obj = serializers.serialize("json", obj)
-#     print(serialized_obj)
 #     return HttpResponse(serialized_obj, content_type="application/json")

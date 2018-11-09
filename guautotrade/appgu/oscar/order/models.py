@@ -9,15 +9,15 @@ class Order(AbstractOrder):
     #     return self.status == settings.ORDER_OPEN_STATUS
 
     def is_failed_order(self):
-        print('is failed order: ', self.status == settings.ORDER_FAILED_STATUS)
+        print('Order failed: ', self.status == settings.ORDER_FAILED_STATUS)
         return self.status == settings.ORDER_FAILED_STATUS
 
     def is_paid_order(self):
-        print('is paid payment: ', self.status == settings.ORDER_PAID_STATUS)
+        print('Order paid: ', self.status == settings.ORDER_PAID_STATUS)
         return self.status == settings.ORDER_PAID_STATUS
 
     def is_cancelled_order(self):
-        print('is cancelled order: ', self.status == settings.ORDER_CANCELLED_STATUS)
+        print('Order cancelled: ', self.status == settings.ORDER_CANCELLED_STATUS)
         return self.status == settings.ORDER_CANCELLED_STATUS
 
 

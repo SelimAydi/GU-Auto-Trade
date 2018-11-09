@@ -56,7 +56,6 @@
 
         function success(data){
             $('#status_search').html("")
-            console.log(data);
             var htm = "<div class='tb' style='width: 100%;'><table id='searchtb'><thead><tr class='rw head'><th>User ID</th><th>First name</th>" +
                 "<th class='clm column1'>{% trans 'Last name' %}</th>" +
                 "<th class='clm column2'>{% trans 'Username' %}</th>" +
@@ -74,7 +73,6 @@
                 + "<td class='clm column6'>" + is_staff + "</td></tr>"
             }
             htm += "</tr></tbody></table></div>";
-            console.log(htm);
             if (data.length > 0) {
                 $('#search_results').html(htm);
             } else {

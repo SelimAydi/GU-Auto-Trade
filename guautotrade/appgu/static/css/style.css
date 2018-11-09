@@ -2409,7 +2409,20 @@ input[type="file"] {
 	margin: 0;
 }
 
-.tagline a {
+.comingsoon a > svg > g {
+	fill: #eaeaea;
+}
+
+.comingsoon span {
+    color: #374050;
+    font-weight: bold;
+}
+
+.description {
+	z-index: 100;
+}
+
+/* .tagline a {
     color: #9a9ca0;
     font-size: 13px;
-}
+} */

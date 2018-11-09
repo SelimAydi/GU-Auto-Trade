@@ -945,12 +945,12 @@ Team
 ----------------------------------------------- */
 
 .single-page-title {
-    background: url(/static/img/guautotrade/shelby1.jpg) no-repeat bottom;
+    background: url(/static/img/guautotrade/shelby1.jpg) no-repeat center;
     background-size       : cover;
     width                 : 100%;
-    background-attachment : fixed;
+    /* background-attachment : fixed; */
     padding               : 15% 0 5%;
-    background-color: #031265;
+    background-color: #052c36;
     position: relative;
     }
 

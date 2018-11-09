@@ -434,14 +434,14 @@
           var placeholder = document.querySelector('.placeholder'),
               small = placeholder.querySelector('.img-small');
 
-          // 1: load small image and show it
+          // small img
           var img = new Image();
           img.src = small.src;
           img.onload = function () {
            small.classList.add('loaded');
           };
 
-          // 2: load large image
+          // large img
           var imgLarge = new Image();
           imgLarge.src = placeholder.dataset.large;
           imgLarge.onload = function () {
@@ -467,8 +467,6 @@
 <!--<script src="{% static 'js/guautotrade/scroll.js'%}"></script>-->
 <script>
     $('ul.navx').find('a').click(function(){
-        console.log('clicked');
-        console.log($(this).attr('href'));
         $('html, body').animate({
             scrollTop: $( $(this).attr('href').replace('#', '.') ).offset().top
         }, 1000);
