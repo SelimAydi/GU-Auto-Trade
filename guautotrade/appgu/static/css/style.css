@@ -2266,9 +2266,12 @@ input[type="file"] {
     border-top: solid 3px white;
 }
 
+.card-container h3{
+    color: white !important;
+}
+
 .card h3, h4 {
     color: #2e3540;
-    color: white;
 }
 
 .card-dark {
