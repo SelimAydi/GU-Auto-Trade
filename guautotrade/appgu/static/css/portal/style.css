@@ -1,14 +1,12 @@
+
+@import url('https://fonts.googleapis.com/css?family=Lato:400,700');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,600');
+
 /* ---------------------------------------------
-COPYRIGHT GU AUTO TRADE Ã‚Â© Designed by Selim Aydi
+COPYRIGHT GU AUTO TRADE © Developed by Selim Aydi
 -----------------------------------------------*/
 
 /*
-Colors:
-	Body 		: #798696
-	Headers 	: #374050
-	Primary 	: #FF6700
-	Grey 		: #EBEBEB
-
 Fonts: Lato & Montserrat
 
 Table of Contents
@@ -27,7 +25,7 @@ Table of Contents
 /* --- typography --- */
 body {
     height: calc(100vh);
-    font-family: 'Lato', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     font-size: 15px;
     font-weight: 400;
     color: #798696;
@@ -42,12 +40,13 @@ body {
 h1,h2,h3,h4,h5,h6 {
 	margin-top: 2vh;
 	margin-bottom: 2vh;
-	font-weight: 700;
+	font-weight: 400;
 	color: #374050;
 }
 
 h1 {
 	font-size: 7vh;
+	font-weight: 500;
 }
 
 h2 {
@@ -63,9 +62,9 @@ h4 {
 }
 
 a {
-	font-family: 'Lato', sans-serif;
+	font-family: 'Montserrat', sans-serif;
 	color: #574b4b;
-	font-weight: 700;
+	font-weight: 600;
 	cursor: pointer;
 }
 
@@ -572,7 +571,7 @@ input[type=text]::placeholder, textarea::placeholder, input[type=url]::placehold
 }
 
 .registerform input[type=text]:focus {
-	border-color: #00000054;
+	border-color: #57acf1;
 }
 
 .hero-area {

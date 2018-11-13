@@ -1,3 +1,7 @@
+
+@import url('https://fonts.googleapis.com/css?family=Lato:400,700');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,600');
+
 /* ---------------------------------------------
 COPYRIGHT GU AUTO TRADE - Made by Selim Aydi
 -----------------------------------------------*/
@@ -70,7 +74,7 @@ h4 {
 a {
 	font-family: 'Montserrat', 'sans-serif';
 	color: #574b4b;
-	font-weight: 300;
+	font-weight: 500;
 	cursor: pointer;
 }
 
@@ -830,6 +834,7 @@ iframe {
 .vehicle .vehicle-title {
 	display:block;
 	height:42px;
+	font-weight: 400;
 }
 
 .vehicle .vehicle-details {
@@ -2005,7 +2010,8 @@ input[type="file"] {
     padding: 15px;
     color:white;
     font-size: 17px;
-    font-weight: bold;
+    font-weight: 600;
+    font-family: 'Montserrat';
 }
 
 .mapboxborder i {
@@ -2013,7 +2019,7 @@ input[type="file"] {
 }
 
 .mapbox .nav-sidebar {
-    padding: 10px;
+    padding: 5px 5px 15px;
 }
 
 .mapbox {
@@ -2042,19 +2048,25 @@ input[type="file"] {
 .mapbox .nav>li>a:hover{
 	background-color: #4e586a;
 	transition: all 0.2s ease;
+	border-radius: 2px;
 }
 
 .mapbox .nav>li>a:focus{
-	background-color: #4e586a;
+	/* background-color: #4e586a; */
 }
 
 .mapbox .nav>li>a {
+	font-weight: 500;
 	color: white;
 	margin: 0 auto;
+	background-color: transparent;
+	font-size: 17px;
+	margin: 2px;
 }
 
 .mapbox li>a {
 	color: #71b7f3;
+	font-weight: 500;
 }
 
 .under a {
@@ -2075,6 +2087,8 @@ input[type="file"] {
 	color: #d7dde0;
 	text-overflow: ellipsis;
 	overflow:hidden;
+	font-weight: 500;
+	font-family: 'Montserrat';
 }
 
 .under2:before{
@@ -2263,11 +2277,14 @@ input[type="file"] {
     background: linear-gradient(to right, #7195ec, #27abf3, #46b4ef, #90a8e4); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     border-left: solid 2px #a9caff;
     border-right: solid 2px #a9caff;
-    border-top: solid 3px white;
+    border-top: solid 3px #a9caff;
+    /* border: solid 2px #a9caff; */
 }
 
 .card-container h3{
     color: white !important;
+    font-family: 'Montserrat';
+    font-weight: 600;
 }
 
 .card h3, h4 {
@@ -2295,7 +2312,8 @@ input[type="file"] {
 .card td{
 	color: #f9f9f9;
 	padding: 33px;
-	font-weight: 900;
+	font-weight: 600;
+	font-family: Montserrat;
 	border-top: solid 3px rgba(255, 255, 255, 0.06);
 }
 
@@ -2357,7 +2375,16 @@ input[type="file"] {
     /* height: 390px; */
 }
 
-.performance-card-wrap {background-color: #1f3246;border-top: solid 3px white;border-bottom-left-radius: 5px;border-bottom-right-radius: 5px;}
+.performance-card-wrap {
+	background: #16222A;  /* fallback for old browsers */
+	background: -webkit-linear-gradient(to right, #e0e0e0, #385d70);  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to right, #363f4d, #2d333c, #353e4b); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	border-left: solid 2px #dadada;
+	border-right: solid 2px #dadada;
+	border-bottom: solid 3px #dadada;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+}
 
 
 .performance-card-container {
@@ -2394,6 +2421,12 @@ input[type="file"] {
 	width: 100%;
 	padding-left: 0;
 	padding-right: 0;
+}
+
+.light-card-container h3 {
+	color: white !important;
+	font-family: 'Montserrat';
+	font-weight: 600;
 }
 
 .vehicle-card {
