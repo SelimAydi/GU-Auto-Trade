@@ -71,7 +71,7 @@
                         if (results.length !== 0) {
                             for (var i = 0; i < results.length; i++) {
                                 var dealer = L.marker([results[i]['fields']['latitude'], results[i]['fields']['longitude']], {title: results[i]['fields']['customer_name']}).addTo(mymap);
-                                dealer.bindPopup("<b>" + results[i]['fields']['customer_name'] + "</b><br>" + results[i]['fields']['address'] + "<br>" + results[i]['fields']['city'] + "<br>" + results[i]['fields']['state'] + "<br>" + results[i]['fields']['zip'] + "<br>" + results[i]['fields']['country'] + "<br><br>" + results[i]['fields']['phone'] + "<br><a href='" + results[i]['fields']['link'] + "'>Dealer Website</a>");
+                                dealer.bindPopup("<b>" + results[i]['fields']['customer_name'] + "</b><br>" + results[i]['fields']['address'] + "<br>" + results[i]['fields']['city'] + "<br>" + results[i]['fields']['state'] + "<br>" + results[i]['fields']['zip'] + "<br>" + results[i]['fields']['country'] + "<br><br>" + results[i]['fields']['phone'] + "<br><a target='_blank' href='" + results[i]['fields']['link'] + "'>Dealer Website</a>");
                                 dealers[dealer.options.title] = dealer;
                             }
                         }
