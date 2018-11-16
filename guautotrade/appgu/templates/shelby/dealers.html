@@ -40,19 +40,17 @@
                         {% getCountry as res %}
                             <ul class="nav" id="main_ul">
                             {% if res.items %}
-                                {% for key, value in res.items %}
-{#                                    <li><a href="#">{{ key }}</a></li>#}
+                                {% for continent, countries in res.items %}
                                     <li data-toggle="collapse" data-target="#region_{{ forloop.counter0 }}" class="collapsed active">
-                                      <a href="#"><i class="fas fa-angle-down"></i>{{ key }}</a>
+                                      <a><i class="fas fa-angle-down"></i>{{ continent }}</a>
                                     </li>
                                     <ul class="sub-menu collapse" id="region_{{ forloop.counter0 }}">
-                                        {% for a, b in value.items %}
+                                        {% for country, dealers in countries.items %}
                                                 <li data-toggle="collapse" data-target="#reg{{ forloop.parentloop.counter0 }}_country_{{ forloop.counter0 }}" class="collapsed active under">
-{#                                                    <td>{{v}}</td>#}
-                                                    <a href="#"><i class="fas fa-angle-down"></i>{{ a }}</a>
+                                                    <a><i class="fas fa-angle-down"></i>{{ country }}</a>
                                                 </li>
                                             <ol class="sub-menu collapse" style="padding: 0px 40px" id="reg{{ forloop.parentloop.counter0 }}_country_{{ forloop.counter0 }}">
-                                                {% for dealer in b %}
+                                                {% for dealer in dealers %}
                                                     <li style="padding: initial" onclick="togglePopup('{{ dealer }}')" class="under2">{{ dealer }}</li>
                                                 {% endfor %}
                                             </ol>

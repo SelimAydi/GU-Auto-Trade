@@ -1,4 +1,5 @@
 from django import template
+from collections import OrderedDict
 from ..models import Vehicles, MapDealers
 from django_countries import countries
 import urllib.request, json
@@ -22,14 +23,12 @@ def getCountry():
     urlx = "https://restcountries.eu/rest/v2/alpha/"
 
     lst = {}
-    newlst = []
     dic = {}
 
     for i in map:
         if i.country not in lst:
             lst[i.country] = []
         lst[i.country].append(i.customer_name)
-
 
     for x in lst:
         with urllib.request.urlopen(urlx + x) as url:
@@ -43,4 +42,15 @@ def getCountry():
                 dic[region] = {}
             dic[region][dict(countries)[x]] = lst[x]
 
-    return dic
+    sortedlist = OrderedDict()
+
+    # sort continents
+    sortedcontinent = sorted(dic, key=str.lower)
+
+    for continent in sortedcontinent:
+        orderedlist = sorted(dic[continent], key=str.lower)
+        sortedlist[continent] = OrderedDict()
+        for country in orderedlist:
+            sortedlist[continent][country] = dic[continent][country]
+
+    return sortedlist
