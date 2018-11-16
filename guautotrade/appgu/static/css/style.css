@@ -2024,13 +2024,10 @@ input[type="file"] {
 
 .mapbox {
 	position: absolute;
-	max-height: 305px;
-	/* min-width: 20%; */
 	max-width: 250px;
 	background-color: #374050e6;
 	z-index: 15;
 	top: 40%;
-	/* bottom: 0; */
 	left: 2%;
 	margin: auto;
 	border-radius: 5px;
