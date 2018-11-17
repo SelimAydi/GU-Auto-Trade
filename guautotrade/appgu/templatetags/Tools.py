@@ -2,9 +2,14 @@ from django import template
 from collections import OrderedDict
 from ..models import Vehicles, MapDealers
 from django_countries import countries
-import urllib.request, json
+import urllib.request, json, threading
+from urllib.request import urlopen
+import queue
 
 register = template.Library()
+api_list = []
+country_dealers = {}
+dic = {}
 
 @register.filter
 def stripslashes(url):
@@ -17,30 +22,36 @@ def vehiclesExist():
         return False
     return True
 
+
 @register.simple_tag()
 def getCountry():
     map = MapDealers.objects.all()
     urlx = "https://restcountries.eu/rest/v2/alpha/"
 
-    lst = {}
-    dic = {}
-
     for i in map:
-        if i.country not in lst:
-            lst[i.country] = []
-        lst[i.country].append(i.customer_name)
+        if i.country not in country_dealers:
+            country_dealers[i.country] = []
+        country_dealers[i.country].append(i.customer_name)
 
-    for x in lst:
-        with urllib.request.urlopen(urlx + x) as url:
-            data = json.loads(url.read().decode())
 
-            region = data['region']
-            if region == 'Americas':
-                region = data['subregion']
+    for country in country_dealers:
+        api_list.append(country)
+        # api_list[country] = urlx + country
 
-            if region not in dic:
-                dic[region] = {}
-            dic[region][dict(countries)[x]] = lst[x]
+    fetch_parallel()
+
+    # for x in country_dealers:
+    #     with urllib.request.urlopen(urlx + x) as url:
+    #         print(urlx + x)
+    #         data = json.loads(url.read().decode())
+
+            # region = data['region']
+            # if region == 'Americas':
+            #     region = data['subregion']
+
+            # if region not in dic:
+            #     dic[region] = {}
+            # dic[region][dict(countries)[x]] = country_dealers[x]
 
     sortedlist = OrderedDict()
 
@@ -54,3 +65,32 @@ def getCountry():
             sortedlist[continent][country] = dic[continent][country]
 
     return sortedlist
+    # print("FINAL PRINT")
+    # print(dic)
+    # return dic
+
+def fetch_parallel():
+    result = queue.Queue()
+    threads = [threading.Thread(target=read_url, args = (urlcode,result)) for urlcode in api_list]
+    for t in threads:
+        t.start()
+    for t in threads:
+        t.join()
+    return result
+
+def read_url(urlcode, queue):
+    url = 'https://restcountries.eu/rest/v2/alpha/' + urlcode  
+    # data = urlopen(url).read()
+    data = json.loads(urlopen(url).read().decode())
+
+    region = data['region']
+    if region == 'Americas':
+        region = data['subregion']
+
+    if region not in dic:
+        dic[region] = {}
+    dic[region][dict(countries)[urlcode]] = country_dealers[urlcode]
+    # dic["europe"][dict(countries)["UK"]] = country_dealers["UK"]
+    # print(dict(countries))
+    # print(data)
+    queue.put(data)
