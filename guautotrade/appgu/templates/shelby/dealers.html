@@ -73,7 +73,7 @@
 
 
                     function initMap(results) {
-                        var mymap = L.map('mapid', {attributionControl: false, zoomControl: false}).setView([35.746512, -39.462891], 3);
+                        var mymap = L.map('mapid', {attributionControl: false, zoomControl: false}).setView([50.974419, 10.325450], 5);
                         if (results.length !== 0) {
                             for (var i = 0; i < results.length; i++) {
                                 var dealer = L.marker([results[i]['fields']['latitude'], results[i]['fields']['longitude']], {title: results[i]['fields']['customer_name']}).addTo(mymap);
