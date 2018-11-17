@@ -1,4 +1,4 @@
-A quote and delivery request has been made (Shelby).
+A quote and delivery request has been made (Tuscany).
 
 Vehicle:
 {{ vehicle }}

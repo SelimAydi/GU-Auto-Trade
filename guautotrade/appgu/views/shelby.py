@@ -106,7 +106,7 @@ def contact(request):
 
             contact_message = get_template('shelby/contact_template.txt').render(context)
 
-            send_mail("New contact form submission", contact_message, "messages@guautotrade.com", [contact_email], fail_silently=False)
+            send_mail("New contact form submission", contact_message, "contactmessage@guautotrade.com", ['info@guautotrade.com'], fail_silently=False)
 
             response_data = {'result': _("Mail has been sent. We'll respond as soon as possible!"), 'status': 'success'}
             return HttpResponse(
@@ -139,7 +139,7 @@ def vehicledesc(request):
     elif request.method == "POST":
         form = forms.QuoteForm(request.POST)
         if form.is_valid():
-            first_name = request.POST.get('first_name')
+            firstname = request.POST.get('firstname')
             surname = request.POST.get('surname')
             vehicle = request.POST.get('vehicle')
             email = request.POST.get('email')
@@ -148,7 +148,7 @@ def vehicledesc(request):
             comments = request.POST.get('comments')
 
             context = {
-                'first_name': first_name,
+                'firstname': firstname,
                 'surname': surname,
                 'vehicle': vehicle,
                 'email': email,
@@ -157,9 +157,9 @@ def vehicledesc(request):
                 'comments': comments
             }
 
-            contact_message = get_template('shelby/contact_template.txt').render(context)
+            contact_message = get_template('shelby/quote_template.txt').render(context)
 
-            send_mail("Shelby Quote & delivery request", contact_message, "messages@guautotrade.com", [email], fail_silently=False)
+            send_mail("Shelby Quote & delivery request", contact_message, "quoterequests@guautotrade.com", ['info@guautotrade.com'], fail_silently=False)
 
             response_data = {'result': _("Request has been sent. You will be notified as soon as possible."), 'status': 'success'}
             return HttpResponse(

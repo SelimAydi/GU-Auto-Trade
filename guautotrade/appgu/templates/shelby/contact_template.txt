@@ -6,5 +6,5 @@ Contact Name:
 Email:
 {{ contact_email }}
 
-Content:
+Message:
 {{ form_content|safe|striptags }}

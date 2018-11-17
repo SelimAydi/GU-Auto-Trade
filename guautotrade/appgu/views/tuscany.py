@@ -111,7 +111,7 @@ def contact(request):
 
             contact_message = get_template('tuscany/contact_template.txt').render(context)
 
-            send_mail("New contact form submission", contact_message, "messages@guautotrade.com", [contact_email], fail_silently=False)
+            send_mail("New contact form submission", contact_message, "contactmessage@guautotrade.com", ['info@guautotrade.com'], fail_silently=False)
 
             response_data = {'result': _("Mail has been sent. We'll respond as soon as possible!"), 'status': 'success'}
             return HttpResponse(
@@ -125,6 +125,7 @@ def contact(request):
 
 # description page for a particular vehicle
 def vehicledesc(request):
+    form = forms.QuoteForm(auto_id=False)   
     if request.method == "GET" and 'v' in request.GET:
         v = request.GET['v']
         if v is not None and v != '':
@@ -139,5 +140,43 @@ def vehicledesc(request):
                 l.append(i.description)
 
             return render(request, 'tuscany/vehicledesc.html', {'image': l[0], 'model': l[1], 'headline': l[2], 'desc': l[3], 'exists': True})
-    else:
-        return render(request, 'tuscany/vehicledesc.html')
+    elif request.method == "POST":
+        form = forms.QuoteForm(request.POST)
+        if form.is_valid():
+            firstname = request.POST.get('firstname')
+            surname = request.POST.get('surname')
+            vehicle = request.POST.get('vehicle')
+            email = request.POST.get('email')
+            telephone = request.POST.get('telephone')
+            color = request.POST.get('color')
+            comments = request.POST.get('comments')
+
+            context = {
+                'firstname': firstname,
+                'surname': surname,
+                'vehicle': vehicle,
+                'email': email,
+                'telephone': telephone,
+                'color': color,
+                'comments': comments
+            }
+
+            contact_message = get_template('shelby/quote_template.txt').render(context)
+
+            send_mail("Tuscany Quote & delivery request", contact_message, "quoterequests@guautotrade.com", ['info@guautotrade.com'], fail_silently=False)
+
+            response_data = {'result': _("Request has been sent. You will be notified as soon as possible."), 'status': 'success'}
+            return HttpResponse(
+                json.dumps(response_data),
+                content_type="application/json"
+            )
+        else:
+            newform = forms.QuoteForm()
+            response_data = {'result': _("Failed to submit."), 'status': 'failed', 'formerr': form.errors,
+                                'form': str(newform)}
+
+            return HttpResponse(
+                json.dumps(response_data),
+                content_type="application/json"
+            )
+    return render(request, 'tuscany/vehicledesc.html', {'form': form})

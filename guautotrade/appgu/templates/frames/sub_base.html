@@ -67,7 +67,6 @@
 					<!-- Logo -->
 					<div class="navbar-brand">
 						<a class="{{ logoclass | default:'bluelogo' }}" href="/shelby">
-{#							<img src="{% static '/img/shelbylogo.png' %}" alt="logo">#}
                             {% include 'includes/logo.svg' %}
 						</a>
 					</div>
@@ -179,22 +178,12 @@
 		</footer>
 		<!-- /Footer -->
         {% endblock footer %}
-		
-		<!--&lt;!&ndash; preloader &ndash;&gt;-->
-		<!--<div id='preloader'>-->
-			<!--&lt;!&ndash;<div class='preloader'></div>&ndash;&gt;-->
-			<!--{% include 'includes/shelby_base.svg' %}-->
-		<!--</div>-->
-		<!--&lt;!&ndash; /preloader &ndash;&gt;-->
-
 
 		<!-- jQuery Plugins -->
-{#		<script type="text/javascript" src="{% static 'js/jquery.min.js' %}"></script>#}
 		<script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
         <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/2.1.2/jquery.scrollTo.min.js"></script>
 		{% block js %}
 		{% endblock js %}
 		<script type="text/javascript" src="{% static 'js/main.js' %}"></script>
-		<script type="text/javascript" src="{% static 'js/slideshow.js' %}"></script>
 	</body>
 </html>
