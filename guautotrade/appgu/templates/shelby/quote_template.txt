@@ -3,7 +3,10 @@ A quote and delivery request has been made (Shelby).
 Vehicle:
 {{ vehicle }}
 
-Contact Name:
+Color:
+{{ color }}
+
+Full Name:
 {{ first_name }} {{ surname }}
 
 Email:
@@ -11,3 +14,6 @@ Email:
 
 Phone number:
 {{ telephone }}
+
+Comments:
+{{ comments }}

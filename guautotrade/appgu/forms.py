@@ -390,10 +390,14 @@ class ContactForm(forms.Form):
         self.fields['content'].widget.attrs['placeholder'] = ugettext_lazy('Message')
 
 class QuoteForm(forms.Form):
-    firstname = forms.CharField(required=True, label=ugettext_lazy('First Name:'))
-    surname = forms.CharField(required=True, label=ugettext_lazy('Surname:'))
-    email = forms.EmailField(required=True, label=ugettext_lazy('E-mail:'))
-    telephone = forms.CharField(required=False, label=ugettext_lazy('Telephone Number:'))
+    CHOICES_color = (('Lightning Blue', 'Lightning Blue'), ('Ruby Red', 'Ruby Red'), ('Shadow Black', 'Shadow Black'), ('Oxford White', 'Oxford White'), ('Magnetic', 'Magnetic'),)
+
+    firstname = forms.CharField(required=True, label=ugettext_lazy('First Name'))
+    surname = forms.CharField(required=True, label=ugettext_lazy('Surname'))
+    email = forms.EmailField(required=True, label=ugettext_lazy('E-mail'))
+    telephone = forms.CharField(required=False, label=ugettext_lazy('Telephone Number'))
+    color = forms.ChoiceField(choices=CHOICES_color, required=True, label=ugettext_lazy('Vehicle color'))
+    comments = forms.CharField(widget=forms.Textarea,label="Comments ")
 
     def __init__(self, *args, **kwargs):
         super(QuoteForm, self).__init__(*args, **kwargs)
@@ -401,8 +405,10 @@ class QuoteForm(forms.Form):
         self.fields['surname'].widget.attrs.update({'class': 'input'})
         self.fields['telephone'].widget.attrs.update({'class': 'input'})
         self.fields['email'].widget.attrs.update({'class': 'input'})
+        self.fields['comments'].widget.attrs.update({'class': 'input'})
 
         self.fields['firstname'].widget.attrs['placeholder'] = ugettext_lazy('John')
         self.fields['surname'].widget.attrs['placeholder'] = ugettext_lazy('Doe')
         self.fields['email'].widget.attrs['placeholder'] = ugettext_lazy('johndoe@live.com')
         self.fields['telephone'].widget.attrs['placeholder'] = ugettext_lazy('+31639295049')
+        self.fields['comments'].widget.attrs['placeholder'] = ugettext_lazy('Provide any comments or remarks here')

@@ -144,13 +144,17 @@ def vehicledesc(request):
             vehicle = request.POST.get('vehicle')
             email = request.POST.get('email')
             telephone = request.POST.get('telephone')
+            color = request.POST.get('color')
+            comments = request.POST.get('comments')
 
             context = {
                 'first_name': first_name,
                 'surname': surname,
                 'vehicle': vehicle,
                 'email': email,
-                'telephone': telephone
+                'telephone': telephone,
+                'color': color,
+                'comments': comments
             }
 
             contact_message = get_template('shelby/contact_template.txt').render(context)
