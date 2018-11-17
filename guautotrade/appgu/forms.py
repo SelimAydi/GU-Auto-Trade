@@ -388,3 +388,21 @@ class ContactForm(forms.Form):
         self.fields['contact_email'].widget.attrs['placeholder'] = ugettext_lazy('Email')
         self.fields['contact_subject'].widget.attrs['placeholder'] = ugettext_lazy('Subject')
         self.fields['content'].widget.attrs['placeholder'] = ugettext_lazy('Message')
+
+class QuoteForm(forms.Form):
+    firstname = forms.CharField(required=True, label=ugettext_lazy('First Name:'))
+    surname = forms.CharField(required=True, label=ugettext_lazy('Surname:'))
+    email = forms.EmailField(required=True, label=ugettext_lazy('E-mail:'))
+    telephone = forms.CharField(required=False, label=ugettext_lazy('Telephone Number:'))
+
+    def __init__(self, *args, **kwargs):
+        super(QuoteForm, self).__init__(*args, **kwargs)
+        self.fields['firstname'].widget.attrs.update({'class': 'input'})
+        self.fields['surname'].widget.attrs.update({'class': 'input'})
+        self.fields['telephone'].widget.attrs.update({'class': 'input'})
+        self.fields['email'].widget.attrs.update({'class': 'input'})
+
+        self.fields['firstname'].widget.attrs['placeholder'] = ugettext_lazy('John')
+        self.fields['surname'].widget.attrs['placeholder'] = ugettext_lazy('Doe')
+        self.fields['email'].widget.attrs['placeholder'] = ugettext_lazy('johndoe@live.com')
+        self.fields['telephone'].widget.attrs['placeholder'] = ugettext_lazy('+31639295049')

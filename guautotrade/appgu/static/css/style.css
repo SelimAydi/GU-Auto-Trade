@@ -231,6 +231,10 @@ blockquote:before{
 	transition:0.2s all;
 }
 
+.main-button--lead, .main-button--form {
+	background-color: #2196F3;
+}
+
 .main-button:hover , .main-button:focus {
 	background-color: #fff;
 	border: 2px solid rgba(0, 0, 0, 0.06);
@@ -275,9 +279,7 @@ textarea {
     padding: 10px 15px;
 }
 
-input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focus, input[type="number"]:focus, input[type="date"]:focus, input[type="url"]:focus, input[type="tel"]:focus, textarea:focus {
-	border-color:#FF6700;
-}
+input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focus, input[type="number"]:focus, input[type="date"]:focus, input[type="url"]:focus, input[type="tel"]:focus, textarea:focus {border-color: #2196F3;}
 
 /*------------------------------------*\
 	Logo
@@ -1629,6 +1631,12 @@ iframe {
 	margin: 0 auto;
 }
 
+.success--dark {
+	background-color: rgba(0, 0, 0, 0.15);
+	width: 100% !important;
+	color: #a0cfa0;
+}
+
 .success::before{
 	padding: 5px;
 	font-family: "Font Awesome 5 Free";
@@ -2367,9 +2375,13 @@ input[type="file"] {
 	border: none;
 }
 
+.card-info {
+	margin-top: 100px;
+}
+
 .card-wrap {
     /* position: relative; */
-    /* height: 390px; */
+	height: 390px;
 }
 
 .performance-card-wrap {
@@ -2459,3 +2471,34 @@ input[type="file"] {
     color: #9a9ca0;
     font-size: 13px;
 } */
+
+.quoteform-wrapper {
+	margin-top: 50px;
+	/* padding: 10px; */
+}
+
+.quoteform input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focus, input[type="number"]:focus, input[type="date"]:focus, input[type="url"]:focus, input[type="tel"]:focus, textarea:focus {
+	border-color: #2196F3;
+	outline: none;
+	}
+
+
+.quoteform {
+	border-radius: 5px;
+	padding: 20px;
+	background-color: #374050;
+	color: white;
+	display: none;
+}
+
+.quoteform input {
+	border: none;
+	border-bottom: solid 1px rgba(24, 28, 34, 0.27058823529411763);
+	border-radius: 0px;
+	margin-bottom: 20px;
+}
+
+.quoteform input::placeholder {
+	color: rgba(254, 254, 254, 0.23137254901960785);
+}
+	

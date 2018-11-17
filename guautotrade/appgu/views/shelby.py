@@ -120,6 +120,7 @@ def contact(request):
 
 # description page for a particular vehicle
 def vehicledesc(request):
+    form = forms.QuoteForm(auto_id=False)   
     if request.method == "GET" and 'v' in request.GET:
         v = request.GET['v']
         if v is not None and v != '':
@@ -134,6 +135,40 @@ def vehicledesc(request):
                 l.append(i.description)
                 l.append(i.extra)
 
-            return render(request, 'shelby/vehicledesc.html', {'image': l[0], 'model': l[1], 'headline': l[2], 'desc': l[3], 'extra': l[4], 'exists': True, 'vehicles': Vehicles.objects.all()})
-    else:
-        return render(request, 'shelby/vehicledesc.html')
+            return render(request, 'shelby/vehicledesc.html', {'image': l[0], 'model': l[1], 'headline': l[2], 'desc': l[3], 'extra': l[4], 'exists': True, 'vehicles': Vehicles.objects.all(), 'form': form})
+    elif request.method == "POST":
+        form = forms.QuoteForm(request.POST)
+        if form.is_valid():
+            first_name = request.POST.get('first_name')
+            surname = request.POST.get('surname')
+            vehicle = request.POST.get('vehicle')
+            email = request.POST.get('email')
+            telephone = request.POST.get('telephone')
+
+            context = {
+                'first_name': first_name,
+                'surname': surname,
+                'vehicle': vehicle,
+                'email': email,
+                'telephone': telephone
+            }
+
+            contact_message = get_template('shelby/contact_template.txt').render(context)
+
+            send_mail("Shelby Quote & delivery request", contact_message, "messages@guautotrade.com", [email], fail_silently=False)
+
+            response_data = {'result': _("Request has been sent. You will be notified as soon as possible."), 'status': 'success'}
+            return HttpResponse(
+                json.dumps(response_data),
+                content_type="application/json"
+            )
+        else:
+            newform = forms.QuoteForm()
+            response_data = {'result': _("Failed to submit."), 'status': 'failed', 'formerr': form.errors,
+                                'form': str(newform)}
+
+            return HttpResponse(
+                json.dumps(response_data),
+                content_type="application/json"
+            )
+    return render(request, 'shelby/vehicledesc.html', {'form': form})

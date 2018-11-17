@@ -1,0 +1,13 @@
+A quote and delivery request has been made (Shelby).
+
+Vehicle:
+{{ vehicle }}
+
+Contact Name:
+{{ first_name }} {{ surname }}
+
+Email:
+{{ email }}
+
+Phone number:
+{{ telephone }}

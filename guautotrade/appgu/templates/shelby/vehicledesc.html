@@ -9,9 +9,7 @@
 	{% endwith%}
 {% endblock header%}
 
-
 {% block content %}
-
 		<!-- Home -->
 		<div id="news" class="section">
 
@@ -22,7 +20,7 @@
 
 				<div class="container">
                     {% if exists %}
-					<div class="row" style="margin-bottom: 50px;">
+					<div class="row">
 
 					<div class="col-md-6">
 						<h3>About {{ model }}</h3>
@@ -32,34 +30,65 @@
 
 					<div class="col-md-5 col-md-offset-1">
 						<div class="vehicle">
-								<a href="#" class="vehicle-img">
-									<img id="vehicleimg" src="/media/{{ image }}" data-zoom-image="/media/{{ image }}" alt="">
-								</a>
-{#								<a class="vehicle-title" href="#">{{ model }}</a>#}
-								<div class="vehicle-details">
-									<span class="vehicle-category">{{ model }}</span>
-									<!--<span class="vehicle-price vehicle-free"><a class="main-button icon-button" href="#">More</a></span>-->
-								</div>
+							<a href="#" class="vehicle-img">
+								<img id="vehicleimg" src="/media/{{ image }}" data-zoom-image="/media/{{ image }}" alt="">
+							</a>
+							<div class="vehicle-details">
+								<span class="vehicle-category">{{ model }}</span>
 							</div>
+						</div>
 					</div>
-
 				</div>
 
+				<div class="col-md-6" style="margin-top: 10px">
+					<button onclick="toggleForm()" class="main-button main-button--lead icon-button" href="contact" style="float: right;">Get quote &amp; delivery date</button>
+				</div>
+				<div class="row quoteform-wrapper">
+					<div class="col-md-6 quoteform">
+						<div id="er">
+							<span id="sp"></span>
+						</div>
+						<form id="quoteform" method="POST">
+							{% csrf_token %}
+							<input type="hidden" name="vehicle" value="{{ model }}">
+							{{ form }}
+							<button class="main-button .main-button--form icon-button" href="contact" style="float: right;">Get quote &amp; delivery date</button>
+						</form>
+						<div id="suc" class="success--dark">
+						</div>
+					</div>
+				</div>
+				<div class="card-info">
 					{% autoescape off %}{{ extra }}{% endautoescape %}
+				</div>
+
                 {% else %}
                         <h1>No vehicle has been found.</h1>
                 {% endif %}
 				</div>
-
-		</div>
+			</div>
 
 		<!-- /Home -->
+		<script type="text/javascript" src="{% static 'js/post.js' %}"></script>
 
         <script>
             $("#vehicleimg").elevateZoom({
               zoomType: "inner",
               cursor: "crosshair"
             });
+
+			function toggleForm(){
+				$(document).ready(function(){
+					$( ".main-button--lead" ).fadeOut( "fast", function() {
+						$( ".quoteform" ).fadeIn( "slow", function() {
+						});
+						$('html, body').animate({
+							scrollTop: $(".quoteform").offset().top - 50
+						}, 800);
+						$('.input')[0].focus();
+					});
+				});
+			}
         </script>
 
 {% endblock %}
