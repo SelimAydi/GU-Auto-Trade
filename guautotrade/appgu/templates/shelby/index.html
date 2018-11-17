@@ -9,7 +9,7 @@
 
 {% block headoptions %}
     <link rel="stylesheet" type="text/css" href="{% static 'css/modal-video.min.css' %}">
-    <script src="{% static 'js/jquery-modal-video.min.js' %}"></script>
+	<script src="{% static 'js/jquery-modal-video.min.js' %}"></script>
 {% endblock %}
 
 {% block content %}
@@ -18,17 +18,19 @@
 
 			<!-- Backgound Image -->
 			<div id="slideshow">
-				<div class="bg-image overlay" style="background-image:url({% static 'img/slideshow/shelby2.jpg' %})"></div>
-				<div class="bg-image overlay" style="background-image:url({% static 'img/slideshow/shelby4.jpg' %})"></div>
-				<div class="bg-image overlay" style="background-image:url({% static 'img/slideshow/shelby3.jpg' %})"></div>
-				<div class="bg-image overlay" style="background-image:url({% static 'img/slideshow/shelby1.jpg' %})"></div>
+				<div class="bg-image overlay card-image" style="background-image:url({% static 'img/slideshow/shelby2_small.jpg' %});" data-image-full="{% static 'img/slideshow/shelby2.jpg' %}">
+					<img src="{% static 'img/slideshow/shelby2_small.jpg' %}" alt="Shelby image" />
+				</div>
+				<div class="bg-image bg-image--hidden overlay" style="background-image:url({% static 'img/slideshow/shelby4.jpg' %})"></div>
+				<div class="bg-image bg-image--hidden overlay" style="background-image:url({% static 'img/slideshow/shelby3.jpg' %})"></div>
+				<div class="bg-image bg-image--hidden overlay" style="background-image:url({% static 'img/slideshow/shelby1.jpg' %})"></div>
 			</div>
 			<!-- /Backgound Image -->
 
 			<div class="home-wrapper">
 				<div class="container">
 					<div class="row">
-						<div class="col-md-8">
+						<div class="col-md-8 intro_section">
 							<h1 class="white-text">{% trans "Top class automobiles" %}</h1>
 							<p class="lead white-text">{% trans "Delivering cars and products that provide an unparalleled driving experience" %}</p>
 							<a class="main-button icon-button" href="/shelby/dealers">{% trans "Check dealers" %}</a>
@@ -196,5 +198,7 @@
 {% endblock %}
 
 {% block js %}
+	<script type="text/javascript" src="{% static 'js/blurload.js' %}"></script>
 	<script type="text/javascript" src="{% static 'js/slideshow.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/scroll.js' %}"></script>
 {% endblock js %}

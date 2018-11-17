@@ -87,7 +87,6 @@ def pressandmedia(request):
 # contact page
 def contact(request):
     form_class = forms.ContactForm(auto_id=False)
-
     if request.method == 'POST':
         form = forms.ContactForm(request.POST)
         if form.is_valid():
@@ -113,10 +112,7 @@ def contact(request):
                 json.dumps(response_data),
                 content_type="application/json"
             )
-
-    return render(request, 'shelby/contact.html', {
-        'form': form_class,
-    })
+    return render(request, 'shelby/contact.html', {'form': form_class})
 
 # description page for a particular vehicle
 def vehicledesc(request):

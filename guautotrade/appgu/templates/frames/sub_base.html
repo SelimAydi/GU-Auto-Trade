@@ -84,7 +84,7 @@
 				<nav id="nav">
 					<ul class="main-menu nav navbar-nav navbar-right" style="margin-top: 15px;">
 							<li><a href="/shelby">Home</a></li>
-                            {% if vehicles %}<li><a {% if request.path|stripslashes == 'shelby' %} onclick="$(window).scrollTo(document.getElementById('vehicles'), 1000);" {% else %}href="/shelby/#vehicles"{% endif %}>{% trans 'Vehicles' %}</a></li>{% endif %}
+                            {% if vehicles %}<li><a {% if request.path|stripslashes == 'shelby' %} href="#vehicles-wrapper" class="scroll" {% else %}href="/shelby/#vehicles"{% endif %}>{% trans 'Vehicles' %}</a></li>{% endif %}
 							<li><a href="/shelby/dealers">{% trans 'Dealers' %}</a></li>
 							<li><a href="/shelby/events">{% trans 'Events' %}</a></li>
 							<li><a href="/shelby/shop">{% trans 'Shop' %}</a></li>
