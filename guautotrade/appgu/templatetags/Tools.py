@@ -7,9 +7,6 @@ from urllib.request import urlopen
 import queue
 
 register = template.Library()
-api_list = []
-country_dealers = {}
-dic = {}
 
 @register.filter
 def stripslashes(url):
@@ -25,6 +22,10 @@ def vehiclesExist():
 
 @register.simple_tag()
 def getCountry():
+    api_list = []
+    country_dealers = {}
+    dic = {}
+
     map = MapDealers.objects.all()
     urlx = "https://restcountries.eu/rest/v2/alpha/"
 
@@ -36,22 +37,8 @@ def getCountry():
 
     for country in country_dealers:
         api_list.append(country)
-        # api_list[country] = urlx + country
 
-    fetch_parallel()
-
-    # for x in country_dealers:
-    #     with urllib.request.urlopen(urlx + x) as url:
-    #         print(urlx + x)
-    #         data = json.loads(url.read().decode())
-
-            # region = data['region']
-            # if region == 'Americas':
-            #     region = data['subregion']
-
-            # if region not in dic:
-            #     dic[region] = {}
-            # dic[region][dict(countries)[x]] = country_dealers[x]
+    fetch_parallel(api_list, country_dealers, dic)
 
     sortedlist = OrderedDict()
 
@@ -65,22 +52,18 @@ def getCountry():
             sortedlist[continent][country] = dic[continent][country]
 
     return sortedlist
-    # print("FINAL PRINT")
-    # print(dic)
-    # return dic
 
-def fetch_parallel():
+def fetch_parallel(api_list, country_dealers, dic):
     result = queue.Queue()
-    threads = [threading.Thread(target=read_url, args = (urlcode,result)) for urlcode in api_list]
+    threads = [threading.Thread(target=read_url, args = (urlcode, country_dealers, dic, result)) for urlcode in api_list]
     for t in threads:
         t.start()
     for t in threads:
         t.join()
     return result
 
-def read_url(urlcode, queue):
+def read_url(urlcode, country_dealers, dic, queue):
     url = 'https://restcountries.eu/rest/v2/alpha/' + urlcode  
-    # data = urlopen(url).read()
     data = json.loads(urlopen(url).read().decode())
 
     region = data['region']
@@ -90,7 +73,4 @@ def read_url(urlcode, queue):
     if region not in dic:
         dic[region] = {}
     dic[region][dict(countries)[urlcode]] = country_dealers[urlcode]
-    # dic["europe"][dict(countries)["UK"]] = country_dealers["UK"]
-    # print(dict(countries))
-    # print(data)
     queue.put(data)
