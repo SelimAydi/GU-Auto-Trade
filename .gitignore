@@ -8,4 +8,5 @@ env/
 guenv/
 .idea/
 guautotrade/__pycache__/
-settings.py
+guautotrade/guautotrade/settings.py
+.vscode/
