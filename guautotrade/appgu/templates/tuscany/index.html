@@ -84,7 +84,7 @@
 				<div id="vehicles-wrapper">
 
 					<!-- row -->
-					<div class="row">
+					<div class="row vehicles">
                     {% for vehicle in vehicles %}
 
                         {% if c_type == 0 %}
@@ -155,3 +155,20 @@
 
 {% endblock %}
 
+{% block js %}
+	<script>
+		var vehicles = document.getElementsByClassName('vehicles')[0].children;
+
+		var vehicles_amount = $('.vehicles').children().length
+		var c_type= vehicles_amount % 3
+		if (c_type == 2){
+			$('.vehicles')[0].classList.remove("row");
+			for (var i = 0; i < vehicles_amount; i+=3){
+				if (c_type == 0){
+					break
+				}
+				$('.vehicles').children().slice(i,i+3).wrapAll("<div class='row'></div>")
+			}
+		}
+	</script>
+{% endblock %}
