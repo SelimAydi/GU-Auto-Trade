@@ -37,14 +37,14 @@ class Vehicles(models.Model):
     headline = models.CharField(max_length=1000)
     description = models.CharField(max_length=5000)
     image = models.ImageField(default='default_vehicle.png', upload_to='vehicles/', blank=True, null=True)
-    extra = models.CharField(max_length=50000, null=True)
+    extra = models.CharField(max_length=50000, blank=True, null=True)
 
 class Vehicles_Tuscany(models.Model):
     model = models.CharField(max_length=1000)
     headline = models.CharField(max_length=1000)
     description = models.CharField(max_length=5000)
     image = models.ImageField(default='default_vehicle.png', upload_to='vehicles/', blank=True, null=True)
-    extra = models.CharField(max_length=50000, null=True)
+    extra = models.CharField(max_length=50000, blank=True, null=True)
 
 class NewsPosts(models.Model):
     banner = models.ImageField(default='default_banner.png', upload_to='news/banners/', blank=True, null=True)
