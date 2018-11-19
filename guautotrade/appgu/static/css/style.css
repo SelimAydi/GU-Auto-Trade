@@ -1350,6 +1350,7 @@ input[type=text]::placeholder, textarea::placeholder, input[type=url]::placehold
 
 table {
   width: 100%;
+  table-layout: fixed;
   background-color: #fff;
 }
 
@@ -1959,7 +1960,6 @@ input[type=checkbox] {
 }
 
 .card tr:first-child > td{
-	width: 50%;
 	border: none;
 }
 
