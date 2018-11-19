@@ -102,18 +102,18 @@
                     {% for vehicle in vehicles %}
 
                         {% if c_type == 0 %}
-                            <div class="col-md-4 col-sm-6 col-xs-6">
-                            {% elif c_type == 1 %}
+                            <div class="col-md-4 col-sm-12 col-xs-12">
+						{% elif c_type == 1 %}
                                 {% if vehicle == last %}
-                                    <div class="col-md-12 col-sm-6 col-xs-6">
+                                    <div class="col-md-12 col-sm-12 col-xs-12">
                                 {% else %}
-                                    <div class="col-md-4 col-sm-6 col-xs-6">
+                                    <div class="col-md-4 col-sm-12 col-xs-12">
                                 {% endif %}
-                            {% else %}
+						{% else %}
                                 {% if vehicle == secondlast or vehicle == last %}
-                                    <div class="col-md-6 col-sm-6 col-xs-6">
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
                                 {% else %}
-                                     <div class="col-md-4 col-sm-6 col-xs-6">
+                                     <div class="col-md-4 col-sm-12 col-xs-12">
                                 {% endif %}
                         {% endif %}
 
@@ -127,7 +127,6 @@
 								</div>
 							</div>
 						</div>
-						<!-- /vehicle -->
 
                     {% endfor %}
 					{% if vehicles.paginator.num_pages > 1 %}
@@ -205,15 +204,17 @@
 		var vehicles = document.getElementsByClassName('vehicles')[0].children;
 
 		var vehicles_amount = $('.vehicles').children().length
+		var vehicles_children = $('.vehicles').children()
 		var c_type= vehicles_amount % 3
+		$('.vehicles')[0].classList.remove("row");
+		for (var i = 0; i < vehicles_amount; i+=3){
+			vehicles_children.slice(i,i+3).wrapAll("<div class='row'></div>")
+		}
+
 		if (c_type == 2){
-			$('.vehicles')[0].classList.remove("row");
-			for (var i = 0; i < vehicles_amount; i+=3){
-				if (c_type == 0){
-					break
-				}
-				$('.vehicles').children().slice(i,i+3).wrapAll("<div class='row'></div>")
-			}
+			$('.vehicles').children().slice($('.vehicles').children().length - 2, $('.vehicles').children().length).wrapAll("<div class='row'></div>")
+		} else if (c_type == 1) {
+			$('.vehicles').children().slice($('.vehicles').children().length - 1, $('.vehicles').children().length).wrapAll("<div class='row'></div>")
 		}
 	</script>
 {% endblock js %}
