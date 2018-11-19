@@ -359,8 +359,6 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
 	right:0;
 	top:0;
 	z-index:99;
-	/* border-bottom:1px solid rgba(235, 235, 235, 0.25); */
-	/* background-color: #3d4c5eeb; */
 	-webkit-transition:0.2s all;
 	transition:0.2s all;
 }
@@ -405,7 +403,6 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
 .portal .navbar-right a, .portal .navbar-left li a{
 	color: #ffffff !important;
 	height: 100%;
-	 font-size: 12px; */
 }
 
 .portal .navbar-left li a{
@@ -636,8 +633,7 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
 
 #about {
 	background-color: #f2f2f2;
-	 border-bottom: #d6d6d638 3px solid; */
-	 border-top: #5e5e5e30 5px solid; */
+	box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 }
 
 /* -- Feature -- */
@@ -659,7 +655,6 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
 	text-align:center;
 	border-radius: 10%;
 	font-size:30px;
-	 border: 1px solid #ebebebb3; */
 	color: #3f4150;
 }
 
@@ -762,7 +757,6 @@ iframe {
 
 #vehicles {
 	background-color: #f5f5f569;
-	border-top: solid 0.2vh #00000014;
 }
 
 .vehicle {
@@ -1258,7 +1252,6 @@ iframe {
 .error{
 	border-radius: 3px;
 	padding: 12px;
-	/* border: dashed 1.5px rgba(55, 64, 80, 0.26); */
 }
 
 .error::before{
@@ -1345,11 +1338,8 @@ input[type=text]::placeholder, textarea::placeholder, input[type=url]::placehold
 }
 
 .errorlist > li:before {
-	/* float: left; */
 	font-size: 12px;
 	margin-right: 5px;
-	/* margin-left: 0px; */
-	/* margin-right: -50px; */
 	content: "\f06a";
 	font-family: FontAwesome;
 	display: inline;
@@ -1370,7 +1360,6 @@ th, td {
 
 .clm {
   width: 1.4%;
-  /* padding-left: 25px; */
 }
 
 .clm.column1 {
@@ -1422,10 +1411,6 @@ th, td {
   text-align: center;
 }
 
-.tb .rw:hover td {
-/*   background-color: #fafafd; */
-}
-
 .tb .hov-column-ver3 {
   transition: 0.5s;
 }
@@ -1473,9 +1458,6 @@ input[type=checkbox] {
 /*==================================================================
 [ File upload ]*/
 
-input[type="file"] {
-    /* display: none; */
-}
 .custom-file-upload {
     border: 1px solid #ccc;
     display: inline-block;
@@ -1562,7 +1544,6 @@ input[type="file"] {
 
 /* Modal Content */
 .modal-content {
-    /* text-align: center; */
     background-color: #fefefe;
     margin: auto;
     padding: 20px;
@@ -1978,6 +1959,7 @@ input[type="file"] {
 }
 
 .card tr:first-child > td{
+	width: 50%;
 	border: none;
 }
 
