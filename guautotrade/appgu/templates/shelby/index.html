@@ -99,18 +99,19 @@
 
 					<!-- row -->
 					<div class="row vehicles">
+						<!-- {{ vehicles|length }} -->
                     {% for vehicle in vehicles %}
-
+						<!-- {{forloop.counter}} -->
                         {% if c_type == 0 %}
                             <div class="col-md-4 col-sm-12 col-xs-12">
 						{% elif c_type == 1 %}
-                                {% if vehicle == last %}
+                                {% if forloop.counter == vehicles|length %}
                                     <div class="col-md-12 col-sm-12 col-xs-12">
                                 {% else %}
                                     <div class="col-md-4 col-sm-12 col-xs-12">
                                 {% endif %}
 						{% else %}
-                                {% if vehicle == secondlast or vehicle == last %}
+								{% if forloop.counter == vehicles|length|add:"-1" or forloop.counter == vehicles|length %}
                                     <div class="col-md-6 col-sm-6 col-xs-12">
                                 {% else %}
                                      <div class="col-md-4 col-sm-12 col-xs-12">
