@@ -16,16 +16,14 @@
 		<!-- Home -->
 		<div id="home" class="hero-area">
 
-			<!-- Backgound Image -->
-			<div id="slideshow">
-				<div class="bg-image overlay card-image" style="background-image:url({% static 'img/slideshow/shelby2_small.jpg' %});" data-image-full="{% static 'img/slideshow/shelby2.jpg' %}">
-					<img src="{% static 'img/slideshow/shelby2_small.jpg' %}" alt="Shelby image" />
+				<div class="slideshow">
+					<div class="bg-image overlay card-image" style="background-image:url({% static 'img/slideshow/shelby2_small.jpg' %});" data-image-full="{% static 'img/slideshow/shelby2.jpg' %}">
+						<img src="{% static 'img/slideshow/shelby2_small.jpg' %}" alt="Shelby image" />
+					</div>
+					<div class="bg-image slideshow-image bg-image--hidden overlay" style="background-image: url('{% static 'img/slideshow/gt2.jpg' %}')"></div>
+					<div class="bg-image slideshow-image bg-image--hidden overlay" style="background-image: url('{% static 'img/slideshow/gtinterior.jpg' %}')"></div>
+					<div class="bg-image slideshow-image bg-image--hidden overlay" style="background-image: url('{% static 'img/slideshow/shelby4.jpg' %}')"></div>
 				</div>
-				<div class="bg-image bg-image--hidden overlay" style="background-image:url({% static 'img/slideshow/shelby4.jpg' %})"></div>
-				<div class="bg-image bg-image--hidden overlay" style="background-image:url({% static 'img/slideshow/shelby3.jpg' %})"></div>
-				<div class="bg-image bg-image--hidden overlay" style="background-image:url({% static 'img/slideshow/shelby1.jpg' %})"></div>
-			</div>
-			<!-- /Backgound Image -->
 
 			<div class="home-wrapper">
 				<div class="container">
@@ -44,10 +42,7 @@
 
 		<!-- About -->
 		<div id="about" class="section">
-
-			<!-- container -->
 			<div class="container">
-
                 <!-- row -->
 				<div class="row">
 
@@ -194,7 +189,6 @@
 
 		</div>
 		<!-- /Contact CTA -->
-
 {% endblock %}
 
 {% block js %}

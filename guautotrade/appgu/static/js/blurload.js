@@ -7,16 +7,19 @@ $(".intro_section").delay(100).animate({"opacity": "1"}, 1000);
 
 window.addEventListener('load', function() {
 
-    var bgimages = document.getElementsByClassName("bg-image--hidden");
+
+	// setTimeout to simulate the delay from a real page load
+	setTimeout(lazyLoad, 1000);
+
+});
+
+function showImages() {
+	var bgimages = document.getElementsByClassName("bg-image--hidden");
     var bgimages_length = bgimages.length;
     for (var i = 0; i < bgimages_length; i++){
         bgimages[0].classList.remove("bg-image--hidden");
     }
-
-	// setTimeout to simulate the delay from a real page load
-	setTimeout(lazyLoad, 1000);
-	
-});
+}
 
 function lazyLoad() {
     var card_images = document.querySelectorAll('.card-image');
@@ -40,7 +43,10 @@ function lazyLoad() {
 			card_image.className = card_image.className + ' is-loaded';
 		});
 		
-    });
-	
+	});
+	var card_img = document.getElementsByClassName("card-image")[0];
+	card_img.classList.add('slideshow-image');
+	setTimeout(showImages, 700);
+
 }
 
