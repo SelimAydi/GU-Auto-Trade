@@ -2299,3 +2299,50 @@ input[type=checkbox] {
 .mobile-text-wrapper {
 	display: none;
 }
+
+.greyblock, .darkblock {
+    height: 100%;
+    justify-content: center;
+}
+
+.greyblock {
+	background-color: #ececec;
+}
+
+.ebikes-info {
+    margin-top: 80px;
+}
+
+.greyrow {overflow: hidden;height: 700px;font-weight: 400;line-height: 1.2;font-family: 'Montserrat';}
+
+.greyblockimg img{
+	object-fit: cover;
+	height: auto;
+	width: 100%;
+}
+
+.block-img {
+    height: 100%;
+    padding: 0px;
+}
+
+.greyblock-text, .darkblock-text {
+    margin-top: 150px;
+}
+
+.darkblock {
+    background-color: #292d33;	
+}
+
+.darkblock-text h1{
+    color: white;
+}
+
+.darkblock-text p{
+    color: #909090;
+}
+
+.block-img img {
+    object-fit: cover;
+    max-width: 100%;
+}

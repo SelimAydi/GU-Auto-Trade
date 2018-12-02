@@ -1,0 +1,109 @@
+{% extends "frames/sub_base.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block header %}
+    <script src="{% static 'js/zoom/jquery.elevateZoom-3.0.8.min.js' %}"></script>
+	{% with headerclass='portal' %}
+			{{ block.super }}
+	{% endwith%}
+{% endblock header%}
+
+{% block content %}
+		<!-- Home -->
+		<div id="news" class="section">
+
+			<!-- Backgound Image -->
+			<div style="background-color: white;"></div>
+			
+			<!-- /Backgound Image -->
+
+				<div class="container">
+					<div class="row">
+
+					<div class="col-md-6">
+						<h3>Shelby E-bikes</h3>
+						<p class="lead"></p>
+                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui.</p>
+                        <p>Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc, quis gravida magna mi a libero. Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus. Nullam accumsan lorem in dui. Cras ultricies mi eu turpis hendrerit fringilla. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In ac dui quis mi consectetuer lacinia.</p>
+					</div>
+
+					<div class="col-md-5 col-md-offset-1">
+						<div class="vehicle">
+							<a href="#" class="vehicle-img">
+								<img id="vehicleimg" src="/static/img/ebike.jpeg" data-zoom-image="/static/img/ebike.jpeg" alt="">
+							</a>
+							<div class="vehicle-details">
+								<span class="vehicle-category">{{ model }}</span>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-md-6" style="margin-top: 10px">
+					<button class="main-button main-button--lead icon-button" href="/shelby/shop" style="float: right;">Go to webshop</button>
+				</div>
+				<div class="row quoteform-wrapper">
+					<div class="col-md-6 quoteform">
+						<div id="er">
+							<span id="sp"></span>
+						</div>
+						<form id="quoteform" method="POST">
+							{% csrf_token %}
+							<input type="hidden" name="vehicle" value="{{ model }}">
+							{{ form }}
+							<div class="flex flex--end">
+								<button class="main-button .main-button--form icon-button" href="contact">Get quote &amp; delivery date</button>								
+							</div>
+						</form>
+						<div id="suc" class="success--dark">
+						</div>
+					</div>
+                </div>
+
+			</div>
+            <div class="ebikes-info">
+    
+                    <div class="row greyrow">
+                        <div class="col-md-6 greyblock text-center flex">
+    <div class="col-md-8 greyblock-text">
+        <h2>Lorem ipsum</h2>
+        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+    </div>
+</div>
+                        <div class="col-md-6 block-img"><img src="/static/img/ebike1.jpeg"></div>
+                    </div>
+                    <div class="row greyrow">
+                        <div class="col-md-6 block-img"><img src="/static/img/ebike2.jpeg"></div>
+                        <div class="col-md-6 darkblock text-center flex">
+    <div class="col-md-8 darkblock-text">
+        <h1>Lorem ipsum</h1>
+        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+    </div>
+</div>
+                    </div>
+                    <div class="row greyrow">
+                        <div class="col-md-12 greyblock flex" style="
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+">
+    <div class="col-md-6 greyblock-text" style="padding: 0;margin: 0;">
+        <h1>Lorem ipsum</h1>        
+        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+    </div>
+</div>
+                        
+                    </div>
+                    </div>
+		<!-- /Home -->
+		<script type="text/javascript" src="{% static 'js/post.js' %}"></script>
+
+        <script>
+            $("#vehicleimg").elevateZoom({
+              zoomType: "inner",
+              cursor: "crosshair"
+            });
+        </script>
+
+{% endblock %}

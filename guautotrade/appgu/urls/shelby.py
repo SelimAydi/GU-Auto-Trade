@@ -12,4 +12,5 @@ urlpatterns = [
     path('media/', shelby.pressandmedia, name='pressandmedia'),
     path('contact/', shelby.contact, name='shelby_contact'),
     path('vehicle/', shelby.vehicledesc, name='vehicledesc'),
+    path('ebikes/', shelby.ebikes, name='ebikes'),
 ]

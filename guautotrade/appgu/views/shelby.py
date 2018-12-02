@@ -83,6 +83,9 @@ def news(request):
 def pressandmedia(request):
     return render(request, 'shelby/media.html')
 
+# e-bikes page
+def ebikes(request):
+    return render(request, 'shelby/e-bikes.html')
 
 # contact page
 def contact(request):
