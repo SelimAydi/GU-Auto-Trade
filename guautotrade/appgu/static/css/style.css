@@ -1062,6 +1062,10 @@ iframe {
 	#main {
 		margin-bottom:80px;
 	}
+
+	.mobile-text-wrapper {
+		display: block !important;
+	}
 }
 
 @media only screen and (max-width: 767px) {
@@ -1365,9 +1369,6 @@ th, td {
   width: 1.4%;
 }
 
-.clm.column1 {
-}
-
 .rw.head th {
   padding-top: 24px;
   padding-bottom: 20px;
@@ -1441,7 +1442,6 @@ input[type=checkbox] {
 [ Footer ]*/
 
 #footer {
-	background-color: #f2f2f2!important;
 	color: #374050 !important;
 }
 
@@ -2012,6 +2012,11 @@ input[type=checkbox] {
 	.quoteform {
 		border-radius: 0px !important;
 	}
+
+	.contact-text {
+		border-right: 0px !important;
+		border-left: 70px solid #f1f1f1 !important;
+	}
 }
 
 .light-card-container {
@@ -2230,3 +2235,66 @@ input[type=checkbox] {
 	background-color: #374050;
 	opacity: 0.6; }
   
+.ebike {
+	height: 100%;
+	background-image: url(/static/img/ebike.jpeg);
+	background-size: cover;
+}
+
+.ebike-cta-content {
+	height: 400px !important;
+	background-color: #ffffff;
+}
+
+.ebike-text {
+	height: 100%;
+	background-color: #ececec;
+	display: flex;
+	align-items: center;
+	border-top: 50px solid #fbfbfb;
+	border-left: 70px solid #dedede;
+	border-bottom: 50px solid #fbfbfb;
+	color: #374050;
+	font-family: 'Montserrat';
+}
+
+.ebike-text p {
+	color: #bfbfbf;
+}
+
+.ebike-text .main-button{
+	background-color: #4d545a;
+}
+
+.ebike-text .main-button:hover, .main-button:focus {
+	color: white;
+}
+
+.ebike-text .main-button:after{
+	color: #c7c7c7 !important;
+}
+
+.contact-text {
+    background-color: #fbfbfb;
+    border-left: 70px solid #dedede;
+    border-top: 50px solid #fbfbfb;
+    border-right: 70px solid #dedede;
+    border-bottom: 50px solid #fbfbfb;
+}
+
+.contact-text p {
+    color: #7d7d7d;
+}
+
+.mobile-text {
+    background-color: #f1f1f1;
+    padding:15px;
+}
+
+.mobile-text h2 {
+	margin: 0;
+}
+
+.mobile-text-wrapper {
+	display: none;
+}
