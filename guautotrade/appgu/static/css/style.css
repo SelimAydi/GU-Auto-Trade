@@ -37,7 +37,8 @@ body {
     font-size: 15px;
     font-weight: 400;
     color: #798696;
-    overflow-x:hidden;
+	overflow-x:hidden;
+	background-color: #fbfbfb;
 }
 
 @font-face {
@@ -758,7 +759,7 @@ iframe {
 \*------------------------------------*/
 
 #vehicles {
-	background-color: #f5f5f569;
+	background-color: #fbfbfb;
 }
 
 .vehicle {
@@ -2242,8 +2243,8 @@ input[type=checkbox] {
 }
 
 .ebike-cta-content {
+	margin-top: 100px;
 	height: 400px !important;
-	background-color: #ffffff;
 }
 
 .ebike-text {
@@ -2275,20 +2276,20 @@ input[type=checkbox] {
 }
 
 .contact-text {
-    background-color: #fbfbfb;
-    border-left: 70px solid #dedede;
-    border-top: 50px solid #fbfbfb;
-    border-right: 70px solid #dedede;
-    border-bottom: 50px solid #fbfbfb;
+	background-color: #fbfbfb;
+	border-left: 70px solid #dedede;
+	border-top: 50px solid #fbfbfb;
+	border-right: 70px solid #dedede;
+	border-bottom: 50px solid #fbfbfb;
 }
 
 .contact-text p {
-    color: #7d7d7d;
+	color: #7d7d7d;
 }
 
 .mobile-text {
-    background-color: #f1f1f1;
-    padding:15px;
+	background-color: #f1f1f1;
+	padding:15px;
 }
 
 .mobile-text h2 {
