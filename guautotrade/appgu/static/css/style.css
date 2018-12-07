@@ -2305,15 +2305,44 @@ input[type=checkbox] {
     justify-content: center;
 }
 
-.greyblock {
-	background-color: #ececec;
-}
-
 .ebikes-info {
     margin-top: 80px;
 }
 
-.greyrow {overflow: hidden;height: 700px;font-weight: 400;line-height: 1.2;font-family: 'Montserrat';}
+.greyrow, .darkrow {
+	overflow: hidden;
+	font-weight: 400;
+	line-height: 1.2;
+	font-family: 'Montserrat';
+}
+
+.greyrow {
+	background-color: #ececec;
+}
+
+.darkrow {
+	background-color: #292d33;
+}
+
+.bottomrow {
+	background-color: #2196f3;
+	color: white;
+	font-weight: 500;
+	line-height: 1.2;
+	font-family: 'Montserrat';
+	height: 500px;
+}
+
+.bottomrow .flex {
+	align-items: center;
+	text-align: center;
+	justify-content: center;
+}
+
+.bottomrow h1 {
+	color: white;
+	font-weight: 600;
+}
 
 .greyblockimg img{
 	object-fit: cover;
@@ -2322,7 +2351,6 @@ input[type=checkbox] {
 }
 
 .block-img {
-    height: 100%;
     padding: 0px;
 }
 
@@ -2331,7 +2359,6 @@ input[type=checkbox] {
 }
 
 .darkblock {
-    background-color: #292d33;	
 }
 
 .darkblock-text h1{
@@ -2344,5 +2371,107 @@ input[type=checkbox] {
 
 .block-img img {
     object-fit: cover;
-    max-width: 100%;
+    width: 100%;
+}
+
+#accordion .panel{
+    border: none;
+    border-radius: 5px;
+    box-shadow: none;
+    margin-bottom: 15px;
+}
+#accordion .panel-heading{
+    padding: 0;
+    border: none;
+    /* border-radius: 3px; */
+}
+#accordion .panel-title a{
+    display: block;
+    padding: 12px 15px;
+    background: #292d33;
+    font-size: 18px;
+    font-weight: 400;
+    color: #ffffff;
+    position: relative;
+    transition: all 0.5s ease 0s;
+    border: none;
+}
+#accordion .panel-title a.collapsed{
+    box-shadow: none;
+    color: #929292;
+}
+#accordion .panel-title a:before,
+#accordion .panel-title a.collapsed:before{
+    content: "\f067";
+    font-family: "Font Awesome 5 Free";
+    width: 25px;
+    height: 25px;
+    line-height: 28px;
+    font-size: 15px;
+    font-weight: 900;
+    color: #ffffff;
+    text-align: center;
+    position: absolute;
+    top: 8px;
+    right: 15px;
+    transform: rotate(135deg);
+    transition: all 0.3s ease 0s;
+}
+#accordion .panel-title a.collapsed:before{
+    color: #909090;
+    transform: rotate(0);
+}
+#accordion .panel-title a:after{
+    content: "";
+    width: 3px;
+    height: 100%;
+    background: #3e434a;
+    position: absolute;
+    top: 0;
+    right: 55px;
+}
+#accordion .panel-body{
+    padding: 0px 15px;
+    border: none;
+    font-size: 15px;
+    color: #ffffff;
+    line-height: 27px;
+    background-color: #292d33;
+}
+
+.panel-body p {
+    color: #f1f1f1;
+    padding: 10px;
+}
+
+.accordion-section {
+    margin-top: 30px;
+}
+
+.greyblock-text:before, .darkblock-text:before {
+	content: "\f0da";
+	font-family: "Font Awesome 5 Free";
+	font-weight: 900;
+	position: absolute;
+	top: -6px;
+	left: -10px;
+	font-size: 40px;
+	font-weight: 900;
+}
+
+.greyblock-text:before{
+		color: #374050;
+}
+
+.darkblock-text:before {
+	color: #ececeb;
+}
+
+.greyblock-text p {
+    font-size: 16px;
+    line-height: 2.3;
+}
+
+.bottomrow .greyblock-text:before {
+	content: '';
 }
