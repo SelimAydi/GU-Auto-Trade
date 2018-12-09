@@ -9,5 +9,5 @@ You can cancel this alert at any time by clicking the following link:
 http://{{ domain }}{{ cancel_path }}
 
 Thanks for your interest,
-The {{ site }} Team
+GU Auto Trade
 {% endblocktrans %}

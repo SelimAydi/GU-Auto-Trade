@@ -9,5 +9,5 @@ With this email we have disabled your alert automatically and you will not
 receive any further email regarding this product.
 
 Thanks for your interest,
-The {{ site_name }} Team
+GU Auto Trade
 {% endblocktrans %}

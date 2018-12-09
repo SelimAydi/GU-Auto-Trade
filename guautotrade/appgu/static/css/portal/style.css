@@ -3,7 +3,7 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,600');
 
 /* ---------------------------------------------
-COPYRIGHT GU AUTO TRADE © Developed by Selim Aydi
+COPYRIGHT GU AUTO TRADE Â© Developed by Selim Aydi
 -----------------------------------------------*/
 
 /*
@@ -147,13 +147,13 @@ ul,ol{
 .registerform .form-button {
 	width: 65% !important;
 	margin-top: 10px;
-	padding: 1vh !important;
+	padding: 10px !important;
 }
 
 .main-button {
 	position:relative;
 	display:inline-block;
-	padding: 1.5vh 2vh;
+	padding: 10px;
 	font-size: 1.7vh;
 	background-color: #353535;
 	border: 2px solid transparent;
@@ -272,12 +272,15 @@ th, td {
 .rw.head th {
   padding-top: 24px;
   padding-bottom: 20px;
+  font-weight: 600;
+  font-size: 14px;
 }
 
 .rw td {
   padding-top: 18px;
   padding-bottom: 14px;
   transition: 0.5s;
+  font-size: 14px;
   text-align: center;
 }
 
