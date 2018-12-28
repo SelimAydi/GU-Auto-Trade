@@ -239,9 +239,9 @@ blockquote:before{
 }
 
 .main-button:hover , .main-button:focus {
-	background-color: #fff;
+	background-color: #38404F;
 	border: 2px solid rgba(0, 0, 0, 0.06);
-	color: #555555;
+	color: white;
 }
 
 .main-button.icon-button:hover , .main-button.icon-button:focus {
