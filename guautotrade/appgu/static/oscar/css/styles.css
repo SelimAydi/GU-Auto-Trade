@@ -7,6 +7,9 @@ html {
 body {
   margin: 0;
 }
+html, body {
+  min-height: 100%;
+}
 button:focus {
   outline: none;
 }
@@ -1065,11 +1068,6 @@ th {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-}
-html {
-  font-size: 10px;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  height: 100vh;
 }
 body {
   font-family: "Open Sans", Helvetica, Arial, sans-serif;
@@ -4100,6 +4098,7 @@ a {}
 }
 .nav-tabs {
   border-bottom: 1px solid #ddd;
+  margin-bottom: 10px;
 }
 .nav-tabs > li {
   float: left;
