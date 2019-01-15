@@ -2354,7 +2354,7 @@ input[type=checkbox] {
 }
 
 .bottomrow {
-	background-color: #2196f3;
+	background-image: linear-gradient(206deg,#68a5ff 0%,#1664da 100%);
 	color: white;
 	font-weight: 500;
 	line-height: 1.2;
@@ -2421,7 +2421,8 @@ input[type=checkbox] {
 }
 #accordion .panel-title a.collapsed{
     box-shadow: none;
-    color: #929292;
+	color: #929292;
+	padding-right: 100px;
 }
 #accordion .panel-title a:before,
 #accordion .panel-title a.collapsed:before{
@@ -2464,7 +2465,8 @@ input[type=checkbox] {
 
 .panel-body p {
     color: #f1f1f1;
-    padding: 10px;
+	padding: 10px;
+	line-height: 1.3;
 }
 
 .accordion-section {
