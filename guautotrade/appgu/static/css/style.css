@@ -2538,3 +2538,11 @@ input[type=checkbox] {
 	}
 	
 }
+
+/* e-bikes big grid fix */
+@media (min-width:1441px) {
+	.bigscreen {
+		margin:50px 340px -50px 340px;
+		
+	}
+}
